@@ -88,7 +88,11 @@ static NSString *const BrandCateCell = @"BrandCateCell";
         } else {
             self.frame = CGRectMake(0, 0, self.frame.size.width, HX_SCREEN_HEIGHT);
         }
-        [view addSubview:self];
+        if (view) {
+            [view addSubview:self];
+        }else{
+            [[UIApplication sharedApplication].keyWindow addSubview:self];
+        }
     }
     hx_weakify(self);
     [UIView animateWithDuration:0.2 animations:^{
@@ -159,6 +163,10 @@ static NSString *const BrandCateCell = @"BrandCateCell";
     if (self.dataType == 1) {
         CGFloat width = (collectionView.hxn_width - 10*4.0)/3.0;
         CGFloat height = 65.f;
+        return CGSizeMake(width, height);
+    }else if (self.dataType == 2) {
+        CGFloat width = (collectionView.hxn_width - 10*4.0)/3.0;
+        CGFloat height = 40.f;
         return CGSizeMake(width, height);
     }else{
         CGFloat width = (collectionView.hxn_width - 10*4.0)/3.0;

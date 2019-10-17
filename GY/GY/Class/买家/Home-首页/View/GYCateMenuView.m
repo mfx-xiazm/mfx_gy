@@ -100,7 +100,6 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     [_leftTableView reloadData];
     [_rightCollectionView reloadData];
 }
-
 #pragma mark - 触发下拉事件
 - (void)menuShowInSuperView:(UIView *)view {
     if (!_show) {
@@ -110,7 +109,11 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
         } else {
             self.frame = CGRectMake(0, 0, self.frame.size.width, HX_SCREEN_HEIGHT);
         }
-        [view addSubview:self];
+        if (view) {
+            [view addSubview:self];
+        }else{
+            [[UIApplication sharedApplication].keyWindow addSubview:self];
+        }
     }
     hx_weakify(self);
     [UIView animateWithDuration:0.2 animations:^{

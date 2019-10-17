@@ -115,6 +115,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     }
     self.selectBtn = nil;
     
+    self.cateView.dataType = 1;
     self.cateView.transformImageView = self.cateImg;
     self.cateView.titleLabel = self.cateLabel;
     

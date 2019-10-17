@@ -189,6 +189,8 @@
 		90562FCE23584BBC00EC70FE /* GYWorkMyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562FCC23584BBC00EC70FE /* GYWorkMyVC.xib */; };
 		90562FD123584BCD00EC70FE /* GYWorkMyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FD023584BCD00EC70FE /* GYWorkMyHeader.m */; };
 		90562FD323584BD400EC70FE /* GYWorkMyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562FD223584BD400EC70FE /* GYWorkMyHeader.xib */; };
+		90562FDC2358522100EC70FE /* GYMyWorksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FDA2358522100EC70FE /* GYMyWorksVC.m */; };
+		90562FDD2358522100EC70FE /* GYMyWorksVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562FDB2358522100EC70FE /* GYMyWorksVC.xib */; };
 		90BDE3692356AB3D008790DA /* GYPublishWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */; };
 		90BDE36A2356AB3D008790DA /* GYPublishWorkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */; };
 		90BDE3732356C3EC008790DA /* GYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3722356C3EC008790DA /* GYDatePickerView.m */; };
@@ -588,6 +590,9 @@
 		90562FCF23584BCD00EC70FE /* GYWorkMyHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkMyHeader.h; sourceTree = "<group>"; };
 		90562FD023584BCD00EC70FE /* GYWorkMyHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkMyHeader.m; sourceTree = "<group>"; };
 		90562FD223584BD400EC70FE /* GYWorkMyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYWorkMyHeader.xib; sourceTree = "<group>"; };
+		90562FD92358522100EC70FE /* GYMyWorksVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyWorksVC.h; sourceTree = "<group>"; };
+		90562FDA2358522100EC70FE /* GYMyWorksVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyWorksVC.m; sourceTree = "<group>"; };
+		90562FDB2358522100EC70FE /* GYMyWorksVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyWorksVC.xib; sourceTree = "<group>"; };
 		90BDE3662356AB3D008790DA /* GYPublishWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPublishWorkVC.h; sourceTree = "<group>"; };
 		90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPublishWorkVC.m; sourceTree = "<group>"; };
 		90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPublishWorkVC.xib; sourceTree = "<group>"; };
@@ -1250,6 +1255,9 @@
 				90562FCA23584BBC00EC70FE /* GYWorkMyVC.h */,
 				90562FCB23584BBC00EC70FE /* GYWorkMyVC.m */,
 				90562FCC23584BBC00EC70FE /* GYWorkMyVC.xib */,
+				90562FD92358522100EC70FE /* GYMyWorksVC.h */,
+				90562FDA2358522100EC70FE /* GYMyWorksVC.m */,
+				90562FDB2358522100EC70FE /* GYMyWorksVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1287,29 +1295,29 @@
 		90363FC72354277600A120AC /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				90363FC82354277600A120AC /* NSString+HXNExtension.h */,
-				90363FC92354277600A120AC /* UIButton+HXCode.m */,
+				90363FDB2354277600A120AC /* XTimer.h */,
 				90363FCA2354277600A120AC /* XTimer.m */,
 				90363FCB2354277600A120AC /* UILabel+HXNExtension.h */,
-				90363FCC2354277600A120AC /* UINavigationBar+ChangeColor.h */,
-				90363FCD2354277600A120AC /* NSDate+HXNExtension.h */,
-				90363FCE2354277600A120AC /* HXConst.h */,
+				90363FDA2354277600A120AC /* UILabel+HXNExtension.m */,
+				90363FD62354277600A120AC /* UIImage+HXNExtension.h */,
 				90363FCF2354277600A120AC /* UIImage+HXNExtension.m */,
 				90363FD02354277600A120AC /* UIView+HXNExtension.h */,
-				90363FD12354277600A120AC /* UIBarButtonItem+HXNExtension.h */,
-				90363FD22354277600A120AC /* ContactDataHelper.h */,
+				90363FDE2354277600A120AC /* UIView+HXNExtension.m */,
 				90363FD32354277600A120AC /* UIButton+HXCode.h */,
+				90363FC92354277600A120AC /* UIButton+HXCode.m */,
+				90363FC82354277600A120AC /* NSString+HXNExtension.h */,
 				90363FD42354277600A120AC /* NSString+HXNExtension.m */,
 				90363FD52354277600A120AC /* Foundation+Log.m */,
-				90363FD62354277600A120AC /* UIImage+HXNExtension.h */,
+				90363FCE2354277600A120AC /* HXConst.h */,
 				90363FD72354277600A120AC /* HXConst.m */,
+				90363FCD2354277600A120AC /* NSDate+HXNExtension.h */,
 				90363FD82354277600A120AC /* NSDate+HXNExtension.m */,
-				90363FD92354277600A120AC /* UINavigationBar+ChangeColor.m */,
-				90363FDA2354277600A120AC /* UILabel+HXNExtension.m */,
-				90363FDB2354277600A120AC /* XTimer.h */,
+				90363FD22354277600A120AC /* ContactDataHelper.h */,
 				90363FDC2354277600A120AC /* ContactDataHelper.m */,
+				90363FD12354277600A120AC /* UIBarButtonItem+HXNExtension.h */,
 				90363FDD2354277600A120AC /* UIBarButtonItem+HXNExtension.m */,
-				90363FDE2354277600A120AC /* UIView+HXNExtension.m */,
+				90363FCC2354277600A120AC /* UINavigationBar+ChangeColor.h */,
+				90363FD92354277600A120AC /* UINavigationBar+ChangeColor.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2182,6 +2190,7 @@
 				90E5DCE92355EC6700280562 /* GYUpOrderFooter.xib in Resources */,
 				90363F7123540B4500A120AC /* Assets.xcassets in Resources */,
 				90364B66235468D600A120AC /* GYMessageVC.xib in Resources */,
+				90562FDD2358522100EC70FE /* GYMyWorksVC.xib in Resources */,
 				90E2636E2357017700C4A376 /* GYMyGoodsVC.xib in Resources */,
 				90562FBC235842E800EC70FE /* GYSalerMyOrderChildVC.xib in Resources */,
 				90364BCD235498F500A120AC /* GYSpecialGoodsCell.xib in Resources */,
@@ -2412,6 +2421,7 @@
 				90363F7723540B4500A120AC /* main.m in Sources */,
 				9036408C2354277700A120AC /* LYEmptyBaseView.m in Sources */,
 				903640742354277700A120AC /* SDWeiXinPhotoContainerView.m in Sources */,
+				90562FDC2358522100EC70FE /* GYMyWorksVC.m in Sources */,
 				90364BB62354902000A120AC /* GYSmallCateCell.m in Sources */,
 				90E26379235702CB00C4A376 /* GYMyBillCell.m in Sources */,
 				903640672354277700A120AC /* UILabel+HXNExtension.m in Sources */,

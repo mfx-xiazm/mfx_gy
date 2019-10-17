@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYWorkHomeVC">
             <connections>
+                <outlet property="needImg" destination="2bd-WR-ULW" id="cMO-s8-S6Z"/>
+                <outlet property="needLabel" destination="XTr-1P-3mS" id="BJ1-Pv-gv0"/>
+                <outlet property="regionImg" destination="Nsq-9z-5Y3" id="a0Z-N8-cY6"/>
+                <outlet property="regionLabel" destination="ZwU-9F-k92" id="IQk-MN-W8i"/>
                 <outlet property="tableView" destination="4RC-R9-NnO" id="AD1-ab-VWs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,6 +42,9 @@
                                 </imageView>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K28-ft-22t">
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                    <connections>
+                                        <action selector="regionBtnClicked:" destination="-1" eventType="touchUpInside" id="vpQ-fL-qEG"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +74,9 @@
                                 </imageView>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbQ-dn-sWa">
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                    <connections>
+                                        <action selector="needBtnClicked:" destination="-1" eventType="touchUpInside" id="OKd-Pn-7Df"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

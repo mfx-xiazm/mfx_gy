@@ -14,6 +14,7 @@
 #import "GYMyBillVC.h"
 #import "GYMyNeedsVC.h"
 #import "GYAuthInfoVC.h"
+#import "GYMyWorksVC.h"
 
 static NSString *const ProfileCell = @"ProfileCell";
 @interface GYWorkMyVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -129,7 +130,8 @@ static NSString *const ProfileCell = @"ProfileCell";
         }
             break;
         case 2:{
-           
+            GYMyWorksVC *wvc = [GYMyWorksVC new];
+            [self.navigationController pushViewController:wvc animated:YES];
         }
             break;
         case 3:{
