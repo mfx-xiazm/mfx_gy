@@ -31,9 +31,10 @@
  发布阶段，HXLog就不会打印
  */
 #ifdef DEBUG
-#define HXLog(...) NSLog(__VA_ARGS__)
+#define  HXLog(...) NSLog(@"%s 第%d行 \n %@\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
-#define HXLog(...)
+#define  HXLog(...)
+
 #endif
 /**宏定义方法的打印方式*/
 #define HXLogFunc HXLog(@"%s", __func__)

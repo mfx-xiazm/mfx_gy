@@ -24,7 +24,6 @@ static NSString *const FilterCell = @"FilterCell";
 @interface HXDropMenuView ()<UITableViewDataSource, UITableViewDelegate>
 //是否显示
 @property (nonatomic, assign) BOOL show;
-@property (nonatomic, strong) NSMutableArray *menuArray;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *backGroundView;
 

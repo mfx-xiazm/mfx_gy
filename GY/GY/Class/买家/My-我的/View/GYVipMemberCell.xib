@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GYVipMemberCell">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="127"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="324" height="127"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4go-12-OjW">
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="127"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="会员版块背景" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-aS-DBM">
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="127"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="季度会员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSv-k8-CNJ">
+                                <rect key="frame" x="15" y="15" width="74" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值会员享更多功能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ex-iR-d53">
+                                <rect key="frame" x="15" y="47" width="111" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.1137254902" green="0.12549019610000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTn-85-2Le">
+                                <rect key="frame" x="15" y="90" width="84.5" height="22"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="320">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="18"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="元">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="/3">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="个月">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PSv-k8-CNJ" firstAttribute="leading" secondItem="4go-12-OjW" secondAttribute="leading" constant="15" id="66C-WN-KHW"/>
+                            <constraint firstAttribute="trailing" secondItem="Lgl-aS-DBM" secondAttribute="trailing" id="6pv-cV-lHD"/>
+                            <constraint firstItem="Lgl-aS-DBM" firstAttribute="leading" secondItem="4go-12-OjW" secondAttribute="leading" id="76g-Ii-XKJ"/>
+                            <constraint firstAttribute="bottom" secondItem="TTn-85-2Le" secondAttribute="bottom" constant="15" id="D3y-Xs-EBk"/>
+                            <constraint firstItem="TTn-85-2Le" firstAttribute="leading" secondItem="4go-12-OjW" secondAttribute="leading" constant="15" id="EaM-vW-n4K"/>
+                            <constraint firstItem="3ex-iR-d53" firstAttribute="leading" secondItem="4go-12-OjW" secondAttribute="leading" constant="15" id="Lne-MY-B3y"/>
+                            <constraint firstItem="PSv-k8-CNJ" firstAttribute="top" secondItem="4go-12-OjW" secondAttribute="top" constant="15" id="Ybg-uv-IIT"/>
+                            <constraint firstItem="Lgl-aS-DBM" firstAttribute="top" secondItem="4go-12-OjW" secondAttribute="top" id="ZJh-D9-yka"/>
+                            <constraint firstAttribute="bottom" secondItem="Lgl-aS-DBM" secondAttribute="bottom" id="lC3-44-cC3"/>
+                            <constraint firstItem="3ex-iR-d53" firstAttribute="top" secondItem="PSv-k8-CNJ" secondAttribute="bottom" constant="10" id="nSC-cm-Ono"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4go-12-OjW" secondAttribute="trailing" id="BkU-zR-NBl"/>
+                <constraint firstAttribute="bottom" secondItem="4go-12-OjW" secondAttribute="bottom" id="Eus-xa-NfJ"/>
+                <constraint firstItem="4go-12-OjW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HJf-Ep-uB5"/>
+                <constraint firstItem="4go-12-OjW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Zp9-XU-b9k"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="324" height="127"/>
+            <point key="canvasLocation" x="46.376811594202906" y="145.64732142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="会员版块背景" width="340" height="120"/>
+    </resources>
+</document>

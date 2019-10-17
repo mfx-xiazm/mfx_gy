@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GYBrandCateCell">
+            <rect key="frame" x="0.0" y="0.0" width="204" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="204" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P63-bp-LaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="40"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="7cJ-xL-hTo"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zm-Xn-nxg">
+                        <rect key="frame" x="0.0" y="47" width="204" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系列属性" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snb-SJ-mO4">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layerBoderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="boderColor">
+                                <color key="value" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Snb-SJ-mO4" secondAttribute="trailing" id="7Q2-dA-7Ox"/>
+                <constraint firstAttribute="bottom" secondItem="Snb-SJ-mO4" secondAttribute="bottom" id="DXM-06-a50"/>
+                <constraint firstItem="Snb-SJ-mO4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fqx-n8-a5t"/>
+                <constraint firstItem="6zm-Xn-nxg" firstAttribute="top" secondItem="P63-bp-LaZ" secondAttribute="bottom" constant="7" id="KZg-X4-Jc5"/>
+                <constraint firstAttribute="trailing" secondItem="P63-bp-LaZ" secondAttribute="trailing" id="Khb-0Y-NW9"/>
+                <constraint firstItem="Snb-SJ-mO4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="f3a-Q2-TWg"/>
+                <constraint firstItem="6zm-Xn-nxg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mBq-ce-aEm"/>
+                <constraint firstItem="P63-bp-LaZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="o5X-bB-sem"/>
+                <constraint firstAttribute="trailing" secondItem="6zm-Xn-nxg" secondAttribute="trailing" id="rWC-Xh-JCA"/>
+                <constraint firstItem="P63-bp-LaZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xDS-33-xd2"/>
+            </constraints>
+            <size key="customSize" width="204" height="71"/>
+            <connections>
+                <outlet property="seriesLabel" destination="Snb-SJ-mO4" id="4bu-fv-2fa"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="106.80803571428571"/>
+        </collectionViewCell>
+    </objects>
+</document>

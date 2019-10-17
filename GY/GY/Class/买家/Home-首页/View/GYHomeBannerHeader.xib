@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="GYHomeBannerHeader">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="287"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x0-tC-ugC" customClass="TYCyclePagerView">
+                    <rect key="frame" x="0.0" y="0.0" width="361" height="216.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="2x0-tC-ugC" secondAttribute="height" multiplier="5:3" id="ea0-C7-UyY"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toO-Yv-FJP">
+                    <rect key="frame" x="0.0" y="226.5" width="361" height="50.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="公告" translatesAutoresizingMaskIntoConstraints="NO" id="O1b-ye-4aA">
+                            <rect key="frame" x="10" y="8" width="34.5" height="34.5"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkK-MH-j6m">
+                            <rect key="frame" x="44.5" y="0.0" width="316.5" height="50.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="nkK-MH-j6m" firstAttribute="top" secondItem="toO-Yv-FJP" secondAttribute="top" id="EaI-dg-81v"/>
+                        <constraint firstAttribute="bottom" secondItem="nkK-MH-j6m" secondAttribute="bottom" id="FRZ-Lc-aH6"/>
+                        <constraint firstItem="O1b-ye-4aA" firstAttribute="centerY" secondItem="toO-Yv-FJP" secondAttribute="centerY" id="RyB-WW-VoB"/>
+                        <constraint firstItem="O1b-ye-4aA" firstAttribute="leading" secondItem="toO-Yv-FJP" secondAttribute="leading" constant="10" id="WnS-V5-7kC"/>
+                        <constraint firstAttribute="trailing" secondItem="nkK-MH-j6m" secondAttribute="trailing" id="ZA2-V1-SOw"/>
+                        <constraint firstItem="nkK-MH-j6m" firstAttribute="leading" secondItem="O1b-ye-4aA" secondAttribute="trailing" id="yoL-pY-vxz"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="toO-Yv-FJP" secondAttribute="bottom" constant="10" id="AqB-oG-bxf"/>
+                <constraint firstAttribute="trailing" secondItem="toO-Yv-FJP" secondAttribute="trailing" id="CZ0-Rl-6gk"/>
+                <constraint firstItem="2x0-tC-ugC" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Lwe-IW-AS6"/>
+                <constraint firstItem="2x0-tC-ugC" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="VJX-bq-SpZ"/>
+                <constraint firstItem="toO-Yv-FJP" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="WGj-93-jep"/>
+                <constraint firstAttribute="trailing" secondItem="2x0-tC-ugC" secondAttribute="trailing" id="fan-g4-JhS"/>
+                <constraint firstItem="toO-Yv-FJP" firstAttribute="top" secondItem="2x0-tC-ugC" secondAttribute="bottom" constant="10" id="keR-Y4-wLf"/>
+            </constraints>
+            <connections>
+                <outlet property="cyclePagerView" destination="2x0-tC-ugC" id="ZAm-af-Tyu"/>
+                <outlet property="noticeView" destination="nkK-MH-j6m" id="WAh-TT-7g5"/>
+            </connections>
+            <point key="canvasLocation" x="3.6231884057971016" y="128.23660714285714"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="公告" width="34.5" height="34.5"/>
+    </resources>
+</document>

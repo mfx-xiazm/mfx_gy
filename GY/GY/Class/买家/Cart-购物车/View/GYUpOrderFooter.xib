@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GYUpOrderFooter">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3a-N4-Yvp">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Js3-uR-Hqb">
+                            <rect key="frame" x="10" y="10" width="100" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="DNR-OG-SN3"/>
+                                <constraint firstAttribute="height" constant="30" id="Llb-U3-hvF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="开具发票" image="未勾选">
+                                <color key="titleColor" red="0.074509803920000006" green="0.1137254902" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6q-eT-kcH">
+                            <rect key="frame" x="120" y="10" width="284" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Jnt-ic-LYy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="编辑发票">
+                                <color key="titleColor" red="0.1137254902" green="0.12549019610000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="editFapiao:" destination="iN0-l3-epB" eventType="touchUpInside" id="zBo-p9-FqW"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="o6q-eT-kcH" firstAttribute="centerY" secondItem="i3a-N4-Yvp" secondAttribute="centerY" id="09r-8A-Gsf"/>
+                        <constraint firstItem="Js3-uR-Hqb" firstAttribute="centerY" secondItem="i3a-N4-Yvp" secondAttribute="centerY" id="P95-2V-tOg"/>
+                        <constraint firstItem="o6q-eT-kcH" firstAttribute="leading" secondItem="Js3-uR-Hqb" secondAttribute="trailing" constant="10" id="PTf-1L-MZr"/>
+                        <constraint firstAttribute="trailing" secondItem="o6q-eT-kcH" secondAttribute="trailing" constant="10" id="TwX-bL-VkU"/>
+                        <constraint firstItem="Js3-uR-Hqb" firstAttribute="leading" secondItem="i3a-N4-Yvp" secondAttribute="leading" constant="10" id="VRt-nF-sHp"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="i3a-N4-Yvp" secondAttribute="bottom" id="IAz-bX-mjV"/>
+                <constraint firstItem="i3a-N4-Yvp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xox-10-luC"/>
+                <constraint firstItem="i3a-N4-Yvp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="m8K-CH-ixG"/>
+                <constraint firstAttribute="trailing" secondItem="i3a-N4-Yvp" secondAttribute="trailing" id="rsa-Ho-skV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="111.59420289855073" y="361.27232142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="未勾选" width="17" height="17"/>
+    </resources>
+</document>

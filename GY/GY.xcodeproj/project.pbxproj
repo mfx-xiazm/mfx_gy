@@ -7,6 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90249E38235575FC000536F7 /* GYGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E36235575FC000536F7 /* GYGoodsDetailVC.m */; };
+		90249E39235575FC000536F7 /* GYGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E37235575FC000536F7 /* GYGoodsDetailVC.xib */; };
+		90249E3D23557748000536F7 /* GYGoodsDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E3C23557748000536F7 /* GYGoodsDetailHeader.m */; };
+		90249E3F2355774E000536F7 /* GYGoodsDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E3E2355774E000536F7 /* GYGoodsDetailHeader.xib */; };
+		90249E42235597E4000536F7 /* GYGoodsDetailSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E41235597E4000536F7 /* GYGoodsDetailSectionHeader.m */; };
+		90249E44235597EC000536F7 /* GYGoodsDetailSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E43235597EC000536F7 /* GYGoodsDetailSectionHeader.xib */; };
+		90249E482355996C000536F7 /* GYGoodsComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E472355996C000536F7 /* GYGoodsComment.m */; };
+		90249E4C23559988000536F7 /* GYGoodsCommentLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E4B23559988000536F7 /* GYGoodsCommentLayout.m */; };
+		90249E4E235599BE000536F7 /* moment2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90249E4D235599BE000536F7 /* moment2.plist */; };
+		90249E5223559A8D000536F7 /* GYGoodsCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E5023559A8D000536F7 /* GYGoodsCommentCell.m */; };
+		90249E562355A90A000536F7 /* GYChooseClassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E552355A90A000536F7 /* GYChooseClassView.m */; };
+		90249E582355A913000536F7 /* GYChooseClassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E572355A913000536F7 /* GYChooseClassView.xib */; };
+		90249E5C2355AB16000536F7 /* GYChooseClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E5A2355AB16000536F7 /* GYChooseClassCell.m */; };
+		90249E5D2355AB16000536F7 /* GYChooseClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E5B2355AB16000536F7 /* GYChooseClassCell.xib */; };
+		90249E612355AB29000536F7 /* GYChooseClassHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E5F2355AB29000536F7 /* GYChooseClassHeader.m */; };
+		90249E622355AB29000536F7 /* GYChooseClassHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E602355AB29000536F7 /* GYChooseClassHeader.xib */; };
+		90249E662355AB3C000536F7 /* GYChooseClassFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E642355AB3C000536F7 /* GYChooseClassFooter.m */; };
+		90249E672355AB3C000536F7 /* GYChooseClassFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E652355AB3C000536F7 /* GYChooseClassFooter.xib */; };
+		90249E6B2355AEE6000536F7 /* GYAllCommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E692355AEE6000536F7 /* GYAllCommentsVC.m */; };
+		90249E6C2355AEE6000536F7 /* GYAllCommentsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E6A2355AEE6000536F7 /* GYAllCommentsVC.xib */; };
+		90249E702355B335000536F7 /* GYCommentTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E6E2355B335000536F7 /* GYCommentTypeCell.m */; };
+		90249E712355B335000536F7 /* GYCommentTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E6F2355B335000536F7 /* GYCommentTypeCell.xib */; };
+		90249E742355B840000536F7 /* GYCateMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E732355B840000536F7 /* GYCateMenuView.m */; };
+		90249E772355C096000536F7 /* GYBrandMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E762355C096000536F7 /* GYBrandMenuView.m */; };
+		90249E7B2355E1C1000536F7 /* GYCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E792355E1C1000536F7 /* GYCartCell.m */; };
+		90249E7C2355E1C1000536F7 /* GYCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E7A2355E1C1000536F7 /* GYCartCell.xib */; };
+		90249E802355E51C000536F7 /* GYUpOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E7E2355E51C000536F7 /* GYUpOrderVC.m */; };
+		90249E812355E51C000536F7 /* GYUpOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E7F2355E51C000536F7 /* GYUpOrderVC.xib */; };
+		90249E842355E6AA000536F7 /* GYUpOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E832355E6AA000536F7 /* GYUpOrderHeader.m */; };
+		90249E862355E6B2000536F7 /* GYUpOrderHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E852355E6B2000536F7 /* GYUpOrderHeader.xib */; };
+		90249E8A2355E837000536F7 /* GYUpOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E882355E837000536F7 /* GYUpOrderCell.m */; };
+		90249E8B2355E837000536F7 /* GYUpOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E892355E837000536F7 /* GYUpOrderCell.xib */; };
 		90363F6923540B4400A120AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90363F6823540B4400A120AC /* AppDelegate.m */; };
 		90363F7123540B4500A120AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90363F7023540B4500A120AC /* Assets.xcassets */; };
 		90363F7423540B4500A120AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90363F7223540B4500A120AC /* LaunchScreen.storyboard */; };
@@ -87,6 +119,129 @@
 		90364B44235429DF00A120AC /* GYMyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B42235429DF00A120AC /* GYMyVC.xib */; };
 		90364B48235442B600A120AC /* GYLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B46235442B600A120AC /* GYLoginVC.m */; };
 		90364B49235442B600A120AC /* GYLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B47235442B600A120AC /* GYLoginVC.xib */; };
+		90364B4D2354529900A120AC /* GYChangePwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B4B2354529900A120AC /* GYChangePwdVC.m */; };
+		90364B4E2354529900A120AC /* GYChangePwdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B4C2354529900A120AC /* GYChangePwdVC.xib */; };
+		90364B51235454D600A120AC /* GYWebContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B50235454D600A120AC /* GYWebContentVC.m */; };
+		90364B552354551500A120AC /* GYRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B532354551500A120AC /* GYRegisterVC.m */; };
+		90364B562354551500A120AC /* GYRegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B542354551500A120AC /* GYRegisterVC.xib */; };
+		90364B5A235455C700A120AC /* GYRegisterAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B58235455C700A120AC /* GYRegisterAuthVC.m */; };
+		90364B5B235455C700A120AC /* GYRegisterAuthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B59235455C700A120AC /* GYRegisterAuthVC.xib */; };
+		90364B5F2354663600A120AC /* GYRegisterSuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B5D2354663600A120AC /* GYRegisterSuccessVC.m */; };
+		90364B602354663600A120AC /* GYRegisterSuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B5E2354663600A120AC /* GYRegisterSuccessVC.xib */; };
+		90364B65235468D600A120AC /* GYMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B63235468D600A120AC /* GYMessageVC.m */; };
+		90364B66235468D600A120AC /* GYMessageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B64235468D600A120AC /* GYMessageVC.xib */; };
+		90364B6B235468F000A120AC /* GYMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B69235468F000A120AC /* GYMessageCell.m */; };
+		90364B6C235468F000A120AC /* GYMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B6A235468F000A120AC /* GYMessageCell.xib */; };
+		90364B7D23546CDF00A120AC /* GYShopGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B7B23546CDF00A120AC /* GYShopGoodsCell.m */; };
+		90364B7E23546CDF00A120AC /* GYShopGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B7C23546CDF00A120AC /* GYShopGoodsCell.xib */; };
+		90364B82235471BE00A120AC /* GYHomeCateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B80235471BE00A120AC /* GYHomeCateCell.m */; };
+		90364B83235471BE00A120AC /* GYHomeCateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B81235471BE00A120AC /* GYHomeCateCell.xib */; };
+		90364B872354746900A120AC /* GYHomeSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B852354746900A120AC /* GYHomeSectionHeader.m */; };
+		90364B882354746900A120AC /* GYHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B862354746900A120AC /* GYHomeSectionHeader.xib */; };
+		90364B8C2354765400A120AC /* GYHomeBannerHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B8A2354765400A120AC /* GYHomeBannerHeader.m */; };
+		90364B8D2354765400A120AC /* GYHomeBannerHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B8B2354765400A120AC /* GYHomeBannerHeader.xib */; };
+		90364B912354775300A120AC /* GYBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B8F2354775300A120AC /* GYBannerCell.m */; };
+		90364B922354775300A120AC /* GYBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B902354775300A120AC /* GYBannerCell.xib */; };
+		90364B9523547AB700A120AC /* GYTopNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B9423547AB700A120AC /* GYTopNoticeCell.m */; };
+		90364B9923547BD600A120AC /* GYTopNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B9823547BD600A120AC /* GYTopNoticeCell.xib */; };
+		90364B9C2354897100A120AC /* GYWorkCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B9B2354897100A120AC /* GYWorkCategoryView.m */; };
+		90364B9E2354897C00A120AC /* GYWorkCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */; };
+		90364BA223548A1800A120AC /* GYWorkCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BA023548A1800A120AC /* GYWorkCategoryCell.m */; };
+		90364BA323548A1800A120AC /* GYWorkCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */; };
+		90364BA723548CEE00A120AC /* GYCategoryChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BA523548CEE00A120AC /* GYCategoryChildVC.m */; };
+		90364BA823548CEE00A120AC /* GYCategoryChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BA623548CEE00A120AC /* GYCategoryChildVC.xib */; };
+		90364BAC23548E4300A120AC /* GYBrandChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BAA23548E4300A120AC /* GYBrandChildVC.m */; };
+		90364BAD23548E4300A120AC /* GYBrandChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BAB23548E4300A120AC /* GYBrandChildVC.xib */; };
+		90364BB123548F4100A120AC /* GYBigCateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BAF23548F4100A120AC /* GYBigCateCell.m */; };
+		90364BB223548F4100A120AC /* GYBigCateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BB023548F4100A120AC /* GYBigCateCell.xib */; };
+		90364BB62354902000A120AC /* GYSmallCateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BB42354902000A120AC /* GYSmallCateCell.m */; };
+		90364BB72354902000A120AC /* GYSmallCateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BB52354902000A120AC /* GYSmallCateCell.xib */; };
+		90364BBB2354907200A120AC /* GYSmallCateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BB92354907200A120AC /* GYSmallCateHeaderView.m */; };
+		90364BBC2354907200A120AC /* GYSmallCateHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BBA2354907200A120AC /* GYSmallCateHeaderView.xib */; };
+		90364BC0235492F900A120AC /* GYBrandCateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BBE235492F900A120AC /* GYBrandCateCell.m */; };
+		90364BC1235492F900A120AC /* GYBrandCateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BBF235492F900A120AC /* GYBrandCateCell.xib */; };
+		90364BC6235497E200A120AC /* GYSpecialGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BC4235497E200A120AC /* GYSpecialGoodsVC.m */; };
+		90364BC7235497E200A120AC /* GYSpecialGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BC5235497E200A120AC /* GYSpecialGoodsVC.xib */; };
+		90364BCC235498F500A120AC /* GYSpecialGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BCA235498F500A120AC /* GYSpecialGoodsCell.m */; };
+		90364BCD235498F500A120AC /* GYSpecialGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BCB235498F500A120AC /* GYSpecialGoodsCell.xib */; };
+		90364BD323549E9F00A120AC /* GYCateGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BD123549E9F00A120AC /* GYCateGoodsVC.m */; };
+		90364BD423549E9F00A120AC /* GYCateGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BD223549E9F00A120AC /* GYCateGoodsVC.xib */; };
+		90562F942357FC9000EC70FE /* GYOrderDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */; };
+		90562F962357FC9600EC70FE /* GYOrderDetailFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */; };
+		90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F982358012600EC70FE /* GYInvoiceDetailFooter.m */; };
+		90562F9B2358012E00EC70FE /* GYInvoiceDetailFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562F9A2358012E00EC70FE /* GYInvoiceDetailFooter.xib */; };
+		90562F9F2358045500EC70FE /* GYEvaluateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F9D2358045500EC70FE /* GYEvaluateVC.m */; };
+		90562FA02358045500EC70FE /* GYEvaluateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562F9E2358045500EC70FE /* GYEvaluateVC.xib */; };
+		90562FA42358078600EC70FE /* GYEvaluatePhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FA22358078600EC70FE /* GYEvaluatePhotoCell.m */; };
+		90562FA52358078600EC70FE /* GYEvaluatePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562FA32358078600EC70FE /* GYEvaluatePhotoCell.xib */; };
+		90BDE3692356AB3D008790DA /* GYPublishWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */; };
+		90BDE36A2356AB3D008790DA /* GYPublishWorkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */; };
+		90BDE3732356C3EC008790DA /* GYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3722356C3EC008790DA /* GYDatePickerView.m */; };
+		90BDE3752356C3F2008790DA /* GYDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BDE3742356C3F2008790DA /* GYDatePickerView.xib */; };
+		90BDE3782356E9AD008790DA /* GYMyHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3772356E9AD008790DA /* GYMyHeader.m */; };
+		90BDE37A2356E9B7008790DA /* GYMyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BDE3792356E9B7008790DA /* GYMyHeader.xib */; };
+		90E263532356EDD300C4A376 /* GYMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E263512356EDD300C4A376 /* GYMyCell.m */; };
+		90E263542356EDD300C4A376 /* GYMyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E263522356EDD300C4A376 /* GYMyCell.xib */; };
+		90E263582356F13100C4A376 /* GYMySetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E263562356F13100C4A376 /* GYMySetVC.m */; };
+		90E263592356F13100C4A376 /* GYMySetVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E263572356F13100C4A376 /* GYMySetVC.xib */; };
+		90E2635E2356F35000C4A376 /* GYChangeBindVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2635C2356F34F00C4A376 /* GYChangeBindVC.m */; };
+		90E2635F2356F35000C4A376 /* GYChangeBindVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2635D2356F34F00C4A376 /* GYChangeBindVC.xib */; };
+		90E263632356FA8900C4A376 /* GYChangeInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E263612356FA8900C4A376 /* GYChangeInfoVC.m */; };
+		90E263642356FA8900C4A376 /* GYChangeInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E263622356FA8900C4A376 /* GYChangeInfoVC.xib */; };
+		90E2636D2357017700C4A376 /* GYMyGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2636B2357017700C4A376 /* GYMyGoodsVC.m */; };
+		90E2636E2357017700C4A376 /* GYMyGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2636C2357017700C4A376 /* GYMyGoodsVC.xib */; };
+		90E26373235702B300C4A376 /* GYMyBillVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E26371235702B300C4A376 /* GYMyBillVC.m */; };
+		90E26374235702B300C4A376 /* GYMyBillVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E26372235702B300C4A376 /* GYMyBillVC.xib */; };
+		90E26379235702CB00C4A376 /* GYMyBillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E26377235702CB00C4A376 /* GYMyBillCell.m */; };
+		90E2637A235702CB00C4A376 /* GYMyBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E26378235702CB00C4A376 /* GYMyBillCell.xib */; };
+		90E2637F235709BC00C4A376 /* GYMyCollentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2637D235709BC00C4A376 /* GYMyCollentVC.m */; };
+		90E26380235709BC00C4A376 /* GYMyCollentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2637E235709BC00C4A376 /* GYMyCollentVC.xib */; };
+		90E26385235709DA00C4A376 /* GYMyCollectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E26383235709DA00C4A376 /* GYMyCollectCell.m */; };
+		90E26386235709DA00C4A376 /* GYMyCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E26384235709DA00C4A376 /* GYMyCollectCell.xib */; };
+		90E2638B23571BE700C4A376 /* GYAuthInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2638923571BE700C4A376 /* GYAuthInfoVC.m */; };
+		90E2638C23571BE700C4A376 /* GYAuthInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2638A23571BE700C4A376 /* GYAuthInfoVC.xib */; };
+		90E2639123571DDB00C4A376 /* GYVipMemberVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2638F23571DDB00C4A376 /* GYVipMemberVC.m */; };
+		90E2639223571DDB00C4A376 /* GYVipMemberVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2639023571DDB00C4A376 /* GYVipMemberVC.xib */; };
+		90E2639C23572BB800C4A376 /* GYVipMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E2639A23572BB800C4A376 /* GYVipMemberCell.m */; };
+		90E2639D23572BB800C4A376 /* GYVipMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E2639B23572BB800C4A376 /* GYVipMemberCell.xib */; };
+		90E263A223572D6E00C4A376 /* GYMyAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E263A023572D6E00C4A376 /* GYMyAddressVC.m */; };
+		90E263A323572D6E00C4A376 /* GYMyAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E263A123572D6E00C4A376 /* GYMyAddressVC.xib */; };
+		90E263A823572D8F00C4A376 /* GYMyAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E263A623572D8F00C4A376 /* GYMyAddressCell.m */; };
+		90E263A923572D8F00C4A376 /* GYMyAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E263A723572D8F00C4A376 /* GYMyAddressCell.xib */; };
+		90E5DCE72355EC6000280562 /* GYUpOrderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E5DCE62355EC6000280562 /* GYUpOrderFooter.m */; };
+		90E5DCE92355EC6700280562 /* GYUpOrderFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCE82355EC6700280562 /* GYUpOrderFooter.xib */; };
+		90E5DCED2355EE4700280562 /* GYInvoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E5DCEB2355EE4700280562 /* GYInvoiceVC.m */; };
+		90E5DCEE2355EE4700280562 /* GYInvoiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCEC2355EE4700280562 /* GYInvoiceVC.xib */; };
+		90E5DCF12355F33200280562 /* GYPayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E5DCF02355F33200280562 /* GYPayTypeView.m */; };
+		90E5DCF32355F34E00280562 /* GYPayTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCF22355F34E00280562 /* GYPayTypeView.xib */; };
+		90FE6A64235731280098278B /* GYEditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A62235731280098278B /* GYEditAddressVC.m */; };
+		90FE6A65235731280098278B /* GYEditAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A63235731280098278B /* GYEditAddressVC.xib */; };
+		90FE6A6C2357351D0098278B /* GYMyNeedsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A6A2357351D0098278B /* GYMyNeedsVC.m */; };
+		90FE6A6D2357351D0098278B /* GYMyNeedsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A6B2357351D0098278B /* GYMyNeedsVC.xib */; };
+		90FE6A71235735300098278B /* GYMyNeedsChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A6F235735300098278B /* GYMyNeedsChildVC.m */; };
+		90FE6A72235735300098278B /* GYMyNeedsChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A70235735300098278B /* GYMyNeedsChildVC.xib */; };
+		90FE6A77235735790098278B /* GYMyNeedsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A75235735790098278B /* GYMyNeedsCell.m */; };
+		90FE6A78235735790098278B /* GYMyNeedsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A76235735790098278B /* GYMyNeedsCell.xib */; };
+		90FE6A7C23573A020098278B /* GYMyNeedsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A7A23573A020098278B /* GYMyNeedsDetailVC.m */; };
+		90FE6A7D23573A020098278B /* GYMyNeedsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A7B23573A020098278B /* GYMyNeedsDetailVC.xib */; };
+		90FE6A8323573EC90098278B /* GYMyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A8123573EC90098278B /* GYMyOrderCell.m */; };
+		90FE6A8423573EC90098278B /* GYMyOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A8223573EC90098278B /* GYMyOrderCell.xib */; };
+		90FE6A8723573F2A0098278B /* GYMyOrderHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A8623573F2A0098278B /* GYMyOrderHeader.m */; };
+		90FE6A8923573F320098278B /* GYMyOrderHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A8823573F320098278B /* GYMyOrderHeader.xib */; };
+		90FE6A8C23573FA70098278B /* GYMyOrderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A8B23573FA70098278B /* GYMyOrderFooter.m */; };
+		90FE6A8E23573FB10098278B /* GYMyOrderFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A8D23573FB10098278B /* GYMyOrderFooter.xib */; };
+		90FE6A92235740E50098278B /* GYMyOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A90235740E50098278B /* GYMyOrderVC.m */; };
+		90FE6A93235740E50098278B /* GYMyOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A91235740E50098278B /* GYMyOrderVC.xib */; };
+		90FE6A97235740F50098278B /* GYMyOrderChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A95235740F50098278B /* GYMyOrderChildVC.m */; };
+		90FE6A98235740F50098278B /* GYMyOrderChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A96235740F50098278B /* GYMyOrderChildVC.xib */; };
+		90FE6A9D235742DD0098278B /* GYAfterSaleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A9B235742DD0098278B /* GYAfterSaleVC.m */; };
+		90FE6A9E235742DD0098278B /* GYAfterSaleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A9C235742DD0098278B /* GYAfterSaleVC.xib */; };
+		90FE6AA1235746020098278B /* GYOrderDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6AA0235746020098278B /* GYOrderDetailHeader.m */; };
+		90FE6AA32357460A0098278B /* GYOrderDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6AA22357460A0098278B /* GYOrderDetailHeader.xib */; };
+		90FE6AA7235747500098278B /* GYOrderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6AA5235747500098278B /* GYOrderDetailVC.m */; };
+		90FE6AA8235747500098278B /* GYOrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6AA6235747500098278B /* GYOrderDetailVC.xib */; };
+		90FE6AAC235747880098278B /* GYOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6AAA235747880098278B /* GYOrderDetailCell.m */; };
+		90FE6AAD235747880098278B /* GYOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6AAB235747880098278B /* GYOrderDetailCell.xib */; };
 		99BB768D6FA120E7626D361C /* libPods-GY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75407BE80414505FD54B445 /* libPods-GY.a */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +264,56 @@
 
 /* Begin PBXFileReference section */
 		62DAC0CF74A3D6CB6E38E332 /* Pods-GY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GY.debug.xcconfig"; path = "Target Support Files/Pods-GY/Pods-GY.debug.xcconfig"; sourceTree = "<group>"; };
+		90249E35235575FC000536F7 /* GYGoodsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsDetailVC.h; sourceTree = "<group>"; };
+		90249E36235575FC000536F7 /* GYGoodsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsDetailVC.m; sourceTree = "<group>"; };
+		90249E37235575FC000536F7 /* GYGoodsDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYGoodsDetailVC.xib; sourceTree = "<group>"; };
+		90249E3B23557748000536F7 /* GYGoodsDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsDetailHeader.h; sourceTree = "<group>"; };
+		90249E3C23557748000536F7 /* GYGoodsDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsDetailHeader.m; sourceTree = "<group>"; };
+		90249E3E2355774E000536F7 /* GYGoodsDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYGoodsDetailHeader.xib; sourceTree = "<group>"; };
+		90249E40235597E4000536F7 /* GYGoodsDetailSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsDetailSectionHeader.h; sourceTree = "<group>"; };
+		90249E41235597E4000536F7 /* GYGoodsDetailSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsDetailSectionHeader.m; sourceTree = "<group>"; };
+		90249E43235597EC000536F7 /* GYGoodsDetailSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYGoodsDetailSectionHeader.xib; sourceTree = "<group>"; };
+		90249E462355996C000536F7 /* GYGoodsComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsComment.h; sourceTree = "<group>"; };
+		90249E472355996C000536F7 /* GYGoodsComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsComment.m; sourceTree = "<group>"; };
+		90249E4A23559988000536F7 /* GYGoodsCommentLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsCommentLayout.h; sourceTree = "<group>"; };
+		90249E4B23559988000536F7 /* GYGoodsCommentLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsCommentLayout.m; sourceTree = "<group>"; };
+		90249E4D235599BE000536F7 /* moment2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moment2.plist; sourceTree = "<group>"; };
+		90249E4F23559A8D000536F7 /* GYGoodsCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsCommentCell.h; sourceTree = "<group>"; };
+		90249E5023559A8D000536F7 /* GYGoodsCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsCommentCell.m; sourceTree = "<group>"; };
+		90249E542355A90A000536F7 /* GYChooseClassView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChooseClassView.h; sourceTree = "<group>"; };
+		90249E552355A90A000536F7 /* GYChooseClassView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChooseClassView.m; sourceTree = "<group>"; };
+		90249E572355A913000536F7 /* GYChooseClassView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChooseClassView.xib; sourceTree = "<group>"; };
+		90249E592355AB16000536F7 /* GYChooseClassCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChooseClassCell.h; sourceTree = "<group>"; };
+		90249E5A2355AB16000536F7 /* GYChooseClassCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChooseClassCell.m; sourceTree = "<group>"; };
+		90249E5B2355AB16000536F7 /* GYChooseClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChooseClassCell.xib; sourceTree = "<group>"; };
+		90249E5E2355AB29000536F7 /* GYChooseClassHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChooseClassHeader.h; sourceTree = "<group>"; };
+		90249E5F2355AB29000536F7 /* GYChooseClassHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChooseClassHeader.m; sourceTree = "<group>"; };
+		90249E602355AB29000536F7 /* GYChooseClassHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChooseClassHeader.xib; sourceTree = "<group>"; };
+		90249E632355AB3C000536F7 /* GYChooseClassFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChooseClassFooter.h; sourceTree = "<group>"; };
+		90249E642355AB3C000536F7 /* GYChooseClassFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChooseClassFooter.m; sourceTree = "<group>"; };
+		90249E652355AB3C000536F7 /* GYChooseClassFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChooseClassFooter.xib; sourceTree = "<group>"; };
+		90249E682355AEE6000536F7 /* GYAllCommentsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYAllCommentsVC.h; sourceTree = "<group>"; };
+		90249E692355AEE6000536F7 /* GYAllCommentsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYAllCommentsVC.m; sourceTree = "<group>"; };
+		90249E6A2355AEE6000536F7 /* GYAllCommentsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYAllCommentsVC.xib; sourceTree = "<group>"; };
+		90249E6D2355B335000536F7 /* GYCommentTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCommentTypeCell.h; sourceTree = "<group>"; };
+		90249E6E2355B335000536F7 /* GYCommentTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCommentTypeCell.m; sourceTree = "<group>"; };
+		90249E6F2355B335000536F7 /* GYCommentTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCommentTypeCell.xib; sourceTree = "<group>"; };
+		90249E722355B840000536F7 /* GYCateMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCateMenuView.h; sourceTree = "<group>"; };
+		90249E732355B840000536F7 /* GYCateMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCateMenuView.m; sourceTree = "<group>"; };
+		90249E752355C096000536F7 /* GYBrandMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBrandMenuView.h; sourceTree = "<group>"; };
+		90249E762355C096000536F7 /* GYBrandMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBrandMenuView.m; sourceTree = "<group>"; };
+		90249E782355E1C1000536F7 /* GYCartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCartCell.h; sourceTree = "<group>"; };
+		90249E792355E1C1000536F7 /* GYCartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCartCell.m; sourceTree = "<group>"; };
+		90249E7A2355E1C1000536F7 /* GYCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCartCell.xib; sourceTree = "<group>"; };
+		90249E7D2355E51C000536F7 /* GYUpOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYUpOrderVC.h; sourceTree = "<group>"; };
+		90249E7E2355E51C000536F7 /* GYUpOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUpOrderVC.m; sourceTree = "<group>"; };
+		90249E7F2355E51C000536F7 /* GYUpOrderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYUpOrderVC.xib; sourceTree = "<group>"; };
+		90249E822355E6AA000536F7 /* GYUpOrderHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYUpOrderHeader.h; sourceTree = "<group>"; };
+		90249E832355E6AA000536F7 /* GYUpOrderHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUpOrderHeader.m; sourceTree = "<group>"; };
+		90249E852355E6B2000536F7 /* GYUpOrderHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYUpOrderHeader.xib; sourceTree = "<group>"; };
+		90249E872355E837000536F7 /* GYUpOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYUpOrderCell.h; sourceTree = "<group>"; };
+		90249E882355E837000536F7 /* GYUpOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUpOrderCell.m; sourceTree = "<group>"; };
+		90249E892355E837000536F7 /* GYUpOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYUpOrderCell.xib; sourceTree = "<group>"; };
 		90363F6423540B4300A120AC /* GY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90363F6723540B4300A120AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		90363F6823540B4400A120AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -262,6 +467,192 @@
 		90364B45235442B600A120AC /* GYLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYLoginVC.h; sourceTree = "<group>"; };
 		90364B46235442B600A120AC /* GYLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYLoginVC.m; sourceTree = "<group>"; };
 		90364B47235442B600A120AC /* GYLoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYLoginVC.xib; sourceTree = "<group>"; };
+		90364B4A2354529900A120AC /* GYChangePwdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChangePwdVC.h; sourceTree = "<group>"; };
+		90364B4B2354529900A120AC /* GYChangePwdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChangePwdVC.m; sourceTree = "<group>"; };
+		90364B4C2354529900A120AC /* GYChangePwdVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChangePwdVC.xib; sourceTree = "<group>"; };
+		90364B4F235454D600A120AC /* GYWebContentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWebContentVC.h; sourceTree = "<group>"; };
+		90364B50235454D600A120AC /* GYWebContentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWebContentVC.m; sourceTree = "<group>"; };
+		90364B522354551500A120AC /* GYRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYRegisterVC.h; sourceTree = "<group>"; };
+		90364B532354551500A120AC /* GYRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYRegisterVC.m; sourceTree = "<group>"; };
+		90364B542354551500A120AC /* GYRegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYRegisterVC.xib; sourceTree = "<group>"; };
+		90364B57235455C700A120AC /* GYRegisterAuthVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYRegisterAuthVC.h; sourceTree = "<group>"; };
+		90364B58235455C700A120AC /* GYRegisterAuthVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYRegisterAuthVC.m; sourceTree = "<group>"; };
+		90364B59235455C700A120AC /* GYRegisterAuthVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYRegisterAuthVC.xib; sourceTree = "<group>"; };
+		90364B5C2354663600A120AC /* GYRegisterSuccessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYRegisterSuccessVC.h; sourceTree = "<group>"; };
+		90364B5D2354663600A120AC /* GYRegisterSuccessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYRegisterSuccessVC.m; sourceTree = "<group>"; };
+		90364B5E2354663600A120AC /* GYRegisterSuccessVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYRegisterSuccessVC.xib; sourceTree = "<group>"; };
+		90364B62235468D600A120AC /* GYMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMessageVC.h; sourceTree = "<group>"; };
+		90364B63235468D600A120AC /* GYMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMessageVC.m; sourceTree = "<group>"; };
+		90364B64235468D600A120AC /* GYMessageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMessageVC.xib; sourceTree = "<group>"; };
+		90364B68235468F000A120AC /* GYMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMessageCell.h; sourceTree = "<group>"; };
+		90364B69235468F000A120AC /* GYMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMessageCell.m; sourceTree = "<group>"; };
+		90364B6A235468F000A120AC /* GYMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMessageCell.xib; sourceTree = "<group>"; };
+		90364B7A23546CDF00A120AC /* GYShopGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYShopGoodsCell.h; sourceTree = "<group>"; };
+		90364B7B23546CDF00A120AC /* GYShopGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYShopGoodsCell.m; sourceTree = "<group>"; };
+		90364B7C23546CDF00A120AC /* GYShopGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYShopGoodsCell.xib; sourceTree = "<group>"; };
+		90364B7F235471BE00A120AC /* GYHomeCateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYHomeCateCell.h; sourceTree = "<group>"; };
+		90364B80235471BE00A120AC /* GYHomeCateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYHomeCateCell.m; sourceTree = "<group>"; };
+		90364B81235471BE00A120AC /* GYHomeCateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYHomeCateCell.xib; sourceTree = "<group>"; };
+		90364B842354746900A120AC /* GYHomeSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYHomeSectionHeader.h; sourceTree = "<group>"; };
+		90364B852354746900A120AC /* GYHomeSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYHomeSectionHeader.m; sourceTree = "<group>"; };
+		90364B862354746900A120AC /* GYHomeSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYHomeSectionHeader.xib; sourceTree = "<group>"; };
+		90364B892354765400A120AC /* GYHomeBannerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYHomeBannerHeader.h; sourceTree = "<group>"; };
+		90364B8A2354765400A120AC /* GYHomeBannerHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYHomeBannerHeader.m; sourceTree = "<group>"; };
+		90364B8B2354765400A120AC /* GYHomeBannerHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYHomeBannerHeader.xib; sourceTree = "<group>"; };
+		90364B8E2354775300A120AC /* GYBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBannerCell.h; sourceTree = "<group>"; };
+		90364B8F2354775300A120AC /* GYBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBannerCell.m; sourceTree = "<group>"; };
+		90364B902354775300A120AC /* GYBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYBannerCell.xib; sourceTree = "<group>"; };
+		90364B9323547AB700A120AC /* GYTopNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYTopNoticeCell.h; sourceTree = "<group>"; };
+		90364B9423547AB700A120AC /* GYTopNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYTopNoticeCell.m; sourceTree = "<group>"; };
+		90364B9823547BD600A120AC /* GYTopNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYTopNoticeCell.xib; sourceTree = "<group>"; };
+		90364B9A2354897100A120AC /* GYWorkCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryView.h; sourceTree = "<group>"; };
+		90364B9B2354897100A120AC /* GYWorkCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryView.m; sourceTree = "<group>"; };
+		90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYWorkCategoryView.xib; sourceTree = "<group>"; };
+		90364B9F23548A1800A120AC /* GYWorkCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryCell.h; sourceTree = "<group>"; };
+		90364BA023548A1800A120AC /* GYWorkCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryCell.m; sourceTree = "<group>"; };
+		90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYWorkCategoryCell.xib; sourceTree = "<group>"; };
+		90364BA423548CEE00A120AC /* GYCategoryChildVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCategoryChildVC.h; sourceTree = "<group>"; };
+		90364BA523548CEE00A120AC /* GYCategoryChildVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCategoryChildVC.m; sourceTree = "<group>"; };
+		90364BA623548CEE00A120AC /* GYCategoryChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCategoryChildVC.xib; sourceTree = "<group>"; };
+		90364BA923548E4300A120AC /* GYBrandChildVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBrandChildVC.h; sourceTree = "<group>"; };
+		90364BAA23548E4300A120AC /* GYBrandChildVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBrandChildVC.m; sourceTree = "<group>"; };
+		90364BAB23548E4300A120AC /* GYBrandChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYBrandChildVC.xib; sourceTree = "<group>"; };
+		90364BAE23548F4100A120AC /* GYBigCateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBigCateCell.h; sourceTree = "<group>"; };
+		90364BAF23548F4100A120AC /* GYBigCateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBigCateCell.m; sourceTree = "<group>"; };
+		90364BB023548F4100A120AC /* GYBigCateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYBigCateCell.xib; sourceTree = "<group>"; };
+		90364BB32354902000A120AC /* GYSmallCateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSmallCateCell.h; sourceTree = "<group>"; };
+		90364BB42354902000A120AC /* GYSmallCateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSmallCateCell.m; sourceTree = "<group>"; };
+		90364BB52354902000A120AC /* GYSmallCateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSmallCateCell.xib; sourceTree = "<group>"; };
+		90364BB82354907200A120AC /* GYSmallCateHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSmallCateHeaderView.h; sourceTree = "<group>"; };
+		90364BB92354907200A120AC /* GYSmallCateHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSmallCateHeaderView.m; sourceTree = "<group>"; };
+		90364BBA2354907200A120AC /* GYSmallCateHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSmallCateHeaderView.xib; sourceTree = "<group>"; };
+		90364BBD235492F900A120AC /* GYBrandCateCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBrandCateCell.h; sourceTree = "<group>"; };
+		90364BBE235492F900A120AC /* GYBrandCateCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBrandCateCell.m; sourceTree = "<group>"; };
+		90364BBF235492F900A120AC /* GYBrandCateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYBrandCateCell.xib; sourceTree = "<group>"; };
+		90364BC3235497E200A120AC /* GYSpecialGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSpecialGoodsVC.h; sourceTree = "<group>"; };
+		90364BC4235497E200A120AC /* GYSpecialGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSpecialGoodsVC.m; sourceTree = "<group>"; };
+		90364BC5235497E200A120AC /* GYSpecialGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSpecialGoodsVC.xib; sourceTree = "<group>"; };
+		90364BC9235498F500A120AC /* GYSpecialGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSpecialGoodsCell.h; sourceTree = "<group>"; };
+		90364BCA235498F500A120AC /* GYSpecialGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSpecialGoodsCell.m; sourceTree = "<group>"; };
+		90364BCB235498F500A120AC /* GYSpecialGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSpecialGoodsCell.xib; sourceTree = "<group>"; };
+		90364BD023549E9F00A120AC /* GYCateGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCateGoodsVC.h; sourceTree = "<group>"; };
+		90364BD123549E9F00A120AC /* GYCateGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCateGoodsVC.m; sourceTree = "<group>"; };
+		90364BD223549E9F00A120AC /* GYCateGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCateGoodsVC.xib; sourceTree = "<group>"; };
+		90562F922357FC9000EC70FE /* GYOrderDetailFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailFooter.h; sourceTree = "<group>"; };
+		90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailFooter.m; sourceTree = "<group>"; };
+		90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailFooter.xib; sourceTree = "<group>"; };
+		90562F972358012600EC70FE /* GYInvoiceDetailFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYInvoiceDetailFooter.h; sourceTree = "<group>"; };
+		90562F982358012600EC70FE /* GYInvoiceDetailFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYInvoiceDetailFooter.m; sourceTree = "<group>"; };
+		90562F9A2358012E00EC70FE /* GYInvoiceDetailFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYInvoiceDetailFooter.xib; sourceTree = "<group>"; };
+		90562F9C2358045500EC70FE /* GYEvaluateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYEvaluateVC.h; sourceTree = "<group>"; };
+		90562F9D2358045500EC70FE /* GYEvaluateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYEvaluateVC.m; sourceTree = "<group>"; };
+		90562F9E2358045500EC70FE /* GYEvaluateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYEvaluateVC.xib; sourceTree = "<group>"; };
+		90562FA12358078600EC70FE /* GYEvaluatePhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYEvaluatePhotoCell.h; sourceTree = "<group>"; };
+		90562FA22358078600EC70FE /* GYEvaluatePhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYEvaluatePhotoCell.m; sourceTree = "<group>"; };
+		90562FA32358078600EC70FE /* GYEvaluatePhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYEvaluatePhotoCell.xib; sourceTree = "<group>"; };
+		90BDE3662356AB3D008790DA /* GYPublishWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPublishWorkVC.h; sourceTree = "<group>"; };
+		90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPublishWorkVC.m; sourceTree = "<group>"; };
+		90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPublishWorkVC.xib; sourceTree = "<group>"; };
+		90BDE3712356C3EC008790DA /* GYDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYDatePickerView.h; sourceTree = "<group>"; };
+		90BDE3722356C3EC008790DA /* GYDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYDatePickerView.m; sourceTree = "<group>"; };
+		90BDE3742356C3F2008790DA /* GYDatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYDatePickerView.xib; sourceTree = "<group>"; };
+		90BDE3762356E9AD008790DA /* GYMyHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyHeader.h; sourceTree = "<group>"; };
+		90BDE3772356E9AD008790DA /* GYMyHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyHeader.m; sourceTree = "<group>"; };
+		90BDE3792356E9B7008790DA /* GYMyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyHeader.xib; sourceTree = "<group>"; };
+		90E263502356EDD300C4A376 /* GYMyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyCell.h; sourceTree = "<group>"; };
+		90E263512356EDD300C4A376 /* GYMyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyCell.m; sourceTree = "<group>"; };
+		90E263522356EDD300C4A376 /* GYMyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyCell.xib; sourceTree = "<group>"; };
+		90E263552356F13100C4A376 /* GYMySetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMySetVC.h; sourceTree = "<group>"; };
+		90E263562356F13100C4A376 /* GYMySetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMySetVC.m; sourceTree = "<group>"; };
+		90E263572356F13100C4A376 /* GYMySetVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMySetVC.xib; sourceTree = "<group>"; };
+		90E2635B2356F34F00C4A376 /* GYChangeBindVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChangeBindVC.h; sourceTree = "<group>"; };
+		90E2635C2356F34F00C4A376 /* GYChangeBindVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChangeBindVC.m; sourceTree = "<group>"; };
+		90E2635D2356F34F00C4A376 /* GYChangeBindVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChangeBindVC.xib; sourceTree = "<group>"; };
+		90E263602356FA8900C4A376 /* GYChangeInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYChangeInfoVC.h; sourceTree = "<group>"; };
+		90E263612356FA8900C4A376 /* GYChangeInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYChangeInfoVC.m; sourceTree = "<group>"; };
+		90E263622356FA8900C4A376 /* GYChangeInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYChangeInfoVC.xib; sourceTree = "<group>"; };
+		90E2636A2357017700C4A376 /* GYMyGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyGoodsVC.h; sourceTree = "<group>"; };
+		90E2636B2357017700C4A376 /* GYMyGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyGoodsVC.m; sourceTree = "<group>"; };
+		90E2636C2357017700C4A376 /* GYMyGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyGoodsVC.xib; sourceTree = "<group>"; };
+		90E26370235702B300C4A376 /* GYMyBillVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyBillVC.h; sourceTree = "<group>"; };
+		90E26371235702B300C4A376 /* GYMyBillVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyBillVC.m; sourceTree = "<group>"; };
+		90E26372235702B300C4A376 /* GYMyBillVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyBillVC.xib; sourceTree = "<group>"; };
+		90E26376235702CB00C4A376 /* GYMyBillCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyBillCell.h; sourceTree = "<group>"; };
+		90E26377235702CB00C4A376 /* GYMyBillCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyBillCell.m; sourceTree = "<group>"; };
+		90E26378235702CB00C4A376 /* GYMyBillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyBillCell.xib; sourceTree = "<group>"; };
+		90E2637C235709BC00C4A376 /* GYMyCollentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyCollentVC.h; sourceTree = "<group>"; };
+		90E2637D235709BC00C4A376 /* GYMyCollentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyCollentVC.m; sourceTree = "<group>"; };
+		90E2637E235709BC00C4A376 /* GYMyCollentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyCollentVC.xib; sourceTree = "<group>"; };
+		90E26382235709DA00C4A376 /* GYMyCollectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyCollectCell.h; sourceTree = "<group>"; };
+		90E26383235709DA00C4A376 /* GYMyCollectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyCollectCell.m; sourceTree = "<group>"; };
+		90E26384235709DA00C4A376 /* GYMyCollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyCollectCell.xib; sourceTree = "<group>"; };
+		90E2638823571BE700C4A376 /* GYAuthInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYAuthInfoVC.h; sourceTree = "<group>"; };
+		90E2638923571BE700C4A376 /* GYAuthInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYAuthInfoVC.m; sourceTree = "<group>"; };
+		90E2638A23571BE700C4A376 /* GYAuthInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYAuthInfoVC.xib; sourceTree = "<group>"; };
+		90E2638E23571DDB00C4A376 /* GYVipMemberVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYVipMemberVC.h; sourceTree = "<group>"; };
+		90E2638F23571DDB00C4A376 /* GYVipMemberVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYVipMemberVC.m; sourceTree = "<group>"; };
+		90E2639023571DDB00C4A376 /* GYVipMemberVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYVipMemberVC.xib; sourceTree = "<group>"; };
+		90E2639923572BB800C4A376 /* GYVipMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYVipMemberCell.h; sourceTree = "<group>"; };
+		90E2639A23572BB800C4A376 /* GYVipMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYVipMemberCell.m; sourceTree = "<group>"; };
+		90E2639B23572BB800C4A376 /* GYVipMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYVipMemberCell.xib; sourceTree = "<group>"; };
+		90E2639F23572D6E00C4A376 /* GYMyAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyAddressVC.h; sourceTree = "<group>"; };
+		90E263A023572D6E00C4A376 /* GYMyAddressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyAddressVC.m; sourceTree = "<group>"; };
+		90E263A123572D6E00C4A376 /* GYMyAddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyAddressVC.xib; sourceTree = "<group>"; };
+		90E263A523572D8F00C4A376 /* GYMyAddressCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyAddressCell.h; sourceTree = "<group>"; };
+		90E263A623572D8F00C4A376 /* GYMyAddressCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyAddressCell.m; sourceTree = "<group>"; };
+		90E263A723572D8F00C4A376 /* GYMyAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyAddressCell.xib; sourceTree = "<group>"; };
+		90E5DCE52355EC6000280562 /* GYUpOrderFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYUpOrderFooter.h; sourceTree = "<group>"; };
+		90E5DCE62355EC6000280562 /* GYUpOrderFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUpOrderFooter.m; sourceTree = "<group>"; };
+		90E5DCE82355EC6700280562 /* GYUpOrderFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYUpOrderFooter.xib; sourceTree = "<group>"; };
+		90E5DCEA2355EE4700280562 /* GYInvoiceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYInvoiceVC.h; sourceTree = "<group>"; };
+		90E5DCEB2355EE4700280562 /* GYInvoiceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYInvoiceVC.m; sourceTree = "<group>"; };
+		90E5DCEC2355EE4700280562 /* GYInvoiceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYInvoiceVC.xib; sourceTree = "<group>"; };
+		90E5DCEF2355F33200280562 /* GYPayTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPayTypeView.h; sourceTree = "<group>"; };
+		90E5DCF02355F33200280562 /* GYPayTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPayTypeView.m; sourceTree = "<group>"; };
+		90E5DCF22355F34E00280562 /* GYPayTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPayTypeView.xib; sourceTree = "<group>"; };
+		90FE6A61235731280098278B /* GYEditAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYEditAddressVC.h; sourceTree = "<group>"; };
+		90FE6A62235731280098278B /* GYEditAddressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYEditAddressVC.m; sourceTree = "<group>"; };
+		90FE6A63235731280098278B /* GYEditAddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYEditAddressVC.xib; sourceTree = "<group>"; };
+		90FE6A67235733CC0098278B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		90FE6A692357351D0098278B /* GYMyNeedsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyNeedsVC.h; sourceTree = "<group>"; };
+		90FE6A6A2357351D0098278B /* GYMyNeedsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyNeedsVC.m; sourceTree = "<group>"; };
+		90FE6A6B2357351D0098278B /* GYMyNeedsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyNeedsVC.xib; sourceTree = "<group>"; };
+		90FE6A6E235735300098278B /* GYMyNeedsChildVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyNeedsChildVC.h; sourceTree = "<group>"; };
+		90FE6A6F235735300098278B /* GYMyNeedsChildVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyNeedsChildVC.m; sourceTree = "<group>"; };
+		90FE6A70235735300098278B /* GYMyNeedsChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyNeedsChildVC.xib; sourceTree = "<group>"; };
+		90FE6A74235735790098278B /* GYMyNeedsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyNeedsCell.h; sourceTree = "<group>"; };
+		90FE6A75235735790098278B /* GYMyNeedsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyNeedsCell.m; sourceTree = "<group>"; };
+		90FE6A76235735790098278B /* GYMyNeedsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyNeedsCell.xib; sourceTree = "<group>"; };
+		90FE6A7923573A020098278B /* GYMyNeedsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyNeedsDetailVC.h; sourceTree = "<group>"; };
+		90FE6A7A23573A020098278B /* GYMyNeedsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyNeedsDetailVC.m; sourceTree = "<group>"; };
+		90FE6A7B23573A020098278B /* GYMyNeedsDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyNeedsDetailVC.xib; sourceTree = "<group>"; };
+		90FE6A8023573EC90098278B /* GYMyOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrderCell.h; sourceTree = "<group>"; };
+		90FE6A8123573EC90098278B /* GYMyOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrderCell.m; sourceTree = "<group>"; };
+		90FE6A8223573EC90098278B /* GYMyOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyOrderCell.xib; sourceTree = "<group>"; };
+		90FE6A8523573F2A0098278B /* GYMyOrderHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrderHeader.h; sourceTree = "<group>"; };
+		90FE6A8623573F2A0098278B /* GYMyOrderHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrderHeader.m; sourceTree = "<group>"; };
+		90FE6A8823573F320098278B /* GYMyOrderHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyOrderHeader.xib; sourceTree = "<group>"; };
+		90FE6A8A23573FA70098278B /* GYMyOrderFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrderFooter.h; sourceTree = "<group>"; };
+		90FE6A8B23573FA70098278B /* GYMyOrderFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrderFooter.m; sourceTree = "<group>"; };
+		90FE6A8D23573FB10098278B /* GYMyOrderFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyOrderFooter.xib; sourceTree = "<group>"; };
+		90FE6A8F235740E50098278B /* GYMyOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrderVC.h; sourceTree = "<group>"; };
+		90FE6A90235740E50098278B /* GYMyOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrderVC.m; sourceTree = "<group>"; };
+		90FE6A91235740E50098278B /* GYMyOrderVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyOrderVC.xib; sourceTree = "<group>"; };
+		90FE6A94235740F40098278B /* GYMyOrderChildVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrderChildVC.h; sourceTree = "<group>"; };
+		90FE6A95235740F50098278B /* GYMyOrderChildVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrderChildVC.m; sourceTree = "<group>"; };
+		90FE6A96235740F50098278B /* GYMyOrderChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyOrderChildVC.xib; sourceTree = "<group>"; };
+		90FE6A9A235742DD0098278B /* GYAfterSaleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYAfterSaleVC.h; sourceTree = "<group>"; };
+		90FE6A9B235742DD0098278B /* GYAfterSaleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYAfterSaleVC.m; sourceTree = "<group>"; };
+		90FE6A9C235742DD0098278B /* GYAfterSaleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYAfterSaleVC.xib; sourceTree = "<group>"; };
+		90FE6A9F235746020098278B /* GYOrderDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailHeader.h; sourceTree = "<group>"; };
+		90FE6AA0235746020098278B /* GYOrderDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailHeader.m; sourceTree = "<group>"; };
+		90FE6AA22357460A0098278B /* GYOrderDetailHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailHeader.xib; sourceTree = "<group>"; };
+		90FE6AA4235747500098278B /* GYOrderDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailVC.h; sourceTree = "<group>"; };
+		90FE6AA5235747500098278B /* GYOrderDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailVC.m; sourceTree = "<group>"; };
+		90FE6AA6235747500098278B /* GYOrderDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailVC.xib; sourceTree = "<group>"; };
+		90FE6AA9235747880098278B /* GYOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailCell.h; sourceTree = "<group>"; };
+		90FE6AAA235747880098278B /* GYOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailCell.m; sourceTree = "<group>"; };
+		90FE6AAB235747880098278B /* GYOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailCell.xib; sourceTree = "<group>"; };
 		AB4D4FB3912769597ECE2485 /* Pods-GY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GY.release.xcconfig"; path = "Target Support Files/Pods-GY/Pods-GY.release.xcconfig"; sourceTree = "<group>"; };
 		C75407BE80414505FD54B445 /* libPods-GY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -308,6 +699,61 @@
 				C75407BE80414505FD54B445 /* libPods-GY.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90249E34235575C7000536F7 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				90249E35235575FC000536F7 /* GYGoodsDetailVC.h */,
+				90249E36235575FC000536F7 /* GYGoodsDetailVC.m */,
+				90249E37235575FC000536F7 /* GYGoodsDetailVC.xib */,
+				90249E682355AEE6000536F7 /* GYAllCommentsVC.h */,
+				90249E692355AEE6000536F7 /* GYAllCommentsVC.m */,
+				90249E6A2355AEE6000536F7 /* GYAllCommentsVC.xib */,
+			);
+			name = "商品详情";
+			sourceTree = "<group>";
+		};
+		90249E3A23557687000536F7 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				90249E3B23557748000536F7 /* GYGoodsDetailHeader.h */,
+				90249E3C23557748000536F7 /* GYGoodsDetailHeader.m */,
+				90249E3E2355774E000536F7 /* GYGoodsDetailHeader.xib */,
+				90249E40235597E4000536F7 /* GYGoodsDetailSectionHeader.h */,
+				90249E41235597E4000536F7 /* GYGoodsDetailSectionHeader.m */,
+				90249E43235597EC000536F7 /* GYGoodsDetailSectionHeader.xib */,
+				90249E4F23559A8D000536F7 /* GYGoodsCommentCell.h */,
+				90249E5023559A8D000536F7 /* GYGoodsCommentCell.m */,
+				90249E542355A90A000536F7 /* GYChooseClassView.h */,
+				90249E552355A90A000536F7 /* GYChooseClassView.m */,
+				90249E572355A913000536F7 /* GYChooseClassView.xib */,
+				90249E592355AB16000536F7 /* GYChooseClassCell.h */,
+				90249E5A2355AB16000536F7 /* GYChooseClassCell.m */,
+				90249E5B2355AB16000536F7 /* GYChooseClassCell.xib */,
+				90249E5E2355AB29000536F7 /* GYChooseClassHeader.h */,
+				90249E5F2355AB29000536F7 /* GYChooseClassHeader.m */,
+				90249E602355AB29000536F7 /* GYChooseClassHeader.xib */,
+				90249E632355AB3C000536F7 /* GYChooseClassFooter.h */,
+				90249E642355AB3C000536F7 /* GYChooseClassFooter.m */,
+				90249E652355AB3C000536F7 /* GYChooseClassFooter.xib */,
+				90249E6D2355B335000536F7 /* GYCommentTypeCell.h */,
+				90249E6E2355B335000536F7 /* GYCommentTypeCell.m */,
+				90249E6F2355B335000536F7 /* GYCommentTypeCell.xib */,
+			);
+			name = "商品详情";
+			sourceTree = "<group>";
+		};
+		90249E4923559970000536F7 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				90249E4D235599BE000536F7 /* moment2.plist */,
+				90249E462355996C000536F7 /* GYGoodsComment.h */,
+				90249E472355996C000536F7 /* GYGoodsComment.m */,
+				90249E4A23559988000536F7 /* GYGoodsCommentLayout.h */,
+				90249E4B23559988000536F7 /* GYGoodsCommentLayout.m */,
+			);
+			name = "商品详情";
 			sourceTree = "<group>";
 		};
 		90363F5B23540B4300A120AC = {
@@ -410,6 +856,12 @@
 				90364B3B235429CE00A120AC /* GYCartVC.h */,
 				90364B3C235429CE00A120AC /* GYCartVC.m */,
 				90364B3D235429CE00A120AC /* GYCartVC.xib */,
+				90249E7D2355E51C000536F7 /* GYUpOrderVC.h */,
+				90249E7E2355E51C000536F7 /* GYUpOrderVC.m */,
+				90249E7F2355E51C000536F7 /* GYUpOrderVC.xib */,
+				90E5DCEA2355EE4700280562 /* GYInvoiceVC.h */,
+				90E5DCEB2355EE4700280562 /* GYInvoiceVC.m */,
+				90E5DCEC2355EE4700280562 /* GYInvoiceVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -424,6 +876,21 @@
 		90363FA32354274B00A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90249E782355E1C1000536F7 /* GYCartCell.h */,
+				90249E792355E1C1000536F7 /* GYCartCell.m */,
+				90249E7A2355E1C1000536F7 /* GYCartCell.xib */,
+				90249E822355E6AA000536F7 /* GYUpOrderHeader.h */,
+				90249E832355E6AA000536F7 /* GYUpOrderHeader.m */,
+				90249E852355E6B2000536F7 /* GYUpOrderHeader.xib */,
+				90E5DCE52355EC6000280562 /* GYUpOrderFooter.h */,
+				90E5DCE62355EC6000280562 /* GYUpOrderFooter.m */,
+				90E5DCE82355EC6700280562 /* GYUpOrderFooter.xib */,
+				90249E872355E837000536F7 /* GYUpOrderCell.h */,
+				90249E882355E837000536F7 /* GYUpOrderCell.m */,
+				90249E892355E837000536F7 /* GYUpOrderCell.xib */,
+				90E5DCEF2355F33200280562 /* GYPayTypeView.h */,
+				90E5DCF02355F33200280562 /* GYPayTypeView.m */,
+				90E5DCF22355F34E00280562 /* GYPayTypeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +911,10 @@
 				90364B31235429A400A120AC /* GYHomeVC.h */,
 				90364B32235429A400A120AC /* GYHomeVC.m */,
 				90364B33235429A400A120AC /* GYHomeVC.xib */,
+				90BDE3652356AAE4008790DA /* 发单 */,
+				90249E34235575C7000536F7 /* 商品详情 */,
+				90364BC2235497B900A120AC /* 专区商品 */,
+				90364B61235468C500A120AC /* 消息中心 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,6 +922,7 @@
 		90363FA62354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90249E4923559970000536F7 /* 商品详情 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +930,11 @@
 		90363FA72354274B00A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90BDE36B2356C390008790DA /* 发单 */,
+				90249E3A23557687000536F7 /* 商品详情 */,
+				90364BC8235498DB00A120AC /* 专区商品 */,
+				90364B7923546BDD00A120AC /* 首页 */,
+				90364B67235468DE00A120AC /* 消息中心 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,6 +955,16 @@
 				90364B40235429DF00A120AC /* GYMyVC.h */,
 				90364B41235429DF00A120AC /* GYMyVC.m */,
 				90364B42235429DF00A120AC /* GYMyVC.xib */,
+				90FE6A99235742C10098278B /* 售后退款 */,
+				90FE6A7E23573EAE0098278B /* 我的订单 */,
+				90FE6A682357350B0098278B /* 我的需求 */,
+				90E2639E23572D5600C4A376 /* 我的地址 */,
+				90E2638D23571DBB00C4A376 /* 升级会员 */,
+				90E2638723570E5600C4A376 /* 认证信息 */,
+				90E2637B235709A400C4A376 /* 我的收藏 */,
+				90E2636F2357028C00C4A376 /* 我的账单 */,
+				90E263692357013A00C4A376 /* 我的产品 */,
+				90E2635A2356F13600C4A376 /* 设置 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -492,6 +979,13 @@
 		90363FAB2354274B00A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90FE6A7F23573EB70098278B /* 我的订单 */,
+				90FE6A73235735660098278B /* 我的需求 */,
+				90E263A423572D7500C4A376 /* 我的地址 */,
+				90E2639323572B1A00C4A376 /* 升级会员 */,
+				90E26381235709C600C4A376 /* 我的收藏 */,
+				90E26375235702B900C4A376 /* 我的账单 */,
+				90E263682356FD3E00C4A376 /* 我的 */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +1006,8 @@
 				90364B36235429BD00A120AC /* GYCategoryVC.h */,
 				90364B37235429BD00A120AC /* GYCategoryVC.m */,
 				90364B38235429BD00A120AC /* GYCategoryVC.xib */,
+				90364BCE23549E2300A120AC /* 分类 */,
+				90364BCF23549E3700A120AC /* 分类列表 */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -526,6 +1022,18 @@
 		90363FAF2354274B00A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90364BAE23548F4100A120AC /* GYBigCateCell.h */,
+				90364BAF23548F4100A120AC /* GYBigCateCell.m */,
+				90364BB023548F4100A120AC /* GYBigCateCell.xib */,
+				90364BB32354902000A120AC /* GYSmallCateCell.h */,
+				90364BB42354902000A120AC /* GYSmallCateCell.m */,
+				90364BB52354902000A120AC /* GYSmallCateCell.xib */,
+				90364BB82354907200A120AC /* GYSmallCateHeaderView.h */,
+				90364BB92354907200A120AC /* GYSmallCateHeaderView.m */,
+				90364BBA2354907200A120AC /* GYSmallCateHeaderView.xib */,
+				90364BBD235492F900A120AC /* GYBrandCateCell.h */,
+				90364BBE235492F900A120AC /* GYBrandCateCell.m */,
+				90364BBF235492F900A120AC /* GYBrandCateCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -760,8 +1268,8 @@
 			isa = PBXGroup;
 			children = (
 				90363FE32354277600A120AC /* HXNetworkTool.h */,
-				90363FE42354277600A120AC /* HXNetworkCache.h */,
 				90363FE52354277600A120AC /* HXNetworkTool.m */,
+				90363FE42354277600A120AC /* HXNetworkCache.h */,
 				90363FE62354277600A120AC /* HXNetworkCache.m */,
 			);
 			path = Network;
@@ -831,11 +1339,11 @@
 		90363FFC2354277700A120AC /* HXDropMenu */ = {
 			isa = PBXGroup;
 			children = (
+				903640002354277700A120AC /* RCFilterCell.h */,
 				90363FFD2354277700A120AC /* RCFilterCell.m */,
 				90363FFE2354277700A120AC /* RCFilterCell.xib */,
-				90363FFF2354277700A120AC /* HXDropMenuView.m */,
-				903640002354277700A120AC /* RCFilterCell.h */,
 				903640012354277700A120AC /* HXDropMenuView.h */,
+				90363FFF2354277700A120AC /* HXDropMenuView.m */,
 			);
 			path = HXDropMenu;
 			sourceTree = "<group>";
@@ -1046,6 +1554,20 @@
 				90364B45235442B600A120AC /* GYLoginVC.h */,
 				90364B46235442B600A120AC /* GYLoginVC.m */,
 				90364B47235442B600A120AC /* GYLoginVC.xib */,
+				90364B522354551500A120AC /* GYRegisterVC.h */,
+				90364B532354551500A120AC /* GYRegisterVC.m */,
+				90364B542354551500A120AC /* GYRegisterVC.xib */,
+				90364B57235455C700A120AC /* GYRegisterAuthVC.h */,
+				90364B58235455C700A120AC /* GYRegisterAuthVC.m */,
+				90364B59235455C700A120AC /* GYRegisterAuthVC.xib */,
+				90364B5C2354663600A120AC /* GYRegisterSuccessVC.h */,
+				90364B5D2354663600A120AC /* GYRegisterSuccessVC.m */,
+				90364B5E2354663600A120AC /* GYRegisterSuccessVC.xib */,
+				90364B4A2354529900A120AC /* GYChangePwdVC.h */,
+				90364B4B2354529900A120AC /* GYChangePwdVC.m */,
+				90364B4C2354529900A120AC /* GYChangePwdVC.xib */,
+				90364B4F235454D600A120AC /* GYWebContentVC.h */,
+				90364B50235454D600A120AC /* GYWebContentVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1060,6 +1582,12 @@
 		90364AEE2354295300A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90364B9A2354897100A120AC /* GYWorkCategoryView.h */,
+				90364B9B2354897100A120AC /* GYWorkCategoryView.m */,
+				90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */,
+				90364B9F23548A1800A120AC /* GYWorkCategoryCell.h */,
+				90364BA023548A1800A120AC /* GYWorkCategoryCell.m */,
+				90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1101,6 +1629,336 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		90364B61235468C500A120AC /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				90364B62235468D600A120AC /* GYMessageVC.h */,
+				90364B63235468D600A120AC /* GYMessageVC.m */,
+				90364B64235468D600A120AC /* GYMessageVC.xib */,
+			);
+			name = "消息中心";
+			sourceTree = "<group>";
+		};
+		90364B67235468DE00A120AC /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				90364B68235468F000A120AC /* GYMessageCell.h */,
+				90364B69235468F000A120AC /* GYMessageCell.m */,
+				90364B6A235468F000A120AC /* GYMessageCell.xib */,
+			);
+			name = "消息中心";
+			sourceTree = "<group>";
+		};
+		90364B7923546BDD00A120AC /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				90364B7F235471BE00A120AC /* GYHomeCateCell.h */,
+				90364B80235471BE00A120AC /* GYHomeCateCell.m */,
+				90364B81235471BE00A120AC /* GYHomeCateCell.xib */,
+				90364B7A23546CDF00A120AC /* GYShopGoodsCell.h */,
+				90364B7B23546CDF00A120AC /* GYShopGoodsCell.m */,
+				90364B7C23546CDF00A120AC /* GYShopGoodsCell.xib */,
+				90364B892354765400A120AC /* GYHomeBannerHeader.h */,
+				90364B8A2354765400A120AC /* GYHomeBannerHeader.m */,
+				90364B8B2354765400A120AC /* GYHomeBannerHeader.xib */,
+				90364B842354746900A120AC /* GYHomeSectionHeader.h */,
+				90364B852354746900A120AC /* GYHomeSectionHeader.m */,
+				90364B862354746900A120AC /* GYHomeSectionHeader.xib */,
+				90364B8E2354775300A120AC /* GYBannerCell.h */,
+				90364B8F2354775300A120AC /* GYBannerCell.m */,
+				90364B902354775300A120AC /* GYBannerCell.xib */,
+				90364B9323547AB700A120AC /* GYTopNoticeCell.h */,
+				90364B9423547AB700A120AC /* GYTopNoticeCell.m */,
+				90364B9823547BD600A120AC /* GYTopNoticeCell.xib */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		90364BC2235497B900A120AC /* 专区商品 */ = {
+			isa = PBXGroup;
+			children = (
+				90364BC3235497E200A120AC /* GYSpecialGoodsVC.h */,
+				90364BC4235497E200A120AC /* GYSpecialGoodsVC.m */,
+				90364BC5235497E200A120AC /* GYSpecialGoodsVC.xib */,
+			);
+			name = "专区商品";
+			sourceTree = "<group>";
+		};
+		90364BC8235498DB00A120AC /* 专区商品 */ = {
+			isa = PBXGroup;
+			children = (
+				90364BC9235498F500A120AC /* GYSpecialGoodsCell.h */,
+				90364BCA235498F500A120AC /* GYSpecialGoodsCell.m */,
+				90364BCB235498F500A120AC /* GYSpecialGoodsCell.xib */,
+				90249E722355B840000536F7 /* GYCateMenuView.h */,
+				90249E732355B840000536F7 /* GYCateMenuView.m */,
+				90249E752355C096000536F7 /* GYBrandMenuView.h */,
+				90249E762355C096000536F7 /* GYBrandMenuView.m */,
+			);
+			name = "专区商品";
+			sourceTree = "<group>";
+		};
+		90364BCE23549E2300A120AC /* 分类 */ = {
+			isa = PBXGroup;
+			children = (
+				90364BA423548CEE00A120AC /* GYCategoryChildVC.h */,
+				90364BA523548CEE00A120AC /* GYCategoryChildVC.m */,
+				90364BA623548CEE00A120AC /* GYCategoryChildVC.xib */,
+				90364BA923548E4300A120AC /* GYBrandChildVC.h */,
+				90364BAA23548E4300A120AC /* GYBrandChildVC.m */,
+				90364BAB23548E4300A120AC /* GYBrandChildVC.xib */,
+			);
+			name = "分类";
+			sourceTree = "<group>";
+		};
+		90364BCF23549E3700A120AC /* 分类列表 */ = {
+			isa = PBXGroup;
+			children = (
+				90364BD023549E9F00A120AC /* GYCateGoodsVC.h */,
+				90364BD123549E9F00A120AC /* GYCateGoodsVC.m */,
+				90364BD223549E9F00A120AC /* GYCateGoodsVC.xib */,
+			);
+			name = "分类列表";
+			sourceTree = "<group>";
+		};
+		90BDE3652356AAE4008790DA /* 发单 */ = {
+			isa = PBXGroup;
+			children = (
+				90BDE3662356AB3D008790DA /* GYPublishWorkVC.h */,
+				90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */,
+				90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */,
+			);
+			name = "发单";
+			sourceTree = "<group>";
+		};
+		90BDE36B2356C390008790DA /* 发单 */ = {
+			isa = PBXGroup;
+			children = (
+				90BDE3712356C3EC008790DA /* GYDatePickerView.h */,
+				90BDE3722356C3EC008790DA /* GYDatePickerView.m */,
+				90BDE3742356C3F2008790DA /* GYDatePickerView.xib */,
+			);
+			name = "发单";
+			sourceTree = "<group>";
+		};
+		90E2635A2356F13600C4A376 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				90E263552356F13100C4A376 /* GYMySetVC.h */,
+				90E263562356F13100C4A376 /* GYMySetVC.m */,
+				90E263572356F13100C4A376 /* GYMySetVC.xib */,
+				90E263602356FA8900C4A376 /* GYChangeInfoVC.h */,
+				90E263612356FA8900C4A376 /* GYChangeInfoVC.m */,
+				90E263622356FA8900C4A376 /* GYChangeInfoVC.xib */,
+				90E2635B2356F34F00C4A376 /* GYChangeBindVC.h */,
+				90E2635C2356F34F00C4A376 /* GYChangeBindVC.m */,
+				90E2635D2356F34F00C4A376 /* GYChangeBindVC.xib */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		90E263682356FD3E00C4A376 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				90BDE3762356E9AD008790DA /* GYMyHeader.h */,
+				90BDE3772356E9AD008790DA /* GYMyHeader.m */,
+				90BDE3792356E9B7008790DA /* GYMyHeader.xib */,
+				90E263502356EDD300C4A376 /* GYMyCell.h */,
+				90E263512356EDD300C4A376 /* GYMyCell.m */,
+				90E263522356EDD300C4A376 /* GYMyCell.xib */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
+		90E263692357013A00C4A376 /* 我的产品 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2636A2357017700C4A376 /* GYMyGoodsVC.h */,
+				90E2636B2357017700C4A376 /* GYMyGoodsVC.m */,
+				90E2636C2357017700C4A376 /* GYMyGoodsVC.xib */,
+			);
+			name = "我的产品";
+			sourceTree = "<group>";
+		};
+		90E2636F2357028C00C4A376 /* 我的账单 */ = {
+			isa = PBXGroup;
+			children = (
+				90E26370235702B300C4A376 /* GYMyBillVC.h */,
+				90E26371235702B300C4A376 /* GYMyBillVC.m */,
+				90E26372235702B300C4A376 /* GYMyBillVC.xib */,
+			);
+			name = "我的账单";
+			sourceTree = "<group>";
+		};
+		90E26375235702B900C4A376 /* 我的账单 */ = {
+			isa = PBXGroup;
+			children = (
+				90E26376235702CB00C4A376 /* GYMyBillCell.h */,
+				90E26377235702CB00C4A376 /* GYMyBillCell.m */,
+				90E26378235702CB00C4A376 /* GYMyBillCell.xib */,
+			);
+			name = "我的账单";
+			sourceTree = "<group>";
+		};
+		90E2637B235709A400C4A376 /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2637C235709BC00C4A376 /* GYMyCollentVC.h */,
+				90E2637D235709BC00C4A376 /* GYMyCollentVC.m */,
+				90E2637E235709BC00C4A376 /* GYMyCollentVC.xib */,
+			);
+			name = "我的收藏";
+			sourceTree = "<group>";
+		};
+		90E26381235709C600C4A376 /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				90E26382235709DA00C4A376 /* GYMyCollectCell.h */,
+				90E26383235709DA00C4A376 /* GYMyCollectCell.m */,
+				90E26384235709DA00C4A376 /* GYMyCollectCell.xib */,
+			);
+			name = "我的收藏";
+			sourceTree = "<group>";
+		};
+		90E2638723570E5600C4A376 /* 认证信息 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2638823571BE700C4A376 /* GYAuthInfoVC.h */,
+				90E2638923571BE700C4A376 /* GYAuthInfoVC.m */,
+				90E2638A23571BE700C4A376 /* GYAuthInfoVC.xib */,
+			);
+			name = "认证信息";
+			sourceTree = "<group>";
+		};
+		90E2638D23571DBB00C4A376 /* 升级会员 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2638E23571DDB00C4A376 /* GYVipMemberVC.h */,
+				90E2638F23571DDB00C4A376 /* GYVipMemberVC.m */,
+				90E2639023571DDB00C4A376 /* GYVipMemberVC.xib */,
+			);
+			name = "升级会员";
+			sourceTree = "<group>";
+		};
+		90E2639323572B1A00C4A376 /* 升级会员 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2639923572BB800C4A376 /* GYVipMemberCell.h */,
+				90E2639A23572BB800C4A376 /* GYVipMemberCell.m */,
+				90E2639B23572BB800C4A376 /* GYVipMemberCell.xib */,
+			);
+			name = "升级会员";
+			sourceTree = "<group>";
+		};
+		90E2639E23572D5600C4A376 /* 我的地址 */ = {
+			isa = PBXGroup;
+			children = (
+				90E2639F23572D6E00C4A376 /* GYMyAddressVC.h */,
+				90E263A023572D6E00C4A376 /* GYMyAddressVC.m */,
+				90E263A123572D6E00C4A376 /* GYMyAddressVC.xib */,
+				90FE6A61235731280098278B /* GYEditAddressVC.h */,
+				90FE6A62235731280098278B /* GYEditAddressVC.m */,
+				90FE6A63235731280098278B /* GYEditAddressVC.xib */,
+			);
+			name = "我的地址";
+			sourceTree = "<group>";
+		};
+		90E263A423572D7500C4A376 /* 我的地址 */ = {
+			isa = PBXGroup;
+			children = (
+				90E263A523572D8F00C4A376 /* GYMyAddressCell.h */,
+				90E263A623572D8F00C4A376 /* GYMyAddressCell.m */,
+				90E263A723572D8F00C4A376 /* GYMyAddressCell.xib */,
+			);
+			name = "我的地址";
+			sourceTree = "<group>";
+		};
+		90FE6A682357350B0098278B /* 我的需求 */ = {
+			isa = PBXGroup;
+			children = (
+				90FE6A692357351D0098278B /* GYMyNeedsVC.h */,
+				90FE6A6A2357351D0098278B /* GYMyNeedsVC.m */,
+				90FE6A6B2357351D0098278B /* GYMyNeedsVC.xib */,
+				90FE6A6E235735300098278B /* GYMyNeedsChildVC.h */,
+				90FE6A6F235735300098278B /* GYMyNeedsChildVC.m */,
+				90FE6A70235735300098278B /* GYMyNeedsChildVC.xib */,
+				90FE6A7923573A020098278B /* GYMyNeedsDetailVC.h */,
+				90FE6A7A23573A020098278B /* GYMyNeedsDetailVC.m */,
+				90FE6A7B23573A020098278B /* GYMyNeedsDetailVC.xib */,
+			);
+			name = "我的需求";
+			sourceTree = "<group>";
+		};
+		90FE6A73235735660098278B /* 我的需求 */ = {
+			isa = PBXGroup;
+			children = (
+				90FE6A74235735790098278B /* GYMyNeedsCell.h */,
+				90FE6A75235735790098278B /* GYMyNeedsCell.m */,
+				90FE6A76235735790098278B /* GYMyNeedsCell.xib */,
+			);
+			name = "我的需求";
+			sourceTree = "<group>";
+		};
+		90FE6A7E23573EAE0098278B /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				90FE6A8F235740E50098278B /* GYMyOrderVC.h */,
+				90FE6A90235740E50098278B /* GYMyOrderVC.m */,
+				90FE6A91235740E50098278B /* GYMyOrderVC.xib */,
+				90FE6A94235740F40098278B /* GYMyOrderChildVC.h */,
+				90FE6A95235740F50098278B /* GYMyOrderChildVC.m */,
+				90FE6A96235740F50098278B /* GYMyOrderChildVC.xib */,
+				90FE6AA4235747500098278B /* GYOrderDetailVC.h */,
+				90FE6AA5235747500098278B /* GYOrderDetailVC.m */,
+				90FE6AA6235747500098278B /* GYOrderDetailVC.xib */,
+				90562F9C2358045500EC70FE /* GYEvaluateVC.h */,
+				90562F9D2358045500EC70FE /* GYEvaluateVC.m */,
+				90562F9E2358045500EC70FE /* GYEvaluateVC.xib */,
+			);
+			name = "我的订单";
+			sourceTree = "<group>";
+		};
+		90FE6A7F23573EB70098278B /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				90FE6A8023573EC90098278B /* GYMyOrderCell.h */,
+				90FE6A8123573EC90098278B /* GYMyOrderCell.m */,
+				90FE6A8223573EC90098278B /* GYMyOrderCell.xib */,
+				90FE6A8523573F2A0098278B /* GYMyOrderHeader.h */,
+				90FE6A8623573F2A0098278B /* GYMyOrderHeader.m */,
+				90FE6A8823573F320098278B /* GYMyOrderHeader.xib */,
+				90FE6A8A23573FA70098278B /* GYMyOrderFooter.h */,
+				90FE6A8B23573FA70098278B /* GYMyOrderFooter.m */,
+				90FE6A8D23573FB10098278B /* GYMyOrderFooter.xib */,
+				90FE6A9F235746020098278B /* GYOrderDetailHeader.h */,
+				90FE6AA0235746020098278B /* GYOrderDetailHeader.m */,
+				90FE6AA22357460A0098278B /* GYOrderDetailHeader.xib */,
+				90562F922357FC9000EC70FE /* GYOrderDetailFooter.h */,
+				90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */,
+				90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */,
+				90562F972358012600EC70FE /* GYInvoiceDetailFooter.h */,
+				90562F982358012600EC70FE /* GYInvoiceDetailFooter.m */,
+				90562F9A2358012E00EC70FE /* GYInvoiceDetailFooter.xib */,
+				90FE6AA9235747880098278B /* GYOrderDetailCell.h */,
+				90FE6AAA235747880098278B /* GYOrderDetailCell.m */,
+				90FE6AAB235747880098278B /* GYOrderDetailCell.xib */,
+				90562FA12358078600EC70FE /* GYEvaluatePhotoCell.h */,
+				90562FA22358078600EC70FE /* GYEvaluatePhotoCell.m */,
+				90562FA32358078600EC70FE /* GYEvaluatePhotoCell.xib */,
+			);
+			name = "我的订单";
+			sourceTree = "<group>";
+		};
+		90FE6A99235742C10098278B /* 售后退款 */ = {
+			isa = PBXGroup;
+			children = (
+				90FE6A9A235742DD0098278B /* GYAfterSaleVC.h */,
+				90FE6A9B235742DD0098278B /* GYAfterSaleVC.m */,
+				90FE6A9C235742DD0098278B /* GYAfterSaleVC.xib */,
+			);
+			name = "售后退款";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1210,18 +2068,93 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90364B83235471BE00A120AC /* GYHomeCateCell.xib in Resources */,
+				90249E622355AB29000536F7 /* GYChooseClassHeader.xib in Resources */,
+				90E263A923572D8F00C4A376 /* GYMyAddressCell.xib in Resources */,
+				90E263642356FA8900C4A376 /* GYChangeInfoVC.xib in Resources */,
+				90FE6A98235740F50098278B /* GYMyOrderChildVC.xib in Resources */,
+				90249E672355AB3C000536F7 /* GYChooseClassFooter.xib in Resources */,
+				90364BC1235492F900A120AC /* GYBrandCateCell.xib in Resources */,
+				90364B9E2354897C00A120AC /* GYWorkCategoryView.xib in Resources */,
+				90FE6A9E235742DD0098278B /* GYAfterSaleVC.xib in Resources */,
+				90364BAD23548E4300A120AC /* GYBrandChildVC.xib in Resources */,
+				90249E6C2355AEE6000536F7 /* GYAllCommentsVC.xib in Resources */,
+				90BDE36A2356AB3D008790DA /* GYPublishWorkVC.xib in Resources */,
 				90364B3F235429CE00A120AC /* GYCartVC.xib in Resources */,
+				90364BBC2354907200A120AC /* GYSmallCateHeaderView.xib in Resources */,
 				90364B3A235429BD00A120AC /* GYCategoryVC.xib in Resources */,
+				90E2639223571DDB00C4A376 /* GYVipMemberVC.xib in Resources */,
+				90364B7E23546CDF00A120AC /* GYShopGoodsCell.xib in Resources */,
+				90364BD423549E9F00A120AC /* GYCateGoodsVC.xib in Resources */,
+				90249E5D2355AB16000536F7 /* GYChooseClassCell.xib in Resources */,
+				90FE6A8E23573FB10098278B /* GYMyOrderFooter.xib in Resources */,
 				903640882354277700A120AC /* SGQRCode.bundle in Resources */,
+				90E5DCF32355F34E00280562 /* GYPayTypeView.xib in Resources */,
+				90249E862355E6B2000536F7 /* GYUpOrderHeader.xib in Resources */,
+				90E2638C23571BE700C4A376 /* GYAuthInfoVC.xib in Resources */,
+				90E26380235709BC00C4A376 /* GYMyCollentVC.xib in Resources */,
 				9036407F2354277700A120AC /* AlipaySDK.bundle in Resources */,
+				90249E582355A913000536F7 /* GYChooseClassView.xib in Resources */,
 				903640762354277700A120AC /* RCFilterCell.xib in Resources */,
+				90364BB223548F4100A120AC /* GYBigCateCell.xib in Resources */,
+				90364BB72354902000A120AC /* GYSmallCateCell.xib in Resources */,
+				90364B922354775300A120AC /* GYBannerCell.xib in Resources */,
+				90249E8B2355E837000536F7 /* GYUpOrderCell.xib in Resources */,
+				90364BA823548CEE00A120AC /* GYCategoryChildVC.xib in Resources */,
+				90FE6AAD235747880098278B /* GYOrderDetailCell.xib in Resources */,
+				90E263A323572D6E00C4A376 /* GYMyAddressVC.xib in Resources */,
+				90BDE3752356C3F2008790DA /* GYDatePickerView.xib in Resources */,
+				90562FA02358045500EC70FE /* GYEvaluateVC.xib in Resources */,
+				90E2635F2356F35000C4A376 /* GYChangeBindVC.xib in Resources */,
+				90FE6A78235735790098278B /* GYMyNeedsCell.xib in Resources */,
+				90562F962357FC9600EC70FE /* GYOrderDetailFooter.xib in Resources */,
+				90364B5B235455C700A120AC /* GYRegisterAuthVC.xib in Resources */,
+				90249E4E235599BE000536F7 /* moment2.plist in Resources */,
 				90363F7423540B4500A120AC /* LaunchScreen.storyboard in Resources */,
+				90FE6A65235731280098278B /* GYEditAddressVC.xib in Resources */,
+				90249E3F2355774E000536F7 /* GYGoodsDetailHeader.xib in Resources */,
+				90249E39235575FC000536F7 /* GYGoodsDetailVC.xib in Resources */,
+				90364BC7235497E200A120AC /* GYSpecialGoodsVC.xib in Resources */,
+				90E5DCE92355EC6700280562 /* GYUpOrderFooter.xib in Resources */,
 				90363F7123540B4500A120AC /* Assets.xcassets in Resources */,
+				90364B66235468D600A120AC /* GYMessageVC.xib in Resources */,
+				90E2636E2357017700C4A376 /* GYMyGoodsVC.xib in Resources */,
+				90364BCD235498F500A120AC /* GYSpecialGoodsCell.xib in Resources */,
+				90E26386235709DA00C4A376 /* GYMyCollectCell.xib in Resources */,
 				90364B44235429DF00A120AC /* GYMyVC.xib in Resources */,
+				90E5DCEE2355EE4700280562 /* GYInvoiceVC.xib in Resources */,
+				90FE6A72235735300098278B /* GYMyNeedsChildVC.xib in Resources */,
+				90BDE37A2356E9B7008790DA /* GYMyHeader.xib in Resources */,
+				90364B602354663600A120AC /* GYRegisterSuccessVC.xib in Resources */,
+				90364B9923547BD600A120AC /* GYTopNoticeCell.xib in Resources */,
+				90E263592356F13100C4A376 /* GYMySetVC.xib in Resources */,
+				90364B562354551500A120AC /* GYRegisterVC.xib in Resources */,
+				90249E44235597EC000536F7 /* GYGoodsDetailSectionHeader.xib in Resources */,
+				90249E712355B335000536F7 /* GYCommentTypeCell.xib in Resources */,
+				90249E7C2355E1C1000536F7 /* GYCartCell.xib in Resources */,
+				90E263542356EDD300C4A376 /* GYMyCell.xib in Resources */,
+				90364B4E2354529900A120AC /* GYChangePwdVC.xib in Resources */,
+				90FE6A7D23573A020098278B /* GYMyNeedsDetailVC.xib in Resources */,
+				90E26374235702B300C4A376 /* GYMyBillVC.xib in Resources */,
+				90FE6A8923573F320098278B /* GYMyOrderHeader.xib in Resources */,
+				90E2637A235702CB00C4A376 /* GYMyBillCell.xib in Resources */,
+				90364BA323548A1800A120AC /* GYWorkCategoryCell.xib in Resources */,
+				90364B882354746900A120AC /* GYHomeSectionHeader.xib in Resources */,
 				90364B49235442B600A120AC /* GYLoginVC.xib in Resources */,
+				90562FA52358078600EC70FE /* GYEvaluatePhotoCell.xib in Resources */,
 				903640832354277700A120AC /* FSActionSheet_cancel@2x.png in Resources */,
+				90FE6A93235740E50098278B /* GYMyOrderVC.xib in Resources */,
+				90FE6AA32357460A0098278B /* GYOrderDetailHeader.xib in Resources */,
+				90249E812355E51C000536F7 /* GYUpOrderVC.xib in Resources */,
+				90364B6C235468F000A120AC /* GYMessageCell.xib in Resources */,
+				90562F9B2358012E00EC70FE /* GYInvoiceDetailFooter.xib in Resources */,
+				90E2639D23572BB800C4A376 /* GYVipMemberCell.xib in Resources */,
+				90364B8D2354765400A120AC /* GYHomeBannerHeader.xib in Resources */,
 				903640782354277700A120AC /* WSDatePickerView.xib in Resources */,
+				90FE6A8423573EC90098278B /* GYMyOrderCell.xib in Resources */,
 				90364B35235429A400A120AC /* GYHomeVC.xib in Resources */,
+				90FE6A6D2357351D0098278B /* GYMyNeedsVC.xib in Resources */,
+				90FE6AA8235747500098278B /* GYOrderDetailVC.xib in Resources */,
 				903640822354277700A120AC /* FSActionSheet_cancel@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1254,6 +2187,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-GY/Pods-GY-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
 				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
 				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
@@ -1264,6 +2198,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoActionSheet.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowserCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowser.bundle",
@@ -1303,68 +2238,148 @@
 			buildActionMask = 2147483647;
 			files = (
 				9036407B2354277700A120AC /* UIView+Extension.m in Sources */,
+				90FE6A8C23573FA70098278B /* GYMyOrderFooter.m in Sources */,
 				9036407E2354277700A120AC /* FBShimmeringView.m in Sources */,
 				903640972354277700A120AC /* UIView+WZLBadge.m in Sources */,
 				9036482C235428CD00A120AC /* AppDelegate+MSPushService.m in Sources */,
 				903640752354277700A120AC /* RCFilterCell.m in Sources */,
 				903640872354277700A120AC /* FSActionSheetItem.m in Sources */,
+				90E2635E2356F35000C4A376 /* GYChangeBindVC.m in Sources */,
+				90FE6A64235731280098278B /* GYEditAddressVC.m in Sources */,
+				90364BCC235498F500A120AC /* GYSpecialGoodsCell.m in Sources */,
 				903640932354277700A120AC /* LMJVerticalScrollText.m in Sources */,
 				903640612354277700A120AC /* UIImage+HXNExtension.m in Sources */,
+				90249E772355C096000536F7 /* GYBrandMenuView.m in Sources */,
+				90FE6AAC235747880098278B /* GYOrderDetailCell.m in Sources */,
+				90249E7B2355E1C1000536F7 /* GYCartCell.m in Sources */,
+				90364B82235471BE00A120AC /* GYHomeCateCell.m in Sources */,
+				90364B4D2354529900A120AC /* GYChangePwdVC.m in Sources */,
+				90562FA42358078600EC70FE /* GYEvaluatePhotoCell.m in Sources */,
+				90249E8A2355E837000536F7 /* GYUpOrderCell.m in Sources */,
+				90E2639123571DDB00C4A376 /* GYVipMemberVC.m in Sources */,
 				9036408D2354277700A120AC /* UIScrollView+Empty.m in Sources */,
 				9036406E2354277700A120AC /* HXTopWindow.m in Sources */,
 				903640692354277700A120AC /* UIBarButtonItem+HXNExtension.m in Sources */,
+				90FE6A8323573EC90098278B /* GYMyOrderCell.m in Sources */,
+				90FE6AA7235747500098278B /* GYOrderDetailVC.m in Sources */,
+				90249E5223559A8D000536F7 /* GYGoodsCommentCell.m in Sources */,
 				9036406B2354277700A120AC /* HXLocationTool_.m in Sources */,
+				90FE6A6C2357351D0098278B /* GYMyNeedsVC.m in Sources */,
+				90249E802355E51C000536F7 /* GYUpOrderVC.m in Sources */,
 				903640842354277700A120AC /* FSActionSheetConfig.m in Sources */,
+				90364BA223548A1800A120AC /* GYWorkCategoryCell.m in Sources */,
+				90BDE3782356E9AD008790DA /* GYMyHeader.m in Sources */,
+				90364BBB2354907200A120AC /* GYSmallCateHeaderView.m in Sources */,
+				90FE6AA1235746020098278B /* GYOrderDetailHeader.m in Sources */,
 				903640862354277700A120AC /* FSActionSheetCell.m in Sources */,
+				90E2638B23571BE700C4A376 /* GYAuthInfoVC.m in Sources */,
 				9036407D2354277700A120AC /* FBShimmeringLayer.m in Sources */,
+				90364BD323549E9F00A120AC /* GYCateGoodsVC.m in Sources */,
+				90249E562355A90A000536F7 /* GYChooseClassView.m in Sources */,
+				90364B872354746900A120AC /* GYHomeSectionHeader.m in Sources */,
 				90364B2F2354295400A120AC /* HXGuideViewController.m in Sources */,
 				903640702354277700A120AC /* MSUserManager.m in Sources */,
+				90249E6B2355AEE6000536F7 /* GYAllCommentsVC.m in Sources */,
+				90364B8C2354765400A120AC /* GYHomeBannerHeader.m in Sources */,
+				90562F9F2358045500EC70FE /* GYEvaluateVC.m in Sources */,
 				903640812354277700A120AC /* HXPlaceholderTextView.m in Sources */,
 				90364B43235429DF00A120AC /* GYMyVC.m in Sources */,
+				90364B912354775300A120AC /* GYBannerCell.m in Sources */,
+				90E263532356EDD300C4A376 /* GYMyCell.m in Sources */,
+				90FE6A97235740F50098278B /* GYMyOrderChildVC.m in Sources */,
+				90364B65235468D600A120AC /* GYMessageVC.m in Sources */,
+				90249E42235597E4000536F7 /* GYGoodsDetailSectionHeader.m in Sources */,
 				9036406D2354277700A120AC /* HXNetworkCache.m in Sources */,
+				90364B5A235455C700A120AC /* GYRegisterAuthVC.m in Sources */,
 				90364B2E2354295400A120AC /* HXTabBarController.m in Sources */,
+				90E2636D2357017700C4A376 /* GYMyGoodsVC.m in Sources */,
 				9036405F2354277700A120AC /* UIButton+HXCode.m in Sources */,
+				90249E38235575FC000536F7 /* GYGoodsDetailVC.m in Sources */,
 				9036406A2354277700A120AC /* UIView+HXNExtension.m in Sources */,
+				90E26385235709DA00C4A376 /* GYMyCollectCell.m in Sources */,
+				90E263632356FA8900C4A376 /* GYChangeInfoVC.m in Sources */,
+				90BDE3732356C3EC008790DA /* GYDatePickerView.m in Sources */,
+				90E5DCF12355F33200280562 /* GYPayTypeView.m in Sources */,
+				90364B5F2354663600A120AC /* GYRegisterSuccessVC.m in Sources */,
 				9036408F2354277700A120AC /* LYEmptyView.m in Sources */,
 				90364B48235442B600A120AC /* GYLoginVC.m in Sources */,
 				9036408B2354277700A120AC /* SGQRCodeScanView.m in Sources */,
+				90364B7D23546CDF00A120AC /* GYShopGoodsCell.m in Sources */,
 				903640892354277700A120AC /* SGQRCodeObtainConfigure.m in Sources */,
+				90249E662355AB3C000536F7 /* GYChooseClassFooter.m in Sources */,
+				90E5DCE72355EC6000280562 /* GYUpOrderFooter.m in Sources */,
 				903640852354277700A120AC /* FSActionSheet.m in Sources */,
+				90364BC6235497E200A120AC /* GYSpecialGoodsVC.m in Sources */,
 				9036409D2354277700A120AC /* UINavigation+SXFixSpace.m in Sources */,
+				90FE6A71235735300098278B /* GYMyNeedsChildVC.m in Sources */,
 				903640942354277700A120AC /* UILabel+ForLMJVerticalScrollText.m in Sources */,
 				903640792354277700A120AC /* WSDatePickerView.m in Sources */,
+				90364BB123548F4100A120AC /* GYBigCateCell.m in Sources */,
+				90364BA723548CEE00A120AC /* GYCategoryChildVC.m in Sources */,
 				903640962354277700A120AC /* CAAnimation+WAnimation.m in Sources */,
+				90FE6A8723573F2A0098278B /* GYMyOrderHeader.m in Sources */,
+				90E2637F235709BC00C4A376 /* GYMyCollentVC.m in Sources */,
+				90FE6A7C23573A020098278B /* GYMyNeedsDetailVC.m in Sources */,
+				90249E482355996C000536F7 /* GYGoodsComment.m in Sources */,
+				90249E742355B840000536F7 /* GYCateMenuView.m in Sources */,
 				90364B39235429BD00A120AC /* GYCategoryVC.m in Sources */,
 				9036409C2354277700A120AC /* NSObject+LMRuntime.m in Sources */,
+				90E263A823572D8F00C4A376 /* GYMyAddressCell.m in Sources */,
+				90364B9C2354897100A120AC /* GYWorkCategoryView.m in Sources */,
 				9036482B235428CD00A120AC /* AppDelegate+MSAppService.m in Sources */,
 				903640662354277700A120AC /* UINavigationBar+ChangeColor.m in Sources */,
+				90364B51235454D600A120AC /* GYWebContentVC.m in Sources */,
 				903640912354277700A120AC /* zhAlertView.m in Sources */,
 				9036406C2354277700A120AC /* HXNetworkTool.m in Sources */,
 				90364B2D2354295400A120AC /* HXBaseViewController.m in Sources */,
+				90249E3D23557748000536F7 /* GYGoodsDetailHeader.m in Sources */,
 				90363F7723540B4500A120AC /* main.m in Sources */,
 				9036408C2354277700A120AC /* LYEmptyBaseView.m in Sources */,
 				903640742354277700A120AC /* SDWeiXinPhotoContainerView.m in Sources */,
+				90364BB62354902000A120AC /* GYSmallCateCell.m in Sources */,
+				90E26379235702CB00C4A376 /* GYMyBillCell.m in Sources */,
 				903640672354277700A120AC /* UILabel+HXNExtension.m in Sources */,
+				90FE6A9D235742DD0098278B /* GYAfterSaleVC.m in Sources */,
 				90364B3E235429CE00A120AC /* GYCartVC.m in Sources */,
+				90249E5C2355AB16000536F7 /* GYChooseClassCell.m in Sources */,
 				903640682354277700A120AC /* ContactDataHelper.m in Sources */,
+				90E263582356F13100C4A376 /* GYMySetVC.m in Sources */,
+				90E26373235702B300C4A376 /* GYMyBillVC.m in Sources */,
+				90FE6A77235735790098278B /* GYMyNeedsCell.m in Sources */,
 				90363F6923540B4400A120AC /* AppDelegate.m in Sources */,
 				903640902354277700A120AC /* HXSearchBar.m in Sources */,
+				90364B9523547AB700A120AC /* GYTopNoticeCell.m in Sources */,
 				903640602354277700A120AC /* XTimer.m in Sources */,
+				90364B552354551500A120AC /* GYRegisterVC.m in Sources */,
+				90249E4C23559988000536F7 /* GYGoodsCommentLayout.m in Sources */,
+				90249E702355B335000536F7 /* GYCommentTypeCell.m in Sources */,
+				90249E842355E6AA000536F7 /* GYUpOrderHeader.m in Sources */,
 				903640642354277700A120AC /* HXConst.m in Sources */,
+				90FE6A92235740E50098278B /* GYMyOrderVC.m in Sources */,
+				90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */,
 				9036407C2354277700A120AC /* SPButton.m in Sources */,
 				9036408A2354277700A120AC /* SGQRCodeObtain.m in Sources */,
+				90364BC0235492F900A120AC /* GYBrandCateCell.m in Sources */,
+				90562F942357FC9000EC70FE /* GYOrderDetailFooter.m in Sources */,
 				903640622354277700A120AC /* NSString+HXNExtension.m in Sources */,
 				903640922354277700A120AC /* UIView+ForLMJVerticalScrollText.m in Sources */,
 				9036408E2354277700A120AC /* UIView+LYExtension.m in Sources */,
 				9036407A2354277700A120AC /* NSDate+Extension.m in Sources */,
 				903640712354277700A120AC /* HXCacheTool.m in Sources */,
 				90364B34235429A400A120AC /* GYHomeVC.m in Sources */,
+				90E2639C23572BB800C4A376 /* GYVipMemberCell.m in Sources */,
+				90249E612355AB29000536F7 /* GYChooseClassHeader.m in Sources */,
+				90E263A223572D6E00C4A376 /* GYMyAddressVC.m in Sources */,
 				903640632354277700A120AC /* Foundation+Log.m in Sources */,
 				9036406F2354277700A120AC /* MSUserInfo.m in Sources */,
 				903640652354277700A120AC /* NSDate+HXNExtension.m in Sources */,
 				903640772354277700A120AC /* HXDropMenuView.m in Sources */,
+				90E5DCED2355EE4700280562 /* GYInvoiceVC.m in Sources */,
+				90364BAC23548E4300A120AC /* GYBrandChildVC.m in Sources */,
 				903640952354277700A120AC /* LMJHorizontalScrollText.m in Sources */,
 				90364B302354295400A120AC /* HXNavigationController.m in Sources */,
+				90BDE3692356AB3D008790DA /* GYPublishWorkVC.m in Sources */,
+				90364B6B235468F000A120AC /* GYMessageCell.m in Sources */,
 				9036409A2354277700A120AC /* ZJPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1405,6 +2420,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				90363F7323540B4500A120AC /* Base */,
+				90FE6A67235733CC0098278B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1416,6 +2432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1475,6 +2492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1529,6 +2547,7 @@
 			baseConfigurationReference = 62DAC0CF74A3D6CB6E38E332 /* Pods-GY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3722JD4BU4;
 				FRAMEWORK_SEARCH_PATHS = (

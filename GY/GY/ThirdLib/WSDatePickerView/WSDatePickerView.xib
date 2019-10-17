@@ -63,13 +63,12 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40105064655172412" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="gvZ-fK-lMh" secondAttribute="bottom" id="06Q-6b-L3a"/>
+                <constraint firstAttribute="bottom" secondItem="gvZ-fK-lMh" secondAttribute="bottom" id="e4Z-Fi-yGm"/>
                 <constraint firstItem="gvZ-fK-lMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fdx-Z8-9cl"/>
                 <constraint firstAttribute="trailing" secondItem="gvZ-fK-lMh" secondAttribute="trailing" id="noy-2i-gRJ"/>
                 <constraint firstItem="gvZ-fK-lMh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="poh-L8-QAM"/>
             </constraints>
             <connections>
-                <outlet property="bottomConstraint" destination="06Q-6b-L3a" id="0Te-6w-uNZ"/>
                 <outlet property="buttomView" destination="gvZ-fK-lMh" id="1kp-xm-4pD"/>
                 <outlet property="doneBtn" destination="nwp-LQ-VOg" id="atq-Zu-2iy"/>
                 <outlet property="showYearView" destination="zE9-lT-myF" id="2dZ-bE-Hfr"/>

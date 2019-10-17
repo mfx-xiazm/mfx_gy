@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edH-Q1-jqx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTp-0S-EAY">
+                            <rect key="frame" x="10" y="12" width="4" height="26"/>
+                            <color key="backgroundColor" red="0.1137254902" green="0.12549019610000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="4" id="yK8-dB-lOu"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左级分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlW-GX-V9b">
+                            <rect key="frame" x="24" y="16.5" width="57.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dlW-GX-V9b" firstAttribute="centerY" secondItem="edH-Q1-jqx" secondAttribute="centerY" id="5z2-Py-SrG"/>
+                        <constraint firstItem="dlW-GX-V9b" firstAttribute="leading" secondItem="jTp-0S-EAY" secondAttribute="trailing" constant="10" id="8l8-yL-smJ"/>
+                        <constraint firstItem="jTp-0S-EAY" firstAttribute="leading" secondItem="edH-Q1-jqx" secondAttribute="leading" constant="10" id="JbZ-Dq-2Wa"/>
+                        <constraint firstAttribute="bottom" secondItem="jTp-0S-EAY" secondAttribute="bottom" constant="12" id="Lw0-tV-Mjz"/>
+                        <constraint firstItem="jTp-0S-EAY" firstAttribute="top" secondItem="edH-Q1-jqx" secondAttribute="top" constant="12" id="kJ2-Zl-0nr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="edH-Q1-jqx" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="2Im-FE-fjK"/>
+                <constraint firstItem="edH-Q1-jqx" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="iub-SN-NK2"/>
+                <constraint firstAttribute="trailing" secondItem="edH-Q1-jqx" secondAttribute="trailing" id="pYC-jX-89v"/>
+                <constraint firstAttribute="bottom" secondItem="edH-Q1-jqx" secondAttribute="bottom" id="sKv-gB-wlw"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+</document>
