@@ -13,8 +13,13 @@
 #import "GYCategoryVC.h"
 #import "GYCartVC.h"
 #import "GYMyVC.h"
+#import "GYSalerMyVC.h"
+#import "GYTabBar.h"
+#import "GYPublishWorkVC.h"
+#import "GYWorkHomeVC.h"
+#import "GYWorkMyVC.h"
 
-@interface HXTabBarController ()<UITabBarControllerDelegate>
+@interface HXTabBarController ()<UITabBarControllerDelegate,GYTabBarDelegate>
 
 @end
 
@@ -41,25 +46,28 @@
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
-    // 添加母婴店子控制器
-    
+    // 添加买家子控制器
+    /*
     [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
     [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
     [self setupChildVc:[[GYCartVC alloc] init] title:@"购物车" image:@"购物车图标" selectedImage:@"购物车图标选中"];
     [self setupChildVc:[[GYMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
-     
-    // 添加供应商子控制器
-    /*
-    [self setupChildVc:[[GXOrderManageVC alloc] init] title:@"订单管理" image:@"订单管理图标" selectedImage:@"订单管理图标选中"];
-    [self setupChildVc:[[GXAccountManageVC alloc] init] title:@"账户管理" image:@"账户管理图标" selectedImage:@"账户管理图标选中"];
      */
-    // 添加销售员子控制器
+    // 添加经销商子控制器
+    
     /*
-    [self setupChildVc:[[GXClientManageVC alloc] init] title:@"客户管理" image:@"客户管理图标" selectedImage:@"客户管理图标选中"];
-    [self setupChildVc:[[GXSalerOrderManageVC alloc] init] title:@"订单管理" image:@"订单管理图标" selectedImage:@"订单管理图标选中"];
-    [self setupChildVc:[[GXAccountManageVC alloc] init] title:@"账户管理" image:@"账户管理图标" selectedImage:@"账户管理图标选中"];
-    [self setupChildVc:[[GXSalerMyVC alloc] init] title:@"个人中心" image:@"我的图标" selectedImage:@"我的图标选中"];
-     */
+     [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
+     [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
+     [self setupChildVc:[[GYSalerMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
+    */
+    
+    // 添加技工子控制器
+    [self setupChildVc:[[GYWorkHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
+    [self setupChildVc:[[GYWorkMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
+    // 替换系统tabBar
+    GYTabBar *tab = [[GYTabBar alloc] init];
+    tab.rcDelegate = self;
+    [self setValue:tab forKey:@"tabBar"];
     
     self.delegate = self;
     
@@ -68,6 +76,13 @@
     self.tabBar.translucent = NO;//这句表示取消tabBar的透明效果。
     [self.tabBar setBackgroundImage:[UIImage new]];
     [self.tabBar setShadowImage:[UIImage imageWithColor:HXRGBAColor(235, 235, 235, 0.8) size:CGSizeMake(1, 0.5)]];
+}
+-(void)tabBarDidClickPlusButton:(GYTabBar *)tabBar
+{
+    // 发单
+    GYPublishWorkVC *pvc = [GYPublishWorkVC new];
+    HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:pvc];
+    [self.selectedViewController presentViewController:nav animated:YES completion:nil];
 }
 /**
  * 初始化子控制器

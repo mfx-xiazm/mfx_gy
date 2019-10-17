@@ -9,6 +9,8 @@
 #import "GYAuthInfoVC.h"
 
 @interface GYAuthInfoVC ()
+@property (weak, nonatomic) IBOutlet UIView *buyRoleView;
+@property (weak, nonatomic) IBOutlet UIView *workRoleView;
 
 @end
 
@@ -18,7 +20,5 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"认证信息"];
 }
-
-
 
 @end
