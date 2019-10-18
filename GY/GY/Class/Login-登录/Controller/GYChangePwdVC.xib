@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYChangePwdVC">
             <connections>
+                <outlet property="code" destination="Cqc-5l-0X5" id="9Oo-yD-BBS"/>
+                <outlet property="confirmPwd" destination="WT1-k1-acE" id="33a-Zt-Qml"/>
+                <outlet property="phone" destination="M0V-NL-c9p" id="Dj4-z3-u5n"/>
+                <outlet property="pwd" destination="s25-n3-ABc" id="m1z-u3-Rh8"/>
+                <outlet property="sureBtn" destination="YaW-hf-Uit" id="RGL-xU-1e7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -101,6 +106,9 @@
                                                     <real key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="getCodeRequest:" destination="-1" eventType="touchUpInside" id="cTb-fh-9Tt"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akF-lh-6bb" userLabel="分割线">
                                             <rect key="frame" x="0.0" y="49" width="414" height="1"/>

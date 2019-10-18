@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYLoginVC">
             <connections>
+                <outlet property="loginBtn" destination="eMk-ws-unb" id="ytD-zI-ilX"/>
+                <outlet property="phone" destination="iJj-TM-7hb" id="HRU-tj-Li9"/>
+                <outlet property="pwd" destination="GFY-gu-aDR" id="29K-kr-Tzu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +47,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="oTv-kC-1cq"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eN5-KZ-7jT" userLabel="分割线">
                                             <rect key="frame" x="0.0" y="43" width="354" height="1"/>
@@ -95,6 +98,9 @@
                                             </constraints>
                                             <state key="normal" image="隐藏"/>
                                             <state key="selected" image="显示"/>
+                                            <connections>
+                                                <action selector="pwdStatusClicked:" destination="-1" eventType="touchUpInside" id="A5b-0N-vrg"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVF-Yw-d5s" userLabel="分割线">
                                             <rect key="frame" x="0.0" y="43" width="354" height="1"/>
@@ -156,9 +162,6 @@
                                             <real key="value" value="6"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="loginClicked:" destination="-1" eventType="touchUpInside" id="VoH-iT-6re"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk1-Pd-88d">
                                     <rect key="frame" x="330" y="467" width="69" height="30"/>

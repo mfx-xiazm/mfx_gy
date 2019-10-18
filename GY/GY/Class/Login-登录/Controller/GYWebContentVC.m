@@ -29,14 +29,16 @@
     
     [self.view addSubview:self.webView];
     
-    [self startShimmer];
-    
     if (self.navTitle) {
         [self.navigationItem setTitle:self.navTitle];
     }else{
         [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     }
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+    if (self.isNeedRequest) {
+        [self loadWebDataRequest];
+    }else{
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+    }
 }
 -(void)viewDidLayoutSubviews
 {
@@ -67,6 +69,26 @@
     }
     
     return _webView;
+}
+-(void)loadWebDataRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if (self.requestType == 1) {
+        parameters[@"type"] = self.type;//为1 表示查看买家服务协议 为3表示查看技工服务协议
+    }
+    
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getAgreement" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] boolValue]) {
+            NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",responseObject[@"data"][@"agreement"][@"agreement"]];
+            [strongSelf.webView loadHTMLString:h5 baseURL:nil];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
 }
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     decisionHandler(WKNavigationActionPolicyAllow);

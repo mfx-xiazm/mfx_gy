@@ -18,6 +18,7 @@
 #import "GYPublishWorkVC.h"
 #import "GYWorkHomeVC.h"
 #import "GYWorkMyVC.h"
+#import "GYLoginVC.h"
 
 @interface HXTabBarController ()<UITabBarControllerDelegate,GYTabBarDelegate>
 
@@ -46,28 +47,29 @@
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
-    // 添加买家子控制器
-    /*
-    [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
-    [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
-    [self setupChildVc:[[GYCartVC alloc] init] title:@"购物车" image:@"购物车图标" selectedImage:@"购物车图标选中"];
-    [self setupChildVc:[[GYMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
-     */
-    // 添加经销商子控制器
-    
-    /*
-     [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
-     [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
-     [self setupChildVc:[[GYSalerMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
-    */
-    
-    // 添加技工子控制器
-    [self setupChildVc:[[GYWorkHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
-    [self setupChildVc:[[GYWorkMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
-    // 替换系统tabBar
-    GYTabBar *tab = [[GYTabBar alloc] init];
-    tab.rcDelegate = self;
-    [self setValue:tab forKey:@"tabBar"];
+    if (![MSUserManager sharedInstance].isLogined || [MSUserManager sharedInstance].curUserInfo.utype == 1) {
+        // 添加买家子控制器
+        
+        [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
+        [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
+        [self setupChildVc:[[GYCartVC alloc] init] title:@"购物车" image:@"购物车图标" selectedImage:@"购物车图标选中"];
+        [self setupChildVc:[[GYMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
+    }else if ([MSUserManager sharedInstance].curUserInfo.utype == 2) {
+        // 添加经销商子控制器
+
+        [self setupChildVc:[[GYHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
+        [self setupChildVc:[[GYCategoryVC alloc] init] title:@"分类" image:@"全部产品图标" selectedImage:@"全部产品图标选中"];
+        [self setupChildVc:[[GYSalerMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
+    }else{
+        // 添加技工子控制器
+        
+        [self setupChildVc:[[GYWorkHomeVC alloc] init] title:@"首页" image:@"首页图标" selectedImage:@"首页图标选中"];
+        [self setupChildVc:[[GYWorkMyVC alloc] init] title:@"我的" image:@"我的图标" selectedImage:@"我的图标选中"];
+        // 替换系统tabBar
+        GYTabBar *tab = [[GYTabBar alloc] init];
+        tab.rcDelegate = self;
+        [self setValue:tab forKey:@"tabBar"];
+    }
     
     self.delegate = self;
     
@@ -102,20 +104,19 @@
 #pragma mark -- ————— UITabBarController 代理 —————
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    /*
-     if ([viewController.tabBarItem.title isEqualToString:@"聊天"] || [viewController.tabBarItem.title isEqualToString:@"订单"]){
-     if (![MSUserManager sharedInstance].isLogined){
-     MULoginVC *lvc = [MULoginVC new];
-     HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:lvc];
-     [tabBarController.selectedViewController presentViewController:nav animated:YES completion:nil];
-     return NO;
-     }else{ // 如果已登录
-     return YES;
-     }
-     }else{
-     return YES;
-     }
-     */
+    if ([viewController.tabBarItem.title isEqualToString:@"购物车"] || [viewController.tabBarItem.title isEqualToString:@"我的"]){
+        if (![MSUserManager sharedInstance].isLogined){// 未登录
+            GYLoginVC *lvc = [GYLoginVC new];
+            HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:lvc];
+            [tabBarController.selectedViewController presentViewController:nav animated:YES completion:nil];
+            return NO;
+        }else{ // 如果已登录
+            return YES;
+        }
+    }else{
+        return YES;
+    }
+    
     return YES;
 }
 - (void)didReceiveMemoryWarning {

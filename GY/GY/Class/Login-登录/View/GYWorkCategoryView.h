@@ -10,8 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^workCateCall)(NSInteger index);
 @interface GYWorkCategoryView : UIView
-
+/* 技术工种 */
+@property(nonatomic,strong) NSArray *workTypes;
+/* 点击 */
+@property(nonatomic,copy) workCateCall workCateCall;
 @end
 
 NS_ASSUME_NONNULL_END

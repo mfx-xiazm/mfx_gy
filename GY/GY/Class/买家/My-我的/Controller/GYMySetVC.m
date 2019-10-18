@@ -12,6 +12,7 @@
 #import "GYChangePwdVC.h"
 #import "GYChangeBindVC.h"
 #import "GYChangeInfoVC.h"
+#import "HXTabBarController.h"
 
 @interface GYMySetVC ()
 
@@ -43,7 +44,17 @@
         zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"退出" handler:^(zhAlertButton * _Nonnull button) {
             hx_strongify(weakSelf);
             [strongSelf.zh_popupController dismiss];
-            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",@"13496755975"]]];
+            
+            [[MSUserManager sharedInstance] logout:nil];//清空登录数据
+            
+            HXTabBarController *tab = [[HXTabBarController alloc] init];
+            [UIApplication sharedApplication].keyWindow.rootViewController = tab;
+            
+            //推出主界面出来
+            CATransition *ca = [CATransition animation];
+            ca.type = @"movein";
+            ca.duration = 0.5;
+            [[UIApplication sharedApplication].keyWindow.layer addAnimation:ca forKey:nil];
         }];
         cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
         [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
