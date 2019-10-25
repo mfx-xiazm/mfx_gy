@@ -38,6 +38,12 @@
         NSMutableArray *vcs = [NSMutableArray array];
         for (int i=0;i<self.categoryView.titles.count;i++) {
             GYSalerMyOrderChildVC *cvc0 = [GYSalerMyOrderChildVC new];
+            //1待付款、2待发货、3待收货、4待评价、5已完成
+            if (i==0) {
+                cvc0.status = 0;
+            }else {
+                cvc0.status = i+1;
+            }
             [self addChildViewController:cvc0];
             [vcs addObject:cvc0];
         }
