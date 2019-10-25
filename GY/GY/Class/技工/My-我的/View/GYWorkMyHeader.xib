@@ -105,6 +105,13 @@
                 <constraint firstItem="a9f-Tf-mdX" firstAttribute="top" secondItem="k9W-Hd-BvV" secondAttribute="bottom" constant="10" id="yei-Kj-9rZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatar" destination="IPB-z7-QnF" id="Jh7-mC-zMt"/>
+                <outlet property="is_vip" destination="J9e-YJ-U66" id="wld-oo-Iii"/>
+                <outlet property="member_dead" destination="nW9-OW-S4v" id="22Z-YJ-n9y"/>
+                <outlet property="phone" destination="kAo-ub-a31" id="hdt-G0-ouy"/>
+                <outlet property="user_name" destination="xJl-rm-3hP" id="C5E-J7-JmS"/>
+            </connections>
             <point key="canvasLocation" x="111.59420289855073" y="307.70089285714283"/>
         </view>
     </objects>

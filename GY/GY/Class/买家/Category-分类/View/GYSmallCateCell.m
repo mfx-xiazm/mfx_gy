@@ -8,6 +8,7 @@
 
 #import "GYSmallCateCell.h"
 #import "GYGoodsCate.h"
+#import "GYRegion.h"
 
 @interface GYSmallCateCell ()
 @property (weak, nonatomic) IBOutlet UILabel *cateName;
@@ -24,6 +25,18 @@
     _subCate = subCate;
     self.cateName.text = _subCate.cate_name;
     if (_subCate.isSelected) {
+        self.cateName.backgroundColor = HXControlBg;
+        self.cateName.textColor = [UIColor whiteColor];
+    }else{
+        self.cateName.backgroundColor = HXGlobalBg;
+        self.cateName.textColor = [UIColor blackColor];
+    }
+}
+-(void)setSubRegion:(GYSubRegion *)subRegion
+{
+    _subRegion = subRegion;
+    self.cateName.text = _subRegion.alias;
+    if (_subRegion.isSelected) {
         self.cateName.backgroundColor = HXControlBg;
         self.cateName.textColor = [UIColor whiteColor];
     }else{

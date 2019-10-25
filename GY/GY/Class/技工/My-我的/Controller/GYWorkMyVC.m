@@ -15,6 +15,7 @@
 #import "GYMyNeedsVC.h"
 #import "GYAuthInfoVC.h"
 #import "GYMyWorksVC.h"
+#import "GYMineData.h"
 
 static NSString *const ProfileCell = @"ProfileCell";
 @interface GYWorkMyVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -23,7 +24,8 @@ static NSString *const ProfileCell = @"ProfileCell";
 @property(nonatomic,strong) GYWorkMyHeader *header;
 /* titles */
 @property(nonatomic,strong) NSArray *titles;
-
+/* 个人信息 */
+@property(nonatomic,strong) GYMineData *mineData;
 @end
 
 @implementation GYWorkMyVC
@@ -31,6 +33,11 @@ static NSString *const ProfileCell = @"ProfileCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpTableView];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self getMemberRequest];
 }
 - (void)viewDidLayoutSubviews
 {
@@ -47,6 +54,7 @@ static NSString *const ProfileCell = @"ProfileCell";
             hx_strongify(weakSelf);
             if (index == 1) {
                 GYMySetVC *svc = [GYMySetVC new];
+                svc.mineData = strongSelf.mineData;
                 [strongSelf.navigationController pushViewController:svc animated:YES];
             }else{
                 GYVipMemberVC *mvc = [GYVipMemberVC new];
@@ -97,7 +105,25 @@ static NSString *const ProfileCell = @"ProfileCell";
     self.tableView.tableHeaderView = self.header;
 }
 #pragma mark -- 业务逻辑
-
+-(void)getMemberRequest
+{
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getMineData" parameters:@{} success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            NSArray *data = [NSArray arrayWithArray:responseObject[@"data"]];
+            NSDictionary *dict = data.firstObject;
+            strongSelf.mineData = [GYMineData yy_modelWithDictionary:dict];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.header.mineData = strongSelf.mineData;
+            });
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 #pragma mark -- UITableView数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -121,6 +147,7 @@ static NSString *const ProfileCell = @"ProfileCell";
     switch (indexPath.row) {
         case 0:{
             GYAuthInfoVC *avc = [GYAuthInfoVC new];
+            avc.mineData = self.mineData;
             [self.navigationController pushViewController:avc animated:YES];
         }
             break;

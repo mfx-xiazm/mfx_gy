@@ -12,6 +12,7 @@
 #import <ZLCollectionViewVerticalLayout.h>
 #import "GYSmallCateHeaderView.h"
 #import "GYGoodsCate.h"
+#import "GYRegion.h"
 
 //遮罩颜色
 #define bgColor [UIColor colorWithWhite:0.0 alpha:0.2]
@@ -34,6 +35,8 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 @property (nonatomic, strong) UIView *backGroundView;
 /* 选中的那个分类 */
 @property(nonatomic,strong) GYGoodsSubCate *selectCate;
+/* 选中的那个地区 */
+@property(nonatomic,strong) GYSubRegion *selectRegion;
 @end
 
 @implementation GYCateMenuView
@@ -162,8 +165,9 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 {
     if (self.dataType == 1) {
         return self.dataSource.count;
+    }else{
+        return self.dataSource.count;
     }
-    return 12;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -171,6 +175,9 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     if (self.dataType == 1) {
         GYGoodsCate *cate = self.dataSource[indexPath.row];
         cell.cate = cate;
+    }else{
+        GYRegion *region = self.dataSource[indexPath.row];
+        cell.region = region;
     }
     return cell;
 }
@@ -184,8 +191,10 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     if (self.dataType == 1) {
         GYGoodsCate *cate = self.dataSource[self.selectIndex];
         return cate.sub.count;
+    }else{
+        GYRegion *region = self.dataSource[self.selectIndex];
+        return region.city.count;
     }
-    return 16;
 }
 - (ZLLayoutType)collectionView:(UICollectionView *)collectionView layout:(ZLCollectionViewBaseFlowLayout *)collectionViewLayout typeOfLayout:(NSInteger)section {
     return ClosedLayout;
@@ -200,6 +209,10 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
         GYGoodsCate *cate = self.dataSource[self.selectIndex];
         GYGoodsSubCate *subCate = cate.sub[indexPath.item];
         cell.subCate = subCate;
+    }else{
+        GYRegion *region = self.dataSource[self.selectIndex];
+        GYSubRegion *subRegion = region.city[indexPath.item];
+        cell.subRegion = subRegion;
     }
     return cell;
 }
@@ -212,6 +225,14 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
         self.selectCate.isSelected = NO;
         subCate.isSelected = YES;
         self.selectCate = subCate;
+    }else{
+        GYRegion *region = self.dataSource[self.selectIndex];
+        GYSubRegion *subRegion = region.city[indexPath.item];
+        //self.titleLabel.text = subCate.cate_name;
+        
+        self.selectRegion.isSelected = NO;
+        subRegion.isSelected = YES;
+        self.selectRegion = subRegion;
     }
     [collectionView reloadData];
     if (self.delegate || [self.delegate respondsToSelector:@selector(cateMenu:didSelectRowAtIndexPath:)]) {
@@ -239,6 +260,9 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
         if (self.dataType == 1) {
             GYGoodsCate *cate = self.dataSource[self.selectIndex];
             headerView.cateName.text = cate.cate_name;
+        }else{
+            GYRegion *region = self.dataSource[self.selectIndex];
+            headerView.cateName.text = region.alias;
         }
         return headerView;
     }

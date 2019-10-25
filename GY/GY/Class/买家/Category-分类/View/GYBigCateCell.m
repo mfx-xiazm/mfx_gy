@@ -8,6 +8,7 @@
 
 #import "GYBigCateCell.h"
 #import "GYGoodsCate.h"
+#import "GYRegion.h"
 
 @interface GYBigCateCell ()
 @property (weak, nonatomic) IBOutlet UILabel *cateName;
@@ -23,6 +24,11 @@
 {
     _cate = cate;
     self.cateName.text = _cate.cate_name;
+}
+-(void)setRegion:(GYRegion *)region
+{
+    _region = region;
+    self.cateName.text = _region.alias;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

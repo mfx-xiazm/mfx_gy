@@ -16,6 +16,10 @@ typedef void(^rePublishCall)(void);
 @property(nonatomic,copy) NSString *task_id;
 /* 重新发布回调 */
 @property(nonatomic,copy) rePublishCall rePublishCall;
+/* 是否已接单的详情查看 */
+@property(nonatomic,assign) BOOL isTaked;
+/* 是否要接单的详情查看 */
+@property(nonatomic,assign) BOOL isToTake;
 @end
 
 NS_ASSUME_NONNULL_END

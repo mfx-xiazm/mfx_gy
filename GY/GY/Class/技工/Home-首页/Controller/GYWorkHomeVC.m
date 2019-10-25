@@ -11,6 +11,9 @@
 #import "GYMyNeedsDetailVC.h"
 #import "GYBrandMenuView.h"
 #import "GYCateMenuView.h"
+#import "GYMyTasks.h"
+#import "GYWorkType.h"
+#import "GYRegion.h"
 
 static NSString *const MyNeedsCell = @"MyNeedsCell";
 @interface GYWorkHomeVC ()<UITableViewDelegate,UITableViewDataSource,GYCateMenuViewDelegate,GYBrandMenuViewDelegate>
@@ -23,6 +26,18 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
 @property (nonatomic,strong) GYCateMenuView *regionView;
 /** 需求类型 */
 @property (nonatomic,strong) GYBrandMenuView *needTypeView;
+/** 页码 */
+@property(nonatomic,assign) NSInteger pagenum;
+/** 需求列表 */
+@property(nonatomic,strong) NSMutableArray *tasks;
+/* 技术工种 */
+@property(nonatomic,strong) NSArray *workTypes;
+/* 地区 */
+@property(nonatomic,strong) NSArray *districts;
+/* 需求工种id */
+@property(nonatomic,copy) NSString *workTypeId;
+/* 城市id */
+@property(nonatomic,copy) NSString *cityId;
 @end
 
 @implementation GYWorkHomeVC
@@ -30,10 +45,38 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpTableView];
+    [self startShimmer];
+    [self setUpRefresh];
+    [self getWorkerHomeData];
 }
--(void)viewDidLayoutSubviews
+-(NSMutableArray *)tasks
 {
-    [super viewDidLayoutSubviews];
+    if (_tasks == nil) {
+        _tasks = [NSMutableArray array];
+    }
+    return _tasks;
+}
+-(void)setWorkTypeId:(NSString *)workTypeId
+{
+    if (![_workTypeId isEqualToString:workTypeId]) {
+        _workTypeId = workTypeId;
+        hx_weakify(self);
+        [self getTasksDataRequest:YES completedCall:^{
+            hx_strongify(weakSelf);
+            [strongSelf.tableView reloadData];
+        }];
+    }
+}
+-(void)setCityId:(NSString *)cityId
+{
+    if (![_cityId isEqualToString:cityId]) {
+        _cityId = cityId;
+        hx_weakify(self);
+        [self getTasksDataRequest:YES completedCall:^{
+            hx_strongify(weakSelf);
+            [strongSelf.tableView reloadData];
+        }];
+    }
 }
 -(GYCateMenuView *)regionView
 {
@@ -74,6 +117,132 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYMyNeedsCell class]) bundle:nil] forCellReuseIdentifier:MyNeedsCell];
 }
+/** 添加刷新控件 */
+-(void)setUpRefresh
+{
+    hx_weakify(self);
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf.tableView.mj_footer resetNoMoreData];
+        [strongSelf getTasksDataRequest:YES completedCall:^{
+            [strongSelf.tableView reloadData];
+        }];
+    }];
+    //追加尾部刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf getTasksDataRequest:NO completedCall:^{
+            [strongSelf.tableView reloadData];
+        }];
+    }];
+}
+#pragma mark -- 数据请求
+-(void)getWorkerHomeData
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"province" ofType:@"json"];
+    NSString *districtStr = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    if (districtStr == nil) {
+        return ;
+    }
+    NSData *jsonData = [districtStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *district = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    self.districts = [NSArray yy_modelArrayWithClass:[GYRegion class] json:district[@"result"][@"list"]];
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    // 执行循序1
+    hx_weakify(self);
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [HXNetworkTool POST:HXRC_M_URL action:@"getWorkTypeData" parameters:@{} success:^(id responseObject) {
+            if([[responseObject objectForKey:@"status"] boolValue]) {
+                strongSelf.workTypes = [NSArray yy_modelArrayWithClass:[GYWorkType class] json:responseObject[@"data"]];
+            }else{
+                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+            }
+            dispatch_semaphore_signal(semaphore);
+        } failure:^(NSError *error) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    // 执行循序2
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [strongSelf getTasksDataRequest:YES completedCall:^{
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        // 执行循序4
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        // 执行顺序6
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        
+        // 执行顺序10
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 刷新界面
+            hx_strongify(weakSelf);
+            [strongSelf stopShimmer];
+            strongSelf.tableView.hidden = NO;
+            [strongSelf.tableView reloadData];
+            
+        });
+    });
+}
+-(void)getTasksDataRequest:(BOOL)isRefresh completedCall:(void(^)(void))completedCall
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"city_ids"] = (self.cityId && self.cityId.length)?self.cityId:@"";//多个城市id间用逗号隔开
+    parameters[@"type_ids"] = (self.workTypeId && self.workTypeId.length)?self.workTypeId:@"";//多个工种id间用逗号隔开
+    if (isRefresh) {
+        parameters[@"page"] = @(1);//第几页
+    }else{
+        NSInteger page = self.pagenum+1;
+        parameters[@"page"] = @(page);//第几页
+    }
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getWorkerData" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            if (isRefresh) {
+                [strongSelf.tableView.mj_header endRefreshing];
+                strongSelf.pagenum = 1;
+                
+                [strongSelf.tasks removeAllObjects];
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYMyTasks class] json:responseObject[@"data"]];
+                [strongSelf.tasks addObjectsFromArray:arrt];
+            }else{
+                [strongSelf.tableView.mj_footer endRefreshing];
+                strongSelf.pagenum ++;
+                
+                if ([responseObject[@"data"] isKindOfClass:[NSArray class]] && ((NSArray *)responseObject[@"data"]).count){
+                    NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYMyTasks class] json:responseObject[@"data"]];
+                    [strongSelf.tasks addObjectsFromArray:arrt];
+                }else{// 提示没有更多数据
+                    [strongSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
+            }
+            if (completedCall) {
+                completedCall();
+            }
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_footer endRefreshing];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+        if (completedCall) {
+            completedCall();
+        }
+    }];
+}
 #pragma mark -- 点击事件
 - (IBAction)regionBtnClicked:(UIButton *)sender {
     
@@ -87,6 +256,7 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     }
     
     self.regionView.dataType = 2;
+    self.regionView.dataSource = self.districts;
     self.regionView.transformImageView = self.regionImg;
     self.regionView.titleLabel = self.regionLabel;
     
@@ -104,6 +274,7 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     }
     
     self.needTypeView.dataType = 3;
+    self.needTypeView.dataSource = self.workTypes;
     self.needTypeView.transformImageView = self.needImg;
     self.needTypeView.titleLabel = self.needLabel;
     
@@ -118,7 +289,8 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
 //点击事件
 - (void)cateMenu:(GYCateMenuView *)menu  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HXLog(@"地区确定");
+    GYRegion *region = self.districts[menu.selectIndex];
+    self.cityId = region.selectRegion.cityid;
 }
 #pragma mark -- GYBrandMenuViewDelegate
 //出现位置
@@ -129,17 +301,20 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
 //点击事件
 - (void)brandMenu:(GYBrandMenuView *)menu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HXLog(@"需求确定");
+    GYWorkType *wordType = self.workTypes[indexPath.item];
+    self.workTypeId = wordType.set_id;
 }
 #pragma mark -- UITableView数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return self.tasks.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GYMyNeedsCell *cell = [tableView dequeueReusableCellWithIdentifier:MyNeedsCell forIndexPath:indexPath];
     //无色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    GYMyTasks *task = self.tasks[indexPath.row];
+    cell.task = task;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,6 +325,15 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GYMyNeedsDetailVC *dvc = [GYMyNeedsDetailVC new];
+    GYMyTasks *task = self.tasks[indexPath.row];
+    dvc.task_id = task.task_id;
+    dvc.isToTake = YES;
+    hx_weakify(self);
+    dvc.rePublishCall = ^{
+        hx_strongify(weakSelf);
+        [strongSelf.tasks removeObject:task];
+        [tableView reloadData];
+    };
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

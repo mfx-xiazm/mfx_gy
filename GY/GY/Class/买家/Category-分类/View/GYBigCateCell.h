@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class GYGoodsCate;
+@class GYGoodsCate,GYRegion;
 @interface GYBigCateCell : UITableViewCell
 /* 分类 */
 @property(nonatomic,strong) GYGoodsCate *cate;
+/* 地区 */
+@property(nonatomic,strong) GYRegion *region;
 @end
 
 NS_ASSUME_NONNULL_END

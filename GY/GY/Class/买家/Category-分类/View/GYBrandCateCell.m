@@ -9,6 +9,7 @@
 #import "GYBrandCateCell.h"
 #import "GYBrand.h"
 #import "GYSeries.h"
+#import "GYWorkType.h"
 
 @interface GYBrandCateCell ()
 @property (weak, nonatomic) IBOutlet UILabel *brandName;
@@ -32,6 +33,21 @@
     _series = series;
     self.seriesLabel.text = _series.series_name;
     if (_series.isSelected) {
+        self.seriesLabel.layer.borderColor = HXControlBg.CGColor;
+        self.seriesLabel.backgroundColor = HXControlBg;
+        self.seriesLabel.textColor = [UIColor whiteColor];
+    }else{
+        self.seriesLabel.layer.borderColor = [UIColor blackColor].CGColor;
+        self.seriesLabel.backgroundColor = [UIColor whiteColor];
+        self.seriesLabel.textColor = [UIColor blackColor];
+    }
+}
+-(void)setWorkType:(GYWorkType *)workType
+{
+    _workType = workType;
+    
+    self.seriesLabel.text = _workType.set_val;
+    if (_workType.isSelected) {
         self.seriesLabel.layer.borderColor = HXControlBg.CGColor;
         self.seriesLabel.backgroundColor = HXControlBg;
         self.seriesLabel.textColor = [UIColor whiteColor];

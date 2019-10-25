@@ -13,6 +13,7 @@
 #import "GYMyTaskDetail.h"
 #import "zhAlertView.h"
 #import <zhPopupController.h>
+#import "GYVipMemberVC.h"
 
 @interface GYMyNeedsDetailVC ()<TYCyclePagerViewDataSource, TYCyclePagerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *content_view;
@@ -31,6 +32,8 @@
 @property (nonatomic,strong) TYPageControl *pageControl;
 /* 详情 */
 @property(nonatomic,strong) GYMyTaskDetail *taskDetail;
+/* 是否是会员 */
+@property(nonatomic,assign) NSInteger is_member;
 @end
 
 @implementation GYMyNeedsDetailVC
@@ -40,6 +43,9 @@
     [self.navigationItem setTitle:@"需求详情"];
     [self setUpCyclePagerView];
     [self startShimmer];
+    if (self.isToTake) {
+        [self getMemberRequest];
+    }
     [self getTaskDetailRequest];
 }
 -(void)viewDidLayoutSubviews
@@ -69,6 +75,22 @@
     [self.cyclePagerView addSubview:pageControl];
 }
 #pragma mark -- 请求
+-(void)getMemberRequest
+{
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getMineData" parameters:@{} success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            NSArray *data = [NSArray arrayWithArray:responseObject[@"data"]];
+            NSDictionary *dict = data.firstObject;
+            strongSelf.is_member = [dict[@"member_id"] integerValue];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 -(void)getTaskDetailRequest
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -105,16 +127,29 @@
     self.task_content.text = [NSString stringWithFormat:@"需求描述：%@",self.taskDetail.task_content];
     self.task_address.text = [NSString stringWithFormat:@"%@%@%@",self.taskDetail.province_name,self.taskDetail.city_name,self.taskDetail.address];
     
-    // 1查询未接单 2查询已接单
-    if ([self.taskDetail.task_status isEqualToString:@"1"]) {
+    if (self.isToTake) {
         self.contact_header.hidden = YES;
         self.contact_name.hidden = YES;
+        self.rePublishBtn.hidden = NO;
+        [self.rePublishBtn setTitle:@"我要接单" forState:UIControlStateNormal];
+        [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+    }else if (self.isTaked) {
         self.rePublishBtn.hidden = YES;
-    }else{
         self.contact_header.hidden = NO;
         self.contact_name.hidden = NO;
-        self.rePublishBtn.hidden = NO;
         [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+    }else{
+        // 1查询未接单 2查询已接单
+        if ([self.taskDetail.task_status isEqualToString:@"1"]) {
+            self.contact_header.hidden = YES;
+            self.contact_name.hidden = YES;
+            self.rePublishBtn.hidden = YES;
+        }else{
+            self.contact_header.hidden = NO;
+            self.contact_name.hidden = NO;
+            self.rePublishBtn.hidden = NO;
+            [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+        }
     }
     
     [self.cyclePagerView reloadData];
@@ -139,25 +174,89 @@
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }
-- (IBAction)rePublishClicked:(UIButton *)sender {
+-(void)receiveTaskRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"task_id"] = self.task_id;//需求id
+    
     hx_weakify(self);
-    zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"确定要重新发布吗？" constantWidth:HX_SCREEN_WIDTH - 50*2];
-    zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
+    [HXNetworkTool POST:HXRC_M_URL action:@"receiveTask" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
-        [strongSelf.zh_popupController dismiss];
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"接单成功"];
+            if (strongSelf.rePublishCall) {
+                strongSelf.rePublishCall();
+            }
+            [strongSelf.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
-    zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"确定" handler:^(zhAlertButton * _Nonnull button) {
-        hx_strongify(weakSelf);
-        [strongSelf.zh_popupController dismiss];
-        [strongSelf republishTaskRequest];
-    }];
-    cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
-    [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
-    okButton.lineColor = UIColorFromRGB(0xDDDDDD);
-    [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
-    [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
-    self.zh_popupController = [[zhPopupController alloc] init];
-    [self.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+}
+- (IBAction)rePublishClicked:(UIButton *)sender {
+    if (self.isToTake) {
+        if (self.is_member) {
+            hx_weakify(self);
+            zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"姓名：%@\n电话：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone] constantWidth:HX_SCREEN_WIDTH - 50*2];
+            zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
+                hx_strongify(weakSelf);
+                [strongSelf.zh_popupController dismiss];
+            }];
+            zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"确定" handler:^(zhAlertButton * _Nonnull button) {
+                hx_strongify(weakSelf);
+                [strongSelf.zh_popupController dismiss];
+                [strongSelf receiveTaskRequest];
+            }];
+            cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
+            [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
+            okButton.lineColor = UIColorFromRGB(0xDDDDDD);
+            [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
+            [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
+            self.zh_popupController = [[zhPopupController alloc] init];
+            [self.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+        }else{
+            hx_weakify(self);
+            zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"您还不是会员，需要先充值成为会员哦~" constantWidth:HX_SCREEN_WIDTH - 50*2];
+            zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
+                hx_strongify(weakSelf);
+                [strongSelf.zh_popupController dismiss];
+            }];
+            zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"去充值" handler:^(zhAlertButton * _Nonnull button) {
+                hx_strongify(weakSelf);
+                [strongSelf.zh_popupController dismiss];
+                GYVipMemberVC *mvc = [GYVipMemberVC new];
+                [strongSelf.navigationController pushViewController:mvc animated:YES];
+            }];
+            cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
+            [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
+            okButton.lineColor = UIColorFromRGB(0xDDDDDD);
+            [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
+            [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
+            self.zh_popupController = [[zhPopupController alloc] init];
+            [self.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+        }
+    }else{
+        hx_weakify(self);
+        zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"确定要重新发布吗？" constantWidth:HX_SCREEN_WIDTH - 50*2];
+        zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
+            hx_strongify(weakSelf);
+            [strongSelf.zh_popupController dismiss];
+        }];
+        zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"确定" handler:^(zhAlertButton * _Nonnull button) {
+            hx_strongify(weakSelf);
+            [strongSelf.zh_popupController dismiss];
+            [strongSelf republishTaskRequest];
+        }];
+        cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
+        [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
+        okButton.lineColor = UIColorFromRGB(0xDDDDDD);
+        [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
+        [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
+        self.zh_popupController = [[zhPopupController alloc] init];
+        [self.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+    }
 }
 #pragma mark -- TYCyclePagerView代理
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {

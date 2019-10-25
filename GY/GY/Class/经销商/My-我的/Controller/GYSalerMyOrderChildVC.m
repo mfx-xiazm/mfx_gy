@@ -128,7 +128,6 @@ static NSString *const MyOrderCell = @"MyOrderCell";
     }];
 }
 #pragma mark -- UITableView数据源和代理
-#pragma mark -- UITableView数据源和代理
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.orders.count;

@@ -201,6 +201,7 @@
 		90562FE02358948200EC70FE /* GYWorkType.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FDF2358948200EC70FE /* GYWorkType.m */; };
 		906033E32362855100593443 /* GYSearchGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 906033E12362855100593443 /* GYSearchGoodsVC.m */; };
 		906033E42362855100593443 /* GYSearchGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906033E22362855100593443 /* GYSearchGoodsVC.xib */; };
+		90603408236322F800593443 /* GYRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 90603407236322F800593443 /* GYRegion.m */; };
 		90A45C602359B61A007EB698 /* GYHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C5F2359B61A007EB698 /* GYHomeData.m */; };
 		90A45C632359D676007EB698 /* GYGoodsCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C622359D676007EB698 /* GYGoodsCate.m */; };
 		90A45C662359DE24007EB698 /* GYBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C652359DE24007EB698 /* GYBrand.m */; };
@@ -634,6 +635,8 @@
 		906033E02362855100593443 /* GYSearchGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSearchGoodsVC.h; sourceTree = "<group>"; };
 		906033E12362855100593443 /* GYSearchGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSearchGoodsVC.m; sourceTree = "<group>"; };
 		906033E22362855100593443 /* GYSearchGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSearchGoodsVC.xib; sourceTree = "<group>"; };
+		90603406236322F800593443 /* GYRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYRegion.h; sourceTree = "<group>"; };
+		90603407236322F800593443 /* GYRegion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYRegion.m; sourceTree = "<group>"; };
 		90A45C5E2359B61A007EB698 /* GYHomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYHomeData.h; sourceTree = "<group>"; };
 		90A45C5F2359B61A007EB698 /* GYHomeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYHomeData.m; sourceTree = "<group>"; };
 		90A45C612359D676007EB698 /* GYGoodsCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsCate.h; sourceTree = "<group>"; };
@@ -1336,6 +1339,8 @@
 		90363FC02354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90603406236322F800593443 /* GYRegion.h */,
+				90603407236322F800593443 /* GYRegion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2689,6 +2694,7 @@
 				90249E4C23559988000536F7 /* GYGoodsCommentLayout.m in Sources */,
 				90249E702355B335000536F7 /* GYCommentTypeCell.m in Sources */,
 				90249E842355E6AA000536F7 /* GYUpOrderHeader.m in Sources */,
+				90603408236322F800593443 /* GYRegion.m in Sources */,
 				903640642354277700A120AC /* HXConst.m in Sources */,
 				90FE6A92235740E50098278B /* GYMyOrderVC.m in Sources */,
 				90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */,

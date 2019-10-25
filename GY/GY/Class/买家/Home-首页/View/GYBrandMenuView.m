@@ -11,6 +11,7 @@
 #import <ZLCollectionViewVerticalLayout.h>
 #import "GYBrand.h"
 #import "GYSeries.h"
+#import "GYWorkType.h"
 
 //遮罩颜色
 #define bgColor [UIColor colorWithWhite:0.0 alpha:0.2]
@@ -30,6 +31,8 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 @property(nonatomic,strong) GYBrand *selectBrand;
 /* 选中的系列 */
 @property(nonatomic,strong) GYSeries *selectSeries;
+/* 选中的需求 */
+@property(nonatomic,strong) GYWorkType *selectWorkType;
 @end
 @implementation GYBrandMenuView
 
@@ -144,8 +147,9 @@ static NSString *const BrandCateCell = @"BrandCateCell";
         return self.dataSource.count;
     }else if (self.dataType == 2) {
         return self.dataSource.count;
+    }else{
+        return self.dataSource.count;
     }
-    return 17;
 }
 - (ZLLayoutType)collectionView:(UICollectionView *)collectionView layout:(ZLCollectionViewBaseFlowLayout *)collectionViewLayout typeOfLayout:(NSInteger)section {
     return ClosedLayout;
@@ -166,6 +170,9 @@ static NSString *const BrandCateCell = @"BrandCateCell";
         if (self.dataType == 2) {
             GYSeries *series = self.dataSource[indexPath.item];
             cell.series = series;
+        }else{
+            GYWorkType *workType = self.dataSource[indexPath.item];
+            cell.workType = workType;
         }
     }
     return cell;
@@ -181,6 +188,12 @@ static NSString *const BrandCateCell = @"BrandCateCell";
         self.selectSeries.isSelected = NO;
         series.isSelected = YES;
         self.selectSeries = series;
+    }else{
+        GYWorkType *workType = self.dataSource[indexPath.item];
+        //self.titleLabel.text = series.series_name;
+        self.selectWorkType.isSelected = NO;
+        workType.isSelected = YES;
+        self.selectWorkType = workType;
     }
     [collectionView reloadData];
     if (self.delegate || [self.delegate respondsToSelector:@selector(brandMenu:didSelectRowAtIndexPath:)]) {
