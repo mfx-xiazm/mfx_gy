@@ -49,8 +49,6 @@
     [noticeView registerNib:[UINib nibWithNibName:@"GYTopNoticeCell" bundle:nil] forCellReuseIdentifier:@"TopNoticeCell"];
     self.roolNoticeView = noticeView;
     [self.noticeView addSubview:noticeView];
-    
-    [self.roolNoticeView reloadDataAndStartRoll];
 }
 -(void)layoutSubviews
 {
@@ -58,14 +56,26 @@
     self.pageControl.frame = CGRectMake(0, CGRectGetHeight(self.cyclePagerView.frame) - 20, CGRectGetWidth(self.cyclePagerView.frame), 20);
     self.roolNoticeView.frame = self.noticeView.bounds;
 }
+-(void)setHomeAdv:(NSArray<GYHomeBanner *> *)homeAdv
+{
+    _homeAdv = homeAdv;
+    self.pageControl.numberOfPages = _homeAdv.count;
+    [self.cyclePagerView reloadData];
+}
+-(void)setHomeNotice:(NSArray<GYHomeNotice *> *)homeNotice
+{
+    _homeNotice = homeNotice;
+    [self.roolNoticeView reloadDataAndStartRoll];
+}
 #pragma mark -- TYCyclePagerView代理
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
-    return 4;
+    return self.homeAdv.count;
 }
 
 - (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
     GYBannerCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"TopBannerCell" forIndex:index];
-    
+    GYHomeBanner *banner = self.homeAdv[index];
+    cell.banner = banner;
     return cell;
 }
 
@@ -84,22 +94,27 @@
 
 - (void)pagerView:(TYCyclePagerView *)pageView didSelectedItemCell:(__kindof UICollectionViewCell *)cell atIndex:(NSInteger)index
 {
-    
+    if (self.bannerOrNoticeCall) {
+        self.bannerOrNoticeCall(1,index);
+    }
 }
 #pragma mark -- GYRollingNoticeView数据源和代理
 - (NSInteger)numberOfRowsForRollingNoticeView:(GYRollingNoticeView *)rollingView
 {
-    return 2;
+    return self.homeNotice.count;
 }
 - (__kindof GYNoticeViewCell *)rollingNoticeView:(GYRollingNoticeView *)rollingView cellAtIndex:(NSUInteger)index
 {
     GYTopNoticeCell *cell = [rollingView dequeueReusableCellWithIdentifier:@"TopNoticeCell"];
-    
+    GYHomeNotice *notice = self.homeNotice[index];
+    cell.notice = notice;
     return cell;
 }
 
 - (void)didClickRollingNoticeView:(GYRollingNoticeView *)rollingView forIndex:(NSUInteger)index
 {
-   
+    if (self.bannerOrNoticeCall) {
+        self.bannerOrNoticeCall(2,index);
+    }
 }
 @end

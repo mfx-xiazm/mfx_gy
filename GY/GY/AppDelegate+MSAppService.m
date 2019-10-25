@@ -12,33 +12,121 @@
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 #import <AlipaySDK/AlipaySDK.h>
-#import <WXApi.h>
 
 @implementation AppDelegate (MSAppService)
 
 #pragma mark ————— 初始化服务 —————
 -(void)initService{
-    
+    // 加载用户信息
+    [[MSUserManager sharedInstance] loadUserInfo];
 //    /* ————— 友盟 初始化 ————— */
 //    [[UMSocialManager defaultManager] openLog:NO];
 //    [UMConfigure initWithAppkey:HXUMengKey channel:@"App Store"];
 //    
 //    [self configUSharePlatforms];
+    
+    //->微信支付相关//
+    [WXApi startLogByLevel:WXLogLevelDetail logBlock:^(NSString * _Nonnull log) {
+        HXLog(@"微信日志-%@",log);
+    }];
+    
+    [WXApi registerApp:@"wx449b0409e349f8f2"];
 }
 -(void)configUSharePlatforms
 {
     /* 设置微信的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:HXWXKey appSecret:HXWXSecret redirectURL:@"http://mobile.umeng.com/social"];
 }
-
+/*
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url  sourceApplication:sourceApplication annotation:annotation];
+    if (!result) {
+        // 其他如支付等SDK的回调
+        if ([url.host isEqualToString:@"safepay"]) {
+            //跳转支付宝钱包进行支付，处理支付结果
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                // 1成功 2取消支付 3支付失败
+                if ([resultDic[@"resultStatus"] intValue] == 9000) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"1"}];
+                }else if ([resultDic[@"resultStatus"] intValue] == 6001){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"2"}];
+                }else{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"3"}];
+                }
+            }];
+        }else if ([url.host isEqualToString:@"pay"]) { //微信支付回调
+            return [WXApi handleOpenURL:url delegate:self];
+        }
+    }
+    return result;
+}
+ */
+/*
+ //9.0前的方法，为了适配低版本 保留
+ - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+ BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+ if (!result) {
+ // 其他如支付等SDK的回调
+ if ([url.host isEqualToString:@"safepay"]) {
+ //跳转支付宝钱包进行支付，处理支付结果
+ [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+ // 1成功 2取消支付 3支付失败
+ if ([resultDic[@"resultStatus"] intValue] == 9000) {
+ [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"1"}];
+ }else if ([resultDic[@"resultStatus"] intValue] == 6001){
+ [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"2"}];
+ }else{
+ [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"3"}];
+ }
+ }];
+ }else if ([url.host isEqualToString:@"pay"]) { //微信支付回调
+ return [WXApi handleOpenURL:url delegate:self];
+ }
+ }
+ return result;
+ }
+ */
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url options:options];
     if (!result) {
-        
+        // 其他如支付等SDK的回调
+        if ([url.host isEqualToString:@"safepay"]) {
+            //跳转支付宝钱包进行支付，处理支付结果
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                // 1成功 2取消支付 3支付失败
+                if ([resultDic[@"resultStatus"] intValue] == 9000) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"1"}];
+                }else if ([resultDic[@"resultStatus"] intValue] == 6001){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"2"}];
+                }else{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"3"}];
+                }
+            }];
+        }else if ([url.host isEqualToString:@"pay"]) { //微信支付回调
+            return [WXApi handleOpenURL:url delegate:self];
+        }
     }
     return result;
+}
+#pragma mark ————— 微信支付回调 —————
+//微信SDK自带的方法，处理从微信客户端完成操作后返回程序之后的回调方法,显示支付结果的
+-(void)onResp:(BaseResp*)resp
+{
+    //启动微信支付的response
+    if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        // 1成功 2取消支付 3支付失败
+        if (resp.errCode == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"1"}];
+        }else if (resp.errCode == -2){
+            [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"2"}];
+        }else{
+            [[NSNotificationCenter defaultCenter] postNotificationName:HXPayPushNotification object:nil userInfo:@{@"result":@"3"}];
+        }
+    }
 }
 #pragma mark ————— 初始化window —————
 -(void)initWindow{

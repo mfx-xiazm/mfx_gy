@@ -29,6 +29,9 @@
                 <constraint firstItem="zhu-oc-GYg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dXS-6H-e4M"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="noticeTxt" destination="zhu-oc-GYg" id="w0A-iz-4JQ"/>
+            </connections>
             <point key="canvasLocation" x="192.75362318840581" y="772.43303571428567"/>
         </view>
     </objects>

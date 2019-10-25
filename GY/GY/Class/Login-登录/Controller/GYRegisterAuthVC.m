@@ -320,7 +320,7 @@
 -(void)getWorkTypesRequest
 {
     hx_weakify(self);
-    [HXNetworkTool POST:HXRC_M_URL action:@"getWorkTypeData" parameters:nil success:^(id responseObject) {
+    [HXNetworkTool POST:HXRC_M_URL action:@"getWorkTypeData" parameters:@{} success:^(id responseObject) {
         hx_strongify(weakSelf);
         if([[responseObject objectForKey:@"status"] boolValue]) {
             strongSelf.workTypes = [NSArray yy_modelArrayWithClass:[GYWorkType class] json:responseObject[@"data"]];

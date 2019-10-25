@@ -7,6 +7,7 @@
 //
 
 #import "GYBigCateCell.h"
+#import "GYGoodsCate.h"
 
 @interface GYBigCateCell ()
 @property (weak, nonatomic) IBOutlet UILabel *cateName;
@@ -18,7 +19,11 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)setCate:(GYGoodsCate *)cate
+{
+    _cate = cate;
+    self.cateName.text = _cate.cate_name;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

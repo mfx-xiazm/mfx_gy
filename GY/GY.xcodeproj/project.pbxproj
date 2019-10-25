@@ -166,6 +166,13 @@
 		90364BCD235498F500A120AC /* GYSpecialGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BCB235498F500A120AC /* GYSpecialGoodsCell.xib */; };
 		90364BD323549E9F00A120AC /* GYCateGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BD123549E9F00A120AC /* GYCateGoodsVC.m */; };
 		90364BD423549E9F00A120AC /* GYCateGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BD223549E9F00A120AC /* GYCateGoodsVC.xib */; };
+		903E1D5C235D7FB400E5F923 /* GYGoodsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 903E1D5B235D7FB400E5F923 /* GYGoodsDetail.m */; };
+		903E1D5F235DCBAE00E5F923 /* GYCartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 903E1D5E235DCBAE00E5F923 /* GYCartData.m */; };
+		903E1D62235DDD7F00E5F923 /* GYConfirmOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 903E1D61235DDD7F00E5F923 /* GYConfirmOrder.m */; };
+		904BA410235ADEFD007A0A7A /* GYMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 904BA40F235ADEFD007A0A7A /* GYMessage.m */; };
+		904BA413235AE3C5007A0A7A /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 904BA412235AE3C5007A0A7A /* province.json */; };
+		904BA417235B0B8D007A0A7A /* GYMyTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 904BA416235B0B8D007A0A7A /* GYMyTasks.m */; };
+		904BA41A235B0FA5007A0A7A /* GYMyTaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 904BA419235B0FA5007A0A7A /* GYMyTaskDetail.m */; };
 		90562F942357FC9000EC70FE /* GYOrderDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */; };
 		90562F962357FC9600EC70FE /* GYOrderDetailFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */; };
 		90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F982358012600EC70FE /* GYInvoiceDetailFooter.m */; };
@@ -192,6 +199,13 @@
 		90562FDC2358522100EC70FE /* GYMyWorksVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FDA2358522100EC70FE /* GYMyWorksVC.m */; };
 		90562FDD2358522100EC70FE /* GYMyWorksVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562FDB2358522100EC70FE /* GYMyWorksVC.xib */; };
 		90562FE02358948200EC70FE /* GYWorkType.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562FDF2358948200EC70FE /* GYWorkType.m */; };
+		906033E32362855100593443 /* GYSearchGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 906033E12362855100593443 /* GYSearchGoodsVC.m */; };
+		906033E42362855100593443 /* GYSearchGoodsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906033E22362855100593443 /* GYSearchGoodsVC.xib */; };
+		90A45C602359B61A007EB698 /* GYHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C5F2359B61A007EB698 /* GYHomeData.m */; };
+		90A45C632359D676007EB698 /* GYGoodsCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C622359D676007EB698 /* GYGoodsCate.m */; };
+		90A45C662359DE24007EB698 /* GYBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C652359DE24007EB698 /* GYBrand.m */; };
+		90A45C692359E289007EB698 /* GYSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C682359E289007EB698 /* GYSeries.m */; };
+		90A45C6D2359E917007EB698 /* GYGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A45C6C2359E917007EB698 /* GYGoods.m */; };
 		90BDE3692356AB3D008790DA /* GYPublishWorkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */; };
 		90BDE36A2356AB3D008790DA /* GYPublishWorkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */; };
 		90BDE3732356C3EC008790DA /* GYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BDE3722356C3EC008790DA /* GYDatePickerView.m */; };
@@ -232,6 +246,13 @@
 		90E5DCEE2355EE4700280562 /* GYInvoiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCEC2355EE4700280562 /* GYInvoiceVC.xib */; };
 		90E5DCF12355F33200280562 /* GYPayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E5DCF02355F33200280562 /* GYPayTypeView.m */; };
 		90E5DCF32355F34E00280562 /* GYPayTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCF22355F34E00280562 /* GYPayTypeView.xib */; };
+		90F023DD235FF475008BC5D7 /* GYMineData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023DC235FF475008BC5D7 /* GYMineData.m */; };
+		90F023E1236028CB008BC5D7 /* GYMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023E0236028CB008BC5D7 /* GYMember.m */; };
+		90F023E523602B61008BC5D7 /* GYMyBill.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023E423602B61008BC5D7 /* GYMyBill.m */; };
+		90F023E9236035A4008BC5D7 /* GYMyCollect.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023E8236035A4008BC5D7 /* GYMyCollect.m */; };
+		90F023ED2360488A008BC5D7 /* GYMyGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023EC2360488A008BC5D7 /* GYMyGoods.m */; };
+		90F023F123604DAF008BC5D7 /* GYMyRefund.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023F023604DAF008BC5D7 /* GYMyRefund.m */; };
+		90F023F523607279008BC5D7 /* GYMyOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023F423607279008BC5D7 /* GYMyOrder.m */; };
 		90FE6A64235731280098278B /* GYEditAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A62235731280098278B /* GYEditAddressVC.m */; };
 		90FE6A65235731280098278B /* GYEditAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6A63235731280098278B /* GYEditAddressVC.xib */; };
 		90FE6A6C2357351D0098278B /* GYMyNeedsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6A6A2357351D0098278B /* GYMyNeedsVC.m */; };
@@ -260,6 +281,7 @@
 		90FE6AA8235747500098278B /* GYOrderDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6AA6235747500098278B /* GYOrderDetailVC.xib */; };
 		90FE6AAC235747880098278B /* GYOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FE6AAA235747880098278B /* GYOrderDetailCell.m */; };
 		90FE6AAD235747880098278B /* GYOrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FE6AAB235747880098278B /* GYOrderDetailCell.xib */; };
+		90FFE8DE235EEE45008FB0C9 /* GYOrderPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FFE8DD235EEE45008FB0C9 /* GYOrderPay.m */; };
 		99BB768D6FA120E7626D361C /* libPods-GY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75407BE80414505FD54B445 /* libPods-GY.a */; };
 /* End PBXBuildFile section */
 
@@ -556,6 +578,19 @@
 		90364BD023549E9F00A120AC /* GYCateGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCateGoodsVC.h; sourceTree = "<group>"; };
 		90364BD123549E9F00A120AC /* GYCateGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCateGoodsVC.m; sourceTree = "<group>"; };
 		90364BD223549E9F00A120AC /* GYCateGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCateGoodsVC.xib; sourceTree = "<group>"; };
+		903E1D5A235D7FB400E5F923 /* GYGoodsDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsDetail.h; sourceTree = "<group>"; };
+		903E1D5B235D7FB400E5F923 /* GYGoodsDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsDetail.m; sourceTree = "<group>"; };
+		903E1D5D235DCBAE00E5F923 /* GYCartData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCartData.h; sourceTree = "<group>"; };
+		903E1D5E235DCBAE00E5F923 /* GYCartData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCartData.m; sourceTree = "<group>"; };
+		903E1D60235DDD7F00E5F923 /* GYConfirmOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYConfirmOrder.h; sourceTree = "<group>"; };
+		903E1D61235DDD7F00E5F923 /* GYConfirmOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYConfirmOrder.m; sourceTree = "<group>"; };
+		904BA40E235ADEFD007A0A7A /* GYMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMessage.h; sourceTree = "<group>"; };
+		904BA40F235ADEFD007A0A7A /* GYMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMessage.m; sourceTree = "<group>"; };
+		904BA412235AE3C5007A0A7A /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province.json; sourceTree = "<group>"; };
+		904BA415235B0B8D007A0A7A /* GYMyTasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyTasks.h; sourceTree = "<group>"; };
+		904BA416235B0B8D007A0A7A /* GYMyTasks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyTasks.m; sourceTree = "<group>"; };
+		904BA418235B0FA5007A0A7A /* GYMyTaskDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyTaskDetail.h; sourceTree = "<group>"; };
+		904BA419235B0FA5007A0A7A /* GYMyTaskDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyTaskDetail.m; sourceTree = "<group>"; };
 		90562F922357FC9000EC70FE /* GYOrderDetailFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailFooter.h; sourceTree = "<group>"; };
 		90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailFooter.m; sourceTree = "<group>"; };
 		90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailFooter.xib; sourceTree = "<group>"; };
@@ -596,6 +631,19 @@
 		90562FDB2358522100EC70FE /* GYMyWorksVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYMyWorksVC.xib; sourceTree = "<group>"; };
 		90562FDE2358948200EC70FE /* GYWorkType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkType.h; sourceTree = "<group>"; };
 		90562FDF2358948200EC70FE /* GYWorkType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkType.m; sourceTree = "<group>"; };
+		906033E02362855100593443 /* GYSearchGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSearchGoodsVC.h; sourceTree = "<group>"; };
+		906033E12362855100593443 /* GYSearchGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSearchGoodsVC.m; sourceTree = "<group>"; };
+		906033E22362855100593443 /* GYSearchGoodsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYSearchGoodsVC.xib; sourceTree = "<group>"; };
+		90A45C5E2359B61A007EB698 /* GYHomeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYHomeData.h; sourceTree = "<group>"; };
+		90A45C5F2359B61A007EB698 /* GYHomeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYHomeData.m; sourceTree = "<group>"; };
+		90A45C612359D676007EB698 /* GYGoodsCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsCate.h; sourceTree = "<group>"; };
+		90A45C622359D676007EB698 /* GYGoodsCate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsCate.m; sourceTree = "<group>"; };
+		90A45C642359DE24007EB698 /* GYBrand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYBrand.h; sourceTree = "<group>"; };
+		90A45C652359DE24007EB698 /* GYBrand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYBrand.m; sourceTree = "<group>"; };
+		90A45C672359E289007EB698 /* GYSeries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYSeries.h; sourceTree = "<group>"; };
+		90A45C682359E289007EB698 /* GYSeries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYSeries.m; sourceTree = "<group>"; };
+		90A45C6B2359E917007EB698 /* GYGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoods.h; sourceTree = "<group>"; };
+		90A45C6C2359E917007EB698 /* GYGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoods.m; sourceTree = "<group>"; };
 		90BDE3662356AB3D008790DA /* GYPublishWorkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPublishWorkVC.h; sourceTree = "<group>"; };
 		90BDE3672356AB3D008790DA /* GYPublishWorkVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPublishWorkVC.m; sourceTree = "<group>"; };
 		90BDE3682356AB3D008790DA /* GYPublishWorkVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPublishWorkVC.xib; sourceTree = "<group>"; };
@@ -656,6 +704,20 @@
 		90E5DCEF2355F33200280562 /* GYPayTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPayTypeView.h; sourceTree = "<group>"; };
 		90E5DCF02355F33200280562 /* GYPayTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPayTypeView.m; sourceTree = "<group>"; };
 		90E5DCF22355F34E00280562 /* GYPayTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPayTypeView.xib; sourceTree = "<group>"; };
+		90F023DB235FF475008BC5D7 /* GYMineData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMineData.h; sourceTree = "<group>"; };
+		90F023DC235FF475008BC5D7 /* GYMineData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMineData.m; sourceTree = "<group>"; };
+		90F023DF236028CB008BC5D7 /* GYMember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMember.h; sourceTree = "<group>"; };
+		90F023E0236028CB008BC5D7 /* GYMember.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMember.m; sourceTree = "<group>"; };
+		90F023E323602B61008BC5D7 /* GYMyBill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyBill.h; sourceTree = "<group>"; };
+		90F023E423602B61008BC5D7 /* GYMyBill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyBill.m; sourceTree = "<group>"; };
+		90F023E7236035A4008BC5D7 /* GYMyCollect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyCollect.h; sourceTree = "<group>"; };
+		90F023E8236035A4008BC5D7 /* GYMyCollect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyCollect.m; sourceTree = "<group>"; };
+		90F023EB2360488A008BC5D7 /* GYMyGoods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyGoods.h; sourceTree = "<group>"; };
+		90F023EC2360488A008BC5D7 /* GYMyGoods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyGoods.m; sourceTree = "<group>"; };
+		90F023EF23604DAF008BC5D7 /* GYMyRefund.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyRefund.h; sourceTree = "<group>"; };
+		90F023F023604DAF008BC5D7 /* GYMyRefund.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyRefund.m; sourceTree = "<group>"; };
+		90F023F323607279008BC5D7 /* GYMyOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyOrder.h; sourceTree = "<group>"; };
+		90F023F423607279008BC5D7 /* GYMyOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyOrder.m; sourceTree = "<group>"; };
 		90FE6A61235731280098278B /* GYEditAddressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYEditAddressVC.h; sourceTree = "<group>"; };
 		90FE6A62235731280098278B /* GYEditAddressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYEditAddressVC.m; sourceTree = "<group>"; };
 		90FE6A63235731280098278B /* GYEditAddressVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYEditAddressVC.xib; sourceTree = "<group>"; };
@@ -699,6 +761,15 @@
 		90FE6AA9235747880098278B /* GYOrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailCell.h; sourceTree = "<group>"; };
 		90FE6AAA235747880098278B /* GYOrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailCell.m; sourceTree = "<group>"; };
 		90FE6AAB235747880098278B /* GYOrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailCell.xib; sourceTree = "<group>"; };
+		90FFE8DC235EEE45008FB0C9 /* GYOrderPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderPay.h; sourceTree = "<group>"; };
+		90FFE8DD235EEE45008FB0C9 /* GYOrderPay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderPay.m; sourceTree = "<group>"; };
+		90FFE8E4235F3061008FB0C9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		90FFE8E6235F306B008FB0C9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		90FFE8E8235F307D008FB0C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		90FFE8F4235F3135008FB0C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		90FFE8F7235F3144008FB0C9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		90FFE8F9235F314A008FB0C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		90FFE8FC235F3164008FB0C9 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AB4D4FB3912769597ECE2485 /* Pods-GY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GY.release.xcconfig"; path = "Target Support Files/Pods-GY/Pods-GY.release.xcconfig"; sourceTree = "<group>"; };
 		C75407BE80414505FD54B445 /* libPods-GY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -742,6 +813,13 @@
 		6CB0B2B6ED00AC471F11859D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90FFE8FC235F3164008FB0C9 /* libsqlite3.0.tbd */,
+				90FFE8F9235F314A008FB0C9 /* SystemConfiguration.framework */,
+				90FFE8F7235F3144008FB0C9 /* CoreTelephony.framework */,
+				90FFE8F4235F3135008FB0C9 /* CFNetwork.framework */,
+				90FFE8E8235F307D008FB0C9 /* Security.framework */,
+				90FFE8E6235F306B008FB0C9 /* libz.tbd */,
+				90FFE8E4235F3061008FB0C9 /* libsqlite3.tbd */,
 				C75407BE80414505FD54B445 /* libPods-GY.a */,
 			);
 			name = Frameworks;
@@ -794,6 +872,8 @@
 			isa = PBXGroup;
 			children = (
 				90249E4D235599BE000536F7 /* moment2.plist */,
+				903E1D5A235D7FB400E5F923 /* GYGoodsDetail.h */,
+				903E1D5B235D7FB400E5F923 /* GYGoodsDetail.m */,
 				90249E462355996C000536F7 /* GYGoodsComment.h */,
 				90249E472355996C000536F7 /* GYGoodsComment.m */,
 				90249E4A23559988000536F7 /* GYGoodsCommentLayout.h */,
@@ -915,6 +995,12 @@
 		90363FA22354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				903E1D5D235DCBAE00E5F923 /* GYCartData.h */,
+				903E1D5E235DCBAE00E5F923 /* GYCartData.m */,
+				903E1D60235DDD7F00E5F923 /* GYConfirmOrder.h */,
+				903E1D61235DDD7F00E5F923 /* GYConfirmOrder.m */,
+				90FFE8DC235EEE45008FB0C9 /* GYOrderPay.h */,
+				90FFE8DD235EEE45008FB0C9 /* GYOrderPay.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -957,6 +1043,7 @@
 				90364B31235429A400A120AC /* GYHomeVC.h */,
 				90364B32235429A400A120AC /* GYHomeVC.m */,
 				90364B33235429A400A120AC /* GYHomeVC.xib */,
+				906033DF2362852E00593443 /* 搜索 */,
 				90BDE3652356AAE4008790DA /* 发单 */,
 				90249E34235575C7000536F7 /* 商品详情 */,
 				90364BC2235497B900A120AC /* 专区商品 */,
@@ -968,6 +1055,10 @@
 		90363FA62354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				904BA411235AE3B5007A0A7A /* 发单 */,
+				904BA40D235ADEEE007A0A7A /* 消息中心 */,
+				90A45C6A2359E8EA007EB698 /* 专区商品 */,
+				90A45C5D2359B605007EB698 /* 首页 */,
 				90249E4923559970000536F7 /* 商品详情 */,
 			);
 			path = Model;
@@ -1018,6 +1109,14 @@
 		90363FAA2354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90F023F2236070AD008BC5D7 /* 我的订单 */,
+				90F023EE23604D92008BC5D7 /* 退货售后 */,
+				90F023EA23604879008BC5D7 /* 我的产品 */,
+				90F023E623603594008BC5D7 /* 我的收藏 */,
+				90F023E223602B56008BC5D7 /* 我的账单 */,
+				90F023DE236028BB008BC5D7 /* 升级会员 */,
+				90F023DA235FF469008BC5D7 /* 个人信息 */,
+				904BA414235B0B7D007A0A7A /* 我的需求 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1061,6 +1160,12 @@
 		90363FAE2354274B00A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90A45C612359D676007EB698 /* GYGoodsCate.h */,
+				90A45C622359D676007EB698 /* GYGoodsCate.m */,
+				90A45C642359DE24007EB698 /* GYBrand.h */,
+				90A45C652359DE24007EB698 /* GYBrand.m */,
+				90A45C672359E289007EB698 /* GYSeries.h */,
+				90A45C682359E289007EB698 /* GYSeries.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1797,6 +1902,62 @@
 			name = "分类商品列表";
 			sourceTree = "<group>";
 		};
+		904BA40D235ADEEE007A0A7A /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				904BA40E235ADEFD007A0A7A /* GYMessage.h */,
+				904BA40F235ADEFD007A0A7A /* GYMessage.m */,
+			);
+			name = "消息中心";
+			sourceTree = "<group>";
+		};
+		904BA411235AE3B5007A0A7A /* 发单 */ = {
+			isa = PBXGroup;
+			children = (
+				904BA412235AE3C5007A0A7A /* province.json */,
+			);
+			name = "发单";
+			sourceTree = "<group>";
+		};
+		904BA414235B0B7D007A0A7A /* 我的需求 */ = {
+			isa = PBXGroup;
+			children = (
+				904BA415235B0B8D007A0A7A /* GYMyTasks.h */,
+				904BA416235B0B8D007A0A7A /* GYMyTasks.m */,
+				904BA418235B0FA5007A0A7A /* GYMyTaskDetail.h */,
+				904BA419235B0FA5007A0A7A /* GYMyTaskDetail.m */,
+			);
+			name = "我的需求";
+			sourceTree = "<group>";
+		};
+		906033DF2362852E00593443 /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				906033E02362855100593443 /* GYSearchGoodsVC.h */,
+				906033E12362855100593443 /* GYSearchGoodsVC.m */,
+				906033E22362855100593443 /* GYSearchGoodsVC.xib */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
+		90A45C5D2359B605007EB698 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				90A45C5E2359B61A007EB698 /* GYHomeData.h */,
+				90A45C5F2359B61A007EB698 /* GYHomeData.m */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		90A45C6A2359E8EA007EB698 /* 专区商品 */ = {
+			isa = PBXGroup;
+			children = (
+				90A45C6B2359E917007EB698 /* GYGoods.h */,
+				90A45C6C2359E917007EB698 /* GYGoods.m */,
+			);
+			name = "专区商品";
+			sourceTree = "<group>";
+		};
 		90BDE3652356AAE4008790DA /* 发单 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1947,6 +2108,69 @@
 				90E263A723572D8F00C4A376 /* GYMyAddressCell.xib */,
 			);
 			name = "我的地址";
+			sourceTree = "<group>";
+		};
+		90F023DA235FF469008BC5D7 /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023DB235FF475008BC5D7 /* GYMineData.h */,
+				90F023DC235FF475008BC5D7 /* GYMineData.m */,
+			);
+			name = "个人信息";
+			sourceTree = "<group>";
+		};
+		90F023DE236028BB008BC5D7 /* 升级会员 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023DF236028CB008BC5D7 /* GYMember.h */,
+				90F023E0236028CB008BC5D7 /* GYMember.m */,
+			);
+			name = "升级会员";
+			sourceTree = "<group>";
+		};
+		90F023E223602B56008BC5D7 /* 我的账单 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023E323602B61008BC5D7 /* GYMyBill.h */,
+				90F023E423602B61008BC5D7 /* GYMyBill.m */,
+			);
+			name = "我的账单";
+			sourceTree = "<group>";
+		};
+		90F023E623603594008BC5D7 /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023E7236035A4008BC5D7 /* GYMyCollect.h */,
+				90F023E8236035A4008BC5D7 /* GYMyCollect.m */,
+			);
+			name = "我的收藏";
+			sourceTree = "<group>";
+		};
+		90F023EA23604879008BC5D7 /* 我的产品 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023EB2360488A008BC5D7 /* GYMyGoods.h */,
+				90F023EC2360488A008BC5D7 /* GYMyGoods.m */,
+			);
+			name = "我的产品";
+			sourceTree = "<group>";
+		};
+		90F023EE23604D92008BC5D7 /* 退货售后 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023EF23604DAF008BC5D7 /* GYMyRefund.h */,
+				90F023F023604DAF008BC5D7 /* GYMyRefund.m */,
+			);
+			name = "退货售后";
+			sourceTree = "<group>";
+		};
+		90F023F2236070AD008BC5D7 /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				90F023F323607279008BC5D7 /* GYMyOrder.h */,
+				90F023F423607279008BC5D7 /* GYMyOrder.m */,
+			);
+			name = "我的订单";
 			sourceTree = "<group>";
 		};
 		90FE6A682357350B0098278B /* 我的需求 */ = {
@@ -2191,6 +2415,7 @@
 				90FE6A65235731280098278B /* GYEditAddressVC.xib in Resources */,
 				90249E3F2355774E000536F7 /* GYGoodsDetailHeader.xib in Resources */,
 				90249E39235575FC000536F7 /* GYGoodsDetailVC.xib in Resources */,
+				904BA413235AE3C5007A0A7A /* province.json in Resources */,
 				90364BC7235497E200A120AC /* GYSpecialGoodsVC.xib in Resources */,
 				90E5DCE92355EC6700280562 /* GYUpOrderFooter.xib in Resources */,
 				90363F7123540B4500A120AC /* Assets.xcassets in Resources */,
@@ -2212,6 +2437,7 @@
 				90249E712355B335000536F7 /* GYCommentTypeCell.xib in Resources */,
 				90249E7C2355E1C1000536F7 /* GYCartCell.xib in Resources */,
 				90E263542356EDD300C4A376 /* GYMyCell.xib in Resources */,
+				906033E42362855100593443 /* GYSearchGoodsVC.xib in Resources */,
 				90364B4E2354529900A120AC /* GYChangePwdVC.xib in Resources */,
 				90FE6A7D23573A020098278B /* GYMyNeedsDetailVC.xib in Resources */,
 				90E26374235702B300C4A376 /* GYMyBillVC.xib in Resources */,
@@ -2321,18 +2547,27 @@
 			files = (
 				90562FB023583F7F00EC70FE /* GYSalerMyHeader.m in Sources */,
 				9036407B2354277700A120AC /* UIView+Extension.m in Sources */,
+				90A45C6D2359E917007EB698 /* GYGoods.m in Sources */,
 				90FE6A8C23573FA70098278B /* GYMyOrderFooter.m in Sources */,
 				9036407E2354277700A120AC /* FBShimmeringView.m in Sources */,
+				903E1D5C235D7FB400E5F923 /* GYGoodsDetail.m in Sources */,
 				903640972354277700A120AC /* UIView+WZLBadge.m in Sources */,
+				903E1D5F235DCBAE00E5F923 /* GYCartData.m in Sources */,
+				90F023E9236035A4008BC5D7 /* GYMyCollect.m in Sources */,
 				9036482C235428CD00A120AC /* AppDelegate+MSPushService.m in Sources */,
+				904BA41A235B0FA5007A0A7A /* GYMyTaskDetail.m in Sources */,
+				903E1D62235DDD7F00E5F923 /* GYConfirmOrder.m in Sources */,
 				903640752354277700A120AC /* RCFilterCell.m in Sources */,
 				903640872354277700A120AC /* FSActionSheetItem.m in Sources */,
 				90562FCD23584BBC00EC70FE /* GYWorkMyVC.m in Sources */,
+				904BA417235B0B8D007A0A7A /* GYMyTasks.m in Sources */,
+				90F023E523602B61008BC5D7 /* GYMyBill.m in Sources */,
 				90E2635E2356F35000C4A376 /* GYChangeBindVC.m in Sources */,
 				90FE6A64235731280098278B /* GYEditAddressVC.m in Sources */,
 				90364BCC235498F500A120AC /* GYSpecialGoodsCell.m in Sources */,
 				903640932354277700A120AC /* LMJVerticalScrollText.m in Sources */,
 				903640612354277700A120AC /* UIImage+HXNExtension.m in Sources */,
+				90A45C662359DE24007EB698 /* GYBrand.m in Sources */,
 				90249E772355C096000536F7 /* GYBrandMenuView.m in Sources */,
 				90562FBF235846AD00EC70FE /* GYTabBar.m in Sources */,
 				90FE6AAC235747880098278B /* GYOrderDetailCell.m in Sources */,
@@ -2351,6 +2586,7 @@
 				9036406B2354277700A120AC /* HXLocationTool_.m in Sources */,
 				90FE6A6C2357351D0098278B /* GYMyNeedsVC.m in Sources */,
 				90249E802355E51C000536F7 /* GYUpOrderVC.m in Sources */,
+				90F023F123604DAF008BC5D7 /* GYMyRefund.m in Sources */,
 				903640842354277700A120AC /* FSActionSheetConfig.m in Sources */,
 				90364BA223548A1800A120AC /* GYWorkCategoryCell.m in Sources */,
 				90562FB6235842DB00EC70FE /* GYSalerMyOrderVC.m in Sources */,
@@ -2363,11 +2599,14 @@
 				9036407D2354277700A120AC /* FBShimmeringLayer.m in Sources */,
 				90364BD323549E9F00A120AC /* GYCateGoodsVC.m in Sources */,
 				90249E562355A90A000536F7 /* GYChooseClassView.m in Sources */,
+				90F023ED2360488A008BC5D7 /* GYMyGoods.m in Sources */,
 				90364B872354746900A120AC /* GYHomeSectionHeader.m in Sources */,
 				90364B2F2354295400A120AC /* HXGuideViewController.m in Sources */,
 				903640702354277700A120AC /* MSUserManager.m in Sources */,
 				90249E6B2355AEE6000536F7 /* GYAllCommentsVC.m in Sources */,
+				906033E32362855100593443 /* GYSearchGoodsVC.m in Sources */,
 				90364B8C2354765400A120AC /* GYHomeBannerHeader.m in Sources */,
+				90A45C602359B61A007EB698 /* GYHomeData.m in Sources */,
 				90562F9F2358045500EC70FE /* GYEvaluateVC.m in Sources */,
 				903640812354277700A120AC /* HXPlaceholderTextView.m in Sources */,
 				90364B43235429DF00A120AC /* GYMyVC.m in Sources */,
@@ -2411,6 +2650,7 @@
 				90E2637F235709BC00C4A376 /* GYMyCollentVC.m in Sources */,
 				90FE6A7C23573A020098278B /* GYMyNeedsDetailVC.m in Sources */,
 				90249E482355996C000536F7 /* GYGoodsComment.m in Sources */,
+				90F023F523607279008BC5D7 /* GYMyOrder.m in Sources */,
 				90249E742355B840000536F7 /* GYCateMenuView.m in Sources */,
 				90364B39235429BD00A120AC /* GYCategoryVC.m in Sources */,
 				9036409C2354277700A120AC /* NSObject+LMRuntime.m in Sources */,
@@ -2419,6 +2659,8 @@
 				9036482B235428CD00A120AC /* AppDelegate+MSAppService.m in Sources */,
 				903640662354277700A120AC /* UINavigationBar+ChangeColor.m in Sources */,
 				90364B51235454D600A120AC /* GYWebContentVC.m in Sources */,
+				90A45C632359D676007EB698 /* GYGoodsCate.m in Sources */,
+				90FFE8DE235EEE45008FB0C9 /* GYOrderPay.m in Sources */,
 				903640912354277700A120AC /* zhAlertView.m in Sources */,
 				90562FBB235842E800EC70FE /* GYSalerMyOrderChildVC.m in Sources */,
 				9036406C2354277700A120AC /* HXNetworkTool.m in Sources */,
@@ -2437,6 +2679,7 @@
 				903640682354277700A120AC /* ContactDataHelper.m in Sources */,
 				90E263582356F13100C4A376 /* GYMySetVC.m in Sources */,
 				90E26373235702B300C4A376 /* GYMyBillVC.m in Sources */,
+				90F023DD235FF475008BC5D7 /* GYMineData.m in Sources */,
 				90FE6A77235735790098278B /* GYMyNeedsCell.m in Sources */,
 				90363F6923540B4400A120AC /* AppDelegate.m in Sources */,
 				903640902354277700A120AC /* HXSearchBar.m in Sources */,
@@ -2449,10 +2692,13 @@
 				903640642354277700A120AC /* HXConst.m in Sources */,
 				90FE6A92235740E50098278B /* GYMyOrderVC.m in Sources */,
 				90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */,
+				90F023E1236028CB008BC5D7 /* GYMember.m in Sources */,
 				9036407C2354277700A120AC /* SPButton.m in Sources */,
+				90A45C692359E289007EB698 /* GYSeries.m in Sources */,
 				9036408A2354277700A120AC /* SGQRCodeObtain.m in Sources */,
 				90364BC0235492F900A120AC /* GYBrandCateCell.m in Sources */,
 				90562F942357FC9000EC70FE /* GYOrderDetailFooter.m in Sources */,
+				904BA410235ADEFD007A0A7A /* GYMessage.m in Sources */,
 				903640622354277700A120AC /* NSString+HXNExtension.m in Sources */,
 				903640922354277700A120AC /* UIView+ForLMJVerticalScrollText.m in Sources */,
 				9036408E2354277700A120AC /* UIView+LYExtension.m in Sources */,
@@ -2641,7 +2887,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3722JD4BU4;
+				DEVELOPMENT_TEAM = A2V85YL4T5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/UMCCommon",
@@ -2658,14 +2904,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/WechatOpenSDK/WeChatSDK1.8.6.1",
 					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/Pods/JCore",
 					"$(PROJECT_DIR)/Pods/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yiqibang.mfxapp.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gongliujie.mfxapp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_yiqibang06122;
+				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2675,8 +2920,9 @@
 			baseConfigurationReference = AB4D4FB3912769597ECE2485 /* Pods-GY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3722JD4BU4;
+				DEVELOPMENT_TEAM = A2V85YL4T5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/UMCCommon",
@@ -2693,14 +2939,13 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/WechatOpenSDK/WeChatSDK1.8.6.1",
 					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/SocialLibraries/WeChat",
 					"$(PROJECT_DIR)/Pods/JCore",
 					"$(PROJECT_DIR)/Pods/JPush",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yiqibang.mfxapp.com;
+				PRODUCT_BUNDLE_IDENTIFIER = gongliujie.mfxapp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = dev_yiqibang06122;
+				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

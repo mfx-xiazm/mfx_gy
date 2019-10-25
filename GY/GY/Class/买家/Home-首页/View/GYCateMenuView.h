@@ -27,11 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *titleHightLightColor;
 @property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, assign ,readonly) BOOL show;
-@property (nonatomic, assign) NSInteger dataType;//1分类 2地区
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UIImageView *transformImageView;
 @property (nonatomic, weak) id<GYCateMenuViewDelegate> delegate;
-
+/* 1分类 2地区 */
+@property (nonatomic, assign) NSInteger dataType;
+/* 选中的左侧大分类索引 */
+@property(nonatomic,assign) NSInteger selectIndex;
+/** 数据 */
+@property(nonatomic,strong) NSArray *dataSource;
 - (void)reloadData;
 - (void)menuHidden;
 - (void)menuShowInSuperView:(UIView * _Nullable)view;

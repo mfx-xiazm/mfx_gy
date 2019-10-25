@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYMineData;
 typedef void(^salerMyHeaderBtnClickedCall)(NSInteger index);
 @interface GYSalerMyHeader : UIView
 /* 点击 */
 @property(nonatomic,copy) salerMyHeaderBtnClickedCall salerMyHeaderBtnClickedCall;
+/* 个人信息 */
+@property(nonatomic,strong) GYMineData *mineData;
 @end
 
 NS_ASSUME_NONNULL_END

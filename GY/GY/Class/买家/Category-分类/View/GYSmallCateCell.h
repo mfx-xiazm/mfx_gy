@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYGoodsSubCate;
 @interface GYSmallCateCell : UICollectionViewCell
-
+/* 分类 */
+@property(nonatomic,strong) GYGoodsSubCate *subCate;
 @end
 
 NS_ASSUME_NONNULL_END

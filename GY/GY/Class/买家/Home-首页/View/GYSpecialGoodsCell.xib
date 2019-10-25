@@ -24,7 +24,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rxv-xe-Pco">
                                 <rect key="frame" x="10" y="10" width="79.5" height="79.5"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Rxv-xe-Pco" secondAttribute="height" multiplier="1:1" id="ccN-MN-O4h"/>
                                 </constraints>
@@ -115,6 +114,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="cartBtn" destination="7iL-Rd-Ufc" id="spX-HM-0ko"/>
+                <outlet property="goodsImg" destination="Rxv-xe-Pco" id="ghe-Lk-22D"/>
+                <outlet property="goodsName" destination="eUc-Gn-3cP" id="49e-TK-82z"/>
+                <outlet property="goodsType" destination="9h0-4a-Rly" id="sjK-GX-all"/>
+                <outlet property="marketPrice" destination="RV1-Hz-QgP" id="ePA-CI-vhQ"/>
+                <outlet property="price" destination="U0F-pU-wpN" id="NBh-CC-aGE"/>
+            </connections>
             <point key="canvasLocation" x="-21.014492753623191" y="82.366071428571431"/>
         </tableViewCell>
     </objects>

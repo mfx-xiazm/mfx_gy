@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYConfirmGoodsDetail;
 @interface GYUpOrderCell : UITableViewCell
+/* 商品 */
+@property(nonatomic,strong) GYConfirmGoodsDetail *goods;
 
 @end
 

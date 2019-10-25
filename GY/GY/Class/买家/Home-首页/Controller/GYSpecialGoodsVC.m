@@ -11,6 +11,10 @@
 #import "GYGoodsDetailVC.h"
 #import "GYCateMenuView.h"
 #import "GYBrandMenuView.h"
+#import "GYGoodsCate.h"
+#import "GYBrand.h"
+#import "GYSeries.h"
+#import "GYGoods.h"
 
 static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 @interface GYSpecialGoodsVC ()<UITableViewDelegate,UITableViewDataSource,GYCateMenuViewDelegate,GYBrandMenuViewDelegate>
@@ -29,6 +33,22 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 @property (nonatomic,strong) GYBrandMenuView *brandView;
 /** 系列 */
 @property (nonatomic,strong) GYBrandMenuView *sericesView;
+/** 分类数据 */
+@property(nonatomic,strong) NSArray *goodsCates;
+/** 分类id */
+@property(nonatomic,copy) NSString *cate_id;
+/** 品牌数据 */
+@property(nonatomic,strong) NSArray *brands;
+/** 品牌id */
+@property(nonatomic,copy) NSString *brand_id;
+/** 系列数据 */
+@property(nonatomic,strong) NSArray *series;
+/** 系列id */
+@property(nonatomic,copy) NSString *series_id;
+/** 页码 */
+@property(nonatomic,assign) NSInteger pagenum;
+/** 商品列表 */
+@property(nonatomic,strong) NSMutableArray *goodsData;
 @end
 
 @implementation GYSpecialGoodsVC
@@ -37,10 +57,46 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     [super viewDidLoad];
     [self.navigationItem setTitle:self.navTitle];
     [self setUpTableView];
+    [self setUpRefresh];
+    [self startShimmer];
+    [self getFilterDataRequest];
 }
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+}
+-(void)setCate_id:(NSString *)cate_id
+{
+    if (![_cate_id isEqualToString:cate_id]) {
+        _cate_id = cate_id;
+        hx_weakify(self);
+        [self getSpecialGoodsDataRequest:YES completedCall:^{
+            hx_strongify(weakSelf);
+            [strongSelf.tableView reloadData];
+        }];
+    }
+}
+-(void)setBrand_id:(NSString *)brand_id
+{
+    if (![_brand_id isEqualToString:brand_id]) {
+        _brand_id = brand_id;
+        hx_weakify(self);
+        [self getSpecialGoodsDataRequest:YES completedCall:^{
+            hx_strongify(weakSelf);
+            [strongSelf.tableView reloadData];
+        }];
+    }
+}
+-(void)setSeries_id:(NSString *)series_id
+{
+    if (![_series_id isEqualToString:series_id]) {
+        _series_id = series_id;
+        hx_weakify(self);
+        [self getSpecialGoodsDataRequest:YES completedCall:^{
+            hx_strongify(weakSelf);
+            [strongSelf.tableView reloadData];
+        }];
+    }
 }
 -(GYCateMenuView *)cateView
 {
@@ -72,6 +128,13 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     }
     return _sericesView;
 }
+-(NSMutableArray *)goodsData
+{
+    if (_goodsData == nil) {
+        _goodsData = [NSMutableArray array];
+    }
+    return _goodsData;
+}
 #pragma mark -- 视图相关
 -(void)setUpTableView
 {
@@ -100,6 +163,159 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYSpecialGoodsCell class]) bundle:nil] forCellReuseIdentifier:SpecialGoodsCell];
 }
+/** 添加刷新控件 */
+-(void)setUpRefresh
+{
+    hx_weakify(self);
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf.tableView.mj_footer resetNoMoreData];
+        [strongSelf getSpecialGoodsDataRequest:YES completedCall:^{
+            [strongSelf.tableView reloadData];
+        }];
+    }];
+    //追加尾部刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf getSpecialGoodsDataRequest:NO completedCall:^{
+            [strongSelf.tableView reloadData];
+        }];
+    }];
+}
+#pragma mark -- 数据请求
+-(void)getFilterDataRequest
+{
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    // 执行循序1
+    hx_weakify(self);
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [HXNetworkTool POST:HXRC_M_URL action:@"getCategoryData" parameters:@{} success:^(id responseObject) {
+            if([[responseObject objectForKey:@"status"] boolValue]) {
+                strongSelf.goodsCates = [NSArray yy_modelArrayWithClass:[GYGoodsCate class] json:responseObject[@"data"]];
+            }else{
+                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+            }
+            dispatch_semaphore_signal(semaphore);
+        } failure:^(NSError *error) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    // 执行循序2
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{} success:^(id responseObject) {
+            if([[responseObject objectForKey:@"status"] boolValue]) {
+                strongSelf.brands = [NSArray yy_modelArrayWithClass:[GYBrand class] json:responseObject[@"data"]];
+            }else{
+                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+            }
+            dispatch_semaphore_signal(semaphore);
+        } failure:^(NSError *error) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    // 执行循序3
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [HXNetworkTool POST:HXRC_M_URL action:@"getGoodSeries" parameters:@{} success:^(id responseObject) {
+            if([[responseObject objectForKey:@"status"] boolValue]) {
+                strongSelf.series = [NSArray yy_modelArrayWithClass:[GYSeries class] json:responseObject[@"data"]];
+            }else{
+                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+            }
+            dispatch_semaphore_signal(semaphore);
+        } failure:^(NSError *error) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+            dispatch_semaphore_signal(semaphore);
+
+        }];
+    });
+    // 执行循序4
+    dispatch_group_async(group, queue, ^{
+        hx_strongify(weakSelf);
+        [strongSelf getSpecialGoodsDataRequest:YES completedCall:^{
+            dispatch_semaphore_signal(semaphore);
+        }];
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        // 执行循序4
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        // 执行顺序6
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        // 执行顺序8
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+
+        // 执行顺序10
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 刷新界面
+            hx_strongify(weakSelf);
+            [strongSelf stopShimmer];
+            strongSelf.tableView.hidden = NO;
+            [strongSelf.tableView reloadData];
+            
+        });
+    });
+}
+-(void)getSpecialGoodsDataRequest:(BOOL)isRefresh completedCall:(void(^)(void))completedCall
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"cate_id"] = (self.cate_id && self.cate_id.length)?self.cate_id:@"";//根据分类筛选
+    parameters[@"brand_id"] = (self.brand_id && self.brand_id.length)?self.brand_id:@"";//根据品牌筛选
+    parameters[@"series_id"] = (self.series_id && self.series_id.length)?self.series_id:@"";//根据系列筛选
+    
+    if (isRefresh) {
+        parameters[@"page"] = @(1);//第几页
+    }else{
+        NSInteger page = self.pagenum+1;
+        parameters[@"page"] = @(page);//第几页
+    }
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:(self.dataType==1)?@"getDirectGoodData":@"getStockData" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            if (isRefresh) {
+                [strongSelf.tableView.mj_header endRefreshing];
+                strongSelf.pagenum = 1;
+
+                [strongSelf.goodsData removeAllObjects];
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYGoods class] json:responseObject[@"data"]];
+                [strongSelf.goodsData addObjectsFromArray:arrt];
+            }else{
+                [strongSelf.tableView.mj_footer endRefreshing];
+                strongSelf.pagenum ++;
+
+                if ([responseObject[@"data"] isKindOfClass:[NSArray class]] && ((NSArray *)responseObject[@"data"]).count){
+                    NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYGoods class] json:responseObject[@"data"]];
+                    [strongSelf.goodsData addObjectsFromArray:arrt];
+                }else{// 提示没有更多数据
+                    [strongSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
+            }
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+        if (completedCall) {
+            completedCall();
+        }
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_footer endRefreshing];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+        if (completedCall) {
+            completedCall();
+        }
+    }];
+}
 #pragma mark -- 点击事件
 - (IBAction)cateBtnClicked:(UIButton *)sender {
     if (self.brandView.show) {
@@ -116,6 +332,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     self.selectBtn = nil;
     
     self.cateView.dataType = 1;
+    self.cateView.dataSource = self.goodsCates;
     self.cateView.transformImageView = self.cateImg;
     self.cateView.titleLabel = self.cateLabel;
     
@@ -136,6 +353,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     self.selectBtn = sender;
 
     self.brandView.dataType = 1;
+    self.brandView.dataSource = self.brands;
     self.brandView.transformImageView = self.brandImg;
     self.brandView.titleLabel = self.brandLabel;
     
@@ -156,6 +374,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     self.selectBtn = sender;
     
     self.sericesView.dataType = 2;
+    self.sericesView.dataSource = self.series;
     self.sericesView.transformImageView = self.seriesImg;
     self.sericesView.titleLabel = self.seriesLabel;
     
@@ -170,7 +389,9 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 //点击事件
 - (void)cateMenu:(GYCateMenuView *)menu  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HXLog(@"分类筛选确定");
+    GYGoodsCate *cate = self.goodsCates[menu.selectIndex];
+    GYGoodsSubCate *subCate = cate.sub[indexPath.item];
+    self.cate_id = subCate.cate_id;
 }
 #pragma mark -- GYBrandMenuViewDelegate
 //出现位置
@@ -181,17 +402,25 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 //点击事件
 - (void)brandMenu:(GYBrandMenuView *)menu didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HXLog(@"品牌筛选确定");
+    if (menu.dataType == 1) {
+        GYBrand *brand = self.brands[indexPath.item];
+        self.brand_id = brand.brand_id;
+    }else{
+        GYSeries *series = self.series[indexPath.item];
+        self.series_id = series.series_id;
+    }
 }
 #pragma mark -- UITableView数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return self.goodsData.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GYSpecialGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialGoodsCell forIndexPath:indexPath];
     //无色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    GYGoods *goods = self.goodsData[indexPath.row];
+    cell.goods = goods;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,7 +430,9 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GYGoods *goods = self.goodsData[indexPath.row];
     GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+    dvc.goods_id = goods.goods_id;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 @end

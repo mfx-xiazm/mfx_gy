@@ -24,7 +24,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rg5-UO-yZk">
                                 <rect key="frame" x="10" y="10" width="95" height="95"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Rg5-UO-yZk" secondAttribute="height" multiplier="1:1" id="cut-ls-5Rs"/>
                                 </constraints>
@@ -216,7 +215,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="cart_num" destination="lDU-yl-wXU" id="T5W-Ro-Jjn"/>
+                <outlet property="cover_img" destination="Rg5-UO-yZk" id="AZu-cH-Zg4"/>
+                <outlet property="freight" destination="IwO-eP-ARq" id="GoE-RD-9xL"/>
+                <outlet property="goods_name" destination="bD1-Y3-P4r" id="CRd-eV-IVs"/>
+                <outlet property="goods_type" destination="sYI-KZ-4te" id="LrQ-fD-hCe"/>
+                <outlet property="market_price" destination="XlI-lt-4B8" id="jw3-hD-boc"/>
+                <outlet property="price" destination="LrR-qK-olv" id="z10-18-3oA"/>
                 <outlet property="remark" destination="vLs-4u-CAX" id="Nq8-yE-hDN"/>
+                <outlet property="spec_value" destination="4Py-Bm-ML3" id="dID-86-9M7"/>
+                <outlet property="totalPrice" destination="urM-Mm-eFw" id="ZVF-b6-YfP"/>
             </connections>
             <point key="canvasLocation" x="92.028985507246389" y="163.39285714285714"/>
         </tableViewCell>

@@ -58,6 +58,10 @@
                 <constraint firstAttribute="bottom" secondItem="6bB-fo-d6l" secondAttribute="bottom" id="wt1-lv-Zqd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="order_no" destination="0jh-5p-n0a" id="FU3-NU-Cxa"/>
+                <outlet property="order_state" destination="xdS-zf-nWa" id="1el-mb-fid"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="382.36607142857139"/>
         </view>
     </objects>

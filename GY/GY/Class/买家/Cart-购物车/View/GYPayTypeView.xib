@@ -40,10 +40,13 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIK-Zf-iOR">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIK-Zf-iOR">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" image="付款选中"/>
+                                    <connections>
+                                        <action selector="payTypeClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="JBH-sU-fGU"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUc-wp-eT1" userLabel="分割线">
                                     <rect key="frame" x="10" y="41" width="394" height="1"/>
@@ -80,10 +83,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TB-51-916">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TB-51-916">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                    <state key="normal" image="付款选中"/>
+                                    <connections>
+                                        <action selector="payTypeClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="aMm-rb-mGh"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oEn-hm-Cq7" userLabel="分割线">
                                     <rect key="frame" x="10" y="41" width="394" height="1"/>
@@ -120,10 +125,12 @@
                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLN-F6-Ph7">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLN-F6-Ph7">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                    <state key="normal" image="付款选中"/>
+                                    <connections>
+                                        <action selector="payTypeClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="FOi-ss-WmF"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPb-SS-zuM" userLabel="分割线">
                                     <rect key="frame" x="10" y="41" width="394" height="1"/>
@@ -166,7 +173,7 @@
                         <constraint firstItem="LHc-Z2-O52" firstAttribute="top" secondItem="w9l-On-SbT" secondAttribute="top" id="xwy-Wp-gf6"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-fa-tsX">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-fa-tsX">
                     <rect key="frame" x="10" y="196" width="394" height="52"/>
                     <attributedString key="attributedText">
                         <fragment content="开户银行：这里是开户银行开户银行">
@@ -227,6 +234,9 @@ Cg
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmPayClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="PVV-uR-A55"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -246,6 +256,13 @@ Cg
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="aliPay" destination="8TB-51-916" id="RT4-0e-9m6"/>
+                <outlet property="outLinePay" destination="qLN-F6-Ph7" id="uhd-H1-hiy"/>
+                <outlet property="payBankLabel" destination="f3E-fa-tsX" id="9wr-Uf-O6n"/>
+                <outlet property="pay_amount" destination="oh1-1o-L0W" id="651-JC-3Nc"/>
+                <outlet property="wxPay" destination="xIK-Zf-iOR" id="J9n-Rl-2he"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="353.57142857142856"/>
         </view>
     </objects>

@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="185" height="63"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1箱/6瓶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-8r-4l4">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1箱/6瓶" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-8r-4l4">
                         <rect key="frame" x="0.0" y="0.0" width="185" height="63"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -46,6 +46,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="185" height="63"/>
+            <connections>
+                <outlet property="spec_name" destination="uuR-8r-4l4" id="NhT-b3-8KD"/>
+            </connections>
             <point key="canvasLocation" x="71.739130434782609" y="120.20089285714285"/>
         </collectionViewCell>
     </objects>

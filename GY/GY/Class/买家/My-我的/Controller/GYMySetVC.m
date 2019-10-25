@@ -27,12 +27,14 @@
 - (IBAction)setBtnClicked:(UIButton *)sender {
     if (sender.tag == 1) {
         GYChangeInfoVC *ivc = [GYChangeInfoVC new];
+        ivc.mineData = self.mineData;
         [self.navigationController pushViewController:ivc animated:YES];
     }else if (sender.tag == 2) {
         GYChangeBindVC *bvc = [GYChangeBindVC new];
         [self.navigationController pushViewController:bvc animated:YES];
     }else if (sender.tag == 3) {
         GYChangePwdVC *pvc = [GYChangePwdVC new];
+        pvc.dataType = 2;
         [self.navigationController pushViewController:pvc animated:YES];
     }else{
         zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"确定要退出登录？" constantWidth:HX_SCREEN_WIDTH - 50*2];

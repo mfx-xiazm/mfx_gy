@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GYMyNeedsVC : HXBaseViewController
-
+/* 发单成功的push */
+@property(nonatomic,assign) BOOL isPublishPush;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -88,6 +88,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="324" height="127"/>
+            <connections>
+                <outlet property="member_type" destination="PSv-k8-CNJ" id="Sxb-zo-jmA"/>
+                <outlet property="price_month" destination="TTn-85-2Le" id="dVj-pP-AEV"/>
+            </connections>
             <point key="canvasLocation" x="46.376811594202906" y="145.64732142857142"/>
         </collectionViewCell>
     </objects>

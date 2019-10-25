@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYHomeCateGood;
 @interface GYShopGoodsCell : UICollectionViewCell
-
+/* 商品 */
+@property(nonatomic,strong) GYHomeCateGood *cateGood;
 @end
 
 NS_ASSUME_NONNULL_END

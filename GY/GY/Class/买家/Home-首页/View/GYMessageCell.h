@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYMessage;
 @interface GYMessageCell : UITableViewCell
-
+/** 消息 */
+@property(nonatomic,strong) GYMessage *msg;
 @end
 
 NS_ASSUME_NONNULL_END

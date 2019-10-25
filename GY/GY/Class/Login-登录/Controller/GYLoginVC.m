@@ -82,7 +82,47 @@
             [MSUserManager sharedInstance].curUserInfo = info;
             [[MSUserManager sharedInstance] saveUserInfo];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [strongSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+                HXTabBarController *tabvc = (HXTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                if (info.utype == 1) {
+                    if (tabvc.viewControllers.count == 4) {
+                        [strongSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    }else{
+                        HXTabBarController *tab = [[HXTabBarController alloc] init];
+                        [UIApplication sharedApplication].keyWindow.rootViewController = tab;
+                        
+                        //推出主界面出来
+                        CATransition *ca = [CATransition animation];
+                        ca.type = @"movein";
+                        ca.duration = 0.5;
+                        [[UIApplication sharedApplication].keyWindow.layer addAnimation:ca forKey:nil];
+                    }
+                }else if (info.utype == 2) {
+                    if (tabvc.viewControllers.count == 3) {
+                        [strongSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    }else{
+                        HXTabBarController *tab = [[HXTabBarController alloc] init];
+                        [UIApplication sharedApplication].keyWindow.rootViewController = tab;
+                        
+                        //推出主界面出来
+                        CATransition *ca = [CATransition animation];
+                        ca.type = @"movein";
+                        ca.duration = 0.5;
+                        [[UIApplication sharedApplication].keyWindow.layer addAnimation:ca forKey:nil];
+                    }
+                }else{
+                    if (tabvc.viewControllers.count == 2) {
+                        [strongSelf.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    }else{
+                        HXTabBarController *tab = [[HXTabBarController alloc] init];
+                        [UIApplication sharedApplication].keyWindow.rootViewController = tab;
+                        
+                        //推出主界面出来
+                        CATransition *ca = [CATransition animation];
+                        ca.type = @"movein";
+                        ca.duration = 0.5;
+                        [[UIApplication sharedApplication].keyWindow.layer addAnimation:ca forKey:nil];
+                    }
+                }
             });
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
@@ -95,6 +135,7 @@
 }
 - (IBAction)forgetClicked:(UIButton *)sender {
     GYChangePwdVC *pvc = [GYChangePwdVC new];
+    pvc.dataType = 1;
     [self.navigationController pushViewController:pvc animated:YES];
 }
 

@@ -10,10 +10,22 @@
 #import <TYCyclePagerView.h>
 #import <TYPageControl.h>
 #import "GYBannerCell.h"
+#import "GYGoodsDetail.h"
 
 @interface GYGoodsDetailHeader ()<TYCyclePagerViewDataSource, TYCyclePagerViewDelegate>
 @property (weak, nonatomic) IBOutlet TYCyclePagerView *cyclePagerView;
 @property (nonatomic,strong) TYPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *goods_name;
+@property (weak, nonatomic) IBOutlet UILabel *goods_type;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *market_price;
+@property (weak, nonatomic) IBOutlet UILabel *stock_num;
+@property (weak, nonatomic) IBOutlet UILabel *serice_name;
+@property (weak, nonatomic) IBOutlet UILabel *goods_model;
+@property (weak, nonatomic) IBOutlet UILabel *freight;
+@property (weak, nonatomic) IBOutlet UIView *freightView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *freightViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoViewHeight;
 
 @end
 @implementation GYGoodsDetailHeader
@@ -46,14 +58,45 @@
     [super layoutSubviews];
     self.pageControl.frame = CGRectMake(0, CGRectGetHeight(self.cyclePagerView.frame) - 20, CGRectGetWidth(self.cyclePagerView.frame), 20);
 }
+-(void)setGoodsDetail:(GYGoodsDetail *)goodsDetail
+{
+    _goodsDetail = goodsDetail;
+    
+    [self.goods_name setTextWithLineSpace:5.f withString:_goodsDetail.goods_name withFont:[UIFont systemFontOfSize:14]];
+    if ([_goodsDetail.goods_type isEqualToString:@"1"]) {
+        self.goods_type.text = @" 直营商品 ";
+    }else if ([_goodsDetail.goods_type isEqualToString:@"2"]) {
+        self.goods_type.text = @" 库存商品 ";
+    }else{
+        self.goods_type.text = @" 经销商商品 ";
+    }
+    self.price.text = [NSString stringWithFormat:@"会员价%@",_goodsDetail.price];
+    [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_goodsDetail.market_price]];
+    self.stock_num.text = _goodsDetail.stock_num;
+    self.serice_name.text = _goodsDetail.series_name;
+    self.goods_model.text = _goodsDetail.goods_model;
+    if ([_goodsDetail.goods_type isEqualToString:@"2"]) {
+        self.infoViewHeight.constant = 120.f;
+        self.freightViewHeight.constant = 0.f;
+        self.freightView.hidden = YES;
+    }else{
+        self.infoViewHeight.constant = 160.f;
+        self.freightViewHeight.constant = 40.f;
+        self.freightView.hidden = NO;
+    }
+    
+    self.pageControl.numberOfPages = _goodsDetail.good_adv.count;
+    [self.cyclePagerView reloadData];
+}
 #pragma mark -- TYCyclePagerView代理
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
-    return 4;
+    return self.goodsDetail.good_adv.count;
 }
 
 - (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
     GYBannerCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"TopBannerCell" forIndex:index];
-    
+    GYGoodAdv *adv = self.goodsDetail.good_adv[index];
+    cell.adv = adv;
     return cell;
 }
 

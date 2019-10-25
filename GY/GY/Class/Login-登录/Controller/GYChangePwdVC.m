@@ -89,7 +89,7 @@
     parameters[@"confirmPass"] = self.confirmPwd.text;
 
     hx_weakify(self);
-    [HXNetworkTool POST:HXRC_M_URL action:@"forgetPassword" parameters:parameters success:^(id responseObject) {
+    [HXNetworkTool POST:HXRC_M_URL action:(self.dataType ==1)?@"forgetPassword":@"editPassword" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
         [btn stopLoading:@"确定" image:nil textColor:nil backgroundColor:nil];
         if([[responseObject objectForKey:@"status"] boolValue]) {

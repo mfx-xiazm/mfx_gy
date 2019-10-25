@@ -18,17 +18,28 @@
 #import <zhPopupController.h>
 #import "GYChooseClassView.h"
 #import "GYAllCommentsVC.h"
+#import "GYGoodsDetail.h"
+#import "GYLoginVC.h"
+#import "HXNavigationController.h"
+#import "GYVipMemberVC.h"
+#import "GYUpOrderVC.h"
 
-@interface GYGoodsDetailVC ()<UITableViewDelegate,WKNavigationDelegate,UITableViewDataSource,GYGoodsCommentCellDelegate>
+@interface GYGoodsDetailVC ()<UITableViewDelegate,UITableViewDataSource,GYGoodsCommentCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet SPButton *collectBtn;
+@property (weak, nonatomic) IBOutlet UIButton *contactBtn;
+@property (weak, nonatomic) IBOutlet UIView *handleToolView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *handleToolViewHeight;
 /* 头视图 */
 @property(nonatomic,strong) GYGoodsDetailHeader *header;
-/** 评论布局数组 */
-@property (nonatomic,strong) NSMutableArray *commentLayoutsArr;
 /** 尾部视图 */
 @property(nonatomic,strong) UIView *footer;
-/* https://www.jianshu.com/p/7179e886a109 */
+/** 商品详情视图 */
 @property(nonatomic,strong) WKWebView *webView;
+/** 商品详情 */
+@property(nonatomic,strong) GYGoodsDetail *goodsDetail;
+/** 商品规格视图 */
+@property(nonatomic,strong) GYChooseClassView *chooseClassView;
 @end
 
 @implementation GYGoodsDetailVC
@@ -37,13 +48,20 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"商品详情"];
     [self setUpTableView];
-    
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/7179e886a109"]]];
+    [self startShimmer];
+    [self getGoodDetailRequest];
 }
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.header.frame = CGRectMake(0, 0, HX_SCREEN_WIDTH, HX_SCREEN_WIDTH*3/5.0 + 95.f + 160.f + 20.f);
+}
+-(GYChooseClassView *)chooseClassView
+{
+    if (_chooseClassView == nil) {
+        _chooseClassView = [GYChooseClassView loadXibView];
+        _chooseClassView.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 380);
+    }
+    return _chooseClassView;
 }
 -(GYGoodsDetailHeader *)header
 {
@@ -58,25 +76,10 @@
     if (_webView == nil) {
         _webView = [[WKWebView alloc] init];
         _webView.scrollView.scrollEnabled = NO;
-        _webView.navigationDelegate = self;
         [self.footer addSubview:_webView];
         [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     }
     return _webView;
-}
--(NSMutableArray *)commentLayoutsArr
-{
-    if (!_commentLayoutsArr) {
-        _commentLayoutsArr = [NSMutableArray array];
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"moment2" ofType:@"plist"];
-        NSArray *dataArray = [NSArray arrayWithContentsOfFile:plistPath];
-        for (NSDictionary *dict in dataArray) {
-            GYGoodsComment *model = [GYGoodsComment yy_modelWithDictionary:dict];
-            GYGoodsCommentLayout *layout = [[GYGoodsCommentLayout alloc] initWithModel:model];
-            [_commentLayoutsArr addObject:layout];
-        }
-    }
-    return _commentLayoutsArr;
 }
 -(UIView *)footer
 {
@@ -124,26 +127,18 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.tableHeaderView = self.header;
+    
+    self.tableView.hidden = YES;
 }
 #pragma mark -- 点击事件
 - (IBAction)addCollectClicked:(SPButton *)sender {
-    hx_weakify(self);
-    zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"您还不是会员，需要先充值成为会员哦~" constantWidth:HX_SCREEN_WIDTH - 50*2];
-    zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
-        hx_strongify(weakSelf);
-        [strongSelf.zh_popupController dismiss];
-    }];
-    zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"去充值" handler:^(zhAlertButton * _Nonnull button) {
-        hx_strongify(weakSelf);
-        [strongSelf.zh_popupController dismiss];
-    }];
-    cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
-    [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
-    okButton.lineColor = UIColorFromRGB(0xDDDDDD);
-    [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
-    [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
-    self.zh_popupController = [[zhPopupController alloc] init];
-    [self.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+    
+    if ([MSUserManager sharedInstance].isLogined) {
+        [self getCollectRequest];
+    }else{
+        HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 - (IBAction)shareClicked:(SPButton *)sender {
@@ -159,16 +154,227 @@
         }];
     }
 }
+- (IBAction)lookContactClicked:(UIButton *)sender {
+    hx_weakify(self);
+    if ([MSUserManager sharedInstance].isLogined) {
+        [self getMemberRequestCompletedCall:^(NSInteger member_id) {
+            hx_strongify(weakSelf);
+            if (member_id) {
+                [strongSelf getContactRequest];
+            }else{
+                zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"您还不是会员，需要先充值成为会员哦~" constantWidth:HX_SCREEN_WIDTH - 50*2];
+                zhAlertButton *cancelButton = [zhAlertButton buttonWithTitle:@"取消" handler:^(zhAlertButton * _Nonnull button) {
+                    hx_strongify(weakSelf);
+                    [strongSelf.zh_popupController dismiss];
+                }];
+                zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"去充值" handler:^(zhAlertButton * _Nonnull button) {
+                    hx_strongify(weakSelf);
+                    [strongSelf.zh_popupController dismiss];
+                    GYVipMemberVC *mvc = [GYVipMemberVC new];
+                    [strongSelf.navigationController pushViewController:mvc animated:YES];
+                }];
+                cancelButton.lineColor = UIColorFromRGB(0xDDDDDD);
+                [cancelButton setTitleColor:UIColorFromRGB(0x999999) forState:UIControlStateNormal];
+                okButton.lineColor = UIColorFromRGB(0xDDDDDD);
+                [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
+                [alert adjoinWithLeftAction:cancelButton rightAction:okButton];
+                strongSelf.zh_popupController = [[zhPopupController alloc] init];
+                [strongSelf.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+            }
+        }];
+    }else{
+        HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+}
 
 - (IBAction)chooseGoodsClassClicked:(UIButton *)sender {
-    GYChooseClassView *cv = [GYChooseClassView loadXibView];
-    cv.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 380);
-
-    self.zh_popupController = [[zhPopupController alloc] init];
-    self.zh_popupController.layoutType = zhPopupLayoutTypeBottom;
-    [self.zh_popupController presentContentView:cv duration:0.25 springAnimated:NO];
+    if ([MSUserManager sharedInstance].isLogined) {
+        self.chooseClassView.goodsDetail = self.goodsDetail;
+        hx_weakify(self);
+        self.chooseClassView.goodsHandleCall = ^(NSInteger type) {
+            hx_strongify(weakSelf);
+            [strongSelf.zh_popupController dismissWithDuration:0.25 springAnimated:YES];
+            if (type) {
+                if (type == 1) {
+                    [strongSelf addOrderCartRequest];
+                }else{
+                    GYUpOrderVC *ovc = [GYUpOrderVC new];
+                    ovc.goods_id = strongSelf.goods_id;//商品id
+                    ovc.goods_num = [NSString stringWithFormat:@"%ld",(long)strongSelf.goodsDetail.buyNum];//商品数量
+                    if (strongSelf.goodsDetail.spec && strongSelf.goodsDetail.spec.count) {
+                        NSMutableString *spec_values = [NSMutableString string];
+                        for (GYGoodSpec *spec in strongSelf.goodsDetail.spec) {
+                            if (spec_values.length) {
+                                [spec_values appendFormat:@" %@",spec.selectSpec.spec_value];
+                            }else{
+                                [spec_values appendFormat:@"%@",spec.selectSpec.spec_value];
+                            }
+                        }
+                        ovc.spec_values = spec_values;//商品规格
+                    }else{
+                        ovc.spec_values = @"";//商品规格
+                    }
+                    [strongSelf.navigationController pushViewController:ovc animated:YES];
+                }
+            }
+        };
+        self.zh_popupController = [[zhPopupController alloc] init];
+        self.zh_popupController.layoutType = zhPopupLayoutTypeBottom;
+        [self.zh_popupController presentContentView:self.chooseClassView duration:0.25 springAnimated:NO];
+    }else{
+        HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+}
+#pragma mark -- 接口请求
+-(void)getGoodDetailRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = self.goods_id;//商品id
+    
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getGoodDetail" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            strongSelf.goodsDetail = [GYGoodsDetail yy_modelWithDictionary:responseObject[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.tableView.hidden = NO;
+                [strongSelf handleShopDetailInfo];
+            });
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)handleShopDetailInfo
+{
+    self.header.frame = CGRectMake(0, 0, HX_SCREEN_WIDTH, [self.goodsDetail.goods_type isEqualToString:@"2"]?HX_SCREEN_WIDTH*3/5.0 + 95.f + 120.f + 20.f : HX_SCREEN_WIDTH*3/5.0 + 95.f + 160.f + 20.f);
+    self.header.goodsDetail = self.goodsDetail;
+    
+    self.tableView.tableHeaderView = self.header;
+    
+    [self.tableView reloadData];
+    
+    NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",self.goodsDetail.goods_detail];
+    [self.webView loadHTMLString:h5 baseURL:nil];
+    
+    self.collectBtn.selected = self.goodsDetail.collected;
+    
+    if ([MSUserManager sharedInstance].isLogined) {// 已登录
+        if ([MSUserManager sharedInstance].curUserInfo.utype == 1) {
+            if ([self.goodsDetail.goods_type isEqualToString:@"2"]) {
+                self.contactBtn.hidden = NO;
+            }else{
+                self.contactBtn.hidden = YES;
+            }
+        }else{
+            self.handleToolView.hidden = YES;
+            self.handleToolViewHeight.constant = 0.f;
+        }
+    }else{// 未登录
+        if ([self.goodsDetail.goods_type isEqualToString:@"2"]) {
+            self.contactBtn.hidden = NO;
+        }else{
+            self.contactBtn.hidden = YES;
+        }
+    }
 }
 #pragma mark -- 业务逻辑
+-(void)getCollectRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = self.goods_id;//商品id
+    
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"collectGood" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            strongSelf.collectBtn.selected = !strongSelf.collectBtn.isSelected;
+            strongSelf.goodsDetail.collected = strongSelf.collectBtn.isSelected;
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)getMemberRequestCompletedCall:(void(^)(NSInteger member_id))completedCall
+{
+    [HXNetworkTool POST:HXRC_M_URL action:@"getMineData" parameters:@{} success:^(id responseObject) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            NSArray *data = [NSArray arrayWithArray:responseObject[@"data"]];
+            NSDictionary *dict = data.firstObject;
+            completedCall([dict[@"member_id"] integerValue]);
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)getContactRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = self.goods_id;//商品id
+    
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getContact" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            NSArray *data = [NSArray arrayWithArray:responseObject[@"data"]];
+            NSDictionary *dict = data.firstObject;
+            zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:@"姓名：%@\n电话：%@",dict[@"contact_name"],dict[@"contact_phone"]] constantWidth:HX_SCREEN_WIDTH - 50*2];
+            zhAlertButton *okButton = [zhAlertButton buttonWithTitle:@"确定" handler:^(zhAlertButton * _Nonnull button) {
+                hx_strongify(weakSelf);
+                [strongSelf.zh_popupController dismiss];
+            }];
+            okButton.lineColor = UIColorFromRGB(0xDDDDDD);
+            [okButton setTitleColor:HXControlBg forState:UIControlStateNormal];
+            [alert addAction:okButton];
+            strongSelf.zh_popupController = [[zhPopupController alloc] init];
+            [strongSelf.zh_popupController presentContentView:alert duration:0.25 springAnimated:NO];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)addOrderCartRequest
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = self.goods_id;//商品id
+    parameters[@"cart_num"] = @(self.goodsDetail.buyNum);//商品数量
+    if (self.goodsDetail.spec && self.goodsDetail.spec.count) {
+        NSMutableString *spec_values = [NSMutableString string];
+        for (GYGoodSpec *spec in self.goodsDetail.spec) {
+            if (spec_values.length) {
+                [spec_values appendFormat:@" %@",spec.selectSpec.spec_value];
+            }else{
+                [spec_values appendFormat:@"%@",spec.selectSpec.spec_value];
+            }
+        }
+        parameters[@"spec_values"] = spec_values;//商品规格
+    }else{
+        parameters[@"spec_values"] = @"";//商品规格
+    }
+
+    [HXNetworkTool POST:HXRC_M_URL action:@"addOrderCart" parameters:parameters success:^(id responseObject) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 - (void)shareToPlatformType:(UMSocialPlatformType)platformType
 {
     //    //创建分享消息对象
@@ -221,21 +427,10 @@
         self.tableView.tableFooterView = self.footer;
     }
 }
--(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
-{
-    @try {
-        [self.webView.scrollView removeObserver:self forKeyPath:@"contentSize"];
-    }
-    @catch (NSException *exception) {
-        HXLog(@"多次删除了");
-    }
-    @finally {
-        HXLog(@"多次删除了");
-    }
-}
 -(void)dealloc
 {
     @try {
+        HXLog(@"销毁");
         [self.webView.scrollView removeObserver:self forKeyPath:@"contentSize"];
     }
     @catch (NSException *exception) {
@@ -248,18 +443,18 @@
 #pragma mark -- TableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.commentLayoutsArr.count;
+    return self.goodsDetail.evaLayout ?1:0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GYGoodsCommentLayout *layout = self.commentLayoutsArr[indexPath.row];
+    GYGoodsCommentLayout *layout = self.goodsDetail.evaLayout;
     return layout.height;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GYGoodsCommentCell * cell = [GYGoodsCommentCell cellWithTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    GYGoodsCommentLayout *layout = self.commentLayoutsArr[indexPath.row];
+    GYGoodsCommentLayout *layout = self.goodsDetail.evaLayout;
     cell.commentLayout = layout;
     cell.delegate = self;
     return cell;
@@ -280,6 +475,7 @@
     header.moreClickedCall = ^{
         hx_strongify(weakSelf);
         GYAllCommentsVC *mvc = [GYAllCommentsVC new];
+        mvc.goods_id = strongSelf.goods_id;
         [strongSelf.navigationController pushViewController:mvc animated:YES];
     };
     return header;

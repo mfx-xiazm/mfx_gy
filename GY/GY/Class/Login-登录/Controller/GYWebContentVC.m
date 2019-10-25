@@ -37,7 +37,12 @@
     if (self.isNeedRequest) {
         [self loadWebDataRequest];
     }else{
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+        if (self.url && self.url.length) {
+            [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+        }else{
+            NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",self.htmlContent];
+            [self.webView loadHTMLString:h5 baseURL:nil];
+        }
     }
 }
 -(void)viewDidLayoutSubviews
@@ -73,16 +78,32 @@
 -(void)loadWebDataRequest
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    NSString *action = nil;
     if (self.requestType == 1) {
         parameters[@"type"] = self.type;//为1 表示查看买家服务协议 为3表示查看技工服务协议
+        action = @"getAgreement";
+    }else if (self.requestType == 2) {
+        parameters[@"notice_id"] = self.notice_id;//公告id
+        action = @"getNoticeDetail";
+    }else if (self.requestType == 3) {
+        parameters[@"cart_ids"] = self.cart_ids;//选择多个用逗号隔开
+        parameters[@"order_note"] = self.order_note;//下单时候的备注说明 多个商品备注之间用"_"隔开有的商品没填备注用空字符串
+        action = @"contractPreviewFromCart";
     }
     
     hx_weakify(self);
-    [HXNetworkTool POST:HXRC_M_URL action:@"getAgreement" parameters:parameters success:^(id responseObject) {
+    [HXNetworkTool POST:HXRC_M_URL action:action parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
         if([[responseObject objectForKey:@"status"] boolValue]) {
-            NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",responseObject[@"data"][@"agreement"][@"agreement"]];
-            [strongSelf.webView loadHTMLString:h5 baseURL:nil];
+            if (strongSelf.requestType == 1) {
+                NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",responseObject[@"data"][@"agreement"][@"agreement"]];
+                [strongSelf.webView loadHTMLString:h5 baseURL:nil];
+            }else if (strongSelf.requestType == 2) {
+                NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",responseObject[@"data"][@"notice_content"]];
+                [strongSelf.webView loadHTMLString:h5 baseURL:nil];
+            }else if (strongSelf.requestType == 3) {
+                [strongSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[responseObject[@"data"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+            }
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }

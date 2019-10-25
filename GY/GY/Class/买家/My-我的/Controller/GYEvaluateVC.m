@@ -11,12 +11,18 @@
 #import "GYEvaluatePhotoCell.h"
 #import <ZLCollectionViewVerticalLayout.h>
 #import <ZLPhotoActionSheet.h>
+#import <AFNetworking.h>
 
 static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 @interface GYEvaluateVC ()<UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate>
 @property (weak, nonatomic) IBOutlet HXPlaceholderTextView *remarkText;
 @property (weak, nonatomic) IBOutlet UICollectionView *photoCollectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHeight;
+@property (weak, nonatomic) IBOutlet UIButton *highBtn;
+@property (weak, nonatomic) IBOutlet UIButton *minBtn;
+@property (weak, nonatomic) IBOutlet UIButton *lowBtn;
+/* 选中的评价等级 */
+@property(nonatomic,strong) UIButton *selectBtn;
 /** 已选择的数组 */
 @property (nonatomic,strong) NSMutableArray *selectedAssets;
 /** 已选择的数组 */
@@ -27,6 +33,9 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 @property (nonatomic, assign) BOOL isSelect9;
 /** 模型数组 */
 @property (nonatomic,strong) NSMutableArray *showData;
+/** 提交 */
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
 @end
 
 @implementation GYEvaluateVC
@@ -34,8 +43,22 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"评价"];
+    self.selectBtn = self.highBtn;
     self.remarkText.placeholder = @"请输入评价内容";
     [self setUpCollectionView];
+    
+    hx_weakify(self);
+    [self.submitBtn BindingBtnJudgeBlock:^BOOL{
+        hx_strongify(weakSelf);
+        if (![strongSelf.remarkText hasText]) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请填写评价内容"];
+            return NO;
+        }
+        return YES;
+    } ActionBlock:^(UIButton * _Nullable button) {
+        hx_strongify(weakSelf);
+        [strongSelf submitBtnClicked:button];
+    }];
 }
 -(NSMutableArray *)showData
 {
@@ -171,7 +194,144 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
     [self.photoCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GYEvaluatePhotoCell class]) bundle:nil] forCellWithReuseIdentifier:EvaluatePhotoCell];
 }
 #pragma mark -- 点击事件
+- (IBAction)commnetTypeClicked:(UIButton *)sender {
+    self.selectBtn.layer.borderColor = UIColorFromRGB(0x666666).CGColor;
+    self.selectBtn.backgroundColor = [UIColor whiteColor];
+    [self.selectBtn setTitleColor:UIColorFromRGB(0x666666) forState:UIControlStateNormal];
+    
+    sender.layer.borderColor = [UIColor clearColor].CGColor;
+    sender.backgroundColor = HXControlBg;
+    [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.selectBtn = sender;
+}
+-(void)submitBtnClicked:(UIButton *)btn
+{
+    if (self.showData.count > 1) {
+        hx_weakify(self);
+        if (self.isSelect9) {
+            [self runUpLoadImages:self.showData completedCall:^(NSMutableArray *result) {
+                hx_strongify(weakSelf);
+                [strongSelf submitEvaRequest:btn imageUrls:result];
+            }];
+        }else{
+            NSMutableArray *tempImgs = [NSMutableArray arrayWithArray:self.showData];
+            [tempImgs removeLastObject];
+            [self runUpLoadImages:tempImgs completedCall:^(NSMutableArray *result) {
+                hx_strongify(weakSelf);
+                [strongSelf submitEvaRequest:btn imageUrls:result];
+            }];
+        }
+    }else{
+        [self submitEvaRequest:btn imageUrls:nil];
+    }
+}
+/**
+ *  图片批量上传方法
+ */
+- (void)runUpLoadImages:(NSArray *)imageArr completedCall:(void(^)(NSMutableArray* result))completedCall{
+    // 需要上传的图片数据imageArr
+    
+    // 准备保存结果的数组，元素个数与上传的图片个数相同，先用 NSNull 占位
+    NSMutableArray* result = [NSMutableArray array];
+    for (int i=0;i<imageArr.count;i++) {
+        [result addObject:[NSNull null]];
+    }
+    // 生成一个请求组
+    dispatch_group_t group = dispatch_group_create();
+    for (NSInteger i = 0; i < imageArr.count; i++) {
+        dispatch_group_enter(group);
+        NSURLSessionUploadTask *uploadTask = [self uploadTaskWithImage:imageArr[i] completion:^(NSURLResponse *response, NSDictionary* responseObject, NSError *error) {
+            if (error) {
+                // CBLog(@"第 %d 张图片上传失败: %@", (int)i + 1, error);
+                dispatch_group_leave(group);
+            } else {
+                //CBLog(@"第 %d 张图片上传成功: %@", (int)i + 1, responseObject);
+                @synchronized (result) { // NSMutableArray 是线程不安全的，所以加个同步锁
+                    if ([responseObject[@"status"] boolValue]){
+                        // 将上传完成返回的图片链接存入数组
+                        result[i] = responseObject[@"data"][@"path"];
+                    }else{
+                        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:responseObject[@"message"]];
+                    }
+                }
+                dispatch_group_leave(group);
+            }
+        }];
+        [uploadTask resume];
+    }
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        //HXLog(@"上传完成!");
+        if (completedCall) {
+            completedCall(result);//将图片链接数组传入
+        }
+    });
+}
 
+/**
+ *  生成图片批量上传的上传请求方法
+ *
+ *  @param image           上传的图片
+ *  @param completionBlock 包装成的请求回调
+ *
+ *  @return 上传请求
+ */
+
+- (NSURLSessionUploadTask*)uploadTaskWithImage:(UIImage*)image completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionBlock {
+    // 构造 NSURLRequest
+    NSError* error = NULL;
+    
+    AFHTTPSessionManager *HTTPmanager = [AFHTTPSessionManager manager];
+    //    HTTPmanager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
+    NSMutableURLRequest *request = [HTTPmanager.requestSerializer multipartFormRequestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@uploadFile",HXRC_M_URL]  parameters:@{} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //把本地的图片转换为NSData类型的数据
+        NSData* imageData = UIImageJPEGRepresentation(image, 0.8);
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
+    } error:&error];
+    
+    // 可在此处配置验证信息
+    // 将 NSURLRequest 与 completionBlock 包装为 NSURLSessionUploadTask
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
+    } completionHandler:completionBlock];
+    
+    return uploadTask;
+}
+-(void)submitEvaRequest:(UIButton *)btn imageUrls:(NSArray *)imageUrls
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"oid"] = self.oid;
+    if (self.selectBtn.tag == 1) {// 好评
+        parameters[@"evl_level"] = @"3";
+    }else if (self.selectBtn.tag == 2) {// 中评
+        parameters[@"evl_level"] = @"2";
+    }else{// 差评
+        parameters[@"evl_level"] = @"1";
+    }
+    parameters[@"evl_content"] = self.remarkText.text;
+    if (imageUrls) {
+        parameters[@"img_srcs"] = [imageUrls componentsJoinedByString:@","];//详情图片
+    }else{
+        parameters[@"img_srcs"] = @"";//详情图片
+    }
+   
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"evaOrder" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        [btn stopLoading:@"提交" image:nil textColor:nil backgroundColor:nil];
+        if([[responseObject objectForKey:@"status"] boolValue]) {
+            if (strongSelf.evaluatSuccessCall) {
+                strongSelf.evaluatSuccessCall();
+            }
+            [strongSelf.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [btn stopLoading:@"提交" image:nil textColor:nil backgroundColor:nil];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 #pragma mark -- UICollectionView 数据源和代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.showData.count;

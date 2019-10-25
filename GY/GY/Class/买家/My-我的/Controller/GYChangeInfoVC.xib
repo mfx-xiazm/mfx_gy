@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYChangeInfoVC">
             <connections>
                 <outlet property="headPic" destination="X5F-BJ-sQn" id="kRU-Q6-hqg"/>
+                <outlet property="nick_name" destination="gy1-qv-9Du" id="Eg1-0b-xi7"/>
+                <outlet property="sureBtn" destination="vdt-7J-9o6" id="RtQ-SG-dfU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

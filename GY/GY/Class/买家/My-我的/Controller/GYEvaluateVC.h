@@ -10,8 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^evaluatSuccessCall)(void);
 @interface GYEvaluateVC : HXBaseViewController
-
+/* 订单id */
+@property(nonatomic,copy) NSString *oid;
+/* 评价成功 */
+@property(nonatomic,copy) evaluatSuccessCall evaluatSuccessCall;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -60,7 +60,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh0-sX-1po">
                                 <rect key="frame" x="0.0" y="35" width="383" height="104.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xBY-Lz-iGf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xBY-Lz-iGf">
                                         <rect key="frame" x="10" y="10" width="84.5" height="84.5"/>
                                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -200,6 +200,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="create_time" destination="Jvg-Em-Cge" id="jQI-Jh-ewj"/>
+                <outlet property="price" destination="zhH-X8-fJL" id="76l-Zn-0fd"/>
+                <outlet property="task_address" destination="OVp-Pm-21A" id="lA2-yS-aDh"/>
+                <outlet property="task_img" destination="xBY-Lz-iGf" id="Azx-uH-9ft"/>
+                <outlet property="task_no" destination="K2T-Z0-oog" id="E8s-ep-cK2"/>
+                <outlet property="task_time" destination="Maz-8T-Tqm" id="rIv-2k-5dg"/>
+                <outlet property="task_title" destination="e5l-ar-4Km" id="FsJ-UB-DyA"/>
+                <outlet property="task_type" destination="F3v-TF-IPn" id="l9h-ff-0yu"/>
+            </connections>
             <point key="canvasLocation" x="-58.695652173913047" y="95.758928571428569"/>
         </tableViewCell>
     </objects>

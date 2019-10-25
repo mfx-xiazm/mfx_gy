@@ -55,6 +55,9 @@
                                 <constraint firstAttribute="height" constant="22" id="uti-x0-AVb"/>
                             </constraints>
                             <state key="normal" image="关闭"/>
+                            <connections>
+                                <action selector="goodHandleClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="ssL-yp-RYG"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场价:￥234.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pot-eb-Ug2">
                             <rect key="frame" x="122" y="34" width="93" height="18"/>
@@ -90,21 +93,16 @@
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Z8-rv-dfO">
                                     <rect key="frame" x="15" y="7.5" width="384" height="34"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFm-TG-isT">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
-                                            <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <state key="normal" title="查看联系方式">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l2-nV-2RJ">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l2-nV-2RJ">
                                             <rect key="frame" x="0.0" y="0.0" width="192" height="34"/>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="加入购物车">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="goodHandleClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="egv-CD-l5P"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-gj-MIm" userLabel="分割线">
                                             <rect key="frame" x="191.5" y="2" width="1" height="30"/>
@@ -113,29 +111,28 @@
                                                 <constraint firstAttribute="width" constant="1" id="pKn-yT-SER"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hu-WJ-OqI">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hu-WJ-OqI">
                                             <rect key="frame" x="192" y="0.0" width="192" height="34"/>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="立即购买">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="goodHandleClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="OEQ-gS-Jr3"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="VFm-TG-isT" secondAttribute="bottom" id="4Mt-hX-hKv"/>
                                         <constraint firstItem="1l2-nV-2RJ" firstAttribute="top" secondItem="2Z8-rv-dfO" secondAttribute="top" id="BYh-zx-0Fg"/>
                                         <constraint firstItem="Nzz-gj-MIm" firstAttribute="centerX" secondItem="2Z8-rv-dfO" secondAttribute="centerX" id="Fdb-6T-5Gl"/>
                                         <constraint firstAttribute="bottom" secondItem="1l2-nV-2RJ" secondAttribute="bottom" id="Fig-b6-k0D"/>
                                         <constraint firstItem="1hu-WJ-OqI" firstAttribute="leading" secondItem="1l2-nV-2RJ" secondAttribute="trailing" id="G81-1k-LGF"/>
-                                        <constraint firstItem="VFm-TG-isT" firstAttribute="leading" secondItem="2Z8-rv-dfO" secondAttribute="leading" id="H0l-L6-7OL"/>
-                                        <constraint firstAttribute="trailing" secondItem="VFm-TG-isT" secondAttribute="trailing" id="IIY-cz-uxg"/>
                                         <constraint firstAttribute="trailing" secondItem="1hu-WJ-OqI" secondAttribute="trailing" id="Kia-zt-Q0M"/>
                                         <constraint firstItem="Nzz-gj-MIm" firstAttribute="top" secondItem="2Z8-rv-dfO" secondAttribute="top" constant="2" id="QmX-pq-UDl"/>
                                         <constraint firstAttribute="height" constant="34" id="RKp-tx-77D"/>
                                         <constraint firstItem="1hu-WJ-OqI" firstAttribute="top" secondItem="2Z8-rv-dfO" secondAttribute="top" id="Zx1-Qe-VDs"/>
-                                        <constraint firstItem="VFm-TG-isT" firstAttribute="top" secondItem="2Z8-rv-dfO" secondAttribute="top" id="bvw-JX-29b"/>
                                         <constraint firstAttribute="bottom" secondItem="1hu-WJ-OqI" secondAttribute="bottom" id="dAH-ZE-3pb"/>
                                         <constraint firstItem="1hu-WJ-OqI" firstAttribute="width" secondItem="1l2-nV-2RJ" secondAttribute="width" id="dIv-bA-i49"/>
                                         <constraint firstItem="1l2-nV-2RJ" firstAttribute="leading" secondItem="2Z8-rv-dfO" secondAttribute="leading" id="ybN-Ff-Fc4"/>
@@ -193,6 +190,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="collectionView" destination="5AS-W4-tbn" id="EYS-OB-meY"/>
+                <outlet property="cover_img" destination="Cgr-0Q-lAh" id="3IW-Kd-A2J"/>
+                <outlet property="market_price" destination="pot-eb-Ug2" id="8Jo-ax-oO7"/>
+                <outlet property="price" destination="JDf-QZ-wNu" id="0rY-1y-vbx"/>
+                <outlet property="stock_num" destination="RBb-sn-p5k" id="veK-re-Lua"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="341.18303571428572"/>
         </view>

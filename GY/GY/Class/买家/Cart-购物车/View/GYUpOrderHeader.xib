@@ -72,29 +72,28 @@
                                         <constraint firstAttribute="width" constant="10" id="vGN-xF-r2l"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSs-ng-n0s">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="lab-W0-Qxr" secondAttribute="trailing" constant="10" id="3j2-09-Yo2"/>
                                 <constraint firstItem="AcF-ds-yt9" firstAttribute="leading" secondItem="sC6-OR-Ala" secondAttribute="trailing" constant="5" id="CAq-gz-qzI"/>
-                                <constraint firstAttribute="trailing" secondItem="HSs-ng-n0s" secondAttribute="trailing" id="IHn-nf-Qp5"/>
-                                <constraint firstItem="HSs-ng-n0s" firstAttribute="leading" secondItem="kZe-uM-mE9" secondAttribute="leading" id="Os2-MQ-gBj"/>
-                                <constraint firstItem="HSs-ng-n0s" firstAttribute="top" secondItem="kZe-uM-mE9" secondAttribute="top" id="Rql-Sv-mOO"/>
                                 <constraint firstItem="lab-W0-Qxr" firstAttribute="centerY" secondItem="kZe-uM-mE9" secondAttribute="centerY" id="U4e-d1-exg"/>
                                 <constraint firstItem="AcF-ds-yt9" firstAttribute="top" secondItem="pwx-br-Kcc" secondAttribute="bottom" constant="5" id="Wdz-Nd-SB0"/>
                                 <constraint firstItem="YmJ-WJ-S91" firstAttribute="top" secondItem="kZe-uM-mE9" secondAttribute="top" constant="10" id="YlK-sC-qkh"/>
                                 <constraint firstItem="sC6-OR-Ala" firstAttribute="centerY" secondItem="kZe-uM-mE9" secondAttribute="centerY" id="a9N-lC-ogL"/>
                                 <constraint firstItem="YmJ-WJ-S91" firstAttribute="leading" secondItem="sC6-OR-Ala" secondAttribute="trailing" constant="5" id="anB-gW-s6T"/>
-                                <constraint firstAttribute="bottom" secondItem="HSs-ng-n0s" secondAttribute="bottom" id="kDK-bo-9n6"/>
                                 <constraint firstItem="sC6-OR-Ala" firstAttribute="leading" secondItem="kZe-uM-mE9" secondAttribute="leading" constant="10" id="qet-Md-WHZ"/>
                                 <constraint firstItem="lab-W0-Qxr" firstAttribute="leading" secondItem="AcF-ds-yt9" secondAttribute="trailing" constant="10" id="tkx-s6-C6E"/>
                                 <constraint firstItem="pwx-br-Kcc" firstAttribute="centerY" secondItem="YmJ-WJ-S91" secondAttribute="centerY" id="ugd-Tg-mwt"/>
                                 <constraint firstItem="pwx-br-Kcc" firstAttribute="leading" secondItem="YmJ-WJ-S91" secondAttribute="trailing" constant="10" id="yym-Mo-jAx"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSs-ng-n0s">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                            <connections>
+                                <action selector="addressClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="NZe-fC-EWa"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -103,9 +102,13 @@
                         <constraint firstItem="kZe-uM-mE9" firstAttribute="leading" secondItem="DsE-OV-Yz8" secondAttribute="leading" id="HCH-54-CvP"/>
                         <constraint firstItem="4Do-FS-uO5" firstAttribute="top" secondItem="DsE-OV-Yz8" secondAttribute="top" id="TqX-PM-52u"/>
                         <constraint firstAttribute="trailing" secondItem="4Do-FS-uO5" secondAttribute="trailing" id="WjD-yc-4oH"/>
+                        <constraint firstAttribute="bottom" secondItem="HSs-ng-n0s" secondAttribute="bottom" id="XXC-lj-SVB"/>
                         <constraint firstAttribute="bottom" secondItem="4Do-FS-uO5" secondAttribute="bottom" id="Z6U-0D-11a"/>
                         <constraint firstItem="kZe-uM-mE9" firstAttribute="top" secondItem="DsE-OV-Yz8" secondAttribute="top" id="eI6-Ja-Jj9"/>
                         <constraint firstAttribute="bottom" secondItem="kZe-uM-mE9" secondAttribute="bottom" id="gt8-1z-zoN"/>
+                        <constraint firstItem="HSs-ng-n0s" firstAttribute="top" secondItem="DsE-OV-Yz8" secondAttribute="top" id="iLW-4N-Y6p"/>
+                        <constraint firstItem="HSs-ng-n0s" firstAttribute="leading" secondItem="DsE-OV-Yz8" secondAttribute="leading" id="qLi-jV-Zeh"/>
+                        <constraint firstAttribute="trailing" secondItem="HSs-ng-n0s" secondAttribute="trailing" id="sAc-3e-qNX"/>
                     </constraints>
                 </view>
             </subviews>
@@ -117,6 +120,13 @@
                 <constraint firstItem="DsE-OV-Yz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wJE-Zj-LwU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="address" destination="AcF-ds-yt9" id="4JA-cm-c2Q"/>
+                <outlet property="addressView" destination="kZe-uM-mE9" id="Udn-c1-cil"/>
+                <outlet property="noAddressView" destination="4Do-FS-uO5" id="Ucd-je-Dfi"/>
+                <outlet property="receiver" destination="YmJ-WJ-S91" id="xjU-u4-yb5"/>
+                <outlet property="receiver_phone" destination="pwx-br-Kcc" id="YdN-6b-8LP"/>
+            </connections>
             <point key="canvasLocation" x="122.46376811594205" y="315.40178571428572"/>
         </view>
     </objects>

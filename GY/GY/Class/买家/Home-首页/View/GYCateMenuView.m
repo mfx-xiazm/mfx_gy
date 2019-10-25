@@ -11,6 +11,7 @@
 #import "GYSmallCateCell.h"
 #import <ZLCollectionViewVerticalLayout.h>
 #import "GYSmallCateHeaderView.h"
+#import "GYGoodsCate.h"
 
 //遮罩颜色
 #define bgColor [UIColor colorWithWhite:0.0 alpha:0.2]
@@ -31,7 +32,8 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 //是否显示
 @property (nonatomic, assign) BOOL show;
 @property (nonatomic, strong) UIView *backGroundView;
-
+/* 选中的那个分类 */
+@property(nonatomic,strong) GYGoodsSubCate *selectCate;
 @end
 
 @implementation GYCateMenuView
@@ -55,6 +57,7 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 }
 
 - (void)initUI {
+    self.selectIndex = 0;
     //列表
     _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 90.f, 0) style:UITableViewStylePlain];
     _leftTableView.dataSource = self;
@@ -89,7 +92,6 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     [self addSubview:_leftTableView];
     [self addSubview:_rightCollectionView];
 }
-
 #pragma mark - 更新数据源
 -(void)reloadData {
     _leftTableView.rowHeight = 44.f;
@@ -98,6 +100,8 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     _rightCollectionView.frame = CGRectMake(90.f, 0, self.frame.size.width-90.f, HX_SCREEN_HEIGHT-180.f);
 
     [_leftTableView reloadData];
+    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectIndex inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    
     [_rightCollectionView reloadData];
 }
 #pragma mark - 触发下拉事件
@@ -156,19 +160,31 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 #pragma mark -- UITableView 数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.dataType == 1) {
+        return self.dataSource.count;
+    }
     return 12;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GYBigCateCell *cell = [tableView dequeueReusableCellWithIdentifier:BigCateCell forIndexPath:indexPath];
+    if (self.dataType == 1) {
+        GYGoodsCate *cate = self.dataSource[indexPath.row];
+        cell.cate = cate;
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    
+    self.selectIndex = indexPath.row;
+    [self.rightCollectionView reloadData];
 }
 #pragma mark -- UICollectionView 数据源和代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (self.dataType == 1) {
+        GYGoodsCate *cate = self.dataSource[self.selectIndex];
+        return cate.sub.count;
+    }
     return 16;
 }
 - (ZLLayoutType)collectionView:(UICollectionView *)collectionView layout:(ZLCollectionViewBaseFlowLayout *)collectionViewLayout typeOfLayout:(NSInteger)section {
@@ -179,11 +195,25 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     return 2;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GYSmallCateCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:SmallCateCell forIndexPath:indexPath];
+    GYSmallCateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SmallCateCell forIndexPath:indexPath];
+    if (self.dataType == 1) {
+        GYGoodsCate *cate = self.dataSource[self.selectIndex];
+        GYGoodsSubCate *subCate = cate.sub[indexPath.item];
+        cell.subCate = subCate;
+    }
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    self.titleLabel.text = [self.dataSource menu_titleForRow:indexPath.row];
+    if (self.dataType == 1) {
+        GYGoodsCate *cate = self.dataSource[self.selectIndex];
+        GYGoodsSubCate *subCate = cate.sub[indexPath.item];
+        self.titleLabel.text = subCate.cate_name;
+        
+        self.selectCate.isSelected = NO;
+        subCate.isSelected = YES;
+        self.selectCate = subCate;
+    }
+    [collectionView reloadData];
     if (self.delegate || [self.delegate respondsToSelector:@selector(cateMenu:didSelectRowAtIndexPath:)]) {
         [self.delegate cateMenu:self didSelectRowAtIndexPath:indexPath];
         [self menuHidden];
@@ -206,6 +236,10 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if ([kind isEqualToString : UICollectionElementKindSectionHeader]){
         GYSmallCateHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:SmallCateHeaderView forIndexPath:indexPath];
+        if (self.dataType == 1) {
+            GYGoodsCate *cate = self.dataSource[self.selectIndex];
+            headerView.cateName.text = cate.cate_name;
+        }
         return headerView;
     }
     return nil;

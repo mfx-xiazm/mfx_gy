@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *creatTime;
 /** 照片数组 */
 @property(nonatomic,strong)NSArray *photos;
+
+@property(nonatomic,copy)NSString *evl_id;
+@property(nonatomic,copy)NSString *evl_level;
+@property(nonatomic,copy)NSString *evl_content;
+@property(nonatomic,copy)NSString *create_time;
+@property(nonatomic,copy)NSString *avatar;
+@property(nonatomic,copy)NSString *nick_name;
+@property(nonatomic,strong)NSArray *evaImgData;
+
 /** 是否已展开文字 */
 @property (nonatomic, assign) BOOL isOpening;
 /** 是否应该显示"全文" */

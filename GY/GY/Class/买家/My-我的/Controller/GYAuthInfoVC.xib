@@ -12,9 +12,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYAuthInfoVC">
             <connections>
+                <outlet property="back_img" destination="r5G-3v-mse" id="4hI-mW-E4C"/>
                 <outlet property="buyRoleView" destination="XBg-RE-Oa0" id="B7u-Cb-chN"/>
+                <outlet property="et_name" destination="NXF-2f-iOL" id="1tm-bv-ipt"/>
+                <outlet property="fornt_img" destination="2hM-92-er6" id="dep-TJ-T3g"/>
+                <outlet property="lince_img" destination="q1m-2R-Nvq" id="Y9h-60-a1f"/>
+                <outlet property="user_name" destination="KDA-m1-H8e" id="oEP-Xc-rXI"/>
+                <outlet property="user_name1" destination="BiY-j4-mZP" id="E8K-q5-Etu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="workRoleView" destination="kvx-x7-0Ah" id="OHo-JW-i5S"/>
+                <outlet property="work_type" destination="M6r-Up-30h" id="7rb-Gd-7Bv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

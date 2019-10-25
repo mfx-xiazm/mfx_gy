@@ -19,12 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="94" height="122"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYE-a4-T65">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="专区直营" translatesAutoresizingMaskIntoConstraints="NO" id="rYE-a4-T65">
                         <rect key="frame" x="0.0" y="0.0" width="94" height="94"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="rYE-a4-T65" secondAttribute="height" multiplier="1:1" id="sMF-ow-rIo"/>
-                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                 <real key="value" value="5"/>
@@ -51,7 +47,14 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="94" height="122"/>
+            <connections>
+                <outlet property="cateImg" destination="rYE-a4-T65" id="C60-yy-w6v"/>
+                <outlet property="cateName" destination="3V8-Aa-R31" id="f8b-uZ-8o4"/>
+            </connections>
             <point key="canvasLocation" x="-100" y="98"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="专区直营" width="62.5" height="62.5"/>
+    </resources>
 </document>

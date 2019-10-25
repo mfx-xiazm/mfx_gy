@@ -54,29 +54,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7F-E5-lQh">
                     <rect key="frame" x="0.0" y="40" width="414" height="56"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-Iq-Oa8">
-                            <rect key="frame" x="334" y="13" width="70" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="H3z-6d-gCB"/>
-                                <constraint firstAttribute="width" constant="70" id="V8r-ZV-FhQ"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" title="订单操作">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
-                                    <real key="value" value="4"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layerBoderWidth">
-                                    <real key="value" value="1"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="boderColor">
-                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cz-Sf-a7L">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cz-Sf-a7L">
                             <rect key="frame" x="254" y="13" width="70" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="QJt-40-eYy"/>
@@ -97,6 +75,34 @@
                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="orderHandleClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="rWi-NH-udb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-Iq-Oa8">
+                            <rect key="frame" x="334" y="13" width="70" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="H3z-6d-gCB"/>
+                                <constraint firstAttribute="width" constant="70" id="V8r-ZV-FhQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="订单操作">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layerBoderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="boderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="orderHandleClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zsm-nI-Aux"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,7 +126,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="firstHandleBtn" destination="9Cz-Sf-a7L" id="2AM-AP-TYa"/>
                 <outlet property="handleView" destination="Y7F-E5-lQh" id="qfK-0j-Jqn"/>
+                <outlet property="secpngHandleBtn" destination="hnW-Iq-Oa8" id="Hhj-tX-llN"/>
+                <outlet property="total_price" destination="O2b-fC-KUO" id="7ag-Ss-jvs"/>
             </connections>
             <point key="canvasLocation" x="53.623188405797109" y="288.61607142857139"/>
         </view>

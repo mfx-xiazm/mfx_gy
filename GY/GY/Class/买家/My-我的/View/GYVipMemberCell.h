@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYMember;
 @interface GYVipMemberCell : UICollectionViewCell
-
+/* 会员 */
+@property(nonatomic,strong) GYMember *mamber;
 @end
 
 NS_ASSUME_NONNULL_END

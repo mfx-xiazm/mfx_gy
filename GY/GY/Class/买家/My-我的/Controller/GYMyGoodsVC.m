@@ -9,11 +9,15 @@
 #import "GYMyGoodsVC.h"
 #import "GYSpecialGoodsCell.h"
 #import "GYGoodsDetailVC.h"
+#import "GYMyGoods.h"
 
 static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 @interface GYMyGoodsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+/** 页码 */
+@property(nonatomic,assign) NSInteger pagenum;
+/** 产品列表 */
+@property(nonatomic,strong) NSMutableArray *goods;
 @end
 
 @implementation GYMyGoodsVC
@@ -22,10 +26,20 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     [super viewDidLoad];
     [self.navigationItem setTitle:@"我的产品"];
     [self setUpTableView];
+    [self setUpRefresh];
+    [self startShimmer];
+    [self getMyGoodsRequest:YES];
 }
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+}
+-(NSMutableArray *)goods
+{
+    if (_goods == nil) {
+        _goods = [NSMutableArray array];
+    }
+    return _goods;
 }
 #pragma mark -- 视图相关
 -(void)setUpTableView
@@ -55,17 +69,83 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYSpecialGoodsCell class]) bundle:nil] forCellReuseIdentifier:SpecialGoodsCell];
 }
+/** 添加刷新控件 */
+-(void)setUpRefresh
+{
+    hx_weakify(self);
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf.tableView.mj_footer resetNoMoreData];
+        [strongSelf getMyGoodsRequest:YES];
+    }];
+    //追加尾部刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        hx_strongify(weakSelf);
+        [strongSelf getMyGoodsRequest:NO];
+    }];
+}
+#pragma mark -- 数据请求
+-(void)getMyGoodsRequest:(BOOL)isRefresh
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    if (isRefresh) {
+        parameters[@"page"] = @(1);//第几页
+    }else{
+        NSInteger page = self.pagenum+1;
+        parameters[@"page"] = @(page);//第几页
+    }
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getMyGoods" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            if (isRefresh) {
+                [strongSelf.tableView.mj_header endRefreshing];
+                strongSelf.pagenum = 1;
+                
+                [strongSelf.goods removeAllObjects];
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYMyGoods class] json:responseObject[@"data"]];
+                [strongSelf.goods addObjectsFromArray:arrt];
+            }else{
+                [strongSelf.tableView.mj_footer endRefreshing];
+                strongSelf.pagenum ++;
+                
+                if ([responseObject[@"data"] isKindOfClass:[NSArray class]] && ((NSArray *)responseObject[@"data"]).count){
+                    NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYMyGoods class] json:responseObject[@"data"]];
+                    [strongSelf.goods addObjectsFromArray:arrt];
+                }else{// 提示没有更多数据
+                    [strongSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.tableView.hidden = NO;
+                [strongSelf.tableView reloadData];
+            });
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        [strongSelf.tableView.mj_header endRefreshing];
+        [strongSelf.tableView.mj_footer endRefreshing];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 #pragma mark -- 点击事件
 
 #pragma mark -- UITableView数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return self.goods.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GYSpecialGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:SpecialGoodsCell forIndexPath:indexPath];
     //无色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    GYMyGoods *myGoods = self.goods[indexPath.row];
+    cell.myGoods = myGoods;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,7 +155,9 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GYMyGoods *myGoods = self.goods[indexPath.row];
     GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+    dvc.goods_id = myGoods.goods_id;
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

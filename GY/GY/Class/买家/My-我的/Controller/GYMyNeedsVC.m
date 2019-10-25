@@ -10,13 +10,15 @@
 #import "GYMyNeedsChildVC.h"
 #import <JXCategoryTitleView.h>
 #import <JXCategoryIndicatorLineView.h>
+#import "GYPublishWorkVC.h"
 
 @interface GYMyNeedsVC ()<JXCategoryViewDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet JXCategoryTitleView *categoryView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 /** 子控制器数组 */
 @property (nonatomic,strong) NSArray *childVCs;
-
+/** vc控制器 */
+@property (nonatomic,strong) NSMutableArray *controllers;
 @end
 
 @implementation GYMyNeedsVC
@@ -25,19 +27,37 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"我的需求"];
     [self setUpCategoryView];
+    
+    if (self.isPublishPush) {
+        hx_weakify(self);
+        [self.navigationController.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[GYPublishWorkVC class]]) {
+                hx_strongify(weakSelf);
+                [strongSelf.controllers removeObjectAtIndex:idx];
+                *stop = YES;
+            }
+        }];
+        [self.navigationController setViewControllers:self.controllers];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     //离开页面的时候，需要恢复屏幕边缘手势，不能影响其他页面
     //self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
-
+- (NSMutableArray *)controllers {
+    if (!_controllers) {
+        _controllers = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+    }
+    return _controllers;
+}
 -(NSArray *)childVCs
 {
     if (_childVCs == nil) {
         NSMutableArray *vcs = [NSMutableArray array];
         for (int i=0;i<self.categoryView.titles.count;i++) {
             GYMyNeedsChildVC *cvc0 = [GYMyNeedsChildVC new];
+            cvc0.task_status = i+1;
             [self addChildViewController:cvc0];
             [vcs addObject:cvc0];
         }

@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYCateGoodsVC">
             <connections>
+                <outlet property="priceImg" destination="Ohi-7k-l4h" id="JHQ-x5-S62"/>
+                <outlet property="priceLabel" destination="KPo-zT-gbL" id="Ux8-0D-miV"/>
+                <outlet property="shelfTimeLabel" destination="Xmd-10-ocd" id="6Ll-C1-26y"/>
                 <outlet property="tableView" destination="NhY-wK-cAp" id="Jv3-hc-nTn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,6 +38,9 @@
                                 </label>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49K-ns-Ltf">
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                    <connections>
+                                        <action selector="shelfTimeClicked:" destination="-1" eventType="touchUpInside" id="o8Z-c0-ZPh"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,6 +67,9 @@
                                 </imageView>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcw-wy-cHh">
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
+                                    <connections>
+                                        <action selector="priceClicked:" destination="-1" eventType="touchUpInside" id="sJX-bR-eGz"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,11 +10,13 @@
 #import <TYCyclePagerView.h>
 #import <TYPageControl.h>
 #import "GYVipMemberCell.h"
+#import "GYMember.h"
 
 @interface GYVipMemberVC ()<TYCyclePagerViewDataSource, TYCyclePagerViewDelegate>
 @property (weak, nonatomic) IBOutlet TYCyclePagerView *cyclePagerView;
 @property (nonatomic,strong) TYPageControl *pageControl;
-
+/* 会员 */
+@property(nonatomic,strong) NSArray *members;
 @end
 
 @implementation GYVipMemberVC
@@ -23,8 +25,18 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"升级会员"];
     
+    [self setUpCyclePagerView];
+    [self getMemberDataRequest];
+}
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.pageControl.frame = CGRectMake(0, CGRectGetHeight(self.cyclePagerView.frame) + 10, CGRectGetWidth(self.cyclePagerView.frame), 20);
+}
+-(void)setUpCyclePagerView
+{
     self.cyclePagerView.isInfiniteLoop = NO;
-//    self.cyclePagerView.autoScrollInterval = 3.0;
+    //    self.cyclePagerView.autoScrollInterval = 3.0;
     self.cyclePagerView.dataSource = self;
     self.cyclePagerView.delegate = self;
     // registerClass or registerNib
@@ -41,21 +53,34 @@
     pageControl.frame = CGRectMake(0, CGRectGetHeight(self.cyclePagerView.frame) + 20, CGRectGetWidth(self.cyclePagerView.frame), 20);
     self.pageControl = pageControl;
     [self.cyclePagerView addSubview:pageControl];
-
 }
--(void)viewDidLayoutSubviews
+-(void)getMemberDataRequest
 {
-    [super viewDidLayoutSubviews];
-    self.pageControl.frame = CGRectMake(0, CGRectGetHeight(self.cyclePagerView.frame) + 10, CGRectGetWidth(self.cyclePagerView.frame), 20);
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getMemberData" parameters:@{} success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            strongSelf.members = [NSArray yy_modelArrayWithClass:[GYMember class] json:responseObject[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                strongSelf.pageControl.numberOfPages = strongSelf.members.count;
+                [strongSelf.cyclePagerView reloadData];
+            });
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
 }
-
 #pragma mark -- TYCyclePagerView代理
 - (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
-    return 4;
+    return self.members.count;
 }
 
 - (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
     GYVipMemberCell *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"VipMemberCell" forIndex:index];
+    GYMember *mamber = self.members[index];
+    cell.mamber = mamber;
     return cell;
 }
 

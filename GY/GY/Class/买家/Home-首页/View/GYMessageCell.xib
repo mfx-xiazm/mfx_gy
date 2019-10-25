@@ -42,13 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="您的xxx订单已退款成功" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ac7-qg-Ojo">
-                                <rect key="frame" x="10" y="28.5" width="230" height="12"/>
-                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="12"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019-04-30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvH-3x-jgw">
-                                <rect key="frame" x="250" y="28.5" width="73" height="12"/>
+                                <rect key="frame" x="10" y="28.5" width="313" height="12"/>
                                 <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="12"/>
                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -61,10 +55,8 @@
                             <constraint firstItem="fL9-Te-Hzk" firstAttribute="top" secondItem="QSd-KF-cd4" secondAttribute="top" constant="10" id="JRh-Fj-X3y"/>
                             <constraint firstItem="puH-Dc-R26" firstAttribute="top" secondItem="QSd-KF-cd4" secondAttribute="top" constant="5" id="N7I-tJ-shb"/>
                             <constraint firstAttribute="bottom" secondItem="ac7-qg-Ojo" secondAttribute="bottom" constant="10" id="ff6-xh-gAe"/>
+                            <constraint firstAttribute="trailing" secondItem="ac7-qg-Ojo" secondAttribute="trailing" constant="10" id="jde-fL-Wkw"/>
                             <constraint firstItem="fL9-Te-Hzk" firstAttribute="leading" secondItem="QSd-KF-cd4" secondAttribute="leading" constant="10" id="mN5-Po-Iqk"/>
-                            <constraint firstItem="jvH-3x-jgw" firstAttribute="leading" secondItem="ac7-qg-Ojo" secondAttribute="trailing" constant="10" id="nKO-5x-w5k"/>
-                            <constraint firstAttribute="bottom" secondItem="jvH-3x-jgw" secondAttribute="bottom" constant="10" id="vOR-GZ-rpO"/>
-                            <constraint firstAttribute="trailing" secondItem="jvH-3x-jgw" secondAttribute="trailing" constant="10" id="vyk-J7-JZa"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -93,6 +85,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="msgState" destination="puH-Dc-R26" id="VAH-eD-j6J"/>
+                <outlet property="time" destination="ac7-qg-Ojo" id="JfX-eG-gsP"/>
+                <outlet property="title" destination="fL9-Te-Hzk" id="3vF-e2-Xq0"/>
+            </connections>
             <point key="canvasLocation" x="161.59420289855075" y="119.53125"/>
         </tableViewCell>
     </objects>

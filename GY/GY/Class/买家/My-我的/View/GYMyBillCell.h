@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYMyBill;
 @interface GYMyBillCell : UITableViewCell
-
+/* 账单 */
+@property(nonatomic,strong) GYMyBill *bill;
 @end
 
 NS_ASSUME_NONNULL_END

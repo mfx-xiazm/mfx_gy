@@ -7,6 +7,8 @@
 //
 
 #import "GYBannerCell.h"
+#import "GYHomeData.h"
+#import "GYGoodsDetail.h"
 
 @implementation GYBannerCell
 
@@ -14,5 +16,19 @@
     [super awakeFromNib];
     // Initialization code
 }
-
+-(void)setBanner:(GYHomeBanner *)banner
+{
+    _banner = banner;
+    [self.bannerImg sd_setImageWithURL:[NSURL URLWithString:_banner.adv_phone_img]];
+}
+-(void)setBannerDict:(NSDictionary *)bannerDict
+{
+    _bannerDict = bannerDict;
+    [self.bannerImg sd_setImageWithURL:[NSURL URLWithString:_bannerDict[@"task_img"]]];
+}
+-(void)setAdv:(GYGoodAdv *)adv
+{
+    _adv = adv;
+    [self.bannerImg sd_setImageWithURL:[NSURL URLWithString:_adv.adv_img]];
+}
 @end

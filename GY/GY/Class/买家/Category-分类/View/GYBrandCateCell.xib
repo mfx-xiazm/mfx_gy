@@ -18,9 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="204" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P63-bp-LaZ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P63-bp-LaZ">
                         <rect key="frame" x="0.0" y="0.0" width="204" height="40"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="7cJ-xL-hTo"/>
                         </constraints>
@@ -71,6 +70,8 @@
             </constraints>
             <size key="customSize" width="204" height="71"/>
             <connections>
+                <outlet property="brandImg" destination="P63-bp-LaZ" id="1FI-Et-VjM"/>
+                <outlet property="brandName" destination="6zm-Xn-nxg" id="8Bq-s9-iDC"/>
                 <outlet property="seriesLabel" destination="Snb-SJ-mO4" id="4bu-fv-2fa"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="106.80803571428571"/>

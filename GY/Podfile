@@ -13,7 +13,6 @@ target 'GY' do
     pod "YYModel"
     pod "YYText"
     pod "JXCategoryView"
-    pod "WechatOpenSDK"
     pod "UMCCommon"
     pod "UMCSecurityPlugins"
     pod "UMCShare/Social/ReducedWeChat"
@@ -22,4 +21,5 @@ target 'GY' do
     pod "TYCyclePagerView"
     pod "ZLCollectionViewFlowLayout"
     pod "RollingNotice"
+    pod "WechatOpenSDK","<1.8.6"
 end

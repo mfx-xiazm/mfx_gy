@@ -9,9 +9,10 @@
 #import "GYNoticeViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYHomeNotice;
 @interface GYTopNoticeCell : GYNoticeViewCell
-
+/* 公告 */
+@property(nonatomic,strong) GYHomeNotice *notice;
 @end
 
 NS_ASSUME_NONNULL_END

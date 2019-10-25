@@ -377,6 +377,13 @@
                 <constraint firstItem="rn5-yl-fsb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="muR-bK-9Ee"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatar" destination="wAe-sD-bgy" id="dhp-wO-g6z"/>
+                <outlet property="is_vip" destination="8FL-Nh-RYC" id="VXw-qP-RR8"/>
+                <outlet property="member_dead" destination="QWI-6d-iye" id="D7L-Rx-p1e"/>
+                <outlet property="phone" destination="wNB-7s-PKp" id="745-uc-ise"/>
+                <outlet property="user_name" destination="Aqd-Tz-V18" id="dev-Bn-r0k"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="276.5625"/>
         </view>
     </objects>

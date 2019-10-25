@@ -23,13 +23,16 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWY-z2-LKu">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWY-z2-LKu">
                             <rect key="frame" x="280" y="7.5" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="VNb-yx-Hyz"/>
                                 <constraint firstAttribute="height" constant="35" id="YEt-Vq-JjW"/>
                             </constraints>
                             <state key="normal" image="加"/>
+                            <connections>
+                                <action selector="numChangeClicked:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="vEY-R1-uYH"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfx-1h-R3b">
                             <rect key="frame" x="245" y="15" width="35" height="20"/>
@@ -47,6 +50,9 @@
                                 <constraint firstAttribute="width" constant="35" id="FTA-J0-Hnz"/>
                             </constraints>
                             <state key="normal" image="减"/>
+                            <connections>
+                                <action selector="numChangeClicked:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="suU-71-8XH"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,6 +74,9 @@
                 <constraint firstItem="dgz-GD-hfn" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="ioZ-6y-8s8"/>
                 <constraint firstItem="dgz-GD-hfn" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="oQP-6q-UPA"/>
             </constraints>
+            <connections>
+                <outlet property="buy_num" destination="sfx-1h-R3b" id="6M1-ln-cfX"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </collectionReusableView>
     </objects>

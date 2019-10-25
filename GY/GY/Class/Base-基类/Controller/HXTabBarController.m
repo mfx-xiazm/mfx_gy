@@ -83,8 +83,7 @@
 {
     // 发单
     GYPublishWorkVC *pvc = [GYPublishWorkVC new];
-    HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:pvc];
-    [self.selectedViewController presentViewController:nav animated:YES completion:nil];
+    [(HXNavigationController *)self.selectedViewController pushViewController:pvc animated:YES];
 }
 /**
  * 初始化子控制器

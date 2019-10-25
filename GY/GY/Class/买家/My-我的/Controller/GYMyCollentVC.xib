@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="handleView" destination="Wfm-yr-RAd" id="GS0-WK-mEV"/>
                 <outlet property="handleViewHeight" destination="7Q3-Bn-TQv" id="Z2J-tz-gKB"/>
+                <outlet property="selectAllBtn" destination="UhC-hi-34d" id="KUn-4j-XCU"/>
                 <outlet property="tableView" destination="lQg-fJ-OwJ" id="Gze-Ec-X1S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,6 +42,10 @@
                             <state key="normal" title="全选" image="未勾选">
                                 <color key="titleColor" red="0.074509803920000006" green="0.1137254902" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected" image="勾选"/>
+                            <connections>
+                                <action selector="selectAllClicked:" destination="-1" eventType="touchUpInside" id="gWK-le-zjm"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wak-Mk-RJy">
                             <rect key="frame" x="314" y="0.0" width="100" height="44"/>
@@ -50,6 +55,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="删除"/>
+                            <connections>
+                                <action selector="delCollectClicked:" destination="-1" eventType="touchUpInside" id="I84-s5-BLR"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vy-RH-5dD" userLabel="分割线">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -87,6 +95,7 @@
         </view>
     </objects>
     <resources>
+        <image name="勾选" width="17" height="17"/>
         <image name="未勾选" width="17" height="17"/>
     </resources>
 </document>

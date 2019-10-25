@@ -13,7 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYCartVC">
             <connections>
                 <outlet property="handleBtn" destination="QJF-W9-Bwe" id="vb3-aC-MS5"/>
+                <outlet property="selectAllBtn" destination="Kxm-lV-41Z" id="piY-qx-qtD"/>
                 <outlet property="tableView" destination="NE2-tg-CAS" id="KKd-l7-d8N"/>
+                <outlet property="totalPrice" destination="jqf-Ds-CIK" id="3hC-db-coO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +38,10 @@
                             <state key="normal" title="全选" image="未勾选">
                                 <color key="titleColor" red="0.074509803920000006" green="0.1137254902" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <state key="selected" image="勾选"/>
+                            <connections>
+                                <action selector="selectAllClicked:" destination="-1" eventType="touchUpInside" id="wbj-w6-Zsj"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4o-Op-vi0">
                             <rect key="frame" x="85" y="15" width="37" height="14.5"/>
@@ -105,6 +111,7 @@
         </view>
     </objects>
     <resources>
+        <image name="勾选" width="17" height="17"/>
         <image name="未勾选" width="17" height="17"/>
     </resources>
 </document>

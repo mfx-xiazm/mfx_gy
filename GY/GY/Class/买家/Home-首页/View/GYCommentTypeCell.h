@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GYCommentTypeCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end
 

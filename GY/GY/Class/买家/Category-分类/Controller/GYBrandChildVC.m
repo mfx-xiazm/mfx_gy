@@ -10,13 +10,15 @@
 #import "GYBrandCateCell.h"
 #import <ZLCollectionViewVerticalLayout.h>
 #import "GYCateGoodsVC.h"
+#import "GYBrand.h"
 
 static NSString *const BrandCateCell = @"BrandCateCell";
 
 @interface GYBrandChildVC ()<UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate>
 /** collectionView */
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
+/** 品牌数据 */
+@property(nonatomic,strong) NSArray *brands;
 @end
 
 @implementation GYBrandChildVC
@@ -24,6 +26,8 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpCollectionView];
+    [self startShimmer];
+    [self getBrandDataRequest];
 }
 -(void)viewDidLayoutSubviews
 {
@@ -44,9 +48,30 @@ static NSString *const BrandCateCell = @"BrandCateCell";
     
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GYBrandCateCell class]) bundle:nil] forCellWithReuseIdentifier:BrandCateCell];
 }
+-(void)getBrandDataRequest
+{
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{} success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        if([[responseObject objectForKey:@"status"] boolValue]) {
+            strongSelf.brands = [NSArray yy_modelArrayWithClass:[GYBrand class] json:responseObject[@"data"]];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            strongSelf.collectionView.hidden = NO;
+            [strongSelf.collectionView reloadData];
+        });
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 #pragma mark -- UICollectionView 数据源和代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 17;
+    return self.brands.count;
 }
 - (ZLLayoutType)collectionView:(UICollectionView *)collectionView layout:(ZLCollectionViewBaseFlowLayout *)collectionViewLayout typeOfLayout:(NSInteger)section {
     return ClosedLayout;
@@ -57,11 +82,16 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GYBrandCateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:BrandCateCell forIndexPath:indexPath];
+    GYBrand *brand = self.brands[indexPath.item];
+    cell.brand = brand;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    GYBrand *brand = self.brands[indexPath.item];
     GYCateGoodsVC *gvc = [GYCateGoodsVC new];
-    gvc.navTitle = @"某某品牌";
+    gvc.navTitle = brand.brand_name;
+    gvc.brand_id = brand.brand_id;
+    gvc.dataType = 2;
     [self.navigationController pushViewController:gvc animated:YES];
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

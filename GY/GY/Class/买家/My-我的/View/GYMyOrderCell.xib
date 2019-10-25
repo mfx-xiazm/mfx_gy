@@ -24,7 +24,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nUN-8L-UMt">
                                 <rect key="frame" x="10" y="10" width="94.5" height="94.5"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nUN-8L-UMt" secondAttribute="height" multiplier="1:1" id="7hA-KE-c6r"/>
                                 </constraints>
@@ -123,6 +122,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="cover_img" destination="nUN-8L-UMt" id="5AS-Vy-xcc"/>
+                <outlet property="goods_num" destination="0o0-ir-IdV" id="kkg-in-h00"/>
+                <outlet property="goods_spec" destination="tnn-Ds-0EC" id="pD2-TG-6nQ"/>
+                <outlet property="goods_title" destination="rfu-1K-WEk" id="g9u-jS-E4r"/>
+                <outlet property="goods_type" destination="GeJ-KQ-dHd" id="stM-bT-A6Q"/>
+                <outlet property="market_price" destination="Siv-oy-4PY" id="91U-37-wKY"/>
+                <outlet property="price" destination="diz-cg-0wt" id="E8Y-Ae-qcZ"/>
+            </connections>
             <point key="canvasLocation" x="190.57971014492756" y="136.60714285714286"/>
         </tableViewCell>
     </objects>

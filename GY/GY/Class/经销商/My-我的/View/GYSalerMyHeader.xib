@@ -338,6 +338,13 @@
                 <constraint firstItem="K8r-xM-DLY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="om0-I7-A7Q"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatar" destination="Xld-1o-tNt" id="rnh-zp-Pb7"/>
+                <outlet property="is_vip" destination="rNn-jm-Hvp" id="nEP-1e-bXJ"/>
+                <outlet property="member_dead" destination="97X-NZ-Gjr" id="rqY-eC-Irt"/>
+                <outlet property="phone" destination="bxP-ba-1BX" id="JOY-GA-A3p"/>
+                <outlet property="user_name" destination="elq-sm-FAZ" id="W1s-nR-C6H"/>
+            </connections>
             <point key="canvasLocation" x="134.78260869565219" y="213.61607142857142"/>
         </view>
     </objects>

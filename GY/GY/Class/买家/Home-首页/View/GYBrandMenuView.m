@@ -9,6 +9,8 @@
 #import "GYBrandMenuView.h"
 #import "GYBrandCateCell.h"
 #import <ZLCollectionViewVerticalLayout.h>
+#import "GYBrand.h"
+#import "GYSeries.h"
 
 //遮罩颜色
 #define bgColor [UIColor colorWithWhite:0.0 alpha:0.2]
@@ -24,7 +26,10 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 //是否显示
 @property (nonatomic, assign) BOOL show;
 @property (nonatomic, strong) UIView *backGroundView;
-
+/* 选中的品牌 */
+@property(nonatomic,strong) GYBrand *selectBrand;
+/* 选中的系列 */
+@property(nonatomic,strong) GYSeries *selectSeries;
 @end
 @implementation GYBrandMenuView
 
@@ -134,6 +139,12 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 }
 #pragma mark -- UICollectionView 数据源和代理
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    /* 1品牌 2系列 3需求类型 */
+    if (self.dataType == 1) {
+        return self.dataSource.count;
+    }else if (self.dataType == 2) {
+        return self.dataSource.count;
+    }
     return 17;
 }
 - (ZLLayoutType)collectionView:(UICollectionView *)collectionView layout:(ZLCollectionViewBaseFlowLayout *)collectionViewLayout typeOfLayout:(NSInteger)section {
@@ -145,15 +156,33 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GYBrandCateCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:BrandCateCell forIndexPath:indexPath];
+    
     if (self.dataType == 1) {
         cell.seriesLabel.hidden = YES;
+        GYBrand *brand = self.dataSource[indexPath.item];
+        cell.brand = brand;
     }else{
         cell.seriesLabel.hidden = NO;
+        if (self.dataType == 2) {
+            GYSeries *series = self.dataSource[indexPath.item];
+            cell.series = series;
+        }
     }
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    self.titleLabel.text = [self.dataSource menu_titleForRow:indexPath.row];
+    if (self.dataType == 1) {
+        GYBrand *brand = self.dataSource[indexPath.item];
+        self.titleLabel.text = brand.brand_name;
+    }else if (self.dataType == 2) {
+        GYSeries *series = self.dataSource[indexPath.item];
+        self.titleLabel.text = series.series_name;
+        
+        self.selectSeries.isSelected = NO;
+        series.isSelected = YES;
+        self.selectSeries = series;
+    }
+    [collectionView reloadData];
     if (self.delegate || [self.delegate respondsToSelector:@selector(brandMenu:didSelectRowAtIndexPath:)]) {
         [self.delegate brandMenu:self didSelectRowAtIndexPath:indexPath];
         [self menuHidden];

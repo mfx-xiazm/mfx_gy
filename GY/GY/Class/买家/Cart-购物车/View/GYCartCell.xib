@@ -22,17 +22,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mP-32-Wiz">
                         <rect key="frame" x="0.0" y="0.0" width="398" height="114.5"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34g-P2-lHU">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34g-P2-lHU">
                                 <rect key="frame" x="0.0" y="0.0" width="35" height="113.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="P7F-p6-wzG"/>
                                 </constraints>
                                 <state key="normal" image="未勾选"/>
                                 <state key="selected" image="勾选"/>
+                                <connections>
+                                    <action selector="checkClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NbM-co-dAb"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WVE-u6-Vqa">
                                 <rect key="frame" x="35" y="10" width="94.5" height="94.5"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WVE-u6-Vqa" secondAttribute="height" multiplier="1:1" id="ugc-fc-ugJ"/>
                                 </constraints>
@@ -63,26 +65,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 直营商品 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER9-Nr-jUc">
-                                <rect key="frame" x="139.5" y="52" width="47" height="12"/>
+                                <rect key="frame" x="139.5" y="51.5" width="47" height="12"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员价198.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O83-bI-pkT">
-                                <rect key="frame" x="139.5" y="69" width="81.5" height="16"/>
+                                <rect key="frame" x="139.5" y="68.5" width="81.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.078431372550000003" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场价：￥298.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fit-7y-HpK">
-                                <rect key="frame" x="226" y="71" width="86" height="12"/>
+                                <rect key="frame" x="226" y="70.5" width="86" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="规格：600ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-TE-Coh">
-                                <rect key="frame" x="139.5" y="90" width="73" height="14.5"/>
+                                <rect key="frame" x="139.5" y="89.5" width="73" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="GN9-F5-Pql"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -95,18 +100,24 @@
                                             <constraint firstAttribute="width" constant="30" id="uEw-F1-x2K"/>
                                         </constraints>
                                         <state key="normal" image="减"/>
+                                        <connections>
+                                            <action selector="numChangeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="djP-T2-Ymi"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S7-kT-Tw6">
                                         <rect key="frame" x="30" y="0.0" width="20" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-gH-3ZB">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-gH-3ZB">
                                         <rect key="frame" x="50" y="0.0" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="13i-Eu-Q2I"/>
                                         </constraints>
                                         <state key="normal" image="加"/>
+                                        <connections>
+                                            <action selector="numChangeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9Sq-VZ-ldJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,6 +179,16 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="cart_num" destination="0S7-kT-Tw6" id="HO0-uZ-SKl"/>
+                <outlet property="checkBtn" destination="34g-P2-lHU" id="qkt-Fh-g8X"/>
+                <outlet property="cover_img" destination="WVE-u6-Vqa" id="e0I-tK-LwJ"/>
+                <outlet property="goods_name" destination="RXX-Et-0YT" id="dV8-aM-Qcm"/>
+                <outlet property="goods_type" destination="ER9-Nr-jUc" id="kqb-ER-nCH"/>
+                <outlet property="market_price" destination="fit-7y-HpK" id="Ov3-MI-Ttk"/>
+                <outlet property="price" destination="O83-bI-pkT" id="CqV-CP-2ZN"/>
+                <outlet property="spec_value" destination="kRc-TE-Coh" id="FZh-Sj-i69"/>
+            </connections>
             <point key="canvasLocation" x="-18.840579710144929" y="69.977678571428569"/>
         </tableViewCell>
     </objects>

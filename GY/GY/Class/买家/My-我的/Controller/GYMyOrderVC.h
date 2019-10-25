@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GYMyOrderVC : HXBaseViewController
 /* 默认选中的索引 */
 @property(nonatomic,assign) NSInteger selectIndex;
+/** 是否是提交订单页面跳转 */
+@property (nonatomic,assign) BOOL isPushOrder;
 @end
 
 NS_ASSUME_NONNULL_END

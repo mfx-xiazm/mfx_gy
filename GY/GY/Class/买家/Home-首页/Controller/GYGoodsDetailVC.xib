@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYGoodsDetailVC">
             <connections>
+                <outlet property="collectBtn" destination="HgE-by-2qw" id="9EH-Ia-ABi"/>
+                <outlet property="contactBtn" destination="ZnM-sm-R3u" id="s0Y-uD-urB"/>
+                <outlet property="handleToolView" destination="aVW-rl-57j" id="KvE-Y5-9u4"/>
+                <outlet property="handleToolViewHeight" destination="Hj7-8w-6n8" id="YNP-xZ-PDe"/>
                 <outlet property="tableView" destination="SLu-U6-9rh" id="Axf-ZA-vdO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,6 +40,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="收藏" image="收藏">
                                 <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" title="已收藏" image="已收藏">
+                                <color key="titleColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="imagePosition">
@@ -76,14 +83,6 @@
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O26-be-zoN">
                                     <rect key="frame" x="15" y="7.5" width="244" height="34"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnM-sm-R3u">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="34"/>
-                                            <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <state key="normal" title="查看联系方式">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akY-Na-Kow">
                                             <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
                                             <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,6 +110,17 @@
                                             </state>
                                             <connections>
                                                 <action selector="chooseGoodsClassClicked:" destination="-1" eventType="touchUpInside" id="Fd5-7I-m0c"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZnM-sm-R3u">
+                                            <rect key="frame" x="0.0" y="0.0" width="244" height="34"/>
+                                            <color key="backgroundColor" red="0.91764705879999997" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="查看联系方式">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="lookContactClicked:" destination="-1" eventType="touchUpInside" id="fbd-yr-Sfx"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -190,6 +200,7 @@
     </objects>
     <resources>
         <image name="分享" width="18" height="18"/>
+        <image name="已收藏" width="19" height="18"/>
         <image name="收藏" width="19" height="18"/>
     </resources>
 </document>

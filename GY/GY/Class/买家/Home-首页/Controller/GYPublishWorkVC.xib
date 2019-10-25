@@ -12,10 +12,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYPublishWorkVC">
             <connections>
-                <outlet property="coverImg" destination="D6L-DG-E2h" id="mGk-KW-JTY"/>
+                <outlet property="contact_name" destination="fKf-of-Dfy" id="SJs-IE-O32"/>
+                <outlet property="contact_phone" destination="G9Q-h0-jjj" id="RR9-HX-7gd"/>
                 <outlet property="photoCollectionView" destination="4e3-Ug-iMP" id="l7U-Bp-eyu"/>
                 <outlet property="photoViewHeight" destination="7A4-6N-cQ4" id="vP0-2k-tr2"/>
-                <outlet property="remark" destination="CPw-VY-yKW" id="GSR-Sx-DEQ"/>
+                <outlet property="publishBtn" destination="eeO-1D-HaQ" id="PwU-mW-MGs"/>
+                <outlet property="task_address" destination="ieN-Nr-vXd" id="hpN-yY-0bP"/>
+                <outlet property="task_city" destination="Ipc-j5-aJH" id="DEj-eU-kTd"/>
+                <outlet property="task_content" destination="CPw-VY-yKW" id="mLn-MB-G7e"/>
+                <outlet property="task_date" destination="bHm-5e-RK7" id="WOe-HP-APE"/>
+                <outlet property="task_img" destination="D6L-DG-E2h" id="fad-9a-2jN"/>
+                <outlet property="task_price" destination="uDB-xx-X5Y" id="7vN-Cy-K6Y"/>
+                <outlet property="task_time" destination="nLx-ay-eDW" id="iTY-Au-1SV"/>
+                <outlet property="task_title" destination="zFJ-5V-q6p" id="Kjn-hG-Ijq"/>
+                <outlet property="task_type" destination="rZk-V8-ngt" id="7id-fs-rCK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -170,7 +180,7 @@
                                                     <rect key="frame" x="10" y="0.0" width="304" height="40"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -369,6 +379,9 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmy-RV-9K0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <connections>
+                                                <action selector="districtClicked:" destination="-1" eventType="touchUpInside" id="d0X-Xa-BDb"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -671,7 +684,7 @@
                                                     <rect key="frame" x="10" y="0.0" width="304" height="40"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

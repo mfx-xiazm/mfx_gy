@@ -24,11 +24,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *titleHightLightColor;
 @property (nonatomic, strong) UIColor *titleColor;
 @property (nonatomic, assign ,readonly) BOOL show;
-@property (nonatomic, assign) NSInteger dataType;//1品牌 2系列 3需求类型
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UIImageView *transformImageView;
 @property (nonatomic, weak) id<GYBrandMenuViewDelegate> delegate;
-
+/* 1品牌 2系列 3需求类型 */
+@property (nonatomic, assign) NSInteger dataType;
+/* 数据源 */
+@property(nonatomic,strong) NSArray *dataSource;
 - (void)reloadData;
 - (void)menuHidden;
 - (void)menuShowInSuperView:(UIView * _Nullable)view;

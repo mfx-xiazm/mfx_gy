@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYEditAddressVC">
             <connections>
+                <outlet property="address_detail" destination="2N6-bf-ffR" id="icV-Sm-a3Y"/>
+                <outlet property="area_name" destination="kNW-fu-oQ0" id="G0a-Bl-Tpo"/>
+                <outlet property="delBtn" destination="apq-RK-uSq" id="TH9-Ye-E1a"/>
+                <outlet property="is_defalt" destination="Y05-TB-Xga" id="pxQ-Z5-tuA"/>
+                <outlet property="receiver" destination="uIw-3S-YfS" id="IoZ-oR-DbY"/>
+                <outlet property="receiver_phone" destination="chI-6D-D1Z" id="vUX-SZ-tAm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -98,7 +104,7 @@
                                                     <rect key="frame" x="10" y="0.0" width="304" height="40"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,6 +182,9 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvX-ky-IhQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <connections>
+                                                <action selector="chooseAreaClicked:" destination="-1" eventType="touchUpInside" id="yhu-aR-uyT"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,6 +266,9 @@
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <state key="selected" image="勾选"/>
+                                    <connections>
+                                        <action selector="setDefaultClicked:" destination="-1" eventType="touchUpInside" id="pMc-QJ-fGe"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,6 +314,9 @@
                             <real key="value" value="6"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="delAddressClicked:" destination="-1" eventType="touchUpInside" id="3rM-lK-dHQ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

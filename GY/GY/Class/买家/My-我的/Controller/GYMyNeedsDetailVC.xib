@@ -12,7 +12,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GYMyNeedsDetailVC">
             <connections>
+                <outlet property="contact_header" destination="cDV-ZE-Cth" id="bMO-hR-WjQ"/>
+                <outlet property="contact_name" destination="i58-pR-rJf" id="ZYN-LL-oK2"/>
+                <outlet property="content_view" destination="jzd-Pv-m21" id="0Vo-1Z-7YI"/>
+                <outlet property="create_time" destination="wSy-7W-nfg" id="rCF-Sp-iVN"/>
                 <outlet property="cyclePagerView" destination="YBw-N0-BYJ" id="thJ-Kv-ZCh"/>
+                <outlet property="price" destination="4t6-CX-J8h" id="pG4-TH-4db"/>
+                <outlet property="rePublishBtn" destination="Qvp-le-vWc" id="6wV-db-ZK5"/>
+                <outlet property="task_address" destination="Egg-zi-mLh" id="1xb-ma-SI7"/>
+                <outlet property="task_content" destination="OKh-Vn-535" id="2Og-f6-07h"/>
+                <outlet property="task_no" destination="DB3-aN-YjC" id="33J-Q4-gb2"/>
+                <outlet property="task_time" destination="3r6-kd-s0j" id="uIn-Qv-Zvp"/>
+                <outlet property="task_title" destination="SaA-jZ-QB8" id="CTJ-LE-LoQ"/>
+                <outlet property="task_type" destination="uO8-mw-wCs" id="Vq4-nk-uFo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,8 +36,8 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9K6-G6-Dxj">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-Pv-m21">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="604"/>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzd-Pv-m21">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="644"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaA-jZ-QB8">
                                     <rect key="frame" x="10" y="10" width="394" height="31"/>
@@ -172,7 +184,7 @@
                                 <constraint firstAttribute="trailing" secondItem="Egg-zi-mLh" secondAttribute="trailing" constant="10" id="FkS-eg-NTc"/>
                                 <constraint firstItem="4t6-CX-J8h" firstAttribute="top" secondItem="YBw-N0-BYJ" secondAttribute="bottom" constant="10" id="Glc-Mf-XUu"/>
                                 <constraint firstAttribute="trailing" secondItem="SaA-jZ-QB8" secondAttribute="trailing" constant="10" id="Glo-uG-a35"/>
-                                <constraint firstAttribute="bottom" secondItem="i58-pR-rJf" secondAttribute="bottom" constant="15" id="Nr7-yH-BVG"/>
+                                <constraint firstAttribute="bottom" secondItem="i58-pR-rJf" secondAttribute="bottom" constant="55" id="Nr7-yH-BVG"/>
                                 <constraint firstItem="OKh-Vn-535" firstAttribute="top" secondItem="3r6-kd-s0j" secondAttribute="bottom" constant="10" id="R9a-Nc-ph9"/>
                                 <constraint firstAttribute="trailing" secondItem="i58-pR-rJf" secondAttribute="trailing" constant="10" id="Tcd-9i-z3J"/>
                                 <constraint firstItem="cHR-w3-Mrw" firstAttribute="top" secondItem="OKh-Vn-535" secondAttribute="bottom" constant="5" id="WHY-0w-mEJ"/>
@@ -204,13 +216,35 @@
                         <constraint firstItem="jzd-Pv-m21" firstAttribute="top" secondItem="9K6-G6-Dxj" secondAttribute="top" id="yxm-Pa-fKQ"/>
                     </constraints>
                 </scrollView>
+                <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-le-vWc">
+                    <rect key="frame" x="10" y="808" width="394" height="44"/>
+                    <color key="backgroundColor" red="0.1137254902" green="0.12549019610000001" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="dOa-SX-684"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <state key="normal" title="重新发布">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="rePublishClicked:" destination="-1" eventType="touchUpInside" id="w5Q-oc-GEs"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="9K6-G6-Dxj" secondAttribute="trailing" id="1C2-em-Yu1"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="leading" secondItem="9K6-G6-Dxj" secondAttribute="leading" id="1sB-nr-175"/>
                 <constraint firstItem="9K6-G6-Dxj" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="5Ol-Uj-Hki"/>
+                <constraint firstItem="Qvp-le-vWc" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="8e0-LH-IYO"/>
                 <constraint firstItem="9K6-G6-Dxj" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="IOh-tE-Dkg"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Qvp-le-vWc" secondAttribute="trailing" constant="10" id="Ti9-kr-s4U"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Qvp-le-vWc" secondAttribute="bottom" constant="10" id="fHc-UD-Tjh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>

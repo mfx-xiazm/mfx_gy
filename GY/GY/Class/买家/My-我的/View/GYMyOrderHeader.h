@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
+@class GYMyRefund,GYMyOrder;
 @interface GYMyOrderHeader : UIView
-
+/* 退款 */
+@property(nonatomic,strong) GYMyRefund *refund;
+/* 订单 */
+@property(nonatomic,strong) GYMyOrder *order;
 @end
 
 NS_ASSUME_NONNULL_END

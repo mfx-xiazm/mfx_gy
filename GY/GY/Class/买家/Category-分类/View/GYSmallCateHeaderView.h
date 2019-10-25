@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GYSmallCateHeaderView : UICollectionReusableView
+@property (weak, nonatomic) IBOutlet UILabel *cateName;
 
 @end
 

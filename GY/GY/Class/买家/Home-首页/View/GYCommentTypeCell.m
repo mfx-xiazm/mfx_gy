@@ -9,7 +9,6 @@
 #import "GYCommentTypeCell.h"
 
 @interface GYCommentTypeCell ()
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @end
 @implementation GYCommentTypeCell
 

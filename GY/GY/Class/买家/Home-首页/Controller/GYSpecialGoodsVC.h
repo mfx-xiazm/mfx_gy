@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GYSpecialGoodsVC : HXBaseViewController
 /* 标题 */
 @property(nonatomic,copy) NSString *navTitle;
+/* 类型 1专区直营 2积压甩卖 */
+@property(nonatomic,assign) NSInteger dataType;
 @end
 
 NS_ASSUME_NONNULL_END
