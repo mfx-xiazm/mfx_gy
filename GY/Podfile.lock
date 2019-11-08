@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (6.4.2)
+  - IQKeyboardManager (6.5.3)
   - JCore (2.1.2)
   - JJFontFit (1.0.1)
   - JPush (3.2.4):
@@ -97,7 +97,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
+  IQKeyboardManager: c2f901164d56807a35788483584d09fa69192e8e
   JCore: 1a426120b510cdebfd67b82bfb9483238ee09413
   JJFontFit: 1332e4bf5b5d55d335ec1d6dd585d7f4da21c348
   JPush: 29466e5f30dbd703f640d70540e411e829cac1fa

@@ -18,6 +18,8 @@ static NSString *const CartCell = @"CartCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /* 编辑 */
 @property(nonatomic,strong) UIButton *editBtn;
+@property (weak, nonatomic) IBOutlet UIView *handleView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *handleViewHeight;
 /* 操作 */
 @property (weak, nonatomic) IBOutlet UIButton *handleBtn;
 /* 全选 */
@@ -78,6 +80,7 @@ static NSString *const CartCell = @"CartCell";
     [edit setTitle:@"完成" forState:UIControlStateSelected];
     [edit addTarget:self action:@selector(editClicked) forControlEvents:UIControlEventTouchUpInside];
     [edit setTitleColor:UIColorFromRGB(0XFFFFFF) forState:UIControlStateNormal];
+    edit.hidden = YES;
     self.editBtn = edit;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:edit];
@@ -122,7 +125,7 @@ static NSString *const CartCell = @"CartCell";
     //追加尾部刷新
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         hx_strongify(weakSelf);
-        [strongSelf getOrderCartListRequest:YES];
+        [strongSelf getOrderCartListRequest:NO];
     }];
 }
 #pragma mark -- 接口请求
@@ -162,6 +165,9 @@ static NSString *const CartCell = @"CartCell";
                 // 刷新界面
                 hx_strongify(weakSelf);
                 strongSelf.tableView.hidden = NO;
+                strongSelf.editBtn.hidden = !strongSelf.cartDataArr.count;
+                strongSelf.handleView.hidden = !strongSelf.cartDataArr.count;
+                strongSelf.handleViewHeight.constant = strongSelf.cartDataArr.count?44.f:0.f;
                 [strongSelf checkIsAllSelect];
                 [strongSelf calculateGoodsPrice];
                 [strongSelf.tableView reloadData];

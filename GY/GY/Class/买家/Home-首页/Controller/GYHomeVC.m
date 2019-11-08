@@ -51,6 +51,11 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
     [self startShimmer];
     [self getHomeDataRequest];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self getHomeUnReadMsg];
+}
 -(void)setUpNavBar
 {
     [self.navigationItem setTitle:nil];
@@ -110,12 +115,16 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
 -(void)msgClicked
 {
     if ([MSUserManager sharedInstance].isLogined) {
-        [self.msgBtn clearBadge];
         
         GYMessageVC *mvc = [GYMessageVC new];
         [self.navigationController pushViewController:mvc animated:YES];
     }else{
         HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        if (@available(iOS 13.0, *)) {
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+            nav.modalInPresentation = YES;
+        }
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -132,6 +141,24 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
 }
 
 #pragma mark -- 数据请求
+-(void)getHomeUnReadMsg
+{
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getHomeUnReadMsg" parameters:@{} success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            if ([responseObject[@"data"] boolValue]) {
+                [strongSelf.msgBtn showBadgeWithStyle:WBadgeStyleRedDot value:1 animationType:WBadgeAnimTypeNone];
+            }else{
+                [strongSelf.msgBtn clearBadge];
+            }
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 -(void)getHomeDataRequest
 {
     hx_weakify(self);
@@ -139,7 +166,7 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
         [strongSelf.collectionView.mj_header endRefreshing];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             strongSelf.homeData = [GYHomeData yy_modelWithDictionary:responseObject[@"data"]];
             NSArray *tempArr = @[@{@"cate_name":@"专区直营",@"image_name":@"专区直营"},
                                  @{@"cate_name":@"积压甩卖",@"image_name":@"积压甩卖"},
@@ -151,9 +178,6 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
             strongSelf.homeData.homeTopCate = [NSArray yy_modelArrayWithClass:[GYHomeTopCate class] json:tempArr];
             dispatch_async(dispatch_get_main_queue(), ^{
                 strongSelf.collectionView.hidden = NO;
-                if (strongSelf.homeData.homeunReadMsg) {
-                    [strongSelf.msgBtn showBadgeWithStyle:WBadgeStyleRedDot value:1 animationType:WBadgeAnimTypeNone];
-                }
                 [strongSelf.collectionView reloadData];
             });
         }else{
@@ -234,7 +258,7 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
                         cvc.isNeedRequest = NO;
                         cvc.url = banner.adv_content;
                         [strongSelf.navigationController pushViewController:cvc animated:YES];
-                    }else if ([banner.adv_type isEqualToString:@"2"]) {
+                    }else if ([banner.adv_type isEqualToString:@"3"]) {
                         GYWebContentVC *cvc = [GYWebContentVC new];
                         cvc.navTitle = banner.adv_name;
                         cvc.isNeedRequest = NO;
@@ -300,6 +324,11 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
                 [self.navigationController pushViewController:wvc animated:YES];
             }else{
                 HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+                if (@available(iOS 13.0, *)) {
+                    nav.modalPresentationStyle = UIModalPresentationFullScreen;
+                    /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+                    nav.modalInPresentation = YES;
+                }
                 [self presentViewController:nav animated:YES completion:nil];
             }
         }else{

@@ -50,7 +50,7 @@
 {
     _orderPay = orderPay;
     
-    self.pay_amount.text = _orderPay.pay_amount;
+    self.pay_amount.text = [NSString stringWithFormat:@"%@元",_orderPay.pay_amount];
     NSMutableString *payBank = [NSMutableString string];
     for (GYPayAccount *account in _orderPay.account_data) {
         if (payBank.length) {

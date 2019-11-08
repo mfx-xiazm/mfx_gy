@@ -26,7 +26,11 @@
 {
     _brand = brand;
     self.brandName.text = _brand.brand_name;
-    [self.brandImg sd_setImageWithURL:[NSURL URLWithString:_brand.brand_img]];
+    if (_brand.brand_id && _brand.brand_id.length) {
+        [self.brandImg sd_setImageWithURL:[NSURL URLWithString:_brand.brand_img]];
+    }else{// 全部
+        self.brandImg.image = HXGetImage(_brand.brand_img);
+    }
 }
 -(void)setSeries:(GYSeries *)series
 {

@@ -89,7 +89,7 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
     [HXNetworkTool POST:HXRC_M_URL action:@"getCategoryData" parameters:@{} success:^(id responseObject) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             strongSelf.goodsCates = [NSArray yy_modelArrayWithClass:[GYGoodsCate class] json:responseObject[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 strongSelf.leftTableView.hidden = NO;

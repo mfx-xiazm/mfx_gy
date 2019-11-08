@@ -67,7 +67,7 @@ static NSString *const MessageCell = @"MessageCell";
     [HXNetworkTool POST:HXRC_M_URL action:@"getMessageData" parameters:@{} success:^(id responseObject) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             strongSelf.msgs = [NSArray yy_modelArrayWithClass:[GYMessage class] json:responseObject[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 strongSelf.tableView.hidden = NO;
@@ -79,6 +79,20 @@ static NSString *const MessageCell = @"MessageCell";
     } failure:^(NSError *error) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)readMsgRequest:(NSString *)msg_id
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"msg_id"] = msg_id;
+    [HXNetworkTool POST:HXRC_M_URL action:@"readMsg" parameters:parameters success:^(id responseObject) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }
@@ -105,6 +119,7 @@ static NSString *const MessageCell = @"MessageCell";
     GYMessage *msg = self.msgs[indexPath.row];
     if (!msg.is_read) {
         msg.is_read = YES;
+        [self readMsgRequest:msg.msg_id];
     }
     [tableView reloadData];
     /** 1订单详情 2发布需求接单详情 3退款订单详情 */

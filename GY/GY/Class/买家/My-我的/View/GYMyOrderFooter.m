@@ -68,7 +68,6 @@
         }else if ([_order.status isEqualToString:@"待评价"]) {
             self.firstHandleBtn.hidden = YES;
             
-            
             self.secpngHandleBtn.hidden = NO;
             [self.secpngHandleBtn setTitle:@"评价" forState:UIControlStateNormal];
             self.secpngHandleBtn.backgroundColor = UIColorFromRGB(0xFF4D4D);

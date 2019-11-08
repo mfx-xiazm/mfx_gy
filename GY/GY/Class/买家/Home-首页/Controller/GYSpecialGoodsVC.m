@@ -194,8 +194,21 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     dispatch_group_async(group, queue, ^{
         hx_strongify(weakSelf);
         [HXNetworkTool POST:HXRC_M_URL action:@"getCategoryData" parameters:@{} success:^(id responseObject) {
-            if([[responseObject objectForKey:@"status"] boolValue]) {
-                strongSelf.goodsCates = [NSArray yy_modelArrayWithClass:[GYGoodsCate class] json:responseObject[@"data"]];
+            if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYGoodsCate class] json:responseObject[@"data"]];
+                
+                NSMutableArray *tempArr = [NSMutableArray arrayWithArray:arrt];
+                GYGoodsCate *all = [[GYGoodsCate alloc] init];
+                all.cate_id = @"";
+                all.cate_name = @"全部分类";
+                
+                GYGoodsSubCate *sub = [[GYGoodsSubCate alloc] init];
+                sub.cate_id = @"";
+                sub.cate_name = @"全部分类";
+                all.sub = @[sub];
+                [tempArr insertObject:all atIndex:0];
+                
+                strongSelf.goodsCates = [NSArray arrayWithArray:tempArr];
             }else{
                 [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
             }
@@ -208,9 +221,16 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     // 执行循序2
     dispatch_group_async(group, queue, ^{
         hx_strongify(weakSelf);
-        [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{} success:^(id responseObject) {
-            if([[responseObject objectForKey:@"status"] boolValue]) {
-                strongSelf.brands = [NSArray yy_modelArrayWithClass:[GYBrand class] json:responseObject[@"data"]];
+        [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{@"not_page":@"1"} success:^(id responseObject) {
+            if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYBrand class] json:responseObject[@"data"]];
+                NSMutableArray *tempArr = [NSMutableArray arrayWithArray:arrt];
+                GYBrand *all = [[GYBrand alloc] init];
+                all.brand_id = @"";
+                all.brand_name = @"全部品牌";
+                all.brand_img = @"全部品牌";
+                [tempArr insertObject:all atIndex:0];
+                strongSelf.brands = [NSArray arrayWithArray:tempArr];
             }else{
                 [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
             }
@@ -224,8 +244,14 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     dispatch_group_async(group, queue, ^{
         hx_strongify(weakSelf);
         [HXNetworkTool POST:HXRC_M_URL action:@"getGoodSeries" parameters:@{} success:^(id responseObject) {
-            if([[responseObject objectForKey:@"status"] boolValue]) {
-                strongSelf.series = [NSArray yy_modelArrayWithClass:[GYSeries class] json:responseObject[@"data"]];
+            if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+                NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYSeries class] json:responseObject[@"data"]];
+                NSMutableArray *tempArr = [NSMutableArray arrayWithArray:arrt];
+                GYSeries *all = [[GYSeries alloc] init];
+                all.series_id = @"";
+                all.series_name = @"全部系列";
+                [tempArr insertObject:all atIndex:0];
+                strongSelf.series = [NSArray arrayWithArray:tempArr];
             }else{
                 [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
             }

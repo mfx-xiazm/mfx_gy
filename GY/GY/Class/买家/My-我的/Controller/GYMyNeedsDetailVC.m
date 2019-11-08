@@ -132,12 +132,12 @@
         self.contact_name.hidden = YES;
         self.rePublishBtn.hidden = NO;
         [self.rePublishBtn setTitle:@"我要接单" forState:UIControlStateNormal];
-        [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+        [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.user_name,self.taskDetail.phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
     }else if (self.isTaked) {
         self.rePublishBtn.hidden = YES;
         self.contact_header.hidden = NO;
         self.contact_name.hidden = NO;
-        [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+        [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.user_name,self.taskDetail.phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
     }else{
         // 1查询未接单 2查询已接单
         if ([self.taskDetail.task_status isEqualToString:@"1"]) {
@@ -148,7 +148,7 @@
             self.contact_header.hidden = NO;
             self.contact_name.hidden = NO;
             self.rePublishBtn.hidden = NO;
-            [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.contact_name,self.taskDetail.contact_phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
+            [self.contact_name setTextWithLineSpace:5.f withString:[NSString stringWithFormat:@"姓名：%@\n手机号：%@\n维修工种：%@",self.taskDetail.user_name,self.taskDetail.phone,self.taskDetail.work_types] withFont:[UIFont systemFontOfSize:13]];
         }
     }
     

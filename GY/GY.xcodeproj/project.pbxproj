@@ -1723,7 +1723,6 @@
 			children = (
 				90364AD62354295300A120AC /* Controller */,
 				90364AE52354295300A120AC /* Model */,
-				90364AEE2354295300A120AC /* View */,
 			);
 			path = "Login-登录";
 			sourceTree = "<group>";
@@ -1755,6 +1754,7 @@
 		90364AE52354295300A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90364AEE2354295300A120AC /* View */,
 				90562FDE2358948200EC70FE /* GYWorkType.h */,
 				90562FDF2358948200EC70FE /* GYWorkType.m */,
 			);
@@ -2891,6 +2891,7 @@
 			baseConfigurationReference = 62DAC0CF74A3D6CB6E38E332 /* Pods-GY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A2V85YL4T5;
@@ -2926,6 +2927,7 @@
 			baseConfigurationReference = AB4D4FB3912769597ECE2485 /* Pods-GY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = A2V85YL4T5;

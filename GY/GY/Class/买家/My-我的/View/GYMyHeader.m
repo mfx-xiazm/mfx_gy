@@ -28,6 +28,7 @@
     _mineData = mineData;
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:_mineData.avatar] placeholderImage:HXGetImage(@"头像")];
     self.user_name.text = _mineData.user_name;
+    self.phone.text = _mineData.phone;
     if ([_mineData.member_id isEqualToString:@"0"]) {
         self.is_vip.hidden = YES;
         self.member_dead.hidden = YES;

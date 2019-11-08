@@ -13,6 +13,7 @@
 #import "GYChangeBindVC.h"
 #import "GYChangeInfoVC.h"
 #import "HXTabBarController.h"
+#import "GYMineData.h"
 
 @interface GYMySetVC ()
 
@@ -31,10 +32,12 @@
         [self.navigationController pushViewController:ivc animated:YES];
     }else if (sender.tag == 2) {
         GYChangeBindVC *bvc = [GYChangeBindVC new];
+        bvc.phoneStr = self.mineData.phone;
         [self.navigationController pushViewController:bvc animated:YES];
     }else if (sender.tag == 3) {
         GYChangePwdVC *pvc = [GYChangePwdVC new];
         pvc.dataType = 2;
+        pvc.phoneStr = self.mineData.phone;
         [self.navigationController pushViewController:pvc animated:YES];
     }else{
         zhAlertView *alert = [[zhAlertView alloc] initWithTitle:@"提示" message:@"确定要退出登录？" constantWidth:HX_SCREEN_WIDTH - 50*2];

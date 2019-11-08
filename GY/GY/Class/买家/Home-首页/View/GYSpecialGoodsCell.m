@@ -30,12 +30,18 @@
     _goods = goods;
     [self.goodsImg sd_setImageWithURL:[NSURL URLWithString:_goods.cover_img]];
     self.goodsName.text = _goods.goods_name;
-    self.goodsType.text = [NSString stringWithFormat:@" %@ ",_goods.goods_type_name];
+    if ([_goods.goods_type isEqualToString:@"1"]) {
+        self.goodsType.text = @" 直营商品 ";
+    }else if ([_goods.goods_type isEqualToString:@"2"]) {
+        self.goodsType.text = @" 库存商品 ";
+    }else{
+        self.goodsType.text = @" 经销商商品 ";
+    }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_goods.price];
     [self.marketPrice setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_goods.market_price]];
     if ([MSUserManager sharedInstance].isLogined) {
         if ([MSUserManager sharedInstance].curUserInfo.utype == 1) {
-            self.cartBtn.hidden = NO;
+            self.cartBtn.hidden = [_goods.goods_type isEqualToString:@"2"]?YES:NO;
         }else{
             self.cartBtn.hidden = YES;
         }
@@ -48,7 +54,13 @@
     _myGoods = myGoods;
     [self.goodsImg sd_setImageWithURL:[NSURL URLWithString:_myGoods.cover_img]];
     self.goodsName.text = _myGoods.goods_name;
-    self.goodsType.text = [NSString stringWithFormat:@" %@ ",_myGoods.goods_type];
+    if ([_myGoods.goods_type isEqualToString:@"1"]) {
+        self.goodsType.text = @" 直营商品 ";
+    }else if ([_myGoods.goods_type isEqualToString:@"2"]) {
+        self.goodsType.text = @" 库存商品 ";
+    }else{
+        self.goodsType.text = @" 经销商商品 ";
+    }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_myGoods.price];
     [self.marketPrice setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_myGoods.market_price]];
     self.cartBtn.hidden = YES;

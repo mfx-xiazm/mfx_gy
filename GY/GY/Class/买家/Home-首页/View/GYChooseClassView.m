@@ -131,7 +131,11 @@ static NSString *const ChooseClassFooter = @"ChooseClassFooter";
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return CGSizeMake(HX_SCREEN_WIDTH,40.f);
+    if (self.goodsDetail.spec && self.goodsDetail.spec.count) {
+        return (section == self.goodsDetail.spec.count-1)?CGSizeMake(HX_SCREEN_WIDTH,40.f):CGSizeZero;
+    }else{
+        return CGSizeMake(HX_SCREEN_WIDTH,40.f);
+    }
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
@@ -153,7 +157,11 @@ static NSString *const ChooseClassFooter = @"ChooseClassFooter";
             hx_strongify(weakSelf);
             strongSelf.goodsDetail.buyNum = num;
         };
-        return footer;
+        if (self.goodsDetail.spec && self.goodsDetail.spec.count) {
+            return (indexPath.section == self.goodsDetail.spec.count-1)?footer:nil;
+        }else{
+            return footer;
+        }
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

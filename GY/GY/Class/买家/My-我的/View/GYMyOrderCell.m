@@ -41,7 +41,7 @@
     }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_refund.price];
     [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_refund.market_price]];
-    self.goods_spec.text = (_refund.spec_values&&_refund.spec_values.length)?_refund.spec_values:@"";
+    self.goods_spec.text = (_refund.spec_values&&_refund.spec_values.length)?[NSString stringWithFormat:@"规格：%@",_refund.spec_values]:@"";
     self.goods_num.text = [NSString stringWithFormat:@"x%@",_refund.goods_num];
 }
 -(void)setGoods:(GYMyOrderGoods *)goods
@@ -58,7 +58,7 @@
     }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_goods.price];
     [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_goods.market_price]];
-    self.goods_spec.text = (_goods.spec_values&&_goods.spec_values.length)?_goods.spec_values:@"";
+    self.goods_spec.text = (_goods.spec_values&&_goods.spec_values.length)?[NSString stringWithFormat:@"规格：%@",_goods.spec_values]:@"";
     self.goods_num.text = [NSString stringWithFormat:@"x%@",_goods.goods_num];
     
 }

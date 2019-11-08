@@ -18,7 +18,7 @@
         self.placeholder = @"搜索感兴趣的内容";
         self.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.returnKeyType = UIReturnKeySearch;
-        self.textAlignment = NSTextAlignmentCenter;
+        self.textAlignment = NSTextAlignmentLeft;
         
         UIImageView *searchIcon = [[UIImageView alloc] init];
         searchIcon.image = [UIImage imageNamed:@"搜索"];
@@ -30,8 +30,8 @@
         self.leftView = searchIcon;
         self.leftViewMode = UITextFieldViewModeAlways;
         
-        [self setValue:UIColorFromRGB(0xBFBFBF) forKeyPath:@"_placeholderLabel.textColor"];
-        [self setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+//        [self setValue:UIColorFromRGB(0xBFBFBF) forKeyPath:@"_placeholderLabel.textColor"];
+//        [self setValue:[UIFont boldSystemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
 
     }
     return self;
@@ -58,7 +58,18 @@
     iconRect.origin.x += 10; //像右边偏10
     return iconRect;
 }
-
+-(CGRect)textRectForBounds:(CGRect)bounds
+{
+    CGRect textRect = [super textRectForBounds:bounds];
+    textRect.origin.x += 10; //像右边偏10
+    return textRect;
+}
+-(CGRect)editingRectForBounds:(CGRect)bounds
+{
+    CGRect editRect = [super editingRectForBounds:bounds];
+    editRect.origin.x += 10; //像右边偏10
+    return editRect;
+}
 +(instancetype)searchBar
 {
     return [[self alloc] init];

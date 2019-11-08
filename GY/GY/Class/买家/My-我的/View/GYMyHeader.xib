@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-Nh-RYC">
-                            <rect key="frame" x="156.5" y="27" width="16" height="16"/>
+                            <rect key="frame" x="156.5" y="22" width="79" height="26"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13497697570" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNB-7s-PKp">
                             <rect key="frame" x="81" y="49.5" width="86.5" height="16"/>
@@ -81,6 +79,7 @@
                         <constraint firstItem="PIw-Nw-ETb" firstAttribute="top" secondItem="rn5-yl-fsb" secondAttribute="top" constant="5" id="h0l-t1-u4I"/>
                         <constraint firstItem="QWI-6d-iye" firstAttribute="top" secondItem="wNB-7s-PKp" secondAttribute="bottom" constant="1" id="jFr-ts-ZYK"/>
                         <constraint firstItem="QWI-6d-iye" firstAttribute="leading" secondItem="wAe-sD-bgy" secondAttribute="trailing" constant="10" id="p9O-xR-xgr"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FL-Nh-RYC" secondAttribute="trailing" constant="35" id="qUL-c5-YCv"/>
                         <constraint firstItem="XOR-35-hlk" firstAttribute="leading" secondItem="rn5-yl-fsb" secondAttribute="leading" id="qdp-gx-Q3M"/>
                         <constraint firstItem="Aqd-Tz-V18" firstAttribute="leading" secondItem="wAe-sD-bgy" secondAttribute="trailing" constant="10" id="qlP-Ap-BZG"/>
                         <constraint firstItem="XOR-35-hlk" firstAttribute="top" secondItem="rn5-yl-fsb" secondAttribute="top" id="r5O-qG-ej5"/>
@@ -139,7 +138,7 @@
                             <rect key="frame" x="0.0" y="40" width="79" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="待付款" translatesAutoresizingMaskIntoConstraints="NO" id="c0m-kA-ye5">
-                                    <rect key="frame" x="31.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="11.5" y="15" width="56" height="54"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -174,7 +173,7 @@
                             <rect key="frame" x="79" y="40" width="78.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="待发货" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-Rk-XJ5">
-                                    <rect key="frame" x="31" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="10.5" y="15" width="57" height="49"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -209,7 +208,7 @@
                             <rect key="frame" x="157.5" y="40" width="79" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="待收货" translatesAutoresizingMaskIntoConstraints="NO" id="a1f-Re-6Ml">
-                                    <rect key="frame" x="31.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="5.5" y="15" width="68" height="54"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -244,7 +243,7 @@
                             <rect key="frame" x="236.5" y="40" width="78.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="已完成" translatesAutoresizingMaskIntoConstraints="NO" id="JQW-S5-ieX">
-                                    <rect key="frame" x="31.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="11.5" y="15" width="56" height="56"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -279,7 +278,7 @@
                             <rect key="frame" x="315" y="40" width="79" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="已完成" translatesAutoresizingMaskIntoConstraints="NO" id="ans-6B-nfQ">
-                                    <rect key="frame" x="31.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="11.5" y="15" width="56" height="56"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -357,7 +356,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stu-cZ-NX7">
-                    <rect key="frame" x="10" y="240" width="394" height="16"/>
+                    <rect key="frame" x="10" y="240" width="394" height="180"/>
                     <state key="normal" backgroundImage="会员入口"/>
                     <connections>
                         <action selector="myHeaderBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sys-F6-xf7"/>

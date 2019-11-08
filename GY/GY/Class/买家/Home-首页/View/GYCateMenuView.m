@@ -233,6 +233,8 @@ static NSString *const SmallCateHeaderView = @"SmallCateHeaderView";
         self.selectRegion.isSelected = NO;
         subRegion.isSelected = YES;
         self.selectRegion = subRegion;
+        
+        region.selectRegion = subRegion;
     }
     [collectionView reloadData];
     if (self.delegate || [self.delegate respondsToSelector:@selector(cateMenu:didSelectRowAtIndexPath:)]) {

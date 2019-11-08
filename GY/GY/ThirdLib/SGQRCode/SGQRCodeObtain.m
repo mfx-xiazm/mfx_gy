@@ -298,6 +298,11 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
             }];
             
             [alertC addAction:alertA];
+            if (@available(iOS 13.0, *)) {
+                alertC.modalPresentationStyle = UIModalPresentationFullScreen;
+                /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+                alertC.modalInPresentation = YES;
+            }
             [_controller presentViewController:alertC animated:YES completion:nil];
         } else if (status == PHAuthorizationStatusRestricted) {
             UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"由于系统原因, 无法访问相册" preferredStyle:(UIAlertControllerStyleAlert)];
@@ -306,6 +311,11 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
             }];
             
             [alertC addAction:alertA];
+            if (@available(iOS 13.0, *)) {
+                alertC.modalPresentationStyle = UIModalPresentationFullScreen;
+                /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+                alertC.modalInPresentation = YES;
+            }
             [_controller presentViewController:alertC animated:YES completion:nil];
         }
     }
@@ -315,6 +325,11 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate = self;
+    if (@available(iOS 13.0, *)) {
+        imagePicker.modalPresentationStyle = UIModalPresentationFullScreen;
+        /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+        imagePicker.modalInPresentation = YES;
+    }
     [_controller presentViewController:imagePicker animated:YES completion:nil];
 }
 

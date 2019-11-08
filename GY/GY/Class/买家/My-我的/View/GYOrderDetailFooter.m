@@ -45,6 +45,53 @@
         self.pay_time.hidden = YES;
         self.pay_type_tip.hidden = YES;
         self.pay_type.hidden = YES;
+    }else if ([_orderDetail.status isEqualToString:@"待发货"]) {
+        if ([_orderDetail.pay_type isEqualToString:@"3"]) {// 线下付款
+            if ([_orderDetail.approve_status isEqualToString:@"2"]) {// 审核y通过
+                self.pay_time_tip.hidden = NO;
+                self.pay_time.hidden = NO;
+                self.pay_type_tip.hidden = NO;
+                self.pay_type.hidden = NO;
+                self.pay_time.text = _orderDetail.pay_time;
+                
+                if ([_orderDetail.pay_type isEqualToString:@"1"]) {
+                    self.pay_type.text = @"支付宝";
+                }else if ([_orderDetail.pay_type isEqualToString:@"2"]) {
+                    self.pay_type.text = @"微信";
+                }else{
+                    self.pay_type.text = @"线下支付";
+                }
+            }else{
+                self.pay_time_tip.hidden = NO;
+                self.pay_time.hidden = NO;
+                self.pay_type_tip.hidden = YES;
+                self.pay_type.hidden = YES;
+                
+                self.pay_time_tip.text = @"支付方式";
+
+                if ([_orderDetail.pay_type isEqualToString:@"1"]) {
+                    self.pay_time.text = @"支付宝";
+                }else if ([_orderDetail.pay_type isEqualToString:@"2"]) {
+                    self.pay_time.text = @"微信";
+                }else{
+                    self.pay_time.text = @"线下支付";
+                }
+            }
+        }else{
+            self.pay_time_tip.hidden = NO;
+            self.pay_time.hidden = NO;
+            self.pay_type_tip.hidden = NO;
+            self.pay_type.hidden = NO;
+            self.pay_time.text = _orderDetail.pay_time;
+            
+            if ([_orderDetail.pay_type isEqualToString:@"1"]) {
+                self.pay_type.text = @"支付宝";
+            }else if ([_orderDetail.pay_type isEqualToString:@"2"]) {
+                self.pay_type.text = @"微信";
+            }else{
+                self.pay_type.text = @"线下支付";
+            }
+        }
     }else{
         self.pay_time_tip.hidden = NO;
         self.pay_time.hidden = NO;

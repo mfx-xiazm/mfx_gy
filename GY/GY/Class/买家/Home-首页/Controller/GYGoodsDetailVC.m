@@ -137,6 +137,11 @@
         [self getCollectRequest];
     }else{
         HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        if (@available(iOS 13.0, *)) {
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+            nav.modalInPresentation = YES;
+        }
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -184,6 +189,11 @@
         }];
     }else{
         HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        if (@available(iOS 13.0, *)) {
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+            nav.modalInPresentation = YES;
+        }
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -194,7 +204,7 @@
         hx_weakify(self);
         self.chooseClassView.goodsHandleCall = ^(NSInteger type) {
             hx_strongify(weakSelf);
-            [strongSelf.zh_popupController dismissWithDuration:0.25 springAnimated:YES];
+            [strongSelf.zh_popupController dismissWithDuration:0.25 springAnimated:NO];
             if (type) {
                 if (type == 1) {
                     [strongSelf addOrderCartRequest];
@@ -224,6 +234,11 @@
         [self.zh_popupController presentContentView:self.chooseClassView duration:0.25 springAnimated:NO];
     }else{
         HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+        if (@available(iOS 13.0, *)) {
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+            nav.modalInPresentation = YES;
+        }
         [self presentViewController:nav animated:YES completion:nil];
     }
 }
@@ -295,6 +310,7 @@
     [HXNetworkTool POST:HXRC_M_URL action:@"collectGood" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
         if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
             strongSelf.collectBtn.selected = !strongSelf.collectBtn.isSelected;
             strongSelf.goodsDetail.collected = strongSelf.collectBtn.isSelected;
         }else{

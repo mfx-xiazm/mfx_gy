@@ -51,10 +51,10 @@ static NSString *const BrandCateCell = @"BrandCateCell";
 -(void)getBrandDataRequest
 {
     hx_weakify(self);
-    [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{} success:^(id responseObject) {
+    [HXNetworkTool POST:HXRC_M_URL action:@"getBrandData" parameters:@{@"not_page":@"1"} success:^(id responseObject) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             strongSelf.brands = [NSArray yy_modelArrayWithClass:[GYBrand class] json:responseObject[@"data"]];
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];

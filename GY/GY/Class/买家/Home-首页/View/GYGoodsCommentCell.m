@@ -130,7 +130,7 @@
 {
     if (!_dividingLine) {
         _dividingLine = [UIView new];
-        _dividingLine.backgroundColor = UIColorFromRGB(0xf5f5f5);
+        _dividingLine.backgroundColor = UIColorFromRGB(0xE6E6E6);
     }
     return _dividingLine;
 }

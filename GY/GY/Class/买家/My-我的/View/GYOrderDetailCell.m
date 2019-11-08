@@ -42,10 +42,10 @@
     }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_goods.price];
     [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_goods.market_price]];
-    self.goods_spec.text = (_goods.spec_values&&_goods.spec_values.length)?_goods.spec_values:@"";
+    self.goods_spec.text = (_goods.spec_values&&_goods.spec_values.length)?[NSString stringWithFormat:@"规格：%@",_goods.spec_values]:@"";
     self.goods_num.text = [NSString stringWithFormat:@"x%@",_goods.goods_num];
     self.total_price.text = [NSString stringWithFormat:@"￥%@",_goods.totalPrice];
-    self.order_note.text = (_goods.order_note && _goods.order_note.length)?_goods.order_note:@"无备注";
+    self.order_note.text = (_goods.order_note && _goods.order_note.length)?[NSString stringWithFormat:@"备注：%@",_goods.order_note]:@"无备注";
 }
 -(void)setRefundGoods:(GYMyRefundGoods *)refundGoods
 {
@@ -61,10 +61,10 @@
     }
     self.price.text = [NSString stringWithFormat:@"会员价%@",_refundGoods.price];
     [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_refundGoods.market_price]];
-    self.goods_spec.text = (_refundGoods.spec_values&&_refundGoods.spec_values.length)?_refundGoods.spec_values:@"";
+    self.goods_spec.text = (_refundGoods.spec_values&&_refundGoods.spec_values.length)?[NSString stringWithFormat:@"规格：%@",_refundGoods.spec_values]:@"";
     self.goods_num.text = [NSString stringWithFormat:@"x%@",_refundGoods.goods_num];
     self.total_price.text = [NSString stringWithFormat:@"￥%@",_refundGoods.totalPrice];
-    self.order_note.text = (_refundGoods.order_note && _refundGoods.order_note.length)?_refundGoods.order_note:@"无备注";
+    self.order_note.text = (_refundGoods.order_note && _refundGoods.order_note.length)?[NSString stringWithFormat:@"备注：%@",_refundGoods.order_note]:@"无备注";
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

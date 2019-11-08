@@ -136,7 +136,7 @@ static NSString *const CommentTypeCell = @"CommentTypeCell";
         parameters[@"goods_id"] = self.goods_id;//商品id
         
         [HXNetworkTool POST:HXRC_M_URL action:@"getGoodEvaCountData" parameters:parameters success:^(id responseObject) {
-            if([[responseObject objectForKey:@"status"] boolValue]) {
+            if([[responseObject objectForKey:@"status"] integerValue] == 1) {
                 /* 总数 */
                 strongSelf.totalCount = [NSString stringWithFormat:@"全部评价(%@)",responseObject[@"data"][@"totalCount"]];
                 /* 好评 */
@@ -298,7 +298,7 @@ static NSString *const CommentTypeCell = @"CommentTypeCell";
     }else{
         numText = self.lowCount;
     }
-    return CGSizeMake([numText boundingRectWithSize:CGSizeMake(1000000, 30) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil].size.width + 20, 30);
+    return CGSizeMake([numText boundingRectWithSize:CGSizeMake(1000000, 30) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil].size.width + 30, 30);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 10.f;

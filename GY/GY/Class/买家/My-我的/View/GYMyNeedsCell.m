@@ -32,7 +32,7 @@
     self.task_no.text = [NSString stringWithFormat:@"单号：%@",_task.task_no];
     self.create_time.text = _task.create_time;
     [self.task_img sd_setImageWithURL:[NSURL URLWithString:_task.task_img]];
-    [self.task_title setTextWithLineSpace:5.f withString:_task.task_title withFont:[UIFont systemFontOfSize:13]];
+    [self.task_title setTextWithLineSpace:3.f withString:_task.task_title withFont:[UIFont systemFontOfSize:13]];
     self.task_type.text = _task.task_type;
     self.price.text = [NSString stringWithFormat:@"价格：%@",_task.task_price];
     self.task_time.text = [NSString stringWithFormat:@"%@ %@",_task.task_date,_task.task_time];

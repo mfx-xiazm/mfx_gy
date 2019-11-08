@@ -448,7 +448,7 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
     hx_weakify(self);
     [HXNetworkTool POST:HXRC_M_URL action:@"getWorkTypeData" parameters:@{} success:^(id responseObject) {
         hx_strongify(weakSelf);
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             strongSelf.workTypes = [NSArray yy_modelArrayWithClass:[GYWorkType class] json:responseObject[@"data"]];
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
@@ -478,7 +478,7 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
     [HXNetworkTool POST:HXRC_M_URL action:@"pubTask" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
         [btn stopLoading:@"发布" image:nil textColor:nil backgroundColor:nil];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             GYMyNeedsVC *nvc = [GYMyNeedsVC new];
             nvc.isPublishPush = YES;
             [strongSelf.navigationController pushViewController:nvc animated:YES];
@@ -494,7 +494,7 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 -(void)upImageRequestWithImage:(NSArray *)images completedCall:(void(^)(NSString * imageUrl,NSString * imagePath))completedCall
 {
     [HXNetworkTool uploadImagesWithURL:HXRC_M_URL action:@"uploadFile" parameters:@{} name:@"file" images:images fileNames:nil imageScale:0.8 imageType:@"png" progress:nil success:^(id responseObject) {
-        if ([[responseObject objectForKey:@"status"] boolValue]) {
+        if ([[responseObject objectForKey:@"status"] integerValue] == 1) {
             completedCall(responseObject[@"data"][@"path"],responseObject[@"data"][@"imgPath"]);
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:responseObject[@"message"]];

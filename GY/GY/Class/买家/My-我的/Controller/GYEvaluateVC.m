@@ -319,7 +319,7 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
     [HXNetworkTool POST:HXRC_M_URL action:@"evaOrder" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
         [btn stopLoading:@"提交" image:nil textColor:nil backgroundColor:nil];
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             if (strongSelf.evaluatSuccessCall) {
                 strongSelf.evaluatSuccessCall();
             }

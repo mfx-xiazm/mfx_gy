@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GYChangeBindVC : HXBaseViewController
-
+/* 个人信息 */
+@property(nonatomic,copy) NSString *phoneStr;
 @end
 
 NS_ASSUME_NONNULL_END

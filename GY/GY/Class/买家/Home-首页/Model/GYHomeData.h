@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GYHomeBanner,GYHomeNotice,GYHomeTopCate,GYHomeCate,GYHomeCateGood;
 @interface GYHomeData : NSObject
-@property(nonatomic,assign) BOOL homeunReadMsg;
 @property(nonatomic,strong) NSArray<GYHomeBanner *> *homeAdv;
 @property(nonatomic,strong) NSArray<GYHomeNotice *> *homeNotice;
 @property(nonatomic,strong) NSArray<GYHomeTopCate *> *homeTopCate;

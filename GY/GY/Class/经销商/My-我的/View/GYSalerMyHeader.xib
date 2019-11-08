@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip" translatesAutoresizingMaskIntoConstraints="NO" id="rNn-jm-Hvp">
-                            <rect key="frame" x="156.5" y="27" width="16" height="16"/>
+                            <rect key="frame" x="156.5" y="22" width="79" height="26"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13497697570" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxP-ba-1BX">
                             <rect key="frame" x="81" y="49.5" width="86.5" height="16"/>
@@ -72,6 +70,7 @@
                         <constraint firstItem="7Xm-zy-XfQ" firstAttribute="top" secondItem="K8r-xM-DLY" secondAttribute="top" id="7mg-6I-1dQ"/>
                         <constraint firstItem="bxP-ba-1BX" firstAttribute="leading" secondItem="Xld-1o-tNt" secondAttribute="trailing" constant="10" id="Amo-84-L90"/>
                         <constraint firstItem="97X-NZ-Gjr" firstAttribute="leading" secondItem="Xld-1o-tNt" secondAttribute="trailing" constant="10" id="BRR-fh-AHb"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rNn-jm-Hvp" secondAttribute="trailing" constant="35" id="E6W-Uo-Aqn"/>
                         <constraint firstItem="rNn-jm-Hvp" firstAttribute="leading" secondItem="elq-sm-FAZ" secondAttribute="trailing" constant="10" id="MBT-i2-46I"/>
                         <constraint firstAttribute="trailing" secondItem="Mni-Jj-Rjp" secondAttribute="trailing" id="Oz0-AD-Gfn"/>
                         <constraint firstAttribute="trailing" secondItem="7Xm-zy-XfQ" secondAttribute="trailing" id="R98-ji-wXc"/>
@@ -139,7 +138,7 @@
                             <rect key="frame" x="0.0" y="40" width="98.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="待发货" translatesAutoresizingMaskIntoConstraints="NO" id="txv-hk-D1M">
-                                    <rect key="frame" x="41.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="21" y="15" width="57" height="49"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -174,7 +173,7 @@
                             <rect key="frame" x="98.5" y="40" width="98.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="待收货" translatesAutoresizingMaskIntoConstraints="NO" id="QDp-sk-vP9">
-                                    <rect key="frame" x="41.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="15.5" y="15" width="68" height="54"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -209,7 +208,7 @@
                             <rect key="frame" x="197" y="40" width="98.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="已完成" translatesAutoresizingMaskIntoConstraints="NO" id="x6M-xR-wpb">
-                                    <rect key="frame" x="41.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="21.5" y="15" width="56" height="56"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -244,7 +243,7 @@
                             <rect key="frame" x="295.5" y="40" width="98.5" height="80"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="已完成" translatesAutoresizingMaskIntoConstraints="NO" id="0kX-DY-7dl">
-                                    <rect key="frame" x="41.5" y="15" width="16" height="16"/>
+                                    <rect key="frame" x="21.5" y="15" width="56" height="56"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
                                             <real key="value" value="5"/>
@@ -318,7 +317,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q91-mF-qpS">
-                    <rect key="frame" x="10" y="240" width="394" height="16"/>
+                    <rect key="frame" x="10" y="240" width="394" height="180"/>
                     <state key="normal" backgroundImage="会员入口"/>
                     <connections>
                         <action selector="myHeaderBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="G0K-uP-eRA"/>

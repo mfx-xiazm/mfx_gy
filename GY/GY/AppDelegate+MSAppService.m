@@ -26,11 +26,7 @@
 //    [self configUSharePlatforms];
     
     //->微信支付相关//
-    [WXApi startLogByLevel:WXLogLevelDetail logBlock:^(NSString * _Nonnull log) {
-        HXLog(@"微信日志-%@",log);
-    }];
-    
-    [WXApi registerApp:@"wx449b0409e349f8f2"];
+    [WXApi registerApp:HXWXKey];
 }
 -(void)configUSharePlatforms
 {

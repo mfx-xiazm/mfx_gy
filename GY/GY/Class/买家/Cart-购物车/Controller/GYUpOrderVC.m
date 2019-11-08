@@ -146,7 +146,7 @@ static NSString *const UpOrderCell = @"UpOrderCell";
     cvc.isNeedRequest = YES;
     /** 1注册协议 2公告详情 3电子合同*/
     cvc.requestType = 3;
-    cvc.cart_ids = self.cart_ids;
+    cvc.cart_ids = self.isCartPush ?self.cart_ids:self.goods_id;
     NSMutableString *order_note = [NSMutableString string];
     for (GYConfirmGoodsDetail *goodsDetail in self.confirmOrder.goodsData.goodsDetail) {
         if (goodsDetail.remark && goodsDetail.remark.length) {

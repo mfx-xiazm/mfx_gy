@@ -107,6 +107,12 @@
         if (![MSUserManager sharedInstance].isLogined){// 未登录
             GYLoginVC *lvc = [GYLoginVC new];
             HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:lvc];
+            if (@available(iOS 13.0, *)) {
+                nav.modalPresentationStyle = UIModalPresentationFullScreen;
+                /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+                nav.modalInPresentation = YES;
+                
+            }
             [tabBarController.selectedViewController presentViewController:nav animated:YES completion:nil];
             return NO;
         }else{ // 如果已登录

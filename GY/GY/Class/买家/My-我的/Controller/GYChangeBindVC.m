@@ -24,6 +24,10 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"更换绑定手机号"];
     
+    if (self.phoneStr) {
+        self.oldPhone.text = self.phoneStr;
+    }
+    
     hx_weakify(self);
     [self.sureBtn BindingBtnJudgeBlock:^BOOL{
         hx_strongify(weakSelf);
@@ -82,7 +86,7 @@
     hx_weakify(self);
     [HXNetworkTool POST:HXRC_M_URL action:@"getCheckCode" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
-        if([[responseObject objectForKey:@"status"] boolValue]) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             [sender startWithTime:60 title:@"获取验证码" countDownTitle:@"s" mainColor:HXControlBg countColor:HXControlBg];
             strongSelf.sms_id = [NSString stringWithFormat:@"%@",responseObject[@"data"]];
         }else{

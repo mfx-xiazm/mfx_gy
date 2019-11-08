@@ -40,7 +40,15 @@
     }else if ([_orderDetail.status isEqualToString:@"待发货"]) {
         self.order_desc.text = @"您的订单待发货";
         self.order_tip.hidden = NO;
-        self.order_tip.text = @"   订单待发货，请耐心等待   ";
+        if ([_orderDetail.pay_type isEqualToString:@"3"]) {// 线下付款
+            if ([_orderDetail.approve_status isEqualToString:@"3"]) {// 审核被驳回
+                self.order_tip.text = [NSString stringWithFormat:@"   线下支付申请被驳回，原因：%@   ",_orderDetail.reject_reason];
+            }else{
+                self.order_tip.text = @"   订单待发货，请耐心等待   ";
+            }
+        }else{
+            self.order_tip.text = @"   订单待发货，请耐心等待   ";
+        }
     }else if ([_orderDetail.status isEqualToString:@"待收货"]) {
         self.order_desc.text = @"您的订单已发货，请耐心等待";
         self.order_tip.hidden = YES;
@@ -81,7 +89,7 @@
     }else if ([_refundDetail.refund_status isEqualToString:@"4"]){
         self.order_status.text = @"退款驳回";
         self.order_desc.hidden = NO;
-        self.order_desc.text = _refundDetail.reject_reason;
+        self.order_desc.text = [NSString stringWithFormat:@"原因：%@",_refundDetail.reject_reason];
         
     }else if ([_refundDetail.refund_status isEqualToString:@"5"]){
         self.order_status.text = @"经销商同意";
@@ -90,7 +98,7 @@
     }else{
         self.order_status.text = @"经销商不同意";
         self.order_desc.hidden = NO;
-        self.order_desc.text = _refundDetail.reject_reason;
+        self.order_desc.text = [NSString stringWithFormat:@"原因：%@",_refundDetail.reject_reason];
         
     }
     

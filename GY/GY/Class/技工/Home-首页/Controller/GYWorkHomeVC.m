@@ -148,7 +148,20 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     }
     NSData *jsonData = [districtStr dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *district = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    self.districts = [NSArray yy_modelArrayWithClass:[GYRegion class] json:district[@"result"][@"list"]];
+    NSArray *arrt = [NSArray yy_modelArrayWithClass:[GYRegion class] json:district[@"result"][@"list"]];
+    
+    NSMutableArray *tempArr = [NSMutableArray arrayWithArray:arrt];
+    GYRegion *all = [[GYRegion alloc] init];
+    all.cityid = @"";
+    all.alias = @"全部地区";
+    
+    GYSubRegion *sub = [[GYSubRegion alloc] init];
+    sub.cityid = @"";
+    sub.alias = @"全部地区";
+    all.city = @[sub];
+    [tempArr insertObject:all atIndex:0];
+    
+    self.districts = [NSArray arrayWithArray:tempArr];
     
     dispatch_group_t group = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -158,8 +171,16 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     dispatch_group_async(group, queue, ^{
         hx_strongify(weakSelf);
         [HXNetworkTool POST:HXRC_M_URL action:@"getWorkTypeData" parameters:@{} success:^(id responseObject) {
-            if([[responseObject objectForKey:@"status"] boolValue]) {
-                strongSelf.workTypes = [NSArray yy_modelArrayWithClass:[GYWorkType class] json:responseObject[@"data"]];
+            if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+                NSArray *arrt1 = [NSArray yy_modelArrayWithClass:[GYWorkType class] json:responseObject[@"data"]];
+                
+                NSMutableArray *tempArr1 = [NSMutableArray arrayWithArray:arrt1];
+                GYWorkType *all = [[GYWorkType alloc] init];
+                all.set_id = @"";
+                all.set_val = @"全部类型";
+                [tempArr1 insertObject:all atIndex:0];
+                
+                strongSelf.workTypes = [NSArray arrayWithArray:tempArr1];
             }else{
                 [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
             }

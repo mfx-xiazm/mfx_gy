@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -75,6 +73,7 @@
                         <constraint firstItem="xJl-rm-3hP" firstAttribute="leading" secondItem="IPB-z7-QnF" secondAttribute="trailing" constant="10" id="ACe-7B-4si"/>
                         <constraint firstItem="J9e-YJ-U66" firstAttribute="centerY" secondItem="xJl-rm-3hP" secondAttribute="centerY" id="C2S-eV-mUx"/>
                         <constraint firstAttribute="trailing" secondItem="07O-hm-cOp" secondAttribute="trailing" id="DrA-Ja-BqB"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J9e-YJ-U66" secondAttribute="trailing" constant="35" id="KV7-U7-TpA"/>
                         <constraint firstAttribute="height" constant="140" id="Ps6-YY-GZ7"/>
                         <constraint firstItem="07O-hm-cOp" firstAttribute="top" secondItem="k9W-Hd-BvV" secondAttribute="top" constant="5" id="RN2-fs-3Ux"/>
                         <constraint firstItem="nW9-OW-S4v" firstAttribute="top" secondItem="kAo-ub-a31" secondAttribute="bottom" constant="1" id="fEv-Cr-AoC"/>
