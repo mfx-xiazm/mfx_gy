@@ -59,6 +59,12 @@ static NSString *const MessageCell = @"MessageCell";
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYMessageCell class]) bundle:nil] forCellReuseIdentifier:MessageCell];
+    
+    hx_weakify(self);
+    [self.tableView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getMessageDataRequest];
+    }];
 }
 #pragma mark -- 数据请求
 -(void)getMessageDataRequest
@@ -74,11 +80,13 @@ static NSString *const MessageCell = @"MessageCell";
                 [strongSelf.tableView reloadData];
             });
         }else{
+            strongSelf.tableView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
     } failure:^(NSError *error) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
+        strongSelf.tableView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }

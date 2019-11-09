@@ -97,8 +97,12 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GYShopGoodsCell class]) bundle:nil] forCellWithReuseIdentifier:ShopGoodsCell];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GYHomeSectionHeader class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HomeSectionHeader];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GYHomeBannerHeader class]) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HomeBannerHeader];
-    
-    self.collectionView.hidden = YES;
+        
+    hx_weakify(self);
+    [self.collectionView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getHomeDataRequest];
+    }];
 }
 /** 添加刷新控件 */
 -(void)setUpRefresh
@@ -181,12 +185,14 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
                 [strongSelf.collectionView reloadData];
             });
         }else{
+            strongSelf.collectionView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
     } failure:^(NSError *error) {
         hx_strongify(weakSelf);
         [strongSelf stopShimmer];
         [strongSelf.collectionView.mj_header endRefreshing];
+        strongSelf.collectionView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }

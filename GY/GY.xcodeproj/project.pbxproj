@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		90249E862355E6B2000536F7 /* GYUpOrderHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E852355E6B2000536F7 /* GYUpOrderHeader.xib */; };
 		90249E8A2355E837000536F7 /* GYUpOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E882355E837000536F7 /* GYUpOrderCell.m */; };
 		90249E8B2355E837000536F7 /* GYUpOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E892355E837000536F7 /* GYUpOrderCell.xib */; };
+		9030ADDB23768A2200CEAE06 /* GYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9030ADDA23768A2200CEAE06 /* GYEmptyView.m */; };
 		90363F6923540B4400A120AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90363F6823540B4400A120AC /* AppDelegate.m */; };
 		90363F7123540B4500A120AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90363F7023540B4500A120AC /* Assets.xcassets */; };
 		90363F7423540B4500A120AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90363F7223540B4500A120AC /* LaunchScreen.storyboard */; };
@@ -88,10 +89,6 @@
 		903640892354277700A120AC /* SGQRCodeObtainConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640282354277700A120AC /* SGQRCodeObtainConfigure.m */; };
 		9036408A2354277700A120AC /* SGQRCodeObtain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036402C2354277700A120AC /* SGQRCodeObtain.m */; };
 		9036408B2354277700A120AC /* SGQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036402D2354277700A120AC /* SGQRCodeScanView.m */; };
-		9036408C2354277700A120AC /* LYEmptyBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036402F2354277700A120AC /* LYEmptyBaseView.m */; };
-		9036408D2354277700A120AC /* UIScrollView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640312354277700A120AC /* UIScrollView+Empty.m */; };
-		9036408E2354277700A120AC /* UIView+LYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640322354277700A120AC /* UIView+LYExtension.m */; };
-		9036408F2354277700A120AC /* LYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640352354277700A120AC /* LYEmptyView.m */; };
 		903640902354277700A120AC /* HXSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640392354277700A120AC /* HXSearchBar.m */; };
 		903640912354277700A120AC /* zhAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9036403D2354277700A120AC /* zhAlertView.m */; };
 		903640922354277700A120AC /* UIView+ForLMJVerticalScrollText.m in Sources */ = {isa = PBXBuildFile; fileRef = 903640412354277700A120AC /* UIView+ForLMJVerticalScrollText.m */; };
@@ -355,6 +352,8 @@
 		90249E872355E837000536F7 /* GYUpOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYUpOrderCell.h; sourceTree = "<group>"; };
 		90249E882355E837000536F7 /* GYUpOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYUpOrderCell.m; sourceTree = "<group>"; };
 		90249E892355E837000536F7 /* GYUpOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYUpOrderCell.xib; sourceTree = "<group>"; };
+		9030ADD923768A2200CEAE06 /* GYEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYEmptyView.h; sourceTree = "<group>"; };
+		9030ADDA23768A2200CEAE06 /* GYEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYEmptyView.m; sourceTree = "<group>"; };
 		90363F6423540B4300A120AC /* GY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90363F6723540B4300A120AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		90363F6823540B4400A120AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -448,15 +447,6 @@
 		9036402B2354277700A120AC /* SGQRCodeObtainConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeObtainConfigure.h; sourceTree = "<group>"; };
 		9036402C2354277700A120AC /* SGQRCodeObtain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeObtain.m; sourceTree = "<group>"; };
 		9036402D2354277700A120AC /* SGQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanView.m; sourceTree = "<group>"; };
-		9036402F2354277700A120AC /* LYEmptyBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYEmptyBaseView.m; sourceTree = "<group>"; };
-		903640302354277700A120AC /* LYEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYEmptyView.h; sourceTree = "<group>"; };
-		903640312354277700A120AC /* UIScrollView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Empty.m"; sourceTree = "<group>"; };
-		903640322354277700A120AC /* UIView+LYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYExtension.m"; sourceTree = "<group>"; };
-		903640332354277700A120AC /* LYEmptyBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYEmptyBaseView.h; sourceTree = "<group>"; };
-		903640342354277700A120AC /* LYEmptyViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYEmptyViewHeader.h; sourceTree = "<group>"; };
-		903640352354277700A120AC /* LYEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYEmptyView.m; sourceTree = "<group>"; };
-		903640362354277700A120AC /* UIScrollView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Empty.h"; sourceTree = "<group>"; };
-		903640372354277700A120AC /* UIView+LYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYExtension.h"; sourceTree = "<group>"; };
 		903640392354277700A120AC /* HXSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSearchBar.m; sourceTree = "<group>"; };
 		9036403A2354277700A120AC /* HXSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSearchBar.h; sourceTree = "<group>"; };
 		9036403C2354277700A120AC /* zhAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhAlertView.h; sourceTree = "<group>"; };
@@ -1496,7 +1486,6 @@
 				903640162354277700A120AC /* HXPlaceholderTextView */,
 				903640192354277700A120AC /* FSActionSheet */,
 				903640252354277700A120AC /* SGQRCode */,
-				9036402E2354277700A120AC /* LYEmptyView */,
 				903640382354277700A120AC /* HXSearchBar */,
 				9036403B2354277700A120AC /* zhAlertView */,
 				9036403E2354277700A120AC /* LMJScrollText */,
@@ -1619,22 +1608,6 @@
 				9036402D2354277700A120AC /* SGQRCodeScanView.m */,
 			);
 			path = SGQRCode;
-			sourceTree = "<group>";
-		};
-		9036402E2354277700A120AC /* LYEmptyView */ = {
-			isa = PBXGroup;
-			children = (
-				9036402F2354277700A120AC /* LYEmptyBaseView.m */,
-				903640302354277700A120AC /* LYEmptyView.h */,
-				903640312354277700A120AC /* UIScrollView+Empty.m */,
-				903640322354277700A120AC /* UIView+LYExtension.m */,
-				903640332354277700A120AC /* LYEmptyBaseView.h */,
-				903640342354277700A120AC /* LYEmptyViewHeader.h */,
-				903640352354277700A120AC /* LYEmptyView.m */,
-				903640362354277700A120AC /* UIScrollView+Empty.h */,
-				903640372354277700A120AC /* UIView+LYExtension.h */,
-			);
-			path = LYEmptyView;
 			sourceTree = "<group>";
 		};
 		903640382354277700A120AC /* HXSearchBar */ = {
@@ -1811,6 +1784,8 @@
 			children = (
 				90562FBD235846AD00EC70FE /* GYTabBar.h */,
 				90562FBE235846AD00EC70FE /* GYTabBar.m */,
+				9030ADD923768A2200CEAE06 /* GYEmptyView.h */,
+				9030ADDA23768A2200CEAE06 /* GYEmptyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2495,26 +2470,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GY/Pods-GY-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
-				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
-				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
-				"${PODS_ROOT}/ZLPhotoBrowser/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-GY/Pods-GY-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoActionSheet.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowserCell.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZLPhotoBrowser.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-GY/Pods-GY-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2582,7 +2542,6 @@
 				90562FA42358078600EC70FE /* GYEvaluatePhotoCell.m in Sources */,
 				90249E8A2355E837000536F7 /* GYUpOrderCell.m in Sources */,
 				90E2639123571DDB00C4A376 /* GYVipMemberVC.m in Sources */,
-				9036408D2354277700A120AC /* UIScrollView+Empty.m in Sources */,
 				9036406E2354277700A120AC /* HXTopWindow.m in Sources */,
 				903640692354277700A120AC /* UIBarButtonItem+HXNExtension.m in Sources */,
 				90FE6A8323573EC90098278B /* GYMyOrderCell.m in Sources */,
@@ -2617,6 +2576,7 @@
 				90364B43235429DF00A120AC /* GYMyVC.m in Sources */,
 				90562FD123584BCD00EC70FE /* GYWorkMyHeader.m in Sources */,
 				90364B912354775300A120AC /* GYBannerCell.m in Sources */,
+				9030ADDB23768A2200CEAE06 /* GYEmptyView.m in Sources */,
 				90562FAC23583F6400EC70FE /* GYSalerMyVC.m in Sources */,
 				90E263532356EDD300C4A376 /* GYMyCell.m in Sources */,
 				90FE6A97235740F50098278B /* GYMyOrderChildVC.m in Sources */,
@@ -2635,7 +2595,6 @@
 				90BDE3732356C3EC008790DA /* GYDatePickerView.m in Sources */,
 				90E5DCF12355F33200280562 /* GYPayTypeView.m in Sources */,
 				90364B5F2354663600A120AC /* GYRegisterSuccessVC.m in Sources */,
-				9036408F2354277700A120AC /* LYEmptyView.m in Sources */,
 				90364B48235442B600A120AC /* GYLoginVC.m in Sources */,
 				9036408B2354277700A120AC /* SGQRCodeScanView.m in Sources */,
 				90364B7D23546CDF00A120AC /* GYShopGoodsCell.m in Sources */,
@@ -2672,7 +2631,6 @@
 				90364B2D2354295400A120AC /* HXBaseViewController.m in Sources */,
 				90249E3D23557748000536F7 /* GYGoodsDetailHeader.m in Sources */,
 				90363F7723540B4500A120AC /* main.m in Sources */,
-				9036408C2354277700A120AC /* LYEmptyBaseView.m in Sources */,
 				903640742354277700A120AC /* SDWeiXinPhotoContainerView.m in Sources */,
 				90562FDC2358522100EC70FE /* GYMyWorksVC.m in Sources */,
 				90364BB62354902000A120AC /* GYSmallCateCell.m in Sources */,
@@ -2707,7 +2665,6 @@
 				904BA410235ADEFD007A0A7A /* GYMessage.m in Sources */,
 				903640622354277700A120AC /* NSString+HXNExtension.m in Sources */,
 				903640922354277700A120AC /* UIView+ForLMJVerticalScrollText.m in Sources */,
-				9036408E2354277700A120AC /* UIView+LYExtension.m in Sources */,
 				9036407A2354277700A120AC /* NSDate+Extension.m in Sources */,
 				903640712354277700A120AC /* HXCacheTool.m in Sources */,
 				90364B34235429A400A120AC /* GYHomeVC.m in Sources */,

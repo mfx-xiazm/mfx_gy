@@ -116,6 +116,14 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYMyNeedsCell class]) bundle:nil] forCellReuseIdentifier:MyNeedsCell];
+    
+    hx_weakify(self);
+    [self.tableView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getTasksDataRequest:YES completedCall:^{
+            [weakSelf.tableView reloadData];
+        }];
+    }];
 }
 /** 添加刷新控件 */
 -(void)setUpRefresh
@@ -229,6 +237,7 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     hx_weakify(self);
     [HXNetworkTool POST:HXRC_M_URL action:@"getWorkerData" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
         if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             if (isRefresh) {
                 [strongSelf.tableView.mj_header endRefreshing];
@@ -252,12 +261,15 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
                 completedCall();
             }
         }else{
+            strongSelf.tableView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
     } failure:^(NSError *error) {
         hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
         [strongSelf.tableView.mj_header endRefreshing];
         [strongSelf.tableView.mj_footer endRefreshing];
+        strongSelf.tableView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
         if (completedCall) {
             completedCall();

@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, HXUIState) {
-    HXSuccess,      // 网络加载成功
-    HXFail,   // 网络加载失败
-};
 @interface HXBaseViewController : UIViewController
 - (BOOL)isCanUsePhotos;
 - (BOOL)isCanUseCamera;

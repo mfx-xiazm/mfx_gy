@@ -162,6 +162,14 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYSpecialGoodsCell class]) bundle:nil] forCellReuseIdentifier:SpecialGoodsCell];
+    
+    hx_weakify(self);
+    [self.tableView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getSpecialGoodsDataRequest:YES completedCall:^{
+             [weakSelf.tableView reloadData];
+        }];
+    }];
 }
 /** 添加刷新控件 */
 -(void)setUpRefresh
@@ -307,6 +315,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     hx_weakify(self);
     [HXNetworkTool POST:HXRC_M_URL action:(self.dataType==1)?@"getDirectGoodData":@"getStockData" parameters:parameters success:^(id responseObject) {
         hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
         if([[responseObject objectForKey:@"status"] integerValue] == 1) {
             if (isRefresh) {
                 [strongSelf.tableView.mj_header endRefreshing];
@@ -327,6 +336,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
                 }
             }
         }else{
+            strongSelf.tableView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
         if (completedCall) {
@@ -334,8 +344,10 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
         }
     } failure:^(NSError *error) {
         hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
         [strongSelf.tableView.mj_header endRefreshing];
         [strongSelf.tableView.mj_footer endRefreshing];
+        strongSelf.tableView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
         if (completedCall) {
             completedCall();

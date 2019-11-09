@@ -89,6 +89,12 @@ static NSString *const MyOrderCell = @"MyOrderCell";
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYMyOrderCell class]) bundle:nil] forCellReuseIdentifier:MyOrderCell];
+    
+    hx_weakify(self);
+    [self.tableView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getOrderDataRequest:YES];
+    }];
 }
 /** 添加刷新控件 */
 -(void)setUpRefresh
@@ -145,6 +151,7 @@ static NSString *const MyOrderCell = @"MyOrderCell";
                 [strongSelf.tableView reloadData];
             });
         }else{
+            strongSelf.tableView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
     } failure:^(NSError *error) {
@@ -152,6 +159,7 @@ static NSString *const MyOrderCell = @"MyOrderCell";
         [strongSelf stopShimmer];
         [strongSelf.tableView.mj_header endRefreshing];
         [strongSelf.tableView.mj_footer endRefreshing];
+        strongSelf.tableView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }
@@ -399,15 +407,19 @@ static NSString *const MyOrderCell = @"MyOrderCell";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    GYMyOrder *order = self.orders[section];
-    if ([order.approve_status isEqualToString:@"2"]) {//订单审核通过
-        if ([order.status isEqualToString:@"已完成"] || [order.status isEqualToString:@"已取消"]) {
-            return 40.f;
+    if (self.orders && self.orders.count) {
+        GYMyOrder *order = self.orders[section];
+        if ([order.approve_status isEqualToString:@"2"]) {//订单审核通过
+            if ([order.status isEqualToString:@"已完成"] || [order.status isEqualToString:@"已取消"]) {
+                return 40.f;
+            }else{
+                return 90.f;
+            }
         }else{
-            return 90.f;
+            return 40.f;
         }
     }else{
-        return 40.f;
+        return CGFLOAT_MIN;
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

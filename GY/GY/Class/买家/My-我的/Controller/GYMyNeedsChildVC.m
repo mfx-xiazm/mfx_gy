@@ -59,6 +59,12 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GYMyNeedsCell class]) bundle:nil] forCellReuseIdentifier:MyNeedsCell];
+    
+    hx_weakify(self);
+    [self.tableView zx_setEmptyView:[GYEmptyView class] isFull:YES clickedBlock:^(UIButton * _Nullable btn) {
+        [weakSelf startShimmer];
+        [weakSelf getTasksDataRequest:YES];
+    }];
 }
 /** 添加刷新控件 */
 -(void)setUpRefresh
@@ -115,6 +121,7 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
                 [strongSelf.tableView reloadData];
             });
         }else{
+            strongSelf.tableView.zx_emptyContentView.zx_type = GYUIApiErrorState;
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
         }
     } failure:^(NSError *error) {
@@ -122,6 +129,7 @@ static NSString *const MyNeedsCell = @"MyNeedsCell";
         [strongSelf stopShimmer];
         [strongSelf.tableView.mj_header endRefreshing];
         [strongSelf.tableView.mj_footer endRefreshing];
+        strongSelf.tableView.zx_emptyContentView.zx_type = GYUINetErrorState;
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }

@@ -17,9 +17,9 @@ target 'GY' do
     pod "UMCSecurityPlugins"
     pod "UMCShare/Social/ReducedWeChat"
     pod "UMCShare/UI"
-    pod "JPush"
     pod "TYCyclePagerView"
     pod "ZLCollectionViewFlowLayout"
     pod "RollingNotice"
     pod "WechatOpenSDK","<1.8.6"
+    pod "ZXEmptyView"
 end
