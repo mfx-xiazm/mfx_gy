@@ -31,7 +31,8 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 @property (weak, nonatomic) IBOutlet UITextField *task_time;
 @property (weak, nonatomic) IBOutlet UITextField *task_city;
 @property (weak, nonatomic) IBOutlet UITextField *task_address;
-@property (weak, nonatomic) IBOutlet HXPlaceholderTextView *task_content;
+@property (weak, nonatomic) IBOutlet UIView *task_content_view;
+@property (strong, nonatomic) HXPlaceholderTextView *task_content;
 @property (weak, nonatomic) IBOutlet UITextField *contact_name;
 @property (weak, nonatomic) IBOutlet UITextField *contact_phone;
 @property (weak, nonatomic) IBOutlet UIImageView *task_img;
@@ -64,12 +65,20 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 
 @implementation GYPublishWorkVC
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.task_content.frame = CGRectMake(5, 0, self.task_content_view.hxn_width-10, self.task_content_view.hxn_height);
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"发单"];
     [self getWorkTypesRequest];
     
+    self.task_content = [[HXPlaceholderTextView alloc] initWithFrame:CGRectMake(5, 0, self.task_content_view.hxn_width-10, self.task_content_view.hxn_height)];
     self.task_content.placeholder = @"请输入需求描述";
+    [self.task_content_view addSubview:self.task_content];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chooseImgTaped:)];
     [self.task_img addGestureRecognizer:tap];
     

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +15,7 @@
                 <outlet property="minBtn" destination="pxY-aT-lla" id="9ag-49-ZMM"/>
                 <outlet property="photoCollectionView" destination="MFR-zA-SI7" id="IDF-Bi-K3e"/>
                 <outlet property="photoViewHeight" destination="2RA-7p-bnG" id="jPx-Ul-z24"/>
-                <outlet property="remarkText" destination="5eL-QD-EX4" id="gd4-XR-meC"/>
+                <outlet property="remarkTextView" destination="pmM-PD-pb7" id="W4T-Kz-Kj2"/>
                 <outlet property="submitBtn" destination="6Lc-8W-NDa" id="Pww-KG-ROj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -124,19 +122,13 @@
                                         <constraint firstAttribute="height" constant="60" id="YKb-op-Pui"/>
                                     </constraints>
                                 </view>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5eL-QD-EX4" customClass="HXPlaceholderTextView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmM-PD-pb7">
                                     <rect key="frame" x="10" y="80" width="394" height="100"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="lcK-M7-sNK"/>
+                                        <constraint firstAttribute="height" constant="100" id="DAW-4r-4Dh"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layerBoderCorner">
-                                            <real key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </textView>
+                                </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MFR-zA-SI7">
                                     <rect key="frame" x="10" y="200" width="394" height="165"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,18 +152,18 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="5eL-QD-EX4" secondAttribute="trailing" constant="10" id="Dgl-fP-cyE"/>
+                                <constraint firstAttribute="trailing" secondItem="pmM-PD-pb7" secondAttribute="trailing" constant="10" id="8Kl-ie-x5R"/>
+                                <constraint firstItem="MFR-zA-SI7" firstAttribute="top" secondItem="pmM-PD-pb7" secondAttribute="bottom" constant="20" id="Dw3-BB-ADP"/>
                                 <constraint firstItem="Riy-2G-9T5" firstAttribute="leading" secondItem="RRK-ag-Orc" secondAttribute="leading" id="JHy-Et-2BH"/>
                                 <constraint firstAttribute="trailing" secondItem="Riy-2G-9T5" secondAttribute="trailing" id="LhR-ga-ejH"/>
-                                <constraint firstItem="MFR-zA-SI7" firstAttribute="top" secondItem="5eL-QD-EX4" secondAttribute="bottom" constant="20" id="PQY-zS-be4"/>
                                 <constraint firstAttribute="trailing" secondItem="NbK-c8-pOn" secondAttribute="trailing" id="Tpw-t1-FGI"/>
                                 <constraint firstItem="MFR-zA-SI7" firstAttribute="leading" secondItem="RRK-ag-Orc" secondAttribute="leading" constant="10" id="jAh-21-Bfh"/>
                                 <constraint firstItem="NbK-c8-pOn" firstAttribute="leading" secondItem="RRK-ag-Orc" secondAttribute="leading" id="nK0-uW-AzW"/>
                                 <constraint firstAttribute="trailing" secondItem="MFR-zA-SI7" secondAttribute="trailing" constant="10" id="ncH-aO-TWD"/>
                                 <constraint firstItem="Riy-2G-9T5" firstAttribute="top" secondItem="NbK-c8-pOn" secondAttribute="bottom" id="qdq-Uz-Jfz"/>
                                 <constraint firstItem="NbK-c8-pOn" firstAttribute="top" secondItem="RRK-ag-Orc" secondAttribute="top" id="shM-9v-nCO"/>
-                                <constraint firstItem="5eL-QD-EX4" firstAttribute="leading" secondItem="RRK-ag-Orc" secondAttribute="leading" constant="10" id="uP5-cu-FJf"/>
-                                <constraint firstItem="5eL-QD-EX4" firstAttribute="top" secondItem="Riy-2G-9T5" secondAttribute="bottom" constant="10" id="uwf-NW-I77"/>
+                                <constraint firstItem="pmM-PD-pb7" firstAttribute="top" secondItem="Riy-2G-9T5" secondAttribute="bottom" constant="10" id="wXI-8d-fQj"/>
+                                <constraint firstItem="pmM-PD-pb7" firstAttribute="leading" secondItem="RRK-ag-Orc" secondAttribute="leading" constant="10" id="xRV-9F-paZ"/>
                             </constraints>
                         </view>
                     </subviews>

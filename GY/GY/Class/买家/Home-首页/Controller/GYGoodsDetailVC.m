@@ -51,10 +51,6 @@
     [self startShimmer];
     [self getGoodDetailRequest];
 }
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
-}
 -(GYChooseClassView *)chooseClassView
 {
     if (_chooseClassView == nil) {
@@ -470,6 +466,7 @@
 {
     GYGoodsCommentCell * cell = [GYGoodsCommentCell cellWithTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.targetVc = self;
     GYGoodsCommentLayout *layout = self.goodsDetail.evaLayout;
     cell.commentLayout = layout;
     cell.delegate = self;

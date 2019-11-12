@@ -32,7 +32,10 @@
     //离开页面的时候，需要恢复屏幕边缘手势，不能影响其他页面
     //self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
-
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 -(NSArray *)childVCs
 {
     if (_childVCs == nil) {

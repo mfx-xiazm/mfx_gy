@@ -335,6 +335,7 @@ static NSString *const CommentTypeCell = @"CommentTypeCell";
 {
     GYGoodsCommentCell * cell = [GYGoodsCommentCell cellWithTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.targetVc = self;
     GYGoodsCommentLayout *layout = self.commentLayoutsArr[indexPath.row];
     cell.commentLayout = layout;
     cell.delegate = self;

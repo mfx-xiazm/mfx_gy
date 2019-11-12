@@ -8,6 +8,7 @@
 
 #import "GYAuthInfoVC.h"
 #import "GYMineData.h"
+#import <ZLPhotoActionSheet.h>
 
 @interface GYAuthInfoVC ()
 @property (weak, nonatomic) IBOutlet UIView *buyRoleView;
@@ -29,6 +30,15 @@
     [super viewDidLoad];
     [self.navigationItem setTitle:@"认证信息"];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgTapClicked:)];
+    [self.lince_img addGestureRecognizer:tap];
+    
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgTapClicked:)];
+    [self.fornt_img addGestureRecognizer:tap1];
+    
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgTapClicked:)];
+    [self.back_img addGestureRecognizer:tap2];
+    
     if ([self.mineData.utype isEqualToString:@"1"]) {// 买家
         self.buyRoleView.hidden = NO;
         self.workRoleView.hidden = YES;
@@ -44,5 +54,43 @@
         [self.back_img sd_setImageWithURL:[NSURL URLWithString:self.mineData.attach_img2]];
     }
 }
+-(void)imgTapClicked:(UITapGestureRecognizer *)tap
+{
+    if ([self.mineData.utype isEqualToString:@"1"]) {// 买家
+        NSMutableArray * items = [NSMutableArray array];
+        NSMutableDictionary *temp = [NSMutableDictionary dictionary];
+        temp[@"ZLPreviewPhotoObj"] = [NSURL URLWithString:self.mineData.attach_img1];
+        temp[@"ZLPreviewPhotoTyp"] = @(ZLPreviewPhotoTypeURLImage);
+        [items addObject:temp];
+        
+        ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+        actionSheet.configuration.navBarColor = HXControlBg;
+        actionSheet.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+        actionSheet.sender = self;
+        [actionSheet previewPhotos:items index:tap.view.tag hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
+            
+        }];
+    }else{
+        NSMutableArray * items = [NSMutableArray array];
+        NSMutableDictionary *temp = [NSMutableDictionary dictionary];
+        temp[@"ZLPreviewPhotoObj"] = [NSURL URLWithString:self.mineData.attach_img1];
+        temp[@"ZLPreviewPhotoTyp"] = @(ZLPreviewPhotoTypeURLImage);
+        [items addObject:temp];
+        
+        NSMutableDictionary *temp1 = [NSMutableDictionary dictionary];
+        temp1[@"ZLPreviewPhotoObj"] = [NSURL URLWithString:self.mineData.attach_img2];
+        temp1[@"ZLPreviewPhotoTyp"] = @(ZLPreviewPhotoTypeURLImage);
+        [items addObject:temp1];
+        
+        ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+        actionSheet.configuration.navBarColor = HXControlBg;
+        actionSheet.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+        actionSheet.sender = self;
+        [actionSheet previewPhotos:items index:tap.view.tag hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
+            
+        }];
+    }
+}
+
 
 @end

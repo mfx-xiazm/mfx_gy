@@ -54,7 +54,7 @@
     
     for (long i = 0; i < _picPathStringsArray.count; i++) {
         UIImageView *imageView = [self.imageViewsArray objectAtIndex:i];
-        if (self.target) {
+        if (self.targetVc) {
             imageView.userInteractionEnabled = YES;
         }else{
             imageView.userInteractionEnabled = NO;
@@ -112,15 +112,9 @@
     }
 
     ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
-    /**
-     导航条颜色
-     */
-    actionSheet.configuration.navBarColor = UIColorFromRGB(0xF1C736);
-    /**
-     底部工具栏按钮 可交互 状态标题颜色
-     */
-    actionSheet.configuration.bottomBtnsNormalTitleColor = UIColorFromRGB(0xF1C736);
-    actionSheet.sender = self.target;
+    actionSheet.configuration.navBarColor = HXControlBg;
+    actionSheet.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+    actionSheet.sender = self.targetVc;
     [actionSheet previewPhotos:items index:tap.view.tag hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
 
     }];

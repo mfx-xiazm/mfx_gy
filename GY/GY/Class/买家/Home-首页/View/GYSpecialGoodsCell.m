@@ -33,7 +33,7 @@
     if ([_goods.goods_type isEqualToString:@"1"]) {
         self.goodsType.text = @" 直营商品 ";
     }else if ([_goods.goods_type isEqualToString:@"2"]) {
-        self.goodsType.text = @" 库存商品 ";
+        self.goodsType.text = @" 积压甩卖 ";
     }else{
         self.goodsType.text = @" 经销商商品 ";
     }
@@ -57,7 +57,7 @@
     if ([_myGoods.goods_type isEqualToString:@"1"]) {
         self.goodsType.text = @" 直营商品 ";
     }else if ([_myGoods.goods_type isEqualToString:@"2"]) {
-        self.goodsType.text = @" 库存商品 ";
+        self.goodsType.text = @" 积压甩卖 ";
     }else{
         self.goodsType.text = @" 经销商商品 ";
     }

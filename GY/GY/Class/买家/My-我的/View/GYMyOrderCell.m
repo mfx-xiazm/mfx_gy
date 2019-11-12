@@ -35,7 +35,7 @@
     if ([_refund.goods_type isEqualToString:@"1"]) {
         self.goods_type.text = @" 直营商品 ";
     }else if ([_refund.goods_type isEqualToString:@"2"]) {
-        self.goods_type.text = @" 库存商品 ";
+        self.goods_type.text = @" 积压甩卖 ";
     }else{
         self.goods_type.text = @" 经销商商品 ";
     }
@@ -52,7 +52,7 @@
     if ([_goods.goods_type isEqualToString:@"1"]) {
         self.goods_type.text = @" 直营商品 ";
     }else if ([_goods.goods_type isEqualToString:@"2"]) {
-        self.goods_type.text = @" 库存商品 ";
+        self.goods_type.text = @" 积压甩卖 ";
     }else{
         self.goods_type.text = @" 经销商商品 ";
     }

@@ -11,7 +11,8 @@
 #import "GYConfirmOrder.h"
 
 @interface GYUpOrderCell ()<UITextViewDelegate>
-@property (weak, nonatomic) IBOutlet HXPlaceholderTextView *remark;
+@property (weak, nonatomic) IBOutlet UIView *remark_view;
+@property (strong, nonatomic) HXPlaceholderTextView *remark;
 @property (weak, nonatomic) IBOutlet UIImageView *cover_img;
 @property (weak, nonatomic) IBOutlet UILabel *goods_name;
 @property (weak, nonatomic) IBOutlet UILabel *goods_type;
@@ -27,8 +28,18 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.remark = [[HXPlaceholderTextView alloc] initWithFrame:CGRectMake(10, 0, HX_SCREEN_WIDTH-20, self.remark_view.hxn_height-10)];
+    self.remark.layer.cornerRadius = 5.f;
+    self.remark.layer.masksToBounds = YES;
     self.remark.placeholder = @"备注：";
     self.remark.delegate = self;
+    self.remark.backgroundColor = UIColorFromRGB(0xf2f2f2);
+    [self.remark_view addSubview:self.remark];
+}
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.remark.frame = CGRectMake(10, 0, HX_SCREEN_WIDTH-20, self.remark_view.hxn_height-10);
 }
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
@@ -47,7 +58,7 @@
     if ([_goods.goods_type isEqualToString:@"1"]) {
         self.goods_type.text = @" 直营商品 ";
     }else if ([_goods.goods_type isEqualToString:@"2"]) {
-        self.goods_type.text = @" 库存商品 ";
+        self.goods_type.text = @" 积压甩卖 ";
     }else{
         self.goods_type.text = @" 经销商商品 ";
     }

@@ -15,7 +15,8 @@
 
 static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 @interface GYEvaluateVC ()<UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate>
-@property (weak, nonatomic) IBOutlet HXPlaceholderTextView *remarkText;
+@property (weak, nonatomic) IBOutlet UIView *remarkTextView;
+@property (strong, nonatomic) HXPlaceholderTextView *remarkText;
 @property (weak, nonatomic) IBOutlet UICollectionView *photoCollectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *highBtn;
@@ -40,11 +41,20 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 
 @implementation GYEvaluateVC
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.remarkText.frame = self.remarkTextView.bounds;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"评价"];
     self.selectBtn = self.highBtn;
+    
+    self.remarkText = [[HXPlaceholderTextView alloc] initWithFrame:self.remarkTextView.bounds];
     self.remarkText.placeholder = @"请输入评价内容";
+    [self.remarkTextView addSubview:self.remarkText];
+    
     [self setUpCollectionView];
     
     hx_weakify(self);

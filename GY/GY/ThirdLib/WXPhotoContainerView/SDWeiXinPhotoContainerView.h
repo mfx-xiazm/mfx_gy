@@ -12,7 +12,9 @@ typedef void(^imageClickedCallBack)(NSInteger);
 @interface SDWeiXinPhotoContainerView : UIView
 
 @property (nonatomic, strong) NSArray *picPathStringsArray;
-@property (nonatomic, strong) UIViewController * target;
+/* 目标控制器 */
+@property(nonatomic,weak) UIViewController *targetVc;
+
 @property (nonatomic, assign) int customImgWidth;
 
 + (CGSize)getContainerSizeWithPicPathStringsArray:(NSArray *)picPathStringsArray;

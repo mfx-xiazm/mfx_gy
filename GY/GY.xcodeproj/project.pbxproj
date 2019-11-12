@@ -141,10 +141,6 @@
 		90364B922354775300A120AC /* GYBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B902354775300A120AC /* GYBannerCell.xib */; };
 		90364B9523547AB700A120AC /* GYTopNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B9423547AB700A120AC /* GYTopNoticeCell.m */; };
 		90364B9923547BD600A120AC /* GYTopNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B9823547BD600A120AC /* GYTopNoticeCell.xib */; };
-		90364B9C2354897100A120AC /* GYWorkCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364B9B2354897100A120AC /* GYWorkCategoryView.m */; };
-		90364B9E2354897C00A120AC /* GYWorkCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */; };
-		90364BA223548A1800A120AC /* GYWorkCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BA023548A1800A120AC /* GYWorkCategoryCell.m */; };
-		90364BA323548A1800A120AC /* GYWorkCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */; };
 		90364BA723548CEE00A120AC /* GYCategoryChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BA523548CEE00A120AC /* GYCategoryChildVC.m */; };
 		90364BA823548CEE00A120AC /* GYCategoryChildVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90364BA623548CEE00A120AC /* GYCategoryChildVC.xib */; };
 		90364BAC23548E4300A120AC /* GYBrandChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90364BAA23548E4300A120AC /* GYBrandChildVC.m */; };
@@ -244,6 +240,10 @@
 		90E5DCEE2355EE4700280562 /* GYInvoiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCEC2355EE4700280562 /* GYInvoiceVC.xib */; };
 		90E5DCF12355F33200280562 /* GYPayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E5DCF02355F33200280562 /* GYPayTypeView.m */; };
 		90E5DCF32355F34E00280562 /* GYPayTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90E5DCF22355F34E00280562 /* GYPayTypeView.xib */; };
+		90EC2571237A3EC1005C24C8 /* GYWorkCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EC256B237A3EC1005C24C8 /* GYWorkCategoryCell.m */; };
+		90EC2572237A3EC1005C24C8 /* GYWorkCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EC256C237A3EC1005C24C8 /* GYWorkCategoryView.m */; };
+		90EC2573237A3EC1005C24C8 /* GYWorkCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EC256D237A3EC1005C24C8 /* GYWorkCategoryView.xib */; };
+		90EC2574237A3EC1005C24C8 /* GYWorkCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EC256E237A3EC1005C24C8 /* GYWorkCategoryCell.xib */; };
 		90F023DD235FF475008BC5D7 /* GYMineData.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023DC235FF475008BC5D7 /* GYMineData.m */; };
 		90F023E1236028CB008BC5D7 /* GYMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023E0236028CB008BC5D7 /* GYMember.m */; };
 		90F023E523602B61008BC5D7 /* GYMyBill.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F023E423602B61008BC5D7 /* GYMyBill.m */; };
@@ -536,12 +536,6 @@
 		90364B9323547AB700A120AC /* GYTopNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYTopNoticeCell.h; sourceTree = "<group>"; };
 		90364B9423547AB700A120AC /* GYTopNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYTopNoticeCell.m; sourceTree = "<group>"; };
 		90364B9823547BD600A120AC /* GYTopNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYTopNoticeCell.xib; sourceTree = "<group>"; };
-		90364B9A2354897100A120AC /* GYWorkCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryView.h; sourceTree = "<group>"; };
-		90364B9B2354897100A120AC /* GYWorkCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryView.m; sourceTree = "<group>"; };
-		90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYWorkCategoryView.xib; sourceTree = "<group>"; };
-		90364B9F23548A1800A120AC /* GYWorkCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryCell.h; sourceTree = "<group>"; };
-		90364BA023548A1800A120AC /* GYWorkCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryCell.m; sourceTree = "<group>"; };
-		90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYWorkCategoryCell.xib; sourceTree = "<group>"; };
 		90364BA423548CEE00A120AC /* GYCategoryChildVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCategoryChildVC.h; sourceTree = "<group>"; };
 		90364BA523548CEE00A120AC /* GYCategoryChildVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCategoryChildVC.m; sourceTree = "<group>"; };
 		90364BA623548CEE00A120AC /* GYCategoryChildVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCategoryChildVC.xib; sourceTree = "<group>"; };
@@ -697,6 +691,12 @@
 		90E5DCEF2355F33200280562 /* GYPayTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYPayTypeView.h; sourceTree = "<group>"; };
 		90E5DCF02355F33200280562 /* GYPayTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYPayTypeView.m; sourceTree = "<group>"; };
 		90E5DCF22355F34E00280562 /* GYPayTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYPayTypeView.xib; sourceTree = "<group>"; };
+		90EC256B237A3EC1005C24C8 /* GYWorkCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryCell.m; sourceTree = "<group>"; };
+		90EC256C237A3EC1005C24C8 /* GYWorkCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYWorkCategoryView.m; sourceTree = "<group>"; };
+		90EC256D237A3EC1005C24C8 /* GYWorkCategoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GYWorkCategoryView.xib; sourceTree = "<group>"; };
+		90EC256E237A3EC1005C24C8 /* GYWorkCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GYWorkCategoryCell.xib; sourceTree = "<group>"; };
+		90EC256F237A3EC1005C24C8 /* GYWorkCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryCell.h; sourceTree = "<group>"; };
+		90EC2570237A3EC1005C24C8 /* GYWorkCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYWorkCategoryView.h; sourceTree = "<group>"; };
 		90F023DB235FF475008BC5D7 /* GYMineData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMineData.h; sourceTree = "<group>"; };
 		90F023DC235FF475008BC5D7 /* GYMineData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMineData.m; sourceTree = "<group>"; };
 		90F023DF236028CB008BC5D7 /* GYMember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMember.h; sourceTree = "<group>"; };
@@ -1695,6 +1695,7 @@
 			isa = PBXGroup;
 			children = (
 				90364AD62354295300A120AC /* Controller */,
+				90EC256A237A3EC1005C24C8 /* View */,
 				90364AE52354295300A120AC /* Model */,
 			);
 			path = "Login-登录";
@@ -1727,24 +1728,10 @@
 		90364AE52354295300A120AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90364AEE2354295300A120AC /* View */,
 				90562FDE2358948200EC70FE /* GYWorkType.h */,
 				90562FDF2358948200EC70FE /* GYWorkType.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		90364AEE2354295300A120AC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				90364B9A2354897100A120AC /* GYWorkCategoryView.h */,
-				90364B9B2354897100A120AC /* GYWorkCategoryView.m */,
-				90364B9D2354897C00A120AC /* GYWorkCategoryView.xib */,
-				90364B9F23548A1800A120AC /* GYWorkCategoryCell.h */,
-				90364BA023548A1800A120AC /* GYWorkCategoryCell.m */,
-				90364BA123548A1800A120AC /* GYWorkCategoryCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		90364B052354295400A120AC /* Base-基类 */ = {
@@ -2090,6 +2077,19 @@
 			name = "我的地址";
 			sourceTree = "<group>";
 		};
+		90EC256A237A3EC1005C24C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90EC256B237A3EC1005C24C8 /* GYWorkCategoryCell.m */,
+				90EC256C237A3EC1005C24C8 /* GYWorkCategoryView.m */,
+				90EC256D237A3EC1005C24C8 /* GYWorkCategoryView.xib */,
+				90EC256E237A3EC1005C24C8 /* GYWorkCategoryCell.xib */,
+				90EC256F237A3EC1005C24C8 /* GYWorkCategoryCell.h */,
+				90EC2570237A3EC1005C24C8 /* GYWorkCategoryView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		90F023DA235FF469008BC5D7 /* 个人信息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2350,11 +2350,11 @@
 				90249E622355AB29000536F7 /* GYChooseClassHeader.xib in Resources */,
 				90E263A923572D8F00C4A376 /* GYMyAddressCell.xib in Resources */,
 				90E263642356FA8900C4A376 /* GYChangeInfoVC.xib in Resources */,
+				90EC2574237A3EC1005C24C8 /* GYWorkCategoryCell.xib in Resources */,
 				90562FCE23584BBC00EC70FE /* GYWorkMyVC.xib in Resources */,
 				90FE6A98235740F50098278B /* GYMyOrderChildVC.xib in Resources */,
 				90249E672355AB3C000536F7 /* GYChooseClassFooter.xib in Resources */,
 				90364BC1235492F900A120AC /* GYBrandCateCell.xib in Resources */,
-				90364B9E2354897C00A120AC /* GYWorkCategoryView.xib in Resources */,
 				90FE6A9E235742DD0098278B /* GYAfterSaleVC.xib in Resources */,
 				90364BAD23548E4300A120AC /* GYBrandChildVC.xib in Resources */,
 				90562FC423584B8C00EC70FE /* GYWorkHomeVC.xib in Resources */,
@@ -2417,6 +2417,7 @@
 				90249E712355B335000536F7 /* GYCommentTypeCell.xib in Resources */,
 				90249E7C2355E1C1000536F7 /* GYCartCell.xib in Resources */,
 				90E263542356EDD300C4A376 /* GYMyCell.xib in Resources */,
+				90EC2573237A3EC1005C24C8 /* GYWorkCategoryView.xib in Resources */,
 				906033E42362855100593443 /* GYSearchGoodsVC.xib in Resources */,
 				90364B4E2354529900A120AC /* GYChangePwdVC.xib in Resources */,
 				90FE6A7D23573A020098278B /* GYMyNeedsDetailVC.xib in Resources */,
@@ -2425,7 +2426,6 @@
 				90E2637A235702CB00C4A376 /* GYMyBillCell.xib in Resources */,
 				90562FB223583F8B00EC70FE /* GYSalerMyHeader.xib in Resources */,
 				90562FAD23583F6400EC70FE /* GYSalerMyVC.xib in Resources */,
-				90364BA323548A1800A120AC /* GYWorkCategoryCell.xib in Resources */,
 				90364B882354746900A120AC /* GYHomeSectionHeader.xib in Resources */,
 				90364B49235442B600A120AC /* GYLoginVC.xib in Resources */,
 				90562FA52358078600EC70FE /* GYEvaluatePhotoCell.xib in Resources */,
@@ -2552,7 +2552,6 @@
 				90249E802355E51C000536F7 /* GYUpOrderVC.m in Sources */,
 				90F023F123604DAF008BC5D7 /* GYMyRefund.m in Sources */,
 				903640842354277700A120AC /* FSActionSheetConfig.m in Sources */,
-				90364BA223548A1800A120AC /* GYWorkCategoryCell.m in Sources */,
 				90562FB6235842DB00EC70FE /* GYSalerMyOrderVC.m in Sources */,
 				90BDE3782356E9AD008790DA /* GYMyHeader.m in Sources */,
 				90562FE02358948200EC70FE /* GYWorkType.m in Sources */,
@@ -2619,7 +2618,6 @@
 				90364B39235429BD00A120AC /* GYCategoryVC.m in Sources */,
 				9036409C2354277700A120AC /* NSObject+LMRuntime.m in Sources */,
 				90E263A823572D8F00C4A376 /* GYMyAddressCell.m in Sources */,
-				90364B9C2354897100A120AC /* GYWorkCategoryView.m in Sources */,
 				9036482B235428CD00A120AC /* AppDelegate+MSAppService.m in Sources */,
 				903640662354277700A120AC /* UINavigationBar+ChangeColor.m in Sources */,
 				90364B51235454D600A120AC /* GYWebContentVC.m in Sources */,
@@ -2675,6 +2673,7 @@
 				9036406F2354277700A120AC /* MSUserInfo.m in Sources */,
 				903640652354277700A120AC /* NSDate+HXNExtension.m in Sources */,
 				903640772354277700A120AC /* HXDropMenuView.m in Sources */,
+				90EC2571237A3EC1005C24C8 /* GYWorkCategoryCell.m in Sources */,
 				90E5DCED2355EE4700280562 /* GYInvoiceVC.m in Sources */,
 				90364BAC23548E4300A120AC /* GYBrandChildVC.m in Sources */,
 				903640952354277700A120AC /* LMJHorizontalScrollText.m in Sources */,
@@ -2682,6 +2681,7 @@
 				90BDE3692356AB3D008790DA /* GYPublishWorkVC.m in Sources */,
 				90364B6B235468F000A120AC /* GYMessageCell.m in Sources */,
 				9036409A2354277700A120AC /* ZJPickerView.m in Sources */,
+				90EC2572237A3EC1005C24C8 /* GYWorkCategoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

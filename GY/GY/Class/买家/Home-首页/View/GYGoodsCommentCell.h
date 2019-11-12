@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface GYGoodsCommentCell : UITableViewCell
+/* 目标控制器 */
+@property(nonatomic,weak) UIViewController *targetVc;
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 /** 数据源 */
 @property (nonatomic, strong) GYGoodsCommentLayout *commentLayout;

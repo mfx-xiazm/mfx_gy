@@ -207,7 +207,7 @@
                                         <constraint firstAttribute="width" secondItem="2hM-92-er6" secondAttribute="height" multiplier="1:1" id="NYb-nR-xmL"/>
                                     </constraints>
                                 </imageView>
-                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证号反面照" translatesAutoresizingMaskIntoConstraints="NO" id="r5G-3v-mse">
+                                <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="身份证号反面照" translatesAutoresizingMaskIntoConstraints="NO" id="r5G-3v-mse">
                                     <rect key="frame" x="195" y="5" width="105" height="105"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="r5G-3v-mse" secondAttribute="height" multiplier="1:1" id="ezR-Sd-YMV"/>
