@@ -7,6 +7,7 @@
 //
 
 #import "GYChangePwdVC.h"
+#import "UITextField+GYExpand.h"
 
 @interface GYChangePwdVC ()
 @property (weak, nonatomic) IBOutlet UITextField *phone;
@@ -59,6 +60,13 @@
     } ActionBlock:^(UIButton * _Nullable button) {
         hx_strongify(weakSelf);
         [strongSelf forgetPasswordRequest:button];
+    }];
+    
+    [self.phone lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.phone.text.length > 11) {
+            strongSelf.phone.text = [strongSelf.phone.text substringToIndex:11];
+        }
     }];
 }
 - (IBAction)getCodeRequest:(UIButton *)sender {

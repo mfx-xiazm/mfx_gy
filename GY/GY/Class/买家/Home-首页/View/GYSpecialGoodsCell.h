@@ -10,11 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class GYGoods,GYMyGoods;
+typedef void(^cartClickedCall)(void);
 @interface GYSpecialGoodsCell : UITableViewCell
 /* 商品 */
 @property(nonatomic,strong) GYGoods *goods;
 /* 我的产品 */
 @property(nonatomic,strong) GYMyGoods *myGoods;
+/* 点击 */
+@property(nonatomic,copy) cartClickedCall cartClickedCall;
 @end
 
 NS_ASSUME_NONNULL_END

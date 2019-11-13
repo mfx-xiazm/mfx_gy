@@ -11,6 +11,7 @@
 #import "zhAlertView.h"
 #import <zhPopupController.h>
 #import "GYMineData.h"
+#import "UITextField+GYExpand.h"
 
 @interface GYChangeInfoVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headPic;
@@ -44,6 +45,17 @@
         hx_strongify(weakSelf);
         [strongSelf editMineDataRequest:button];
     }];
+    
+    [self.nick_name lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.nick_name.text.length > 8) {
+            strongSelf.nick_name.text = [strongSelf.nick_name.text substringToIndex:8];
+        }
+    }];
+}
+-(void)dealloc
+{
+    
 }
 -(void)editMineDataRequest:(UIButton *)btn
 {

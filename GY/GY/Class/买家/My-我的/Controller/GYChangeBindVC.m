@@ -7,6 +7,7 @@
 //
 
 #import "GYChangeBindVC.h"
+#import "UITextField+GYExpand.h"
 
 @interface GYChangeBindVC ()
 @property (weak, nonatomic) IBOutlet UITextField *oldPhone;
@@ -51,6 +52,19 @@
     } ActionBlock:^(UIButton * _Nullable button) {
         hx_strongify(weakSelf);
         [strongSelf editPhoneRequest:button];
+    }];
+    
+    [self.oldPhone lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.oldPhone.text.length > 11) {
+            strongSelf.oldPhone.text = [strongSelf.oldPhone.text substringToIndex:11];
+        }
+    }];
+    [self.phone lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.phone.text.length > 11) {
+            strongSelf.phone.text = [strongSelf.phone.text substringToIndex:11];
+        }
     }];
 }
 -(void)editPhoneRequest:(UIButton *)btn

@@ -166,6 +166,7 @@
 		904BA413235AE3C5007A0A7A /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = 904BA412235AE3C5007A0A7A /* province.json */; };
 		904BA417235B0B8D007A0A7A /* GYMyTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 904BA416235B0B8D007A0A7A /* GYMyTasks.m */; };
 		904BA41A235B0FA5007A0A7A /* GYMyTaskDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 904BA419235B0FA5007A0A7A /* GYMyTaskDetail.m */; };
+		9050FD22237BA81300F5DBAC /* UITextField+GYExpand.m in Sources */ = {isa = PBXBuildFile; fileRef = 9050FD21237BA81300F5DBAC /* UITextField+GYExpand.m */; };
 		90562F942357FC9000EC70FE /* GYOrderDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */; };
 		90562F962357FC9600EC70FE /* GYOrderDetailFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */; };
 		90562F992358012600EC70FE /* GYInvoiceDetailFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90562F982358012600EC70FE /* GYInvoiceDetailFooter.m */; };
@@ -576,6 +577,8 @@
 		904BA416235B0B8D007A0A7A /* GYMyTasks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyTasks.m; sourceTree = "<group>"; };
 		904BA418235B0FA5007A0A7A /* GYMyTaskDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYMyTaskDetail.h; sourceTree = "<group>"; };
 		904BA419235B0FA5007A0A7A /* GYMyTaskDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYMyTaskDetail.m; sourceTree = "<group>"; };
+		9050FD20237BA81300F5DBAC /* UITextField+GYExpand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+GYExpand.h"; sourceTree = "<group>"; };
+		9050FD21237BA81300F5DBAC /* UITextField+GYExpand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GYExpand.m"; sourceTree = "<group>"; };
 		90562F922357FC9000EC70FE /* GYOrderDetailFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYOrderDetailFooter.h; sourceTree = "<group>"; };
 		90562F932357FC9000EC70FE /* GYOrderDetailFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYOrderDetailFooter.m; sourceTree = "<group>"; };
 		90562F952357FC9600EC70FE /* GYOrderDetailFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYOrderDetailFooter.xib; sourceTree = "<group>"; };
@@ -1421,6 +1424,8 @@
 				90363FDD2354277600A120AC /* UIBarButtonItem+HXNExtension.m */,
 				90363FCC2354277600A120AC /* UINavigationBar+ChangeColor.h */,
 				90363FD92354277600A120AC /* UINavigationBar+ChangeColor.m */,
+				9050FD20237BA81300F5DBAC /* UITextField+GYExpand.h */,
+				9050FD21237BA81300F5DBAC /* UITextField+GYExpand.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2557,6 +2562,7 @@
 				90562FE02358948200EC70FE /* GYWorkType.m in Sources */,
 				90364BBB2354907200A120AC /* GYSmallCateHeaderView.m in Sources */,
 				90FE6AA1235746020098278B /* GYOrderDetailHeader.m in Sources */,
+				9050FD22237BA81300F5DBAC /* UITextField+GYExpand.m in Sources */,
 				903640862354277700A120AC /* FSActionSheetCell.m in Sources */,
 				90E2638B23571BE700C4A376 /* GYAuthInfoVC.m in Sources */,
 				9036407D2354277700A120AC /* FBShimmeringLayer.m in Sources */,

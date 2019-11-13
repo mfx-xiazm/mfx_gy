@@ -272,8 +272,12 @@
     
     [self.tableView reloadData];
     
-    NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",self.goodsDetail.goods_detail];
-    [self.webView loadHTMLString:h5 baseURL:nil];
+    if (HX_SCREEN_WIDTH > 375.f) {
+        [self.webView loadHTMLString:self.goodsDetail.goods_detail baseURL:nil];
+    }else{
+        NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",self.goodsDetail.goods_detail];
+        [self.webView loadHTMLString:h5 baseURL:nil];
+    }
     
     self.collectBtn.selected = self.goodsDetail.collected;
     

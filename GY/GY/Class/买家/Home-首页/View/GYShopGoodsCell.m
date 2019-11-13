@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *marketPrice;
+@property (weak, nonatomic) IBOutlet UIImageView *cartImg;
 
 @end
 @implementation GYShopGoodsCell
@@ -29,5 +30,10 @@
     self.name.text = _cateGood.goods_name;
     self.price.text = [NSString stringWithFormat:@"会员价：%@",_cateGood.price];
     [self.marketPrice setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_cateGood.market_price]];
+    if ([MSUserManager sharedInstance].curUserInfo.utype == 1) {
+        self.cartImg.hidden = NO;
+    }else{
+        self.cartImg.hidden = YES;
+    }
 }
 @end

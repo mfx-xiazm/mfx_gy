@@ -10,6 +10,12 @@
 #import "GYSpecialGoodsCell.h"
 #import "GYGoodsDetailVC.h"
 #import "GYGoods.h"
+#import "GYGoodsDetail.h"
+#import "HXNavigationController.h"
+#import "GYLoginVC.h"
+#import "GYChooseClassView.h"
+#import <zhPopupController.h>
+#import "GYUpOrderVC.h"
 
 static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 @interface GYCateGoodsVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -25,6 +31,10 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 @property (weak, nonatomic) IBOutlet UIImageView *priceImg;
 /* 按照商品价格排序 1升序2降序 */
 @property(nonatomic,copy) NSString *price;
+/** 商品详情 */
+@property(nonatomic,strong) GYGoodsDetail *goodsDetail;
+/** 商品规格视图 */
+@property(nonatomic,strong) GYChooseClassView *chooseClassView;
 @end
 
 @implementation GYCateGoodsVC
@@ -47,6 +57,14 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
         _goodsData = [NSMutableArray array];
     }
     return _goodsData;
+}
+-(GYChooseClassView *)chooseClassView
+{
+    if (_chooseClassView == nil) {
+        _chooseClassView = [GYChooseClassView loadXibView];
+        _chooseClassView.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 380);
+    }
+    return _chooseClassView;
 }
 #pragma mark -- 视图相关
 -(void)setUpTableView
@@ -104,8 +122,13 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     self.priceImg.image = HXGetImage(@"上下");
     self.price = @"";
     
-    self.shelfTimeLabel.textColor = HXControlBg;
-    self.shelfTime = @"2";
+    if ([self.shelfTime isEqualToString:@"2"]) {
+        self.shelfTimeLabel.textColor = [UIColor blackColor];
+        self.shelfTime = @"";
+    }else{
+        self.shelfTimeLabel.textColor = HXControlBg;
+        self.shelfTime = @"2";
+    }
     
     [self getCateGoodsDataRequest:YES];
 }
@@ -124,6 +147,41 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     
     [self getCateGoodsDataRequest:YES];
 }
+-(void)showChooseClassView:(GYGoods *)goods
+{
+    self.chooseClassView.goodsDetail = goods.goodsDetail;
+    hx_weakify(self);
+    self.chooseClassView.goodsHandleCall = ^(NSInteger type) {
+        hx_strongify(weakSelf);
+        [strongSelf.zh_popupController dismissWithDuration:0.25 springAnimated:NO];
+        if (type) {
+            if (type == 1) {
+                [strongSelf addOrderCartRequest:goods];
+            }else{
+                GYUpOrderVC *ovc = [GYUpOrderVC new];
+                ovc.goods_id = goods.goods_id;//商品id
+                ovc.goods_num = [NSString stringWithFormat:@"%ld",(long)goods.goodsDetail.buyNum];//商品数量
+                if (goods.goodsDetail.spec && goods.goodsDetail.spec.count) {
+                    NSMutableString *spec_values = [NSMutableString string];
+                    for (GYGoodSpec *spec in goods.goodsDetail.spec) {
+                        if (spec_values.length) {
+                            [spec_values appendFormat:@" %@",spec.selectSpec.spec_value];
+                        }else{
+                            [spec_values appendFormat:@"%@",spec.selectSpec.spec_value];
+                        }
+                    }
+                    ovc.spec_values = spec_values;//商品规格
+                }else{
+                    ovc.spec_values = @"";//商品规格
+                }
+                [strongSelf.navigationController pushViewController:ovc animated:YES];
+            }
+        }
+    };
+    self.zh_popupController = [[zhPopupController alloc] init];
+    self.zh_popupController.layoutType = zhPopupLayoutTypeBottom;
+    [self.zh_popupController presentContentView:self.chooseClassView duration:0.25 springAnimated:NO];
+}
 #pragma mark -- 接口请求
 -(void)getCateGoodsDataRequest:(BOOL)isRefresh
 {
@@ -139,6 +197,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
         parameters[@"cate_id"] = self.cate_id;//分类id
         action = @"getHomeCateGoodsData";
     }
+    parameters[@"goods_name"] = @"";
     parameters[@"shelf_time"] = (self.shelfTime && self.shelfTime.length)?self.shelfTime:@"";//按照商品上架时间排序 1升序2降序
     parameters[@"price"] = (self.price && self.price.length)?self.price:@"";//按照商品价格排序 1升序2降序
     if (isRefresh) {
@@ -187,6 +246,58 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
         [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
     }];
 }
+-(void)getGoodDetailRequest:(NSString *)goods_id completedCall:(void(^)(void))completedCall
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = goods_id;//商品id
+    
+    hx_weakify(self);
+    [HXNetworkTool POST:HXRC_M_URL action:@"getGoodDetail" parameters:parameters success:^(id responseObject) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            strongSelf.goodsDetail = [GYGoodsDetail yy_modelWithDictionary:responseObject[@"data"]];
+            if (completedCall) {
+                completedCall();
+            }
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        hx_strongify(weakSelf);
+        [strongSelf stopShimmer];
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
+-(void)addOrderCartRequest:(GYGoods *)goods
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"goods_id"] = goods.goods_id;//商品id
+    parameters[@"cart_num"] = @(goods.goodsDetail.buyNum);//商品数量
+    if (goods.goodsDetail.spec && goods.goodsDetail.spec.count) {
+        NSMutableString *spec_values = [NSMutableString string];
+        for (GYGoodSpec *spec in goods.goodsDetail.spec) {
+            if (spec_values.length) {
+                [spec_values appendFormat:@" %@",spec.selectSpec.spec_value];
+            }else{
+                [spec_values appendFormat:@"%@",spec.selectSpec.spec_value];
+            }
+        }
+        parameters[@"spec_values"] = spec_values;//商品规格
+    }else{
+        parameters[@"spec_values"] = @"";//商品规格
+    }
+
+    [HXNetworkTool POST:HXRC_M_URL action:@"addOrderCart" parameters:parameters success:^(id responseObject) {
+        if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }else{
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+    }];
+}
 #pragma mark -- UITableView数据源和代理
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -198,6 +309,28 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     GYGoods *goods = self.goodsData[indexPath.row];
     cell.goods = goods;
+    hx_weakify(self);
+    cell.cartClickedCall = ^{
+        hx_strongify(weakSelf);
+        if ([MSUserManager sharedInstance].isLogined) {
+            if (goods.goodsDetail) {
+                [strongSelf showChooseClassView:goods];
+            }else{
+                [strongSelf getGoodDetailRequest:goods.goods_id completedCall:^{
+                    goods.goodsDetail = strongSelf.goodsDetail;
+                    [strongSelf showChooseClassView:goods];
+                }];
+            }
+        }else{
+            HXNavigationController *nav = [[HXNavigationController alloc] initWithRootViewController:[GYLoginVC new]];
+            if (@available(iOS 13.0, *)) {
+                nav.modalPresentationStyle = UIModalPresentationFullScreen;
+                /*当该属性为 false 时，用户下拉可以 dismiss 控制器，为 true 时，下拉不可以 dismiss控制器*/
+                nav.modalInPresentation = YES;
+            }
+            [strongSelf presentViewController:nav animated:YES completion:nil];
+        }
+    };
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

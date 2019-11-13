@@ -145,8 +145,15 @@ static NSString *const UpOrderCell = @"UpOrderCell";
     cvc.navTitle = @"合同预览";
     cvc.isNeedRequest = YES;
     /** 1注册协议 2公告详情 3电子合同*/
-    cvc.requestType = 3;
-    cvc.cart_ids = self.isCartPush ?self.cart_ids:self.goods_id;
+    if (self.isCartPush) {
+        cvc.requestType = 3;
+        cvc.cart_ids = self.isCartPush ?self.cart_ids:self.goods_id;
+    }else{
+        cvc.requestType = 4;
+        cvc.goods_id = self.goods_id;//商品id
+        cvc.goods_num = self.goods_num;//商品数量
+        cvc.spec_values = self.spec_values;//商品规格
+    }
     NSMutableString *order_note = [NSMutableString string];
     for (GYConfirmGoodsDetail *goodsDetail in self.confirmOrder.goodsData.goodsDetail) {
         if (goodsDetail.remark && goodsDetail.remark.length) {

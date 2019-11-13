@@ -272,9 +272,11 @@ static NSString *const HomeBannerHeader = @"HomeBannerHeader";
                         cvc.htmlContent = banner.adv_content;
                         [strongSelf.navigationController pushViewController:cvc animated:YES];
                     }else{
-                        GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
-                        dvc.goods_id = banner.adv_content;
-                        [strongSelf.navigationController pushViewController:dvc animated:YES];
+                        if ([banner.root isEqualToString:@"1"]) {
+                            GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+                            dvc.goods_id = banner.adv_content;
+                            [strongSelf.navigationController pushViewController:dvc animated:YES];
+                        }
                     }
                 }else{
                     GYWebContentVC *cvc = [GYWebContentVC new];

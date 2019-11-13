@@ -21,6 +21,7 @@
 #import "GYWorkType.h"
 #import <AFNetworking.h>
 #import "GYMyNeedsVC.h"
+#import "UITextField+GYExpand.h"
 
 static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
 @interface GYPublishWorkVC ()<UICollectionViewDelegate,UICollectionViewDataSource,ZLCollectionViewBaseFlowLayoutDelegate>
@@ -107,6 +108,15 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请选择时间段"];
             return NO;
         }
+        NSString *time = [NSString stringWithFormat:@"%@ %@",strongSelf.task_date.text,[strongSelf.task_time.text componentsSeparatedByString:@"-"].lastObject];
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        if (![[dateFormatter dateFromString:time] isInFuture]) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"需求时间必须大于当前时间"];
+            return NO;
+        }
+        
         if (![strongSelf.task_city hasText]) {
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请选择地区"];
             return NO;
@@ -139,6 +149,13 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
     } ActionBlock:^(UIButton * _Nullable button) {
         hx_strongify(weakSelf);
         [strongSelf submitBtnClicked:button];
+    }];
+    
+    [self.contact_phone lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.contact_phone.text.length > 11) {
+            strongSelf.contact_phone.text = [strongSelf.contact_phone.text substringToIndex:11];
+        }
     }];
 }
 -(NSMutableArray *)showData
@@ -345,6 +362,7 @@ static NSString *const EvaluatePhotoCell = @"EvaluatePhotoCell";
         NSString *dateString = [selectDate stringWithFormat:@"yyyy-MM-dd"];
         strongSelf.task_date.text = dateString;
     }];
+    datepicker.minLimitDate = [NSDate date];
     datepicker.dateLabelColor = HXControlBg;//年-月-日 颜色
     datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
     datepicker.doneButtonColor = HXControlBg;//确定按钮的颜色

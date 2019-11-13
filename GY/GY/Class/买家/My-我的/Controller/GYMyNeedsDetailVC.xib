@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="contact_header" destination="cDV-ZE-Cth" id="bMO-hR-WjQ"/>
                 <outlet property="contact_name" destination="i58-pR-rJf" id="ZYN-LL-oK2"/>
+                <outlet property="contact_title" destination="MNp-au-zMx" id="LVZ-Q8-pJh"/>
                 <outlet property="content_view" destination="jzd-Pv-m21" id="0Vo-1Z-7YI"/>
                 <outlet property="create_time" destination="wSy-7W-nfg" id="rCF-Sp-iVN"/>
                 <outlet property="cyclePagerView" destination="YBw-N0-BYJ" id="thJ-Kv-ZCh"/>

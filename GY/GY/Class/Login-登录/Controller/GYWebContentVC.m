@@ -40,7 +40,7 @@
         if (self.url && self.url.length) {
             [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
         }else{
-            NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:0 15px;}</style></head><body>%@</body></html>",self.htmlContent];
+            NSString *h5 = [NSString stringWithFormat:@"<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"><style>img{width:100%%; height:auto;}body{margin:15px 15px;}</style></head><body>%@</body></html>",self.htmlContent];
             [self.webView loadHTMLString:h5 baseURL:nil];
         }
     }
@@ -90,6 +90,12 @@
         parameters[@"order_note"] = self.order_note;//下单时候的备注说明 多个商品备注之间用"_"隔开有的商品没填备注用空字符串
         action = @"contractPreviewFromCart";
     }else if (self.requestType == 4) {
+        parameters[@"goods_id"] = self.goods_id;//选择多个用逗号隔开
+        parameters[@"goods_num"] = self.goods_num;
+        parameters[@"spec_values"] = self.spec_values;
+        parameters[@"order_note"] = self.order_note;//下单时候的备注说明 多个商品备注之间用"_"隔开有的商品没填备注用空字符串
+        action = @"contractPreviewFromGood";
+    }else if (self.requestType == 5) {
         parameters[@"orderId"] = self.order_id;
         action = @"getOrderContract";
     }
@@ -106,7 +112,9 @@
                 [strongSelf.webView loadHTMLString:h5 baseURL:nil];
             }else if (strongSelf.requestType == 3) {
                 [strongSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[responseObject[@"data"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
-            }else if (self.requestType == 4) {
+            }else if (strongSelf.requestType == 4) {
+                [strongSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[responseObject[@"data"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
+            }else if (self.requestType == 5) {
                 [strongSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[responseObject[@"data"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
             }
         }else{

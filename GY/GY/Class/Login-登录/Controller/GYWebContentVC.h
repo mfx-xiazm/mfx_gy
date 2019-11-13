@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *navTitle;
 /** 是否需要请求 */
 @property(nonatomic,assign) BOOL isNeedRequest;
-/** 1注册协议 2公告详情 3电子合同 4正式合同*/
+/** 1注册协议 2公告详情 3购物车电子合同 4直接购买电子合同 5正式合同*/
 @property(nonatomic,assign) NSInteger requestType;
 /** 注册协议 1买家 3技工 */
 @property(nonatomic,copy) NSString *type;
@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *order_note;
 /** 订单id */
 @property(nonatomic,copy) NSString *order_id;
+/* 商品id */
+@property(nonatomic,copy) NSString *goods_id;
+/* 商品数量 */
+@property(nonatomic,copy) NSString *goods_num;
+/* 商品规格 */
+@property(nonatomic,copy) NSString *spec_values;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class GYGoodsDetail;
 @interface GYGoods : NSObject
 @property(nonatomic,copy) NSString *goods_id;
 @property(nonatomic,copy) NSString *uid;
@@ -33,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *create_time;
 @property(nonatomic,copy) NSString *goods_type_name;
 
+/** 商品详情 */
+@property(nonatomic,strong) GYGoodsDetail *goodsDetail;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,6 +17,7 @@
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+
     [self.startDateView addTarget:self action:@selector(pickerValueChange:) forControlEvents:UIControlEventValueChanged];
 //    [self.endDateView addTarget :self action:@selector(pickerValueChange:) forControlEvents:UIControlEventValueChanged];
 }

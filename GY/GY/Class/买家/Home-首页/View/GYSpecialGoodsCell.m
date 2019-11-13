@@ -25,6 +25,12 @@
     [super awakeFromNib];
     // Initialization code
 }
+- (IBAction)cartClicked:(UIButton *)sender {
+    if (self.cartClickedCall) {
+        self.cartClickedCall();
+    }
+}
+
 -(void)setGoods:(GYGoods *)goods
 {
     _goods = goods;
@@ -54,13 +60,14 @@
     _myGoods = myGoods;
     [self.goodsImg sd_setImageWithURL:[NSURL URLWithString:_myGoods.cover_img]];
     self.goodsName.text = _myGoods.goods_name;
-    if ([_myGoods.goods_type isEqualToString:@"1"]) {
-        self.goodsType.text = @" 直营商品 ";
-    }else if ([_myGoods.goods_type isEqualToString:@"2"]) {
-        self.goodsType.text = @" 积压甩卖 ";
-    }else{
-        self.goodsType.text = @" 经销商商品 ";
-    }
+//    if ([_myGoods.goods_type isEqualToString:@"1"]) {
+//        self.goodsType.text = @" 直营商品 ";
+//    }else if ([_myGoods.goods_type isEqualToString:@"2"]) {
+//        self.goodsType.text = @" 积压甩卖 ";
+//    }else{
+//        self.goodsType.text = @" 经销商商品 ";
+//    }
+    self.goodsType.text = [NSString stringWithFormat:@" %@ ",_myGoods.goods_type];
     self.price.text = [NSString stringWithFormat:@"会员价%@",_myGoods.price];
     [self.marketPrice setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_myGoods.market_price]];
     self.cartBtn.hidden = YES;

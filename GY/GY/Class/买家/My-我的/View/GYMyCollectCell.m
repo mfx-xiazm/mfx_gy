@@ -37,7 +37,14 @@
     
     [self.cover_img sd_setImageWithURL:[NSURL URLWithString:_collect.cover_img]];
     [self.goods_title setTextWithLineSpace:5.f withString:_collect.goods_name withFont:[UIFont systemFontOfSize:13]];
-    self.goods_type.text = [NSString stringWithFormat:@" %@ ",_collect.goods_type_name];
+    if ([_collect.goods_type isEqualToString:@"1"]) {
+        self.goods_type.text = @" 直营商品 ";
+    }else if ([_collect.goods_type isEqualToString:@"2"]) {
+        self.goods_type.text = @" 积压甩卖 ";
+    }else{
+        self.goods_type.text = @" 经销商商品 ";
+    }
+//    self.goods_type.text = [NSString stringWithFormat:@" %@ ",_collect.goods_type_name];
     self.price.text = [NSString stringWithFormat:@"会员价%@",_collect.price];
     [self.market_price setLabelUnderline:[NSString stringWithFormat:@"市场价：￥%@",_collect.market_price]];
     

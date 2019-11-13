@@ -10,6 +10,7 @@
 #import "GYChangePwdVC.h"
 #import "GYRegisterVC.h"
 #import "HXTabBarController.h"
+#import "UITextField+GYExpand.h"
 
 @interface GYLoginVC ()
 @property (weak, nonatomic) IBOutlet UITextField *phone;
@@ -27,7 +28,7 @@
     [self.loginBtn BindingBtnJudgeBlock:^BOOL{
         hx_strongify(weakSelf);
         if (![strongSelf.phone hasText]) {
-            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请输入账号"];
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请输入手机号"];
             return NO;
         }
         if (![strongSelf.pwd hasText]) {
@@ -38,6 +39,13 @@
     } ActionBlock:^(UIButton * _Nullable button) {
         hx_strongify(weakSelf);
         [strongSelf loginClicked:button];
+    }];
+    
+    [self.phone lengthLimit:^{
+        hx_strongify(weakSelf);
+        if (strongSelf.phone.text.length > 11) {
+            strongSelf.phone.text = [strongSelf.phone.text substringToIndex:11];
+        }
     }];
 }
 -(void)setUpNavBar

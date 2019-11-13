@@ -21,6 +21,7 @@
 #import "zhAlertView.h"
 #import "GYMyRefund.h"
 #import "GYWebContentVC.h"
+#import "GYGoodsDetailVC.h"
 
 static NSString *const OrderDetailCell = @"OrderDetailCell";
 @interface GYOrderDetailVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -48,6 +49,7 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doPayPush:) name:HXPayPushNotification object:nil];
+    [self setUpNavBar];
     [self setUpTableView];
     [self startShimmer];
     [self getOrderInfoRequest];
@@ -55,14 +57,14 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 -(void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.header.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 225);
+    self.header.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 230);
     self.footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 290);
 }
 -(GYOrderDetailHeader *)header
 {
     if (_header == nil) {
         _header = [GYOrderDetailHeader loadXibView];
-        _header.frame = CGRectMake(0, 0, HX_SCREEN_WIDTH, 225);
+        _header.frame = CGRectMake(0, 0, HX_SCREEN_WIDTH, 230);
     }
     return _header;
 }
@@ -287,7 +289,7 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
     GYWebContentVC *cvc = [GYWebContentVC new];
     cvc.navTitle = @"合同预览";
     cvc.isNeedRequest = YES;
-    cvc.requestType = 4;
+    cvc.requestType = 5;
     cvc.order_id = self.oid;
     [self.navigationController pushViewController:cvc animated:YES];
 }
@@ -613,7 +615,15 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+    if (self.refund_id && self.refund_id.length) {
+        GYMyRefundGoods *refundGoods = self.refundDetail.goods[indexPath.row];
+        dvc.goods_id = refundGoods.goods_id;
+    }else{
+        GYMyOrderGoods *goods = self.orderDetail.goods[indexPath.row];
+        dvc.goods_id = goods.goods_id;
+    }
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 
