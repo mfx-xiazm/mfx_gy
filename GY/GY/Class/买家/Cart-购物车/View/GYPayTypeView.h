@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class GYOrderPay;
 typedef void(^confirmPayCall)(NSInteger type);
 @interface GYPayTypeView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *pay_amount;
 /* 支付信息 */
 @property(nonatomic,strong) GYOrderPay *orderPay;
 /* 确认支付 */

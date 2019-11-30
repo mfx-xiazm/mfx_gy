@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90207C842388D28C00FD3A16 /* SZUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90207C812388D28B00FD3A16 /* SZUpdateView.m */; };
+		90207C852388D28C00FD3A16 /* SZUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90207C822388D28B00FD3A16 /* SZUpdateView.xib */; };
 		90249E38235575FC000536F7 /* GYGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E36235575FC000536F7 /* GYGoodsDetailVC.m */; };
 		90249E39235575FC000536F7 /* GYGoodsDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90249E37235575FC000536F7 /* GYGoodsDetailVC.xib */; };
 		90249E3D23557748000536F7 /* GYGoodsDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 90249E3C23557748000536F7 /* GYGoodsDetailHeader.m */; };
@@ -303,6 +305,9 @@
 
 /* Begin PBXFileReference section */
 		62DAC0CF74A3D6CB6E38E332 /* Pods-GY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GY.debug.xcconfig"; path = "Target Support Files/Pods-GY/Pods-GY.debug.xcconfig"; sourceTree = "<group>"; };
+		90207C812388D28B00FD3A16 /* SZUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZUpdateView.m; sourceTree = "<group>"; };
+		90207C822388D28B00FD3A16 /* SZUpdateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZUpdateView.xib; sourceTree = "<group>"; };
+		90207C832388D28C00FD3A16 /* SZUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZUpdateView.h; sourceTree = "<group>"; };
 		90249E35235575FC000536F7 /* GYGoodsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYGoodsDetailVC.h; sourceTree = "<group>"; };
 		90249E36235575FC000536F7 /* GYGoodsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYGoodsDetailVC.m; sourceTree = "<group>"; };
 		90249E37235575FC000536F7 /* GYGoodsDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYGoodsDetailVC.xib; sourceTree = "<group>"; };
@@ -821,6 +826,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		90207C802388D27000FD3A16 /* 版本升级 */ = {
+			isa = PBXGroup;
+			children = (
+				90207C832388D28C00FD3A16 /* SZUpdateView.h */,
+				90207C812388D28B00FD3A16 /* SZUpdateView.m */,
+				90207C822388D28B00FD3A16 /* SZUpdateView.xib */,
+			);
+			name = "版本升级";
+			sourceTree = "<group>";
+		};
 		90249E34235575C7000536F7 /* 商品详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,6 +1078,7 @@
 		90363FA72354274B00A120AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90207C802388D27000FD3A16 /* 版本升级 */,
 				90BDE36B2356C390008790DA /* 发单 */,
 				90249E3A23557687000536F7 /* 商品详情 */,
 				90364BC8235498DB00A120AC /* 专区商品 */,
@@ -2379,6 +2395,7 @@
 				90E2638C23571BE700C4A376 /* GYAuthInfoVC.xib in Resources */,
 				90E26380235709BC00C4A376 /* GYMyCollentVC.xib in Resources */,
 				9036407F2354277700A120AC /* AlipaySDK.bundle in Resources */,
+				90207C852388D28C00FD3A16 /* SZUpdateView.xib in Resources */,
 				90249E582355A913000536F7 /* GYChooseClassView.xib in Resources */,
 				903640762354277700A120AC /* RCFilterCell.xib in Resources */,
 				90364BB223548F4100A120AC /* GYBigCateCell.xib in Resources */,
@@ -2515,6 +2532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90207C842388D28C00FD3A16 /* SZUpdateView.m in Sources */,
 				90562FB023583F7F00EC70FE /* GYSalerMyHeader.m in Sources */,
 				9036407B2354277700A120AC /* UIView+Extension.m in Sources */,
 				90A45C6D2359E917007EB698 /* GYGoods.m in Sources */,
@@ -2878,9 +2896,10 @@
 					"$(PROJECT_DIR)/Pods/JCore",
 					"$(PROJECT_DIR)/Pods/JPush",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gongliujie.mfxapp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com;
+				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com_1123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2914,9 +2933,10 @@
 					"$(PROJECT_DIR)/Pods/JCore",
 					"$(PROJECT_DIR)/Pods/JPush",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gongliujie.mfxapp.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com;
+				PROVISIONING_PROFILE_SPECIFIER = gongliujie.mfxapp.com_1123;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

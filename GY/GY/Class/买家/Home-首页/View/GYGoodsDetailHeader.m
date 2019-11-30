@@ -83,6 +83,7 @@
         self.infoViewHeight.constant = 160.f;
         self.freightViewHeight.constant = 40.f;
         self.freightView.hidden = NO;
+        self.freight.text = _goodsDetail.freight;
     }
     
     self.pageControl.numberOfPages = _goodsDetail.good_adv.count;

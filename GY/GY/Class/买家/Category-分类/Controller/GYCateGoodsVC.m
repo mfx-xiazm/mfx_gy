@@ -138,10 +138,10 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     
     self.priceLabel.textColor = HXControlBg;
     if ([self.price isEqualToString:@"2"]) {//2降序
-        self.priceImg.image = HXGetImage(@"筛选上拉");
+        self.priceImg.image = HXGetImage(@"filter_shang");
         self.price = @"1";//1升序
     }else{//1升序
-        self.priceImg.image = HXGetImage(@"筛选下拉");
+        self.priceImg.image = HXGetImage(@"filter_xia");
         self.price = @"2";//2降序
     }
     

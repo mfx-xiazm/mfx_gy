@@ -20,8 +20,6 @@ NSString * const HXQQKey = @"1109317246";
 NSString * const HXQQSecret = @"LUnSzt4k8qCvzwwg";
 // 友盟分享的key
 NSString * const HXUMengKey = @"5cf47de94ca35792b20009a0";
-// 腾讯Bugly的Key
-NSString * const HXBuglyKey = @"e9c8b0e044";
 
 // 用户定位信息 经纬度 城市
 NSString * const HXUserLongitude = @"HXUserLongitude";

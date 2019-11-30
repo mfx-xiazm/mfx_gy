@@ -10,11 +10,11 @@
 #import "GYOrderPay.h"
 
 @interface GYPayTypeView ()
-@property (weak, nonatomic) IBOutlet UILabel *pay_amount;
 @property (weak, nonatomic) IBOutlet UIButton *wxPay;
 @property (weak, nonatomic) IBOutlet UIButton *aliPay;
 @property (weak, nonatomic) IBOutlet UIButton *outLinePay;
 @property (weak, nonatomic) IBOutlet UILabel *payBankLabel;
+@property (weak, nonatomic) IBOutlet UIView *outlineView;
 /* 选中的那个支付方式 */
 @property(nonatomic,strong) UIButton *selectPay;
 @end
@@ -49,6 +49,8 @@
 -(void)setOrderPay:(GYOrderPay *)orderPay
 {
     _orderPay = orderPay;
+    
+    self.outlineView.hidden = NO;
     
     self.pay_amount.text = [NSString stringWithFormat:@"%@元",_orderPay.pay_amount];
     NSMutableString *payBank = [NSMutableString string];

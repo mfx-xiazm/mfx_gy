@@ -143,17 +143,13 @@
 }
 
 - (IBAction)shareClicked:(SPButton *)sender {
-    if (![[UMSocialManager defaultManager] isInstall:UMSocialPlatformType_WechatSession]) {
-        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"未安装微信客户端"];
-    }else{
-        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
-        hx_weakify(self);
-        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-            // 根据获取的platformType确定所选平台进行下一步操作
-            hx_strongify(weakSelf);
-            [strongSelf shareToPlatformType:UMSocialPlatformType_WechatSession];
-        }];
-    }
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
+    hx_weakify(self);
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        hx_strongify(weakSelf);
+        [strongSelf shareToPlatformType:UMSocialPlatformType_WechatSession];
+    }];
 }
 - (IBAction)lookContactClicked:(UIButton *)sender {
     hx_weakify(self);
@@ -393,46 +389,30 @@
 }
 - (void)shareToPlatformType:(UMSocialPlatformType)platformType
 {
-    //    //创建分享消息对象
-    //    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    //    UMShareMiniProgramObject *shareObject = [UMShareMiniProgramObject shareObjectWithTitle:self.shareInfo[@"title"] descr:self.shareInfo[@"description"] thumImage:self.shareInfo[@"thumbData"]];
-    //    /* 低版本微信网页链接 */
-    //    shareObject.webpageUrl = @"https://www.jianshu.com/p/c75ba7561011";//self.shareInfo[@"webpageUrl"]
-    //    /* 小程序username */
-    //    shareObject.userName = self.shareInfo[@"userName"];
-    //    /* 小程序页面的路径 */
-    //    shareObject.path = self.shareInfo[@"path"];
-    //    /* 小程序新版本的预览图 128k */
-    //    shareObject.hdImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.shareInfo[@"thumbData"]]];
-    //    /* 分享小程序的版本（正式，开发，体验）*/
-    //
-    //    NSInteger miniprogramType = [self.shareInfo[@"miniprogramType"] integerValue];//正式版:0，测试版:1，体验版:2
-    //    if (miniprogramType == 0) {
-    //        shareObject.miniProgramType = UShareWXMiniProgramTypeRelease;
-    //    }else if (miniprogramType == 1) {
-    //        shareObject.miniProgramType = UShareWXMiniProgramTypeTest;
-    //    }else{
-    //        shareObject.miniProgramType = UShareWXMiniProgramTypePreview;
-    //    }
-    //    messageObject.shareObject = shareObject;
-    //    //调用分享接口
-    //    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-    //        if (error) {
-    //            UMSocialLogInfo(@"************Share fail with error %@*********",error);
-    //            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
-    //        }else{
-    //            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-    //                UMSocialShareResponse *resp = data;
-    //                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:resp.message];
-    //                //分享结果消息
-    //                UMSocialLogInfo(@"response message is %@",resp.message);
-    //                //第三方原始返回的数据
-    //                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-    //            }else{
-    //                UMSocialLogInfo(@"response data is %@",data);
-    //            }
-    //        }
-    //    }];
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"工流界" descr:@"电气设备、照明器材、金属制品、机械设备、建材、环保设备、劳保用品、消防设备、的批发兼零售商城" thumImage:HXGetImage(@"AppIcon")];
+    /* 网页链接 */
+    shareObject.webpageUrl = @"http://gongliujie.mfxapp.com/sharePage/download.html";
+    messageObject.shareObject = shareObject;
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        if (error) {
+            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:error.localizedDescription];
+        }else{
+            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+                UMSocialShareResponse *resp = data;
+                [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:resp.message];
+                //分享结果消息
+                UMSocialLogInfo(@"response message is %@",resp.message);
+                //第三方原始返回的数据
+                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+            }else{
+                UMSocialLogInfo(@"response data is %@",data);
+            }
+        }
+    }];
 }
 #pragma mark -- 事件监听
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context

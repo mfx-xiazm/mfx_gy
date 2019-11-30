@@ -164,9 +164,13 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GYMyGoods *myGoods = self.goods[indexPath.row];
-    GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
-    dvc.goods_id = myGoods.goods_id;
-    [self.navigationController pushViewController:dvc animated:YES];
+    if ([myGoods.shelf_status isEqualToString:@"2"]) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"商品已下架"];
+    }else{
+        GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+        dvc.goods_id = myGoods.goods_id;
+        [self.navigationController pushViewController:dvc animated:YES];
+    }
 }
 
 @end

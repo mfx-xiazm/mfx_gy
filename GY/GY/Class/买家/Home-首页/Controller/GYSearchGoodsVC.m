@@ -77,6 +77,7 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
     searchBar.layer.cornerRadius = 6;
     searchBar.layer.masksToBounds = YES;
     searchBar.delegate = self;
+    searchBar.placeholder = @"请输入商品名称、型号查询";
     searchBar.text = self.keyword;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
 }
@@ -157,6 +158,10 @@ static NSString *const SpecialGoodsCell = @"SpecialGoodsCell";
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (![textField hasText]) {
+        [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"请输入商品名称、型号查询"];
+        return NO;
+    }
     self.keyword = [textField hasText]?textField.text:@"";
     [self getGoodsDataRequest:YES];
     return YES;

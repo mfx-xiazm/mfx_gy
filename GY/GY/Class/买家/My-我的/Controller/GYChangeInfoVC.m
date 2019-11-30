@@ -68,6 +68,7 @@
         hx_strongify(weakSelf);
         [btn stopLoading:@"确定修改" image:nil textColor:nil backgroundColor:nil];
         if([[responseObject objectForKey:@"status"] integerValue] == 1) {
+            strongSelf.mineData.nick_name = strongSelf.nick_name.text;
             [strongSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:[responseObject objectForKey:@"message"]];

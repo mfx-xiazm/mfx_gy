@@ -74,6 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *freight;
 @property(nonatomic,copy) NSString *freight_amount;
 @property(nonatomic,copy) NSString *totalPrice;
+@property(nonatomic,copy) NSString *shelf_status;
 
 @end
 

@@ -80,14 +80,18 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 {
     [self.navigationItem setTitle:@"订单详情"];
 
-    UIButton *edit = [UIButton buttonWithType:UIButtonTypeCustom];
-    edit.hxn_size = CGSizeMake(80, 40);
-    edit.titleLabel.font = [UIFont systemFontOfSize:13];
-    [edit setTitle:@"合同预览" forState:UIControlStateNormal];
-    [edit addTarget:self action:@selector(agreementClicked) forControlEvents:UIControlEventTouchUpInside];
-    [edit setTitleColor:UIColorFromRGB(0XFFFFFF) forState:UIControlStateNormal];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:edit];
+    if (self.refund_id && self.refund_id.length) {
+        
+    }else{
+        UIButton *edit = [UIButton buttonWithType:UIButtonTypeCustom];
+        edit.hxn_size = CGSizeMake(80, 40);
+        edit.titleLabel.font = [UIFont systemFontOfSize:13];
+        [edit setTitle:@"合同预览" forState:UIControlStateNormal];
+        [edit addTarget:self action:@selector(agreementClicked) forControlEvents:UIControlEventTouchUpInside];
+        [edit setTitleColor:UIColorFromRGB(0XFFFFFF) forState:UIControlStateNormal];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:edit];
+    }
 }
 -(void)setUpTableView
 {
@@ -561,22 +565,20 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (self.refund_id && self.refund_id.length) {
-        return 195.f;
+        if ([self.refundDetail.pay_type isEqualToString:@"3"]) {// 线下付款
+            return 175.f;
+        }else{
+            return 195.f;
+        }
     }else{
         if ([self.orderDetail.status isEqualToString:@"已取消"] || [self.orderDetail.status isEqualToString:@"待付款"]) {
             return 150.f;
-        }else if ([self.orderDetail.status isEqualToString:@"待发货"]) {
+        }else{
             if ([self.orderDetail.pay_type isEqualToString:@"3"]) {// 线下付款
-                if ([self.orderDetail.approve_status isEqualToString:@"2"]) {// 审核y通过
-                    return 195.f;
-                }else{
-                    return 175.f;
-                }
+                return 175.f;
             }else{
                 return 195.f;
             }
-        }else{
-            return 195.f;
         }
     }
 }
@@ -591,23 +593,21 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 {
     GYOrderDetailFooter *footer = [GYOrderDetailFooter loadXibView];
     if (self.refund_id && self.refund_id.length) {
-        footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 195.f);
+        if ([self.refundDetail.pay_type isEqualToString:@"3"]) {// 线下付款
+            footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 175.f);
+        }else{
+            footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 195.f);
+        }
         footer.refundDetail = self.refundDetail;
     }else{
         if ([self.orderDetail.status isEqualToString:@"已取消"] || [self.orderDetail.status isEqualToString:@"待付款"]) {
             footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 150.f);
-        }else if ([self.orderDetail.status isEqualToString:@"待发货"]) {
+        }else{
             if ([self.orderDetail.pay_type isEqualToString:@"3"]) {// 线下付款
-                if ([self.orderDetail.approve_status isEqualToString:@"2"]) {// 审核y通过
-                    footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 195.f);
-                }else{
-                    footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 175.f);
-                }
+                footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 175.f);
             }else{
                 footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 195.f);
             }
-        }else{
-            footer.hxn_size = CGSizeMake(HX_SCREEN_WIDTH, 195.f);
         }
         footer.orderDetail = self.orderDetail;
     }
@@ -615,15 +615,25 @@ static NSString *const OrderDetailCell = @"OrderDetailCell";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
     if (self.refund_id && self.refund_id.length) {
         GYMyRefundGoods *refundGoods = self.refundDetail.goods[indexPath.row];
-        dvc.goods_id = refundGoods.goods_id;
+        if ([refundGoods.shelf_status isEqualToString:@"2"]) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"商品已下架"];
+        }else{
+            GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+            dvc.goods_id = refundGoods.goods_id;
+            [self.navigationController pushViewController:dvc animated:YES];
+        }
     }else{
         GYMyOrderGoods *goods = self.orderDetail.goods[indexPath.row];
-        dvc.goods_id = goods.goods_id;
+        if ([goods.shelf_status isEqualToString:@"2"]) {
+            [MBProgressHUD showTitleToView:nil postion:NHHUDPostionCenten title:@"商品已下架"];
+        }else{
+            GYGoodsDetailVC *dvc = [GYGoodsDetailVC new];
+            dvc.goods_id = goods.goods_id;
+            [self.navigationController pushViewController:dvc animated:YES];
+        }
     }
-    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 
